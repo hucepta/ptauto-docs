@@ -34,6 +34,32 @@ test('two_tabs_update_different_lessons', () => {
     b.setCompleted(catalog.lessonIds[1], true);
     expect(Object.values(a.read().snapshot.progress).filter(p => p.completed)).toHaveLength(2);
 });
+test.each(['quota', 'unavailable'] as const)('failed_%s_write_keeps_pending_state_over_old_storage', reason => {
+    const storage = new MemoryStorage();
+    const seed = createProgressRepository(storage, catalog);
+    seed.setCompleted(catalog.lessonIds[0], false);
+    seed.setBookmark(catalog.contentIds[0], false);
+    seed.recordVisit(catalog.lessonIds[0]);
+    const storedBefore = new Map(storage.data);
+    storage.setItem = () => {
+        const error = new Error('Write denied');
+        error.name = reason === 'quota' ? 'QuotaExceededError' : 'SecurityError';
+        throw error;
+    };
+    const repo = createProgressRepository(storage, catalog);
+    expect(repo.setCompleted(catalog.lessonIds[0], true)).toEqual({ persisted: false, reason });
+    expect(repo.setBookmark(catalog.contentIds[0], true)).toEqual({ persisted: false, reason });
+    expect(repo.recordVisit(catalog.lessonIds[1])).toEqual({ persisted: false, reason });
+    const snapshot = repo.read().snapshot;
+    expect(snapshot.progress[catalog.lessonIds[0]].completed).toBe(true);
+    expect(snapshot.bookmarks[catalog.contentIds[0]].saved).toBe(true);
+    expect(snapshot.lastVisit?.lessonId).toBe(catalog.lessonIds[1]);
+    expect(storage.data).toEqual(storedBefore);
+    const reloaded = createProgressRepository(storage, catalog).read().snapshot;
+    expect(reloaded.progress[catalog.lessonIds[0]].completed).toBe(false);
+    expect(reloaded.bookmarks[catalog.contentIds[0]].saved).toBe(false);
+    expect(reloaded.lastVisit?.lessonId).toBe(catalog.lessonIds[0]);
+});
 test('corrupt_or_denied_storage_keeps_reader', () => {
     const storage = new MemoryStorage();
     const key = 'ptauto.docs.v1.progress.' + catalog.lessonIds[0];

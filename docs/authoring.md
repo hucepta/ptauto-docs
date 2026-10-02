@@ -16,6 +16,8 @@ Nội dung canonical nằm trong `src/content/`. Learn, Reference, glossary, sid
 
 ID là danh tính lâu dài như `lesson.autolisp.list-association-list`. Đổi tên/slug hoặc chuyển Lesson sang nhóm khác vẫn giữ ID; bookmark và progress dùng ID. Slug chỉ có chữ thường ASCII, chữ số và dấu gạch ngang. Lesson slug duy nhất trong Course; thứ tự duy nhất trong mỗi nhóm.
 
+Loader dùng đường dẫn file làm khóa nạp nội bộ, tách khỏi ID và slug nghiệp vụ. Mọi file đều tới graph để kiểm tra trùng ID/slug; hai công nghệ có thể dùng cùng Concept slug mà không ghi đè nhau.
+
 ## Tạo bài
 
 1. Tạo Markdown có frontmatter và nội dung thật. Các file hiện tại dùng JSON trong dấu `---`; YAML hợp lệ cũng được.
@@ -51,5 +53,7 @@ Code panel dùng grammar tương ứng, có tên file và nút sao chép. File g
 Lesson: `/hoc/{course}/{lesson}/`; chuyển nhóm không đổi URL. Nhóm chủ đề: `/hoc/{course}/chu-de/{group}/`. Concept: `/tra-cuu/{technology}/{concept}/`. Project: `/du-an/{technology}/{project}/`.
 
 Search chỉ lấy published content. Một Example có target ưu tiên Concept, rồi Lesson, rồi Project; Lesson có thể sở hữu Example qua bài tập. Ví dụ chỉ có một kết quả canonical dù được dùng ở nhiều trang. Build/link verifier bảo vệ anchor của target.
+
+Chỉ mục tự sinh thêm dạng không dấu từ nội dung gốc, gồm `đ`/`Đ`, giữ nguyên dấu câu kỹ thuật. Không cần nhập lại bản không dấu vào `aliases`; tiêu đề và diễn giải kết quả vẫn là tiếng Việt gốc.
 
 Không đưa fixture tìm kiếm hoặc nội dung demo vào `src/content/`. Có thể thử thay đổi metadata với các fixture trong `tests/fixtures/` và bổ sung test hành vi khi thay đổi logic quan trọng.

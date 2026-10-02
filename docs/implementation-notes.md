@@ -26,4 +26,21 @@ Kế hoạch được duyệt bằng yêu cầu “Triển khai đi”. Các đi
 
 Pipeline, fixture lỗi, các truy vấn kỹ thuật và ảnh responsive được ghi trong tài liệu release và bộ test. Các giới hạn thực tế: chưa chạy code trong AutoCAD, chưa điều khiển screen reader thật và phép đo hiệu năng là lab trên localhost.
 
-Review cuối sẽ được ghi ở đây trước phát hành. Không lấy kết quả build web làm bằng chứng kiểm chứng CAD.
+Review độc lập trên toàn bộ commit nguồn đầu tiên phát hiện ba lỗi quan trọng. Từng lỗi đã có kiểm tra tái hiện thất bại trước khi sửa, rồi chạy lại toàn bộ pipeline: 34 unit tests, 29 browser tests, check/lint/build và artifact 28 trang đều đạt.
+
+1. Loader mặc định của Astro dùng slug làm khóa nạp, có thể mất file trước khi graph kiểm tra. Loader nay dùng đường dẫn file; kiểm tra ingestion chạy loader Astro thật với file trên đĩa, bảo đảm graph phát hiện trùng ID/slug và chấp nhận slug giống nhau ở hai công nghệ.
+2. Truy vấn không dấu `toa do` và `dong bang` không tìm thấy nội dung gốc trong corpus thật. Chỉ mục nay tự thêm dạng không dấu, giữ dữ liệu hiển thị và dấu câu API. Hai truy vấn production thất bại trước sửa, đạt sau sửa; fixture còn kiểm tra `Editor.GetSelection`, `C#`, `*error*`, dấu tiếng Việt và bộ lọc.
+3. Khi localStorage đọc được dữ liệu cũ nhưng không ghi được, thay đổi tạm thời bị dữ liệu cũ che mất. Giá trị chưa lưu trong bộ nhớ nay được ưu tiên trên trang hiện tại; dữ liệu đã lưu vẫn nguyên vẹn. Kiểm tra quota và write denial bao phủ progress, bookmark và lần đọc cuối; reload vẫn phản ánh dữ liệu đã lưu thực tế.
+
+Không có lỗi Critical trong review. Một mục Minor được hoãn: kết quả tìm theo mục Markdown hiện tới đầu bài; người đọc dùng TOC để tới mục. Example/Exercise vẫn có target anchor riêng. Việc sinh kết quả theo từng heading có thể làm ở lượt mở rộng search tiếp theo.
+
+Các phạm vi reviewer không kết luận được đã được xử lý rõ:
+
+- AutoCAD host: giữ nhãn chưa kiểm chứng và checklist chạy thật. Chi phí còn lại là kiểm tra sản phẩm/version cụ thể trước khi đổi nhãn.
+- NVDA/VoiceOver: giữ kiểm tra axe/bàn phím/no-JS và ghi rõ chưa chạy screen reader thật. Các vấn đề thiết bị cụ thể có thể chưa được phát hiện.
+- Sites HTTPS/access/cache/rollback: deployment status chỉ xác nhận nền tảng đã phát hành. Kiểm tra trực tiếp đã được ghi thành checklist; chưa coi cache hoặc rollback là đã thử thực tế ở bản đầu tiên.
+- Đồng bộ nhiều thiết bị/offline: nằm ngoài phạm vi, progress/bookmark lưu trên trình duyệt hiện tại. Người dùng đổi thiết bị không có tiến độ tự đồng bộ.
+
+Plugin Sites xuất hiện trở lại ở bước phát hành; dùng workflow chính thức để push và đóng gói đúng nguồn đã kiểm tra. Helper local được giữ như đường dự phòng có mô tả. Branch `feat/ptauto-docs` được giữ, không có nhánh nền trước đó để merge và không tạo PR khi chưa được yêu cầu.
+
+Không lấy kết quả build web làm bằng chứng kiểm chứng CAD.

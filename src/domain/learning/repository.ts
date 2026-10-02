@@ -24,7 +24,7 @@ export function createProgressRepository(storage: StorageLike, catalog: StateCat
                 issues.push({ key, reason: 'invalid-data' });
                 return memory.get(key) || null;
             }
-            return value;
+            return memory.get(key) || value;
         }
         catch (error) {
             issues.push({ key, reason: error instanceof SyntaxError ? 'invalid-data' : 'unavailable' });
