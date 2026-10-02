@@ -1,7 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import SearchForm from '../components/SearchForm.astro';
-import HeroCadAnimation from '../components/landing/HeroCadAnimation.astro';
+import ConstructionHero from '../components/landing/ConstructionHero.astro';
 import KnowledgeCard from '../components/landing/KnowledgeCard.astro';
 import KnowledgeBridge from '../components/landing/KnowledgeBridge.astro';
 import CodeGeometryDemo from '../components/landing/CodeGeometryDemo.astro';
@@ -36,23 +35,11 @@ const referenceGroups = [
 ---
 <SiteLayout title="PTAuto Docs" description="Từ thao tác đến thuật toán. Học cách hiểu, lập trình và tự động hóa CAD với tài liệu tiếng Việt về AutoLISP, Civil 3D và .NET.">
 <div class="landing" data-landing>
-  <section class="landing-hero" aria-labelledby="landing-title">
-    <div class="landing-container hero-content">
-      <div class="hero-copy">
-        <h1 id="landing-title">Từ thao tác <span>đến thuật toán.</span></h1>
-        <p class="hero-subtitle">Học cách hiểu, lập trình và tự động hóa CAD.</p>
-        <p class="hero-description">Tài liệu tiếng Việt về CAD, AutoLISP, Civil 3D và .NET.</p>
-        <div class="landing-actions"><a class="button primary" href="#chu-de">Bắt đầu học</a><a class="button" href={withBase('/tra-cuu/')}>Tra cứu</a></div>
-        <SearchForm placeholder="Tìm AutoLISP, ssget, Civil 3D, AutoCAD .NET…" />
-      </div>
-      <HeroCadAnimation />
-    </div>
-    <ol class="hero-flow landing-container" aria-label="Từ lệnh đến kiến thức"><li>Command</li><li>Code</li><li>Geometry</li><li>Automation</li><li>Knowledge</li></ol>
-  </section>
+  <ConstructionHero />
   <section id="chu-de" class="landing-section knowledge-section" aria-labelledby="knowledge-title">
     <div class="landing-container">
       <KnowledgeBridge />
-      <div class="landing-section-heading"><h2 id="knowledge-title">Bạn sẽ học gì?</h2><span class="section-index" aria-hidden="true">01 / KNOWLEDGE</span></div>
+      <div class="landing-section-heading"><h2 id="knowledge-title">Bạn sẽ học gì?</h2></div>
       <div class="knowledge-grid">
         <KnowledgeCard kind="cad" title="CAD" description="Hiểu hình học, đối tượng, layer và dữ liệu phía sau mỗi thao tác." href={cadHref}/>
         <KnowledgeCard kind="lisp" title="AutoLISP" description="Từ biểu thức nhỏ đến lệnh xử lý cả nhóm đối tượng." href={courseHref}/>
@@ -63,14 +50,14 @@ const referenceGroups = [
     </div>
   </section>
   <section class="landing-section geometry-section" aria-labelledby="geometry-title">
-    <div class="landing-container"><div class="landing-section-heading"><h2 id="geometry-title">Từ code đến bản vẽ.</h2><span class="section-index" aria-hidden="true">02 / AUTOMATION</span></div>
+    <div class="landing-container"><div class="landing-section-heading"><h2 id="geometry-title">Từ code đến bản vẽ.</h2></div>
     <p class="section-note">Mỗi lệnh tác động lên hình học. Chọn một bước để xem điều gì thay đổi.</p><CodeGeometryDemo /></div>
   </section>
   <section class="landing-section path-section" aria-labelledby="path-title">
-    <div class="landing-container"><div class="landing-section-heading"><h2 id="path-title">Đi từ thao tác đến công cụ.</h2><span class="section-index" aria-hidden="true">03 / LEARNING PATH</span></div><LearningPath steps={stages}/></div>
+    <div class="landing-container"><div class="landing-section-heading"><h2 id="path-title">Đi từ thao tác đến công cụ.</h2></div><LearningPath steps={stages}/></div>
   </section>
   <section class="landing-section reference-section" aria-labelledby="reference-title">
-    <div class="landing-container reference-layout"><div class="reference-copy"><span class="section-index" aria-hidden="true">04 / REFERENCE</span><h2 id="reference-title">Tra cứu đúng lúc.</h2><p>Đi thẳng tới cú pháp, định nghĩa và ví dụ khi đang viết lệnh.</p><a class="button primary" href={withBase('/tim-kiem/')}>Mở tìm kiếm</a><a class="reference-glossary" href={withBase('/thuat-ngu/')}>Thuật ngữ kỹ thuật</a></div>
+    <div class="landing-container reference-layout"><div class="reference-copy"><h2 id="reference-title">Tra cứu đúng lúc.</h2><p>Đi thẳng tới cú pháp, định nghĩa và ví dụ khi đang viết lệnh.</p><a class="button primary" href={withBase('/tim-kiem/')}>Mở tìm kiếm</a><a class="reference-glossary" href={withBase('/thuat-ngu/')}>Thuật ngữ kỹ thuật</a></div>
       <div class="reference-groups">{referenceGroups.map(group=><a href={withBase('/tim-kiem/?q='+encodeURIComponent(group.query))}><h3>{group.title}</h3><span>{group.sample}</span></a>)}</div>
     </div>
   </section>

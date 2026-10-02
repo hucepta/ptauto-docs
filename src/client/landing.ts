@@ -2,13 +2,12 @@ const landing = document.querySelector<HTMLElement>('[data-landing]');
 if (landing) {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const listeners = new AbortController();
-    const hero = landing.querySelector<HTMLElement>('[data-hero]');
     const demo = landing.querySelector<HTMLElement>('[data-code-demo]');
     const codeSteps = [...landing.querySelectorAll<HTMLElement>('[data-code-step]')];
     const buttons = [...landing.querySelectorAll<HTMLButtonElement>('[data-demo-button]')];
     const status = landing.querySelector<HTMLElement>('[data-demo-status]');
     let frame = 0, elapsed = 0, previous = 0;
-    let playing = false, inView = false, seen = false, introPlayed = false;
+    let playing = false, inView = false, seen = false;
     const pause = () => { cancelAnimationFrame(frame); frame = 0; previous = 0; };
     const show = (index: number, announce = false) => {
         if (!demo) return;
@@ -46,18 +45,9 @@ if (landing) {
     const applyMotion = () => {
         landing.classList.toggle('motion-enabled', !reduced.matches);
         if (reduced.matches) {
-            hero?.classList.remove('has-motion');
-            if (hero) hero.dataset.phase = 'complete';
             playing = false; pause(); show(3);
-        } else if (!introPlayed && hero) {
-            introPlayed = true;
-            hero.dataset.phase = 'intro';
-            hero.classList.add('has-motion');
         }
     };
-    hero?.addEventListener('animationend', event => {
-        if (event.target === hero && event.animationName === 'hero-duration') hero.dataset.phase = 'complete';
-    }, { signal: listeners.signal });
     buttons.forEach((button, index) => button.addEventListener('click', () => {
         playing = false; seen = true; pause(); show(index, true);
     }, { signal: listeners.signal }));

@@ -1,0 +1,213 @@
+---
+import { withBase } from '../../domain/content/urls';
+---
+<section class="construction-hero" data-construction-hero aria-labelledby="landing-title">
+  <div class="construction-grid" aria-hidden="true"></div>
+  <div class="construction-horizon" aria-hidden="true"></div>
+  <svg class="construction-scene" viewBox="0 0 1200 460" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <g transform="translate(150 110) scale(.75)">
+      <g class="construction-building building-left">
+        <rect x="260" y="260" width="160" height="180" fill="#1d6a96" />
+        <path d="M260 350H420M340 260V440" fill="none" stroke="#4899b9" />
+      </g>
+      <g class="construction-building building-main" data-main-building>
+        <rect x="420" y="60" width="300" height="380" fill="#2479a5" />
+        <rect x="400" y="40" width="340" height="20" fill="#1d6a96" />
+        <path d="M420 170H720M420 260H720M420 350H720M520 60V440M620 60V440" fill="none" stroke="#4796b9" />
+        <g fill="#ffd27a">
+          <rect class="lit-window" data-lit-window x="450" y="100" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="510" y="100" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="600" y="100" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="660" y="100" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="450" y="190" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="510" y="190" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="600" y="190" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="660" y="190" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="450" y="290" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="510" y="290" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="600" y="290" width="28" height="42" />
+          <rect class="lit-window" data-lit-window x="660" y="290" width="28" height="42" />
+        </g>
+      </g>
+      <g class="construction-building building-right">
+        <rect x="720" y="190" width="180" height="250" fill="#1d6a96" />
+        <path d="M720 270H900M720 350H900M810 190V440" fill="none" stroke="#4899b9" />
+      </g>
+      <g class="wireframe" fill="none" stroke="#7fd3ff" stroke-width="1.5">
+        <path data-wireframe pathLength="1" d="M60 440H1140" />
+        <path data-wireframe pathLength="1" style="--draw-delay: .12s" d="M260 440V260H420V440M260 350H420M340 260V440" />
+        <path data-wireframe pathLength="1" style="--draw-delay: .24s" d="M420 440V60H720V440M400 60V40H740V60Z" />
+        <path data-wireframe pathLength="1" style="--draw-delay: .36s" d="M420 170H720M420 260H720M420 350H720M520 60V440M620 60V440" />
+        <path data-wireframe pathLength="1" style="--draw-delay: .48s" d="M720 440V190H900V440M720 270H900M720 350H900M810 190V440" />
+        <path data-wireframe pathLength="1" style="--draw-delay: .6s" d="M1010 440V80H1130M930 80H1010L1050 40L1130 80M1010 80L1050 40M1100 80V200L1088 214" />
+        <path data-wireframe pathLength="1" style="--draw-delay: .65s" d="M990 440L1030 400M990 360L1030 400M990 360L1030 320M990 280L1030 320M990 280L1030 240M990 200L1030 240M990 200L1030 160M990 120L1030 160M990 120L1030 80" />
+      </g>
+    </g>
+  </svg>
+  <div class="construction-shade" aria-hidden="true"></div>
+  <div class="construction-content">
+    <h1 id="landing-title">Từ thao tác <span class="gradient-title">đến thuật toán.</span></h1>
+    <p class="construction-lead">Viết AutoLISP để khỏi phải bấm lặp lại 500 lần.</p>
+    <p class="construction-description">Tài liệu tiếng Việt về CAD, AutoLISP, Civil 3D và .NET.</p>
+    <a class="construction-cta" href="#chu-de">Bắt đầu học <span aria-hidden="true">→</span></a>
+    <form class="command-search" role="search" method="get" action={withBase('/tim-kiem/')}>
+      <label class="sr-only" for="hero-command-query">Tìm bài học, hàm hoặc thuật ngữ</label>
+      <span class="command-prompt" aria-hidden="true">Command:</span>
+      <div class="command-input">
+        <input id="hero-command-query" type="search" name="q" placeholder="ssget, layer, AutoLISP…" autocomplete="off" />
+        <span class="command-cursor" aria-hidden="true"></span>
+      </div>
+      <button type="submit" aria-label="Tìm kiếm" title="Tìm kiếm"><span aria-hidden="true">↵</span></button>
+    </form>
+    <label class="motion-control"><input class="hero-motion-pause" type="checkbox" /> <span>Tạm dừng chuyển động</span></label>
+  </div>
+</section>
+
+<style>
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; border: 0; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
+  .construction-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: max(760px, calc(100svh - 84px));
+    background: linear-gradient(180deg, #0a2540 0%, #0a2540 43%, #14608f 100%);
+    border-bottom: 1px solid #245877;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  .construction-grid, .construction-horizon, .construction-shade { position: absolute; pointer-events: none; }
+  .construction-grid {
+    inset: 0;
+    background-image: linear-gradient(#a8ddff22 1px, transparent 1px), linear-gradient(90deg, #a8ddff22 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: .45;
+    animation: grid-cycle 16s linear infinite;
+  }
+  .construction-horizon {
+    inset: 50% 0 0;
+    background: radial-gradient(ellipse at 60% 100%, #e9904f 0%, #bf784a80 32%, transparent 72%);
+    opacity: .65;
+    animation: horizon-cycle 16s linear infinite;
+  }
+  .construction-scene {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: min(100%, 1440px);
+    height: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .construction-shade { inset: 0; background: linear-gradient(#0a2540 0%, #0a2540 24%, #0a2540e8 43%, #0a254055 64%, transparent 82%); }
+  .construction-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    margin-inline: auto;
+    padding: calc(clamp(3.5rem, 7vw, 5rem) + env(safe-area-inset-top, 0px)) max(2.5rem, env(safe-area-inset-right, 0px)) calc(15.5rem + env(safe-area-inset-bottom, 0px)) max(2.5rem, env(safe-area-inset-left, 0px));
+  }
+  h1 { margin: 0 0 1rem; font-size: clamp(2.5rem, 5.5vw, 5rem); line-height: 1.22; letter-spacing: -.045em; font-weight: 750; color: #fff; }
+  .gradient-title {
+    display: block;
+    width: fit-content;
+    padding-bottom: .14em;
+    color: #7fe3ff;
+    background: linear-gradient(100deg, #7fe3ff 0%, #7fe3ff 25%, #ffd27a 65%, #ff9f5a 100%);
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: title-cycle 16s linear infinite;
+  }
+  .construction-lead { margin: 0 0 .5rem; max-width: 47ch; font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.7; color: #fff; }
+  .construction-description { margin: 0 0 1.6rem; max-width: 54ch; font-size: 1rem; line-height: 1.7; color: #c1d7e6; }
+  .construction-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.4rem;
+    min-height: 48px;
+    padding: .65rem 1.1rem;
+    border: 1px solid #ffd27a;
+    border-radius: 3px;
+    background: #ffd27a;
+    color: #0a2540;
+    font-size: 1rem;
+    font-weight: 650;
+    text-decoration: none;
+    box-shadow: none;
+  }
+  .construction-cta:hover { background: #ffdf9f; border-color: #ffdf9f; color: #0a2540; }
+  .construction-cta:focus-visible, .command-search button:focus-visible, .hero-motion-pause:focus-visible { outline: 2px solid #7fe3ff; outline-offset: 4px; }
+  .command-search {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    max-width: 550px;
+    min-height: 54px;
+    margin-top: 1.4rem;
+    padding: .25rem .3rem .25rem 1rem;
+    border: 1px solid #62889e;
+    border-radius: 3px;
+    background: #030b12;
+    color: #d7e8f1;
+    font: .95rem/1.5 "Cascadia Code", "Consolas", ui-monospace, monospace;
+  }
+  .command-search:focus-within { outline: 2px solid #7fe3ff; outline-offset: 3px; }
+  .command-prompt { flex-shrink: 0; color: #ffd27a; }
+  .command-input { position: relative; min-width: 0; flex: 1; }
+  .command-search input { display: block; width: 100%; min-width: 0; min-height: 44px; border: 0; border-radius: 2px; padding: .5rem .25rem .5rem 1rem; background: transparent; color: #fff; font: inherit; outline: none; caret-color: #ffd27a; }
+  .command-search input::placeholder { color: #a7bcc9; opacity: 1; }
+  .command-search button { flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 1px solid #62889e; border-radius: 2px; background: #030b12; color: #ffd27a; font: 1.5rem/1 "Consolas", ui-monospace, monospace; box-shadow: none; }
+  .command-search button:hover { border-color: #ffd27a; background: #102337; }
+  .command-cursor { position: absolute; left: 0; top: 50%; width: .5rem; height: 1.15em; margin-top: -.575em; background: #ffd27a; pointer-events: none; animation: cursor-blink 1s steps(1, end) infinite; }
+  .command-search:focus-within .command-cursor, .command-input:has(input:not(:placeholder-shown)) .command-cursor { opacity: 0; animation: none; }
+  .motion-control { position: relative; display: flex; align-items: center; gap: .5rem; width: fit-content; min-height: 44px; margin-top: .75rem; padding-block: .2rem; color: #c1d7e6; font-size: .8125rem; cursor: pointer; }
+  .hero-motion-pause { margin: 0; width: 16px; height: 16px; accent-color: #ffd27a; }
+  .construction-hero:has(.hero-motion-pause:checked) * { animation-play-state: paused; }
+  .construction-building { transform-box: fill-box; transform-origin: 50% 100%; opacity: 1; }
+  .building-left { animation: grow-left 16s linear infinite; }
+  .building-main { animation: grow-main 16s linear infinite; }
+  .building-right { animation: grow-right 16s linear infinite; }
+  .lit-window { animation: light-cycle 16s linear infinite; }
+  .wireframe path { stroke-dasharray: 1; stroke-dashoffset: 0; animation: blueprint-cycle 16s var(--draw-delay, 0s) linear infinite both; }
+  @keyframes blueprint-cycle {
+    0% { stroke-dashoffset: 1; opacity: 1; }
+    27% { stroke-dashoffset: 0; opacity: 1; }
+    62.5%, 71.875% { stroke-dashoffset: 0; opacity: .2; }
+    93.75% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: 1; opacity: 1; }
+  }
+  @keyframes grow-left { 0%, 31.25% { transform: scaleY(0); opacity: 0; } 50%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75% { transform: scaleY(1); opacity: 0; } 100% { transform: scaleY(0); opacity: 0; } }
+  @keyframes grow-main { 0%, 34% { transform: scaleY(0); opacity: 0; } 58%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75% { transform: scaleY(1); opacity: 0; } 100% { transform: scaleY(0); opacity: 0; } }
+  @keyframes grow-right { 0%, 37% { transform: scaleY(0); opacity: 0; } 62.5%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75% { transform: scaleY(1); opacity: 0; } 100% { transform: scaleY(0); opacity: 0; } }
+  @keyframes light-cycle { 0%, 52% { opacity: 0; } 62.5%, 71.875% { opacity: 1; } 93.75%, 100% { opacity: 0; } }
+  @keyframes grid-cycle { 0%, 31.25%, 100% { opacity: .45; } 62.5%, 71.875% { opacity: .08; } }
+  @keyframes horizon-cycle { 0%, 31.25%, 93.75%, 100% { opacity: 0; } 62.5%, 71.875% { opacity: .65; } }
+  @keyframes title-cycle { 0%, 31.25%, 100% { background-position: 0% 50%; } 62.5%, 71.875% { background-position: 100% 50%; } }
+  @keyframes cursor-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @media (max-width: 760px) {
+    .construction-hero { min-height: max(720px, calc(100svh - 70px)); }
+    .construction-content { padding: calc(2.8rem + env(safe-area-inset-top, 0px)) max(1.3rem, env(safe-area-inset-right, 0px)) calc(13.5rem + env(safe-area-inset-bottom, 0px)) max(1.3rem, env(safe-area-inset-left, 0px)); }
+    h1 { font-size: clamp(2.4rem, 7vw, 3.7rem); line-height: 1.26; letter-spacing: -.045em; }
+    .construction-description { font-size: .9375rem; margin-bottom: 1.3rem; }
+    .construction-scene { height: min(46%, 55vw); }
+    .command-search { gap: .4rem; padding-left: .65rem; font-size: .8125rem; margin-top: 1.2rem; }
+    .command-search input { padding-left: .8rem; }
+    .command-cursor { width: .4rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .construction-hero * { animation: none !important; transition: none !important; }
+    .construction-building { transform: scaleY(1); opacity: 1; }
+    .lit-window { opacity: 1; }
+    .wireframe path { stroke-dashoffset: 0; opacity: .2; }
+    .construction-grid { opacity: .08; }
+    .construction-horizon { opacity: .65; }
+    .gradient-title { background-position: 100% 50%; }
+    .command-cursor, .motion-control { display: none; }
+  }
+  @media (forced-colors: active) {
+    .gradient-title { color: CanvasText; -webkit-text-fill-color: CanvasText; background: none; }
+    .construction-grid, .construction-horizon, .construction-scene, .construction-shade { display: none; }
+    .construction-hero, .command-search, .command-search button { border-color: CanvasText; }
+  }
+</style>

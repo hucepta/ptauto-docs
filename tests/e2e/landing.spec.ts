@@ -1,18 +1,55 @@
 import { expect, test } from '@playwright/test';
 
-test('hero_animation_finishes_without_blocking_search_or_navigation', async ({ page }) => {
+test('construction_hero_keeps_one_cta_and_command_search_usable', async ({ page }) => {
     await page.goto('/');
+    const hero = page.locator('[data-construction-hero]');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Từ thao tác đến thuật toán.');
     await expect(page.getByRole('link', { name: 'Bắt đầu học', exact: true })).toBeVisible();
     await page.keyboard.press('/');
     await expect(page.getByRole('searchbox')).toBeFocused();
-    await expect(page.locator('[data-hero]')).toHaveAttribute('data-phase', 'complete', { timeout: 8000 });
-    for (const entity of await page.locator('[data-hero] [data-intro-draw]').all()) {
-        await expect(entity).toHaveCSS('stroke-dashoffset', '0px');
-    }
-    await expect(page.locator('.cad-layer-shift')).toHaveCSS('stroke', 'rgb(8, 126, 135)');
+    await expect(hero.getByRole('link')).toHaveCount(1);
+    await expect(hero.getByRole('link')).toHaveCSS('background-color', 'rgb(255, 210, 122)');
+    await expect(hero.getByRole('link')).toHaveCSS('background-image', 'none');
+    await expect(hero.getByText('Command:', { exact: true })).toBeVisible();
+    await expect(page.locator('.section-index,.hero-flow')).toHaveCount(0);
     await expect(page.locator('[data-continue]')).toHaveCount(0);
     await expect(page.getByText('CAD · BIM · Dữ liệu', { exact: true })).toHaveCount(0);
+});
+
+test('construction_scene_repeats_wireframe_growth_and_fade_in_a_stable_16_second_cycle', async ({ page }) => {
+    await page.goto('/');
+    const hero = page.locator('[data-construction-hero]');
+    await expect(hero.locator('svg')).toHaveAttribute('preserveAspectRatio', 'xMidYMax slice');
+    const timing = await hero.evaluate(element => element.getAnimations({ subtree: true }).map(animation => animation.effect!.getTiming()));
+    expect(timing.filter(item => item.duration === 16000 && item.iterations === Infinity).length).toBeGreaterThan(5);
+    const seek = async (time: number) => {
+        await hero.evaluate((element, time) => { for (const animation of element.getAnimations({ subtree: true })) { animation.pause(); animation.currentTime = time; } }, time);
+    };
+    const bounds = await hero.boundingBox();
+    await seek(1000);
+    await expect(hero.locator('[data-main-building]')).toHaveCSS('opacity', '0');
+    await expect(hero.locator('[data-lit-window]').first()).toHaveCSS('opacity', '0');
+    expect(Number(await hero.locator('[data-wireframe]').first().evaluate(element => parseFloat(getComputedStyle(element).strokeDashoffset)))).toBeGreaterThan(0);
+    await seek(10000);
+    await expect(hero.locator('[data-main-building]')).toHaveCSS('opacity', '1');
+    await expect(hero.locator('[data-lit-window]').first()).toHaveCSS('opacity', '1');
+    await seek(14000);
+    expect(Number(await hero.locator('[data-main-building]').evaluate(element => getComputedStyle(element).opacity))).toBeLessThan(.5);
+    await seek(17000);
+    await expect(hero.locator('[data-main-building]')).toHaveCSS('opacity', '0');
+    expect(await hero.boundingBox()).toEqual(bounds);
+});
+
+test('hero_motion_can_be_paused_without_javascript', async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    try {
+        const page = await context.newPage();
+        await page.goto('http://127.0.0.1:4321/');
+        await page.getByRole('checkbox', { name: 'Tạm dừng chuyển động', exact: true }).check();
+        const states = await page.locator('[data-construction-hero]').evaluate(element => element.getAnimations({ subtree: true }).map(animation => animation.playState));
+        expect(states.length).toBeGreaterThan(0);
+        expect(states.every(state => state === 'paused')).toBe(true);
+    } finally { await context.close(); }
 });
 
 test('demo_step_changes_code_and_visible_geometry_together', async ({ page }) => {
@@ -35,8 +72,10 @@ test('reduced_motion_renders_final_scene_and_keeps_manual_demo_usable', async ({
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-    await expect(page.locator('[data-hero]')).toHaveAttribute('data-phase', 'complete');
-    expect(await page.locator('[data-hero]').evaluate(element => element.getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
+    const hero = page.locator('[data-construction-hero]');
+    await expect(hero.locator('[data-main-building]')).toHaveCSS('opacity', '1');
+    await expect(hero.locator('[data-lit-window]').first()).toHaveCSS('opacity', '1');
+    expect(await hero.evaluate(element => element.getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
     const demo = page.locator('[data-code-demo]');
     await demo.scrollIntoViewIfNeeded();
     await demo.getByRole('button', { name: '02 CIRCLE', exact: true }).click();
