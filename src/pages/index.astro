@@ -12,7 +12,7 @@ import { getContentUrl } from '../domain/content/graph';
 import { withBase } from '../domain/content/urls';
 const { graph } = await getContent();
 const autolisp = graph.courses.find(course => course.technology==='autolisp');
-const courseHref = autolisp ? withBase(getContentUrl(graph,autolisp.id)) : withBase('/hoc/');
+const courseHref = autolisp ? withBase(getContentUrl(graph,autolisp.id)) : withBase('/#chu-de');
 const cadLesson = graph.lessons.find(lesson => lesson.conceptIds.includes('concept.autolisp.ssget'));
 const cadHref = cadLesson ? withBase(getContentUrl(graph,cadLesson.id)) : courseHref;
 const firstProject = graph.projects[0];
@@ -42,14 +42,14 @@ const referenceGroups = [
         <h1 id="landing-title">Từ thao tác <span>đến thuật toán.</span></h1>
         <p class="hero-subtitle">Học cách hiểu, lập trình và tự động hóa CAD.</p>
         <p class="hero-description">Tài liệu tiếng Việt về CAD, AutoLISP, Civil 3D và .NET.</p>
-        <div class="landing-actions"><a class="button primary" href={courseHref}>Bắt đầu học</a><a class="button" href={withBase('/tra-cuu/')}>Tra cứu</a></div>
+        <div class="landing-actions"><a class="button primary" href="#chu-de">Bắt đầu học</a><a class="button" href={withBase('/tra-cuu/')}>Tra cứu</a></div>
         <SearchForm placeholder="Tìm AutoLISP, ssget, Civil 3D, AutoCAD .NET…" />
       </div>
       <HeroCadAnimation />
     </div>
     <ol class="hero-flow landing-container" aria-label="Từ lệnh đến kiến thức"><li>Command</li><li>Code</li><li>Geometry</li><li>Automation</li><li>Knowledge</li></ol>
   </section>
-  <section class="landing-section knowledge-section" aria-labelledby="knowledge-title">
+  <section id="chu-de" class="landing-section knowledge-section" aria-labelledby="knowledge-title">
     <div class="landing-container">
       <KnowledgeBridge />
       <div class="landing-section-heading"><h2 id="knowledge-title">Bạn sẽ học gì?</h2><span class="section-index" aria-hidden="true">01 / KNOWLEDGE</span></div>
@@ -59,6 +59,7 @@ const referenceGroups = [
         <KnowledgeCard kind="civil" title="Civil 3D" description="Làm việc với surface, alignment, profile và dữ liệu thiết kế." available={false}/>
         <KnowledgeCard kind="dotnet" title=".NET" description="Đưa logic của bạn vào command và plugin cho AutoCAD." available={false}/>
       </div>
+      <nav class="landing-topics" aria-label="Chủ đề học"><span>Chủ đề học</span><div>{graph.courses.map(course=><a class="button" href={withBase(getContentUrl(graph,course.id))}>{course.title}<span aria-hidden="true"> →</span></a>)}</div></nav>
     </div>
   </section>
   <section class="landing-section geometry-section" aria-labelledby="geometry-title">

@@ -20,7 +20,7 @@ const { headings } = await render(entry);
 const nav = getLessonNavigation(graph, lesson.id);
 ---
 <LearnLayout title={lesson.title} description={lesson.description} graph={graph} courseId={course.id} activeId={lesson.id} headings={headings}>
-<Breadcrumbs items={[{title:'Học',url:'/hoc/'},{title:course.title,url:getContentUrl(graph,course.id)},{title:chapter.title,url:getContentUrl(graph,chapter.id)}]} />
+<Breadcrumbs items={[{title:'Trang chủ',url:'/'},{title:course.title,url:getContentUrl(graph,course.id)},{title:chapter.title,url:getContentUrl(graph,chapter.id)}]} />
 <header data-content-id={lesson.id} data-content-kind="lesson"><h1>{lesson.title}</h1>
 <div class="article-meta"><span>{lesson.difficulty==='co-ban'?'Cơ bản':lesson.difficulty==='trung-cap'?'Trung cấp':'Nâng cao'}</span><span>Bài học</span></div>
 <div class="article-actions"><button class="js-control" data-bookmark={lesson.id} aria-pressed="false">Lưu bài</button><button class="js-control" data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button></div><p class="status-message" data-storage-status role="status"></p></header>

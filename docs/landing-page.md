@@ -2,6 +2,8 @@
 
 Homepage là lớp giới thiệu trước phần documentation. Các link học và dự án lấy từ content graph; Civil 3D và .NET hiển thị “Đang biên soạn” khi chưa có nội dung đã phát hành.
 
+Chọn chủ đề học ngay tại `/#chu-de` trên homepage. Header không còn mục “Học”; nút “Bắt đầu học” dẫn tới khu vực này. Các course published được sinh thành link trực tiếp từ graph, gồm AutoLISP và Visual LISP / ActiveX hiện tại. Breadcrumb bài học/nhóm/course quay về “Trang chủ”. `/hoc/` cũ chuyển về `/#chu-de` bằng meta refresh tức thời, có link fallback và hoạt động khi tắt JavaScript; URL từng course/bài, ID và tiến độ được giữ.
+
 ## File và component
 
 - `src/pages/index.astro`: bố cục, copy và link tới nội dung/search hiện có.
@@ -35,3 +37,5 @@ Chạy `npm run verify` để kiểm tra type, lint, unit, production build, Pag
 Lượt kiểm tra 2026-10-02: Astro check 0 lỗi/cảnh báo, lint đạt, 34 unit và 33 browser tests đạt, artifact 28 trang HTML và 17 search records. Đã xem ảnh các giai đoạn intro cùng bố cục desktop/tablet/mobile; console không có lỗi trong lượt đo Chromium 153 trên localhost.
 
 Có thể polish thêm nhịp animation sau phản hồi từ người xem trên thiết bị thật, hoặc thay minh họa Civil 3D/.NET bằng ví dụ từ nội dung đã phát hành. Chưa kiểm tra thủ công bằng NVDA/VoiceOver; phép đo hiện tại là lab Chromium trên localhost.
+
+Sau thay đổi điều hướng: check/lint/build, 34 unit và 36 browser tests đạt. Các test mới bao phủ đi từ homepage tới mọi course published, redirect không JavaScript và breadcrumb về homepage. `CourseList.astro` đã bỏ vì không còn catalog học riêng.

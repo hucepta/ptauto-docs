@@ -11,7 +11,7 @@ const { graph } = await getContent();
 const course = graph.entries.get(chapter.courseId) as CourseEntry;
 ---
 <LearnLayout title={chapter.title} description={chapter.description} graph={graph} courseId={course.id}>
-<Breadcrumbs items={[{title:'Học',url:'/hoc/'},{title:course.title,url:getContentUrl(graph,course.id)},{title:chapter.title}]} />
+<Breadcrumbs items={[{title:'Trang chủ',url:'/'},{title:course.title,url:getContentUrl(graph,course.id)},{title:chapter.title}]} />
 <h1>Nhóm chủ đề</h1>
 <ul class="link-list">{graph.lessons.filter(l=>l.chapterId===chapter.id).sort((a,b)=>a.order-b.order).map(l=><li><a href={withBase(getContentUrl(graph,l.id))}>{l.title}</a><p>{l.description}</p></li>)}</ul>
 </LearnLayout>
