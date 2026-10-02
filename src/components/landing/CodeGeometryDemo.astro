@@ -1,0 +1,30 @@
+---
+const steps = [
+  { label: '01 LINE', code: '(command "_.LINE" \'(0 0) \'(120 0) "")', description: 'Dựng đường từ hai điểm.' },
+  { label: '02 CIRCLE', code: '(command "_.CIRCLE" \'(60 0) 24)', description: 'Tạo vòng tròn từ tâm và bán kính.' },
+  { label: '03 Chọn đối tượng', code: '(setq ss (ssget "_X" \'((0 . "LINE,CIRCLE"))))', description: 'Lấy nhóm đường và vòng tròn.' },
+  { label: '04 Chuyển layer', code: '(setq data (entget (ssname ss 0)))\n(entmod (subst \'(8 . "PTAuto") (assoc 8 data) data))', description: 'Chuyển đường sang layer PTAuto đã có.' },
+];
+---
+<div class="code-geometry-demo motion-reveal" data-code-demo data-step="3">
+  <div class="geometry-code">
+    <div class="demo-toolbar"><span>pt-demo.lsp</span><span>AutoLISP</span></div>
+    <div class="code-sequence">{steps.map((step, index)=><div class="code-step" data-code-step={index} aria-current={index===3?'step':undefined}><span class="code-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><div><p>{step.description}</p><pre><code>{step.code}</code></pre></div></div>)}</div>
+  </div>
+  <div class="geometry-output">
+    <div class="demo-toolbar"><span>Model</span><span class="simulation-label">Minh họa thao tác</span></div>
+    <svg id="demo-geometry" viewBox="0 0 520 370" fill="none" aria-hidden="true">
+      <defs><pattern id="demo-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#075d9b" stroke-opacity=".08"/></pattern></defs>
+      <rect width="520" height="370" fill="url(#demo-grid)"/>
+      <path d="M260 64v242M78 190h362" stroke="#b2c9d2" stroke-dasharray="5 6"/>
+      <g data-demo-layer stroke="#075d9b" stroke-width="2.8" stroke-linecap="round"><path data-demo-line d="M108 190h304" pathLength="1"/></g>
+      <circle data-demo-circle cx="260" cy="190" r="72" stroke="#075d9b" stroke-width="2.8" pathLength="1"/>
+      <g data-demo-selection><rect x="92" y="102" width="336" height="176" fill="#087e87" fill-opacity=".06" stroke="#087e87" stroke-dasharray="6 4"/><g fill="#fff" stroke="#087e87"><rect x="104" y="186" width="8" height="8"/><rect x="408" y="186" width="8" height="8"/><rect x="256" y="114" width="8" height="8"/></g></g>
+      <path d="M108 286v25m304-25v25M108 304h304m-308-4 8 8m300-8 8 8" stroke="#87a5b4"/>
+      <rect x="232" y="293" width="56" height="22" fill="#f8fcfd"/>
+      <g fill="#53677a" font-family="Consolas, monospace" font-size="12"><text x="242" y="309">120.00</text><text x="16" y="350">WCS</text><text x="391" y="350" class="demo-layer-label">PTAuto</text></g>
+    </svg>
+    <div class="demo-controls js-control">{steps.map((step,index)=><button type="button" data-demo-button={index} aria-controls="demo-geometry" aria-pressed={index===3?'true':'false'}>{step.label}</button>)}</div>
+  </div>
+  <div class="demo-bottom"><p data-demo-status role="status">Chuyển đường sang layer PTAuto đã có.</p><button class="js-control" type="button" data-demo-replay>Chạy lại</button></div>
+</div>

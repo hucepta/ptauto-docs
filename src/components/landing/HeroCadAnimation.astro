@@ -1,0 +1,48 @@
+<figure class="hero-drawing" data-hero data-phase="complete">
+  <div class="drawing-toolbar"><span><i aria-hidden="true"></i>PTAuto / Model</span><span class="drawing-mode">WCS · 2D</span></div>
+  <div class="drawing-viewport">
+    <svg viewBox="0 0 640 440" fill="none" aria-hidden="true" class="hero-cad">
+      <defs>
+        <pattern id="hero-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#23728c" stroke-opacity=".08"/></pattern>
+        <pattern id="hero-hatch" width="8" height="8" patternUnits="userSpaceOnUse"><path d="m0 8 8-8" stroke="#087e87" stroke-opacity=".35"/></pattern>
+      </defs>
+      <rect width="640" height="440" fill="url(#hero-grid)" class="cad-grid"/>
+      <g class="cad-viewport">
+        <g class="cad-construction" stroke="#9dbbc5" stroke-width="1" stroke-dasharray="5 7">
+          <path d="M70 212h498M300 45v305M92 112h451M92 312h451"/>
+          <circle cx="300" cy="212" r="110"/>
+        </g>
+        <g class="cad-geometry" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path data-intro-draw pathLength="1" style="--draw-delay:1.6s" d="M118 312V112h200l112 100-112 100Z"/>
+          <path data-intro-draw pathLength="1" style="--draw-delay:1.85s" d="M136 292V132h175l88 80-88 80Z" class="cad-offset"/>
+          <circle data-intro-draw pathLength="1" style="--draw-delay:2.05s" cx="300" cy="212" r="74"/>
+          <circle data-intro-draw pathLength="1" style="--draw-delay:2.25s" cx="300" cy="212" r="32"/>
+          <path data-intro-draw pathLength="1" style="--draw-delay:2.45s" d="M479 134a88 88 0 0 1 0 156M432 134h47M432 290h47"/>
+          <path data-intro-draw pathLength="1" style="--draw-delay:2.55s" d="M174 174h46v76h-46Z" class="cad-layer-shift"/>
+        </g>
+        <path d="M138 274h53v17h-53Z" fill="url(#hero-hatch)" class="cad-hatch cad-generated"/>
+        <g class="cad-grips" fill="#fff" stroke="#087e87" stroke-width="1.5">
+          <rect x="114" y="108" width="8" height="8"/><rect x="114" y="308" width="8" height="8"/>
+          <rect x="314" y="108" width="8" height="8"/><rect x="426" y="208" width="8" height="8"/>
+          <rect x="170" y="170" width="8" height="8"/><rect x="216" y="246" width="8" height="8"/>
+        </g>
+        <rect class="cad-selection" x="102" y="92" width="344" height="236" fill="#087e87" fill-opacity=".06" stroke="#087e87" stroke-dasharray="5 4"/>
+        <g class="cad-dimensions cad-generated" stroke="#638797" stroke-width="1">
+          <path data-intro-draw pathLength="1" style="--draw-delay:3.9s" d="M118 336v28m312-128v128M118 354h312m-316-5 9 10m303-10 9 10"/>
+          <path d="M340 155l43-42h61"/><path d="m337 157 8-1-6-5Z" fill="#638797"/>
+          <rect x="244" y="342" width="58" height="22" fill="#f8fcfc" stroke="none"/>
+          <g fill="#536f7e" stroke="none" font-family="Consolas, monospace" font-size="12"><text x="258" y="358">312.00</text><text x="398" y="106">Ø148</text></g>
+        </g>
+        <g class="cad-blocks" stroke="#087e87" stroke-width="1.6">
+          {[0,1,2,3].map(i => <g class="cad-generated cad-block" style={`--block-delay:${3.55+i*.12}s`} transform={`translate(${144+i*43} 388)`}><rect x="-9" y="-9" width="18" height="18" rx="1"/><path d="M-14 0h28M0-14v28" stroke-opacity=".4"/><circle r="3"/></g>)}
+        </g>
+        <g class="cad-annotations cad-generated" fill="#536f7e" font-family="Consolas, monospace" font-size="11"><text x="118" y="84">DETAIL / PT-01</text><text x="352" y="390">4 × BLOCK</text><text x="457" y="320">LAYER: PTAuto</text></g>
+      </g>
+      <g class="cad-crosshair" stroke="#087e87" stroke-width="1"><path d="M489 70v35m-17-18h35"/><rect x="485" y="83" width="8" height="8" fill="#fff"/></g>
+      <g fill="#6f8998" font-family="Consolas, monospace" font-size="10"><text x="18" y="416">X</text><text x="37" y="395">Y</text><text x="583" y="416">1:1</text></g>
+      <path d="M37 406H17m20 0v-22" stroke="#8fa9b7" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="cad-command" aria-hidden="true"><span>Command:</span><code class="command-entry">PT</code><div class="command-cues"><code class="cue-draw">LINE · ARC · OFFSET</code><code class="cue-select">(ssget "_X" …)</code><code class="cue-finish">DIM · TEXT · BLOCK</code></div></div>
+  <figcaption class="visually-hidden">Bản vẽ kỹ thuật trừu tượng gồm đường, cung, vòng tròn và kích thước. AutoLISP chọn các đối tượng, đổi layer và tạo một nhóm block lặp.</figcaption>
+</figure>
