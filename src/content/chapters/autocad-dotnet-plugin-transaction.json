@@ -1,0 +1,10 @@
+{
+  "id": "chapter.autocad-dotnet.plugin-transaction",
+  "slug": "plugin-transaction",
+  "title": "Plugin và transaction",
+  "description": "Môi trường plugin, CommandMethod và vòng đời transaction.",
+  "status": "draft",
+  "courseId": "course.autocad-dotnet",
+  "order": 1
+}
+

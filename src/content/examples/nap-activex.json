@@ -1,0 +1,25 @@
+{
+  "id": "example.visual-lisp-activex.nap-activex",
+  "slug": "nap-activex",
+  "title": "Khởi tạo ActiveX",
+  "description": "Nạp các hàm mở rộng cho phiên AutoCAD Windows.",
+  "status": "published",
+  "technology": "visual-lisp-activex",
+  "language": "lisp",
+  "sourceFile": "nap-activex.lsp",
+  "expectedOutput": "nil",
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có hỗ trợ ActiveX",
+      "platform": "Windows"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — vl-load-com (AutoLISP/ActiveX)",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-6C7A8632-C12F-42BD-909E-68D804863AE2.htm"
+    }
+  ]
+}
+

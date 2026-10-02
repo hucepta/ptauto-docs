@@ -1,0 +1,36 @@
+---
+import '../styles/tokens.css';
+import '../styles/reading.css';
+import { withBase } from '../domain/content/urls';
+import { getBuildData } from '../content/build-data';
+const { buildId } = await getBuildData();
+interface Props {
+    title: string;
+    description: string;
+}
+const { title, description } = Astro.props;
+const nav = [['Học', '/hoc/'], ['Tra cứu', '/tra-cuu/'], ['Thuật ngữ', '/thuat-ngu/'], ['Dự án', '/du-an/'], ['Đã lưu', '/da-luu/']];
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
+const searchShortcut = ['/', '/tra-cuu/', '/tim-kiem/'].includes(pathname);
+---
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="description" content={description} />
+<title>{title==='PTAuto Docs'?title:title+' · PTAuto Docs'}</title>
+<meta name="ptauto-build" content={buildId} />
+<link rel="icon" type="image/svg+xml" href={withBase('/brand-logo.svg#symbol')} /><link rel="canonical" href={new URL(Astro.url.pathname,Astro.site)} />
+</head>
+<body>
+<a class="skip-link" href="#content">Đến nội dung</a>
+<header class="site-header" data-pagefind-ignore><div class="header-inner">
+<a class="brand" href={withBase('/')} aria-label="PTAuto Docs — Trang chủ"><img src={withBase('/brand-logo.svg')} width="174" height="53" alt="PTAuto Docs" /></a>
+<button class="menu-toggle" data-menu-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Mở điều hướng">Điều hướng</button>
+<nav id="primary-nav" class="primary-nav" aria-label="Điều hướng chính" data-primary-nav>
+{nav.map(([label,href])=><a href={withBase(href)} aria-current={pathname.startsWith(href)?'page':undefined}>{label}</a>)}
+<a class="search-link" href={withBase('/tim-kiem/')}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Tìm kiếm{searchShortcut&&<kbd aria-hidden="true">/</kbd>}</a>
+</nav></div></header>
+<main id="content" tabindex="-1"><slot /></main>
+<script>import '../client/navigation';</script>
+<script>import '../client/learning';</script>
+</body></html>
+

@@ -1,0 +1,16 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SearchForm from '../components/SearchForm.astro';
+import { getContent } from '../content/catalog';
+const { graph } = await getContent();
+---
+<SiteLayout title="Tìm kiếm" description="Tìm bài học, hàm và thuật ngữ trong PTAuto Docs."><div class="page narrow" data-search-page>
+<h1>Tìm trong tài liệu</h1>
+<SearchForm />
+<div class="filter-bar"><label>Mảng kiến thức<select data-filter-technology><option value="">Tất cả</option>{graph.courses.map(c=><option value={c.technology}>{c.title}</option>)}</select></label>
+<label>Loại nội dung<select data-filter-kind><option value="">Tất cả</option><option value="lesson">Bài học</option><option value="concept">Tra cứu</option><option value="example">Ví dụ code</option><option value="exercise">Bài tập</option><option value="project">Dự án</option></select></label></div>
+<p data-search-status role="status" aria-label="Trạng thái tìm kiếm">Nhập từ khóa để tìm.</p><button data-search-retry hidden>Thử lại</button>
+<ul class="search-results" data-search-results aria-label="Kết quả tìm kiếm"></ul>
+<noscript><p>Tìm kiếm cần JavaScript. Bạn vẫn có thể đọc toàn bộ nội dung qua mục Học và Tra cứu.</p></noscript>
+</div><script>import '../client/search';</script></SiteLayout>
+

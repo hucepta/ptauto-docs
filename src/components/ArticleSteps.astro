@@ -1,0 +1,47 @@
+---
+import CodePanel from './CodePanel.astro';
+import CodeExample from './CodeExample.astro';
+import { buildReaderSteps, type ExamplePlacement } from '../domain/content/reader-steps';
+import { getExampleAnchor, type ContentGraph } from '../domain/content/graph';
+import { readExampleCode } from '../domain/content/example-source';
+import type { ExampleEntry } from '../domain/content/schema';
+interface Props {
+  html: string;
+  graph: ContentGraph;
+  exampleIds: string[];
+  placements: ExamplePlacement[];
+  language?: string;
+}
+const { html, graph, exampleIds, placements, language = 'lisp' } = Astro.props;
+const { introHtml, steps, remainingExampleIds } = buildReaderSteps(html, placements, exampleIds);
+const examples = new Map(await Promise.all(exampleIds.map(async id => {
+  const example = graph.entries.get(id) as ExampleEntry;
+  return [id, { example, code: await readExampleCode(example, 'src/content/examples/code') }] as const;
+})));
+---
+<div class="article-steps" data-pagefind-body>
+  {introHtml.trim() && <div class="prose" set:html={introHtml} />}
+  {steps.map((step, index) => <section class:list={['reader-step', { 'has-code': step.codeBlocks.length > 0 || step.exampleIds.length > 0 }]}>
+    <div class="step-copy">
+      <span class="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+      <div class="step-description prose">
+        <Fragment set:html={step.headingHtml} />
+        <Fragment set:html={step.bodyHtml} />
+      </div>
+    </div>
+    {(step.codeBlocks.length > 0 || step.exampleIds.length > 0) && <div class="step-code">
+      {step.codeBlocks.map(block => <CodePanel code={block.code} language={block.language || language} />)}
+      {step.exampleIds.map(id => {
+        const { example, code } = examples.get(id)!;
+        return <CodeExample example={example} code={code} anchorId={getExampleAnchor(id)} />;
+      })}
+    </div>}
+  </section>)}
+  {remainingExampleIds.length > 0 && <section class="reader-step has-code">
+    <div class="step-copy"><span class="step-number" aria-hidden="true">{String(steps.length + 1).padStart(2, '0')}</span><div class="step-description prose"><h2>Ví dụ thực hành</h2></div></div>
+    <div class="step-code">{remainingExampleIds.map(id => {
+      const { example, code } = examples.get(id)!;
+      return <CodeExample example={example} code={code} anchorId={getExampleAnchor(id)} />;
+    })}</div>
+  </section>}
+</div>

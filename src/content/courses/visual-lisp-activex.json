@@ -1,0 +1,10 @@
+{
+  "id": "course.visual-lisp-activex",
+  "slug": "visual-lisp-activex",
+  "title": "Visual LISP / ActiveX",
+  "description": "Làm việc với đối tượng, thuộc tính và collection qua giao diện ActiveX.",
+  "status": "published",
+  "technology": "visual-lisp-activex",
+  "order": 2
+}
+

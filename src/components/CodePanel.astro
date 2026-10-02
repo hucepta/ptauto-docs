@@ -1,0 +1,32 @@
+---
+import { Code } from 'astro:components';
+import type { ComponentProps } from 'astro/types';
+interface Props {
+  code: string;
+  language?: string;
+  filename?: string;
+  anchorId?: string;
+}
+const { code, language = 'lisp', anchorId } = Astro.props;
+const filename = Astro.props.filename || ({ lisp: 'AutoLISP', csharp: 'C#', python: 'Python' }[language as 'lisp' | 'csharp' | 'python'] || language);
+const transformers: NonNullable<ComponentProps<typeof Code>['transformers']> = [{
+  name: 'ptauto-comment-contrast',
+  tokens(lines) {
+    for (const line of lines) for (const token of line) {
+      if (token.color?.toUpperCase() === '#6A737D') token.color = '#95A7BA';
+    }
+  },
+}];
+---
+<section class="code-example" id={anchorId} data-pagefind-ignore>
+  <div class="code-heading">
+    <span class="code-filename">{filename}</span>
+    <button class="js-control copy-button" data-copy data-code={JSON.stringify(code)} aria-label="Sao chép code" title="Sao chép code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+    </button>
+  </div>
+  <Code code={code} lang={language as ComponentProps<typeof Code>['lang']} theme="github-dark" transformers={transformers} />
+  {Astro.slots.has('default') && <div class="code-caption"><slot /></div>}
+  <p class="copy-status" data-copy-status role="status"></p>
+</section>
+<script>import '../client/copy-code';</script>

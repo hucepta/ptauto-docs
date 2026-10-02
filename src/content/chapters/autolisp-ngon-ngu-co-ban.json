@@ -1,0 +1,10 @@
+{
+  "id": "chapter.autolisp.ngon-ngu-co-ban",
+  "slug": "ngon-ngu-co-ban",
+  "title": "Ngôn ngữ cơ bản",
+  "description": "Đọc biểu thức và tổ chức dữ liệu.",
+  "status": "published",
+  "courseId": "course.autolisp",
+  "order": 1
+}
+

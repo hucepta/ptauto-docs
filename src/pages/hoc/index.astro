@@ -1,0 +1,10 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import CourseList from '../../components/CourseList.astro';
+import { getContent } from '../../content/catalog';
+const { graph } = await getContent();
+---
+<SiteLayout title="Lộ trình học" description="Các lộ trình tự động hóa CAD, BIM và dữ liệu."><div class="page">
+<h1>Học theo chủ đề</h1><CourseList graph={graph} />
+</div></SiteLayout>
+

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.superpowers/
+.sites-runtime/
+test-results/
+playwright-report/
+*.log
+.env*
+!.env.example

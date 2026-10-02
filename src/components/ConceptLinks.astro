@@ -1,0 +1,15 @@
+---
+import type { ContentGraph } from '../domain/content/graph';
+import { getContentUrl } from '../domain/content/graph';
+import { withBase } from '../domain/content/urls';
+interface Props {
+    graph: ContentGraph;
+    ids: string[];
+    title?: string;
+}
+const { graph, ids, title = 'Tra cứu liên quan' } = Astro.props;
+---
+{ids.length>0&&<section class="related" data-pagefind-ignore><h2>{title}</h2><ul class="link-list">
+{ids.map(id=>{const entry=graph.entries.get(id)!;return <li><a href={withBase(getContentUrl(graph,id))}>{entry.title}</a><p>{entry.description}</p></li>;})}
+</ul></section>}
+

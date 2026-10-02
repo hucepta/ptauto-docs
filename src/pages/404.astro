@@ -1,0 +1,6 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { withBase } from '../domain/content/urls';
+---
+<SiteLayout title="Không tìm thấy trang" description="Trang bạn tìm không tồn tại hoặc đã thay đổi."><div class="page narrow"><h1>404</h1><p>Hãy tìm theo tên hàm, thuật ngữ hoặc chọn lại một lộ trình.</p><a class="button primary" href={withBase('/tim-kiem/')}>Tìm kiếm tài liệu</a></div></SiteLayout>
+

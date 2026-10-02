@@ -1,0 +1,11 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getContent } from '../../content/catalog';
+import { getContentUrl } from '../../domain/content/graph';
+import { withBase } from '../../domain/content/urls';
+const { graph } = await getContent();
+---
+<SiteLayout title="Dự án thực hành" description="Áp dụng kiến thức vào tiện ích tự động hóa CAD."><div class="page narrow">
+<h1>Từ kiến thức đến công cụ</h1>
+<ul class="link-list">{graph.projects.map(p=><li><a href={withBase(getContentUrl(graph,p.id))}>{p.title}</a><p>{p.description}</p></li>)}</ul></div></SiteLayout>
+

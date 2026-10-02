@@ -1,0 +1,10 @@
+{
+  "id": "chapter.gis-data-automation.du-lieu-khong-gian",
+  "slug": "du-lieu-khong-gian",
+  "title": "Dữ liệu không gian",
+  "description": "Hệ tọa độ, geometry và định dạng trao đổi.",
+  "status": "draft",
+  "courseId": "course.gis-data-automation",
+  "order": 1
+}
+

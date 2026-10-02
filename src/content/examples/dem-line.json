@@ -1,0 +1,25 @@
+{
+  "id": "example.autolisp.dem-line",
+  "slug": "dem-line",
+  "title": "Đếm LINE được chọn",
+  "description": "Lệnh chỉ đọc, kiểm tra nil trước khi đếm selection set.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "dem-line.lsp",
+  "expectedOutput": "Số LINE: 2 khi chọn hai LINE và một CIRCLE",
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có hỗ trợ AutoLISP",
+      "platform": "Windows / macOS"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — ssget (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-0F37CC5E-1559-4011-B8CF-A3BA0973B2C3.htm"
+    }
+  ]
+}
+

@@ -1,0 +1,10 @@
+{
+  "id": "chapter.autolisp.tuong-tac-ban-ve",
+  "slug": "tuong-tac-ban-ve",
+  "title": "Tương tác với bản vẽ",
+  "description": "Chọn và kiểm tra đối tượng trước khi xử lý.",
+  "status": "published",
+  "courseId": "course.autolisp",
+  "order": 2
+}
+

@@ -1,0 +1,12 @@
+---
+import { withBase } from '../domain/content/urls';
+interface Props {
+    items: {
+        title: string;
+        url?: string;
+    }[];
+}
+const { items } = Astro.props;
+---
+<nav aria-label="Đường dẫn" data-pagefind-ignore><ol class="breadcrumbs">{items.map(item=><li>{item.url?<a href={withBase(item.url)}>{item.title}</a>:<span aria-current="page">{item.title}</span>}</li>)}</ol></nav>
+

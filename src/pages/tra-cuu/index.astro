@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import SearchForm from '../../components/SearchForm.astro';
+import { getContent } from '../../content/catalog';
+import { getContentUrl } from '../../domain/content/graph';
+import { withBase } from '../../domain/content/urls';
+const { graph } = await getContent();
+---
+<SiteLayout title="Tra cứu" description="Tra cứu cú pháp, hàm và khái niệm kỹ thuật."><div class="page">
+<h1>Thư viện tra cứu</h1><SearchForm />
+{graph.courses.map(c=><section class="related"><h2><a href={withBase('/tra-cuu/'+c.technology+'/')}>{c.title}</a></h2>
+<ul class="link-list">{graph.concepts.filter(con=>con.technology===c.technology).map(con=><li><a href={withBase(getContentUrl(graph,con.id))}>{con.title}</a><p>{con.description}</p></li>)}</ul></section>)}
+</div></SiteLayout>
+

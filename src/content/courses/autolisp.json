@@ -1,0 +1,10 @@
+{
+  "id": "course.autolisp",
+  "slug": "autolisp",
+  "title": "AutoLISP",
+  "description": "Bắt đầu từ biểu thức, dữ liệu và xây dựng lệnh tự động hóa trong AutoCAD.",
+  "status": "published",
+  "technology": "autolisp",
+  "order": 1
+}
+

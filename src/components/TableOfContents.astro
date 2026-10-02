@@ -1,0 +1,14 @@
+---
+interface Props {
+    headings: {
+        depth: number;
+        slug: string;
+        text: string;
+    }[];
+}
+const { headings } = Astro.props;
+---
+{headings.length>0&&<aside class="toc" data-pagefind-ignore><div class="toc-inner"><details open><summary>Trong trang này</summary>
+<ul>{headings.filter(h=>h.depth===2||h.depth===3).map(h=><li class:list={{nested:h.depth===3}}><a href={'#'+h.slug}>{h.text}</a></li>)}</ul>
+</details></div></aside>}
+

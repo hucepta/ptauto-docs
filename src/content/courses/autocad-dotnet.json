@@ -1,0 +1,10 @@
+{
+  "id": "course.autocad-dotnet",
+  "slug": "autocad-dotnet",
+  "title": "AutoCAD .NET",
+  "description": "Xây dựng plugin C#: transaction, database, editor và giao diện lệnh.",
+  "status": "draft",
+  "technology": "autocad-dotnet",
+  "order": 3
+}
+

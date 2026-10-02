@@ -1,0 +1,26 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SearchForm from '../components/SearchForm.astro';
+import CourseList from '../components/CourseList.astro';
+import { getContent } from '../content/catalog';
+import { getContentUrl, getCourseLessons } from '../domain/content/graph';
+import { withBase } from '../domain/content/urls';
+const { graph } = await getContent();
+const firstCourse = graph.courses[0];
+const firstLessons = firstCourse ? getCourseLessons(graph, firstCourse.id).slice(0, 3) : [];
+const firstProject = graph.projects[0];
+---
+<SiteLayout title="PTAuto Docs" description="Học và tra cứu AutoLISP, ActiveX, .NET, Dynamo và tự động hóa dữ liệu CAD bằng tiếng Việt."><div class="page home-page">
+<section class="home-intro">
+<h1>Tài liệu kỹ thuật bằng tiếng Việt</h1>
+<SearchForm />
+<div class="home-actions"><a class="button primary" href={withBase('/hoc/')}>Khám phá lộ trình <span aria-hidden="true">→</span></a><a class="button" href={withBase('/tra-cuu/')}>Thư viện tra cứu</a></div>
+<div class="continue-box js-control" data-continue hidden></div>
+</section>
+<div class="collection-heading"><h2>Lộ trình học</h2><span class="muted">CAD · BIM · Dữ liệu</span></div><CourseList graph={graph} />
+<div class="home-lower"><section><h2>Nền tảng AutoLISP</h2>
+<ul>{firstLessons.map(l=><li><a href={withBase(getContentUrl(graph,l.id))}>{l.title}</a></li>)}</ul></section>
+<section><h2>Tra cứu & thực hành</h2>
+<a class="button" href={withBase('/tra-cuu/')}>Mở thư viện tra cứu</a>{firstProject&&<p style="margin-top:1.2rem"><a href={withBase(getContentUrl(graph,firstProject.id))}>{firstProject.title} →</a></p>}
+</section></div></div></SiteLayout>
+

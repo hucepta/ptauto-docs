@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getContent } from '../content/catalog';
+import { getContentUrl } from '../domain/content/graph';
+import { withBase } from '../domain/content/urls';
+const { graph } = await getContent();
+---
+<SiteLayout title="Tiếp tục học" description="Trở lại bài đang đọc và theo dõi tiến độ trên thiết bị."><div class="page narrow">
+<h1>Tiến độ trên thiết bị</h1>
+<p data-storage-status role="status" class="status-message"></p><div class="continue-box" data-continue></div>
+<ul class="link-list">{graph.courses.map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p data-course-progress={c.id}></p></li>)}</ul>
+<noscript><p>Bật JavaScript để xem tiến độ. Bạn vẫn có thể mở các lộ trình qua liên kết bên trên.</p></noscript>
+</div></SiteLayout>
+

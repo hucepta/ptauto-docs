@@ -1,0 +1,19 @@
+---
+interface Props {
+    sources: {
+        title: string;
+        url: string;
+    }[];
+    compatibility: {
+        product: string;
+        version: string;
+        platform?: string;
+    }[];
+}
+const { sources, compatibility } = Astro.props;
+---
+<div class="article-end" data-pagefind-ignore>
+{compatibility.length>0&&<><h2>Môi trường</h2><ul>{compatibility.map(c=><li>{c.product} · {c.version}{c.platform?' · '+c.platform:''}</li>)}</ul></>}
+{sources.length>0&&<><h2>Nguồn tham khảo</h2><ul>{sources.map(s=><li><a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a></li>)}</ul></>}
+</div>
+

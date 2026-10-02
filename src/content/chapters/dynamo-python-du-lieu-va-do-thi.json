@@ -1,0 +1,10 @@
+{
+  "id": "chapter.dynamo-python.du-lieu-va-do-thi",
+  "slug": "du-lieu-va-do-thi",
+  "title": "Dữ liệu và đồ thị",
+  "description": "List, lacing và đầu vào Python.",
+  "status": "draft",
+  "courseId": "course.dynamo-python",
+  "order": 1
+}
+

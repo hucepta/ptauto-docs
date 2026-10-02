@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getContent } from '../content/catalog';
+import { getGlossaryEntries, getContentUrl } from '../domain/content/graph';
+import { withBase } from '../domain/content/urls';
+const { graph } = await getContent();
+const terms = getGlossaryEntries(graph);
+---
+<SiteLayout title="Thuật ngữ" description="Giải thích ngắn các thuật ngữ kỹ thuật, liên kết đến trang tra cứu đầy đủ."><div class="page narrow">
+<h1>Từ điển kỹ thuật</h1>
+<ul class="link-list">{terms.map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p>{c.aliases.length>0&&<p class="muted">Còn gọi: {c.aliases.join(', ')}</p>}</li>)}</ul>
+</div></SiteLayout>
+

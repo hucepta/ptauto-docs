@@ -1,0 +1,32 @@
+---
+import { render } from 'astro:content';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import TableOfContents from '../../../components/TableOfContents.astro';
+import ConceptLinks from '../../../components/ConceptLinks.astro';
+import ArticleSteps from '../../../components/ArticleSteps.astro';
+import ArticleEnd from '../../../components/ArticleEnd.astro';
+import { getContent } from '../../../content/catalog';
+import { getContentUrl } from '../../../domain/content/graph';
+import { withBase } from '../../../domain/content/urls';
+export async function getStaticPaths() { const { graph } = await getContent(); return graph.concepts.map(concept => ({ params: { technology: concept.technology, concept: concept.slug }, props: { concept } })); }
+const { concept } = Astro.props;
+const { graph, concepts } = await getContent();
+const entry = concepts.find(c => c.data.id === concept.id)!;
+const { headings } = await render(entry);
+const course = graph.courses.find(c => c.technology === concept.technology)!;
+const relatedLessons = graph.lessons.filter(l => l.conceptIds.includes(concept.id));
+---
+<SiteLayout title={concept.title} description={concept.description}><div class="reader-grid">
+<aside class="reader-sidebar" data-pagefind-ignore><div class="sidebar-inner"><p class="eyebrow">Tra cứu {course.title}</p>
+<nav class="course-nav" aria-label="Thư viện tra cứu"><ul>{graph.concepts.filter(c=>c.technology===concept.technology).map(c=><li><a href={withBase(getContentUrl(graph,c.id))} aria-current={c.id===concept.id?'page':undefined}>{c.title}</a></li>)}</ul></nav>
+<p style="margin-top:2rem"><a href={withBase('/tra-cuu/')}>Tất cả nội dung tra cứu</a></p></div></aside>
+<article class="reader-article"><Breadcrumbs items={[{title:'Tra cứu',url:'/tra-cuu/'},{title:course.title,url:'/tra-cuu/'+concept.technology+'/'},{title:concept.title}]} />
+<header data-content-id={concept.id} data-content-kind="concept"><h1>{concept.title}</h1>
+<div class="article-actions"><button class="js-control" data-bookmark={concept.id} aria-pressed="false">Lưu bài</button></div><p class="status-message" data-storage-status role="status"></p></header>
+<ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={concept.exampleIds} placements={concept.examplePlacements} />
+<ConceptLinks graph={graph} ids={concept.relatedConceptIds} />
+{relatedLessons.length>0&&<section class="related" data-pagefind-ignore><h2>Học trong ngữ cảnh</h2><ul class="link-list">{relatedLessons.map(l=><li><a href={withBase(getContentUrl(graph,l.id))}>{l.title}</a><p>{l.description}</p></li>)}</ul></section>}
+<ArticleEnd sources={concept.sources} compatibility={concept.compatibility} /></article>
+<TableOfContents headings={headings} /></div></SiteLayout>
+

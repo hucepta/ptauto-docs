@@ -1,0 +1,10 @@
+{
+  "id": "course.dynamo-python",
+  "slug": "dynamo-python",
+  "title": "Dynamo / Python",
+  "description": "Kết nối đồ thị Dynamo với Python để xử lý mô hình và dữ liệu.",
+  "status": "draft",
+  "technology": "dynamo-python",
+  "order": 5
+}
+

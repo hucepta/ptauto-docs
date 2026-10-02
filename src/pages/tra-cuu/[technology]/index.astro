@@ -1,0 +1,15 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { getContent } from '../../../content/catalog';
+import { getContentUrl } from '../../../domain/content/graph';
+import { withBase } from '../../../domain/content/urls';
+export async function getStaticPaths() { const { graph } = await getContent(); return graph.courses.map(course => ({ params: { technology: course.technology }, props: { course } })); }
+const { course } = Astro.props;
+const { graph } = await getContent();
+---
+<SiteLayout title={'Tra cứu '+course.title} description={course.description}><div class="page narrow">
+<Breadcrumbs items={[{title:'Tra cứu',url:'/tra-cuu/'},{title:course.title}]} /><h1>Tra cứu {course.title}</h1>
+<ul class="link-list">{graph.concepts.filter(c=>c.technology===course.technology).map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p></li>)}</ul>
+</div></SiteLayout>
+

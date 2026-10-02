@@ -1,0 +1,18 @@
+---
+import LearnLayout from '../../../../layouts/LearnLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import { getContent } from '../../../../content/catalog';
+import { getContentUrl } from '../../../../domain/content/graph';
+import type { CourseEntry } from '../../../../domain/content/schema';
+import { withBase } from '../../../../domain/content/urls';
+export async function getStaticPaths() { const { graph } = await getContent(); return graph.chapters.map(chapter => ({ params: { course: (graph.entries.get(chapter.courseId) as CourseEntry).slug, group: chapter.slug }, props: { chapter } })); }
+const { chapter } = Astro.props;
+const { graph } = await getContent();
+const course = graph.entries.get(chapter.courseId) as CourseEntry;
+---
+<LearnLayout title={chapter.title} description={chapter.description} graph={graph} courseId={course.id}>
+<Breadcrumbs items={[{title:'Học',url:'/hoc/'},{title:course.title,url:getContentUrl(graph,course.id)},{title:chapter.title}]} />
+<h1>Nhóm chủ đề</h1>
+<ul class="link-list">{graph.lessons.filter(l=>l.chapterId===chapter.id).sort((a,b)=>a.order-b.order).map(l=><li><a href={withBase(getContentUrl(graph,l.id))}>{l.title}</a><p>{l.description}</p></li>)}</ul>
+</LearnLayout>
+

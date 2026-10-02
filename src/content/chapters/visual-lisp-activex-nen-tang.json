@@ -1,0 +1,10 @@
+{
+  "id": "chapter.visual-lisp-activex.nen-tang",
+  "slug": "nen-tang",
+  "title": "Nền tảng ActiveX",
+  "description": "Môi trường Windows và khởi tạo các hàm mở rộng.",
+  "status": "published",
+  "courseId": "course.visual-lisp-activex",
+  "order": 1
+}
+

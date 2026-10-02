@@ -1,0 +1,10 @@
+{
+  "id": "course.civil3d-dotnet",
+  "slug": "civil3d-dotnet",
+  "title": "Civil 3D .NET",
+  "description": "Tự động hóa Surface, Alignment, Profile, Corridor và dữ liệu thiết kế.",
+  "status": "draft",
+  "technology": "civil3d-dotnet",
+  "order": 4
+}
+

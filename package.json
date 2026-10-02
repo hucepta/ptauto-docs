@@ -1,0 +1,38 @@
+{
+  "name": "ptauto-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "scripts": {
+    "dev": "node scripts/astro.mjs dev --host 127.0.0.1",
+    "check": "node scripts/astro.mjs check",
+    "lint": "eslint .",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "build": "node scripts/astro.mjs build && node scripts/build-search.mjs && node scripts/verify-artifact.mjs",
+    "preview": "node scripts/serve.mjs",
+    "verify:artifact": "node scripts/verify-artifact.mjs",
+    "verify": "node scripts/verify.mjs",
+    "measure:preview": "node scripts/measure-preview.mjs",
+    "package:release": "node scripts/package-release.mjs"
+  },
+  "dependencies": {
+    "astro": "7.3.5",
+    "parse5": "8.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.19.1",
+    "eslint": "10.11.0",
+    "eslint-plugin-astro": "3.2.1",
+    "pagefind": "1.5.2",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.0",
+    "vitest": "5.0.3"
+  }
+}

@@ -1,0 +1,48 @@
+:root {
+  --ink: #12283e;
+  --muted: #53677a;
+  --accent: #075d9b;
+  --teal: #087e87;
+  --accent-soft: #eaf5f8;
+  --line: #d8e3e8;
+  --surface: #f3f7f9;
+  --paper: #fff;
+  --font: "Segoe UI", Arial, sans-serif;
+  --mono: "Cascadia Code", Consolas, "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 7rem; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.75 var(--font);
+  background: radial-gradient(ellipse 900px 560px at 15% 0, #e4f5f5 0, transparent 75%),
+    radial-gradient(ellipse 1000px 600px at 95% 8%, #eaf0ff 0, transparent 75%), #fff;
+}
+a { color: var(--accent); text-underline-offset: .2em; }
+a:hover { color: var(--teal); text-decoration-thickness: 2px; }
+button, input, select { font: inherit; }
+button, summary { cursor: pointer; }
+button { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+img, svg { max-width: 100%; }
+[hidden] { display: none !important; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); line-height: 1.2; letter-spacing: -.035em; font-weight: 750; margin-bottom: 1.2rem; text-wrap: balance; }
+h2 { font-size: 1.4rem; line-height: 1.4; margin: 2.5rem 0 1rem; font-weight: 700; letter-spacing: -.025em; }
+h3 { font-size: 1.08rem; line-height: 1.5; font-weight: 650; }
+p { margin-bottom: 1.2rem; }
+code { font: .9em var(--mono); }
+pre { max-width: 100%; overflow: auto; font: 14px/1.75 var(--mono); padding: 1.2rem 1.4rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+pre code { font: inherit; }
+button, .button { border: 1px solid var(--line); background: var(--paper); border-radius: 7px; padding: .55rem 1rem; text-decoration: none; font-weight: 600; line-height: 1.5; }
+button:hover, .button:hover { background: var(--surface); }
+.primary { background: linear-gradient(110deg, #074d82, #087c87); color: white; border-color: #086d85; box-shadow: 0 3px 10px #0659791a; }
+.primary:hover { background: #064e73; color: white; }
+.muted { color: var(--muted); }
+.eyebrow { color: var(--muted); font-size: .75rem; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .75rem; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); overflow: hidden; }
+.js-control { display: none; }
+.js .js-control { display: inline-flex; }
+::selection { background: #bcece9; color: #0b354f; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

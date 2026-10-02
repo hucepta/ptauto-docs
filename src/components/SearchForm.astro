@@ -1,0 +1,10 @@
+---
+import { withBase } from '../domain/content/urls';
+const { id = 'search-query' } = Astro.props;
+---
+<form class="search-form" action={withBase('/tim-kiem/')} method="get" role="search">
+<label class="visually-hidden" for={id}>Tìm bài học, hàm hoặc thuật ngữ</label>
+<input id={id} type="search" name="q" placeholder="Tìm hàm, bài học, thuật ngữ… ví dụ: list, ssget" autocomplete="off" />
+<button class="primary" type="submit">Tìm kiếm</button>
+</form>
+

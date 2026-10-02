@@ -1,0 +1,10 @@
+{
+  "id": "course.gis-data-automation",
+  "slug": "gis-data-automation",
+  "title": "GIS / Data Automation",
+  "description": "Chuẩn hóa dữ liệu không gian, hệ tọa độ và quy trình trao đổi dữ liệu.",
+  "status": "draft",
+  "technology": "gis-data-automation",
+  "order": 6
+}
+

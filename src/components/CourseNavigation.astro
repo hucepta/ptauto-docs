@@ -1,0 +1,20 @@
+---
+import type { ContentGraph } from '../domain/content/graph';
+import { getCourseLessons, getContentUrl } from '../domain/content/graph';
+import { withBase } from '../domain/content/urls';
+interface Props {
+    graph: ContentGraph;
+    courseId: string;
+    activeId?: string;
+}
+const { graph, courseId, activeId } = Astro.props;
+const course = graph.entries.get(courseId)!;
+const chapters = graph.chapters.filter(c => c.courseId === courseId);
+const lessons = getCourseLessons(graph, courseId);
+---
+<nav aria-label="Nội dung lộ trình" data-pagefind-ignore><details class="course-nav" open><summary>{course.title}</summary>
+<a href={withBase(getContentUrl(graph,courseId))} class="muted">Tổng quan lộ trình</a>
+{chapters.map(chapter=><section><h3><a href={withBase(getContentUrl(graph,chapter.id))} class="muted">{chapter.title}</a></h3>
+<ul>{lessons.filter(l=>l.chapterId===chapter.id).map(l=><li><a href={withBase(getContentUrl(graph,l.id))} aria-current={l.id===activeId?'page':undefined}>{l.title}<span class="lesson-marker" data-lesson-marker={l.id}></span></a></li>)}</ul></section>)}
+</details></nav>
+
