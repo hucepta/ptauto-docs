@@ -28,7 +28,7 @@ Lượt đo ngày 2026-10-02 trên Chromium 153, viewport 1440×1000: trang ch�
 
 ## Sites private
 
-Site đã đăng ký được giữ trong `.openai/hosting.json`; luôn dùng đúng `project_id` này, không tạo Site mới. Audience mặc định là owner private và phải được giữ nguyên nếu chưa có yêu cầu đổi. Khi plugin có sẵn, dùng `site-workflow.mjs` chính thức với credential qua stdin, checkout hiện tại và archive path tuyệt đối; workflow kiểm tra remote SHA và archive. Các helper bên dưới là đường dự phòng nếu plugin không còn ở máy.
+Site đã đăng ký được giữ trong `.openai/hosting.json`; luôn dùng đúng `project_id` này, không tạo Site mới. Audience mặc định là owner private và phải được giữ nguyên nếu chưa có yêu cầu đổi. Khi plugin và Bash có sẵn, dùng `site-workflow.mjs` chính thức với credential qua stdin, checkout hiện tại và archive path tuyệt đối; workflow kiểm tra remote SHA và archive. Windows hiện tại không chạy được package Bash của plugin; các helper Node/tar bên dưới cung cấp đường dự phòng đã kiểm tra.
 
 1. Commit nguồn đã qua kiểm tra, bảo đảm working tree sạch.
 2. Đặt `SITE_URL` là origin HTTPS của Site. `npm run package:release` build cùng commit, sinh checksum/`sourceCommit` và archive chỉ chứa `.openai/hosting.json` với `dist/`.

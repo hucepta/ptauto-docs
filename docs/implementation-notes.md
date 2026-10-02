@@ -41,6 +41,6 @@ Các phạm vi reviewer không kết luận được đã được xử lý rõ:
 - Sites HTTPS/access/cache/rollback: deployment status chỉ xác nhận nền tảng đã phát hành. Kiểm tra trực tiếp đã được ghi thành checklist; chưa coi cache hoặc rollback là đã thử thực tế ở bản đầu tiên.
 - Đồng bộ nhiều thiết bị/offline: nằm ngoài phạm vi, progress/bookmark lưu trên trình duyệt hiện tại. Người dùng đổi thiết bị không có tiến độ tự đồng bộ.
 
-Plugin Sites xuất hiện trở lại ở bước phát hành; dùng workflow chính thức để push và đóng gói đúng nguồn đã kiểm tra. Helper local được giữ như đường dự phòng có mô tả. Branch `feat/ptauto-docs` được giữ, không có nhánh nền trước đó để merge và không tạo PR khi chưa được yêu cầu.
+Plugin Sites xuất hiện trở lại ở bước phát hành; workflow chính thức đã chuẩn bị nguồn nhưng bước package gọi Bash không có trên Windows hiện tại. Dùng helper Node/tar local để đóng gói và kiểm tra đúng nguồn đã commit, rồi connector lưu/deploy. Credential chỉ đi qua stdin/bộ nhớ; remote SHA được đối chiếu, quyền owner private được giữ. Branch `feat/ptauto-docs` được giữ, không có nhánh nền trước đó để merge và không tạo PR khi chưa được yêu cầu.
 
 Không lấy kết quả build web làm bằng chứng kiểm chứng CAD.
