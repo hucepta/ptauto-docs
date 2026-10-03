@@ -9,7 +9,8 @@ const { course } = Astro.props;
 const { graph } = await getContent();
 ---
 <SiteLayout title={'Tra cứu '+course.title} description={course.description}><div class="page narrow">
-<Breadcrumbs items={[{title:'Tra cứu',url:'/tra-cuu/'},{title:course.title}]} /><h1>Tra cứu {course.title}</h1>
-<ul class="link-list">{graph.concepts.filter(c=>c.technology===course.technology).map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p></li>)}</ul>
+<Breadcrumbs items={[{title:'Tra cứu API',url:'/tra-cuu/'},{title:course.title}]} /><h1>Tra cứu {course.title}</h1>
+<p>Cú pháp và API để dùng khi viết code. Các định nghĩa nhập môn nằm trong <a href={withBase('/thuat-ngu/')}>Từ điển kỹ thuật</a>.</p>
+<ul class="link-list">{graph.concepts.filter(c=>c.technology===course.technology&&c.kind!=='term').map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p></li>)}</ul>
 </div></SiteLayout>
 

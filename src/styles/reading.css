@@ -175,8 +175,13 @@ details.solution > div { margin-top: .75rem; }
 .process-visual p { font-size: .88rem; margin: .8rem 0 0; }
 .visual-progress { stroke-dasharray: 750; stroke-dashoffset: 750; animation: reveal-path 5s ease-in-out infinite alternate; }
 .visual-result { animation: result-pulse 3s ease-in-out infinite alternate; }
+.process-visual[data-visual-variant=marker] svg circle, .process-visual[data-visual-variant=profile] svg circle { animation: point-reveal 3s ease-in-out infinite alternate; }
+.process-visual[data-visual-variant=marker] svg circle:nth-child(2), .process-visual[data-visual-variant=profile] svg circle:nth-child(2) { animation-delay: .35s; }
+.process-visual[data-visual-variant=marker] svg circle:nth-child(3), .process-visual[data-visual-variant=profile] svg circle:nth-child(3) { animation-delay: .7s; }
+.process-visual[data-visual-variant=marker] svg circle:nth-child(4), .process-visual[data-visual-variant=profile] svg circle:nth-child(4) { animation-delay: 1.05s; }
 @keyframes reveal-path { to { stroke-dashoffset: 0; } }
 @keyframes result-pulse { from { opacity: .45; } to { opacity: 1; } }
+@keyframes point-reveal { from { opacity: .2; } to { opacity: 1; } }
 .project-guide { padding: 1.3rem; background: #f6fafb; border-left: 3px solid #0b8692; }
 .project-guide h2 { margin-top: 0; }
 .project-guide li { margin-bottom: .5rem; }
@@ -260,7 +265,7 @@ details.solution > div { margin-top: .75rem; }
   .subject-mark, .primary { background: Canvas; color: CanvasText; }
 }
 @media (prefers-reduced-motion: reduce) { .course-intro-copy::before { animation: none; } }
-@media (prefers-reduced-motion: reduce) { .visual-progress { animation: none; stroke-dashoffset: 0; } .visual-result { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .visual-progress { animation: none; stroke-dashoffset: 0; } .visual-result, .process-visual svg circle { animation: none !important; } }
 
 @media (min-width: 761px) and (max-width: 1000px) {
   .header-inner { padding-inline: 2rem; flex-wrap: wrap; gap: .5rem; justify-content: space-between; }
