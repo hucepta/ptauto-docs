@@ -61,7 +61,8 @@
         "example.gis-data-automation.qa-linework"
       ]
     }
-  ]
+  ],
+  "illustration": "network"
 }
 ---
 

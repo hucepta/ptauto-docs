@@ -1,5 +1,32 @@
 ---
-{"id":"lesson.autocad-dotnet.bat-dau-plugin","slug":"bat-dau-plugin","title":"Tạo và nạp plugin C# đầu tiên","description":"Hiểu DLL, CommandMethod, NETLOAD và nơi mã plugin chạy trong AutoCAD.","status":"published","chapterId":"chapter.autocad-dotnet.bat-dau","order":1,"difficulty":"co-ban","sources":[{"title":"Autodesk — AutoCAD .NET Developer's Guide","url":"https://help.autodesk.com/view/OARX/2026/ENU/"},{"title":"Autodesk — About the Document Object","url":"https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm"}],"compatibility":[{"product":"AutoCAD .NET","version":"SDK và target framework phải khớp phiên bản AutoCAD đích","platform":"Windows"}]}
+{
+  "id": "lesson.autocad-dotnet.bat-dau-plugin",
+  "slug": "bat-dau-plugin",
+  "title": "Tạo và nạp plugin C# đầu tiên",
+  "description": "Hiểu DLL, CommandMethod, NETLOAD và nơi mã plugin chạy trong AutoCAD.",
+  "status": "published",
+  "chapterId": "chapter.autocad-dotnet.bat-dau",
+  "order": 1,
+  "difficulty": "co-ban",
+  "sources": [
+    {
+      "title": "Autodesk — AutoCAD .NET Developer's Guide",
+      "url": "https://help.autodesk.com/view/OARX/2026/ENU/"
+    },
+    {
+      "title": "Autodesk — About the Document Object",
+      "url": "https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "SDK và target framework phải khớp phiên bản AutoCAD đích",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "terminal"
+}
 ---
 
 ## Lệnh .NET sống ở đâu

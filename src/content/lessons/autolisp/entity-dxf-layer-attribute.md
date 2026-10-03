@@ -77,7 +77,8 @@
         "example.autolisp.doc-attribute-block"
       ]
     }
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

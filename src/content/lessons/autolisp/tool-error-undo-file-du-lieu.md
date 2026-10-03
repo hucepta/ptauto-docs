@@ -62,7 +62,8 @@
         "example.autolisp.xuat-line-csv"
       ]
     }
-  ]
+  ],
+  "illustration": "report"
 }
 ---
 

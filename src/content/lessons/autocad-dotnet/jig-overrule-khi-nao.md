@@ -8,14 +8,38 @@
   "chapterId": "chapter.autocad-dotnet.plugin-tin-cay",
   "order": 3,
   "difficulty": "nang-cao",
-  "prerequisites": ["lesson.autocad-dotnet.editor-selection-hinh-hoc", "lesson.autocad-dotnet.plugin-tin-cay"],
-  "flow": [
-    {"label": "Tương tác", "detail": "Người dùng đang kéo điểm hay chỉ xem kết quả?"},
-    {"label": "Chọn API", "detail": "Jig cho preview nhập liệu; Overrule cho hành vi entity"},
-    {"label": "Vòng đời", "detail": "Hủy, tháo đăng ký và kiểm tra mở nhiều document"}
+  "prerequisites": [
+    "lesson.autocad-dotnet.editor-selection-hinh-hoc",
+    "lesson.autocad-dotnet.plugin-tin-cay"
   ],
-  "sources": [{"title": "Autodesk — DrawJig Class", "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_EditorInput_DrawJig.html"}],
-  "compatibility": [{"product": "AutoCAD .NET", "version": "Dùng SDK đúng phiên bản host và chạy kiểm tra trong AutoCAD", "platform": "Windows"}]
+  "flow": [
+    {
+      "label": "Tương tác",
+      "detail": "Người dùng đang kéo điểm hay chỉ xem kết quả?"
+    },
+    {
+      "label": "Chọn API",
+      "detail": "Jig cho preview nhập liệu; Overrule cho hành vi entity"
+    },
+    {
+      "label": "Vòng đời",
+      "detail": "Hủy, tháo đăng ký và kiểm tra mở nhiều document"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — DrawJig Class",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_EditorInput_DrawJig.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Dùng SDK đúng phiên bản host và chạy kiểm tra trong AutoCAD",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "curve"
 }
 ---
 

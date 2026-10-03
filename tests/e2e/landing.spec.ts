@@ -31,16 +31,16 @@ test('construction_scene_repeats_wireframe_growth_and_fade_in_a_stable_16_second
     };
     const bounds = await hero.boundingBox();
     await seek(1000);
-    await expect(hero.locator('[data-main-building]')).toHaveCSS('opacity', '0');
+    expect(Number(await hero.locator('[data-main-building]').evaluate(element => getComputedStyle(element).opacity))).toBeGreaterThan(0);
     await expect(hero.locator('[data-lit-window]').first()).toHaveCSS('opacity', '0');
     expect(Number(await hero.locator('[data-wireframe]').first().evaluate(element => parseFloat(getComputedStyle(element).strokeDashoffset)))).toBeGreaterThan(0);
     await seek(10000);
     await expect(hero.locator('[data-main-building]')).toHaveCSS('opacity', '1');
     await expect(hero.locator('[data-lit-window]').first()).toHaveCSS('opacity', '1');
     await seek(14000);
-    expect(Number(await hero.locator('[data-main-building]').evaluate(element => getComputedStyle(element).opacity))).toBeLessThan(.5);
+    expect(Number(await hero.locator('[data-main-building]').evaluate(element => getComputedStyle(element).opacity))).toBeLessThanOrEqual(.5);
     await seek(17000);
-    await expect(hero.locator('[data-main-building]')).toHaveCSS('opacity', '0');
+    expect(Number(await hero.locator('[data-main-building]').evaluate(element => getComputedStyle(element).opacity))).toBeGreaterThan(0);
     expect(await hero.boundingBox()).toEqual(bounds);
 });
 

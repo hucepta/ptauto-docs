@@ -30,7 +30,8 @@
       "title": "Autodesk — Data Types (AutoLISP)",
       "url": "https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-AutoLISP/files/GUID-7E568541-F1D0-49C4-B878-15880486825F.htm"
     }
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

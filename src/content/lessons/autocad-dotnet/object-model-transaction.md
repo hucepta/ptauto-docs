@@ -55,7 +55,8 @@
     "Symbol Table",
     "AppendEntity",
     "ForWrite"
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

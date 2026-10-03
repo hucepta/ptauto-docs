@@ -62,7 +62,8 @@
     "AutoLISP",
     "Civil 3D",
     "QA/QC"
-  ]
+  ],
+  "illustration": "curve"
 }
 ---
 

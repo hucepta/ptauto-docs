@@ -80,7 +80,8 @@
         "example.gis-data-automation.points-to-geojson"
       ]
     }
-  ]
+  ],
+  "illustration": "map"
 }
 ---
 

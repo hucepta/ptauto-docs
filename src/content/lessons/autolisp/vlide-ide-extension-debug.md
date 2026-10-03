@@ -1,5 +1,49 @@
 ---
-{"id":"lesson.autolisp.vlide-ide-extension-debug","slug":"vlide-ide-extension-debug","title":"VLIDE, AutoLISP Extension và cách khoanh vùng lỗi","description":"Biết vai trò của IDE/debugger và sửa lỗi theo nơi chạy, file nạp, cú pháp, dữ liệu, luồng.","status":"published","chapterId":"chapter.autolisp.bat-dau","order":3,"difficulty":"co-ban","prerequisites":["lesson.autolisp.command-line-file-lsp"],"flow":[{"label":"Quan sát","detail":"Ghi prompt và phản hồi lỗi thực tế"},{"label":"Khoanh vùng","detail":"Kiểm file, nơi chạy, biểu thức và giá trị"},{"label":"Thử lại","detail":"Sửa một điểm, nạp lại và so kết quả"}],"sources":[{"title":"Autodesk — AutoLISP Developer's Guide","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-265AADB3-FB89-4D34-AA9D-6ADF70FF7D4B.htm"},{"title":"Autodesk — Getting Started with AutoLISP Extension","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-LT-AutoLISP/files/GUID-7BE00235-5D40-4789-9E34-D57685E83875.htm"}],"compatibility":[{"product":"AutoCAD","version":"VLIDE và một số tính năng debug phụ thuộc nền tảng/phiên bản","platform":"Windows / macOS"}]}
+{
+  "id": "lesson.autolisp.vlide-ide-extension-debug",
+  "slug": "vlide-ide-extension-debug",
+  "title": "VLIDE, AutoLISP Extension và cách khoanh vùng lỗi",
+  "description": "Biết vai trò của IDE/debugger và sửa lỗi theo nơi chạy, file nạp, cú pháp, dữ liệu, luồng.",
+  "status": "published",
+  "chapterId": "chapter.autolisp.bat-dau",
+  "order": 3,
+  "difficulty": "co-ban",
+  "prerequisites": [
+    "lesson.autolisp.command-line-file-lsp"
+  ],
+  "flow": [
+    {
+      "label": "Quan sát",
+      "detail": "Ghi prompt và phản hồi lỗi thực tế"
+    },
+    {
+      "label": "Khoanh vùng",
+      "detail": "Kiểm file, nơi chạy, biểu thức và giá trị"
+    },
+    {
+      "label": "Thử lại",
+      "detail": "Sửa một điểm, nạp lại và so kết quả"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — AutoLISP Developer's Guide",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-265AADB3-FB89-4D34-AA9D-6ADF70FF7D4B.htm"
+    },
+    {
+      "title": "Autodesk — Getting Started with AutoLISP Extension",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-LT-AutoLISP/files/GUID-7BE00235-5D40-4789-9E34-D57685E83875.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "VLIDE và một số tính năng debug phụ thuộc nền tảng/phiên bản",
+      "platform": "Windows / macOS"
+    }
+  ],
+  "illustration": "terminal"
+}
 ---
 
 ## Vấn đề

@@ -37,7 +37,8 @@
       "version": "Build và thử với SDK/host Civil 3D cùng phiên bản",
       "platform": "Windows"
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

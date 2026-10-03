@@ -19,7 +19,8 @@ test('project_catalog_groups_all_six_tracks_with_guides', async ({ page, request
   for (const project of projects) {
     await page.goto(project.url);
     await expect(page.getByRole('heading', { name: 'Hướng dẫn giải' })).toBeVisible();
-    await expect(page.locator('.process-visual')).toBeVisible();
+    await expect(page.locator('.project-flowchart')).toBeVisible();
+    await expect(page.locator('.project-aspect')).toHaveCount(9);
     await expect(page.getByText('Kết quả cần đối chiếu:')).toBeVisible();
   }
 });

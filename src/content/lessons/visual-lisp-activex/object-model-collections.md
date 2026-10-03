@@ -59,7 +59,8 @@
         "example.visual-lisp-activex.thong-ke-modelspace"
       ]
     }
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

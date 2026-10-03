@@ -55,7 +55,8 @@
         "example.gis-data-automation.map-cad-records"
       ]
     }
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

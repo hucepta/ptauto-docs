@@ -7,10 +7,35 @@ import { withBase } from '../../../domain/content/urls';
 export async function getStaticPaths() { const { graph } = await getContent(); return graph.courses.map(course => ({ params: { technology: course.technology }, props: { course } })); }
 const { course } = Astro.props;
 const { graph } = await getContent();
+const entries = graph.concepts.filter(concept => concept.technology === course.technology && concept.kind !== 'term');
+const officialReference: Record<string, { title: string; url: string }> = {
+  autolisp: { title: 'Danh mục hàm AutoLISP của Autodesk', url: 'https://help.autodesk.com/view/ACD/2026/ENU/?caas=caas%2Fdocumentation%2FCIV3D%2F2014%2FENU%2FfilesACD%2FGUID-2FBBFA70-D9DA-4D70-8FC8-8F7CCF1183AD-htm.html' },
+  'visual-lisp-activex': { title: 'Tham chiếu hàm Visual LISP / ActiveX của Autodesk', url: 'https://help.autodesk.com/cloudhelp/2021/ENU/AutoCAD-AutoLISP-Reference/files/GUID-26FF2BE2-B5BF-4DD1-A617-36727E51F516.htm' },
+  'autocad-dotnet': { title: 'Không gian tên AutoCAD .NET Runtime', url: 'https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_Runtime.html' },
+  'civil3d-dotnet': { title: 'Tham chiếu CivilDocument', url: 'https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/6b21bf2d-709c-3fc8-5133-abded01ec6ed.htm' },
+  'dynamo-python': { title: 'Dynamo Primer · Index of Nodes', url: 'https://primer.dynamobim.org/Appendix/A-2_index-of-nodes.html' },
+  'gis-data-automation': { title: 'PostGIS Reference', url: 'https://postgis.net/docs/reference.html' },
+};
 ---
 <SiteLayout title={'Tra cứu '+course.title} description={course.description}><div class="page narrow">
-<Breadcrumbs items={[{title:'Tra cứu API',url:'/tra-cuu/'},{title:course.title}]} /><h1>Tra cứu {course.title}</h1>
-<p>Cú pháp và API để dùng khi viết code. Các định nghĩa nhập môn nằm trong <a href={withBase('/thuat-ngu/')}>Từ điển kỹ thuật</a>.</p>
-<ul class="link-list">{graph.concepts.filter(c=>c.technology===course.technology&&c.kind!=='term').map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p></li>)}</ul>
+<Breadcrumbs items={[{title:'Tra cứu',url:'/tra-cuu/'},{title:course.title}]} /><h1>Tra cứu {course.title}</h1>
+<p>Chọn một mục để xem cách dùng, ví dụ và nguồn tài liệu. Tra nghĩa thuật ngữ tại <a href={withBase('/thuat-ngu/')}>Từ điển kỹ thuật</a>.</p>
+<p class="reference-source">Tra cứu đầy đủ các hàm theo phiên bản tại <a href={officialReference[course.technology].url} target="_blank" rel="noopener noreferrer">{officialReference[course.technology].title}</a>.</p>
+<label class="reference-filter-label" for="reference-filter">Tìm trong {course.title}</label>
+<input class="reference-filter" id="reference-filter" type="search" placeholder="Nhập tên hàm, cú pháp hoặc tác vụ" autocomplete="off" />
+<p class="reference-count" data-reference-count aria-live="polite">{entries.length} mục tra cứu</p>
+<ul class="link-list reference-results">{entries.map(concept=><li data-reference-item data-search={`${concept.title} ${concept.description} ${concept.aliases.join(' ')}`}><a href={withBase(getContentUrl(graph,concept.id))}>{concept.title}</a><p>{concept.description}</p></li>)}</ul>
 </div></SiteLayout>
+<script>
+const input = document.querySelector<HTMLInputElement>('#reference-filter');
+const items = [...document.querySelectorAll<HTMLElement>('[data-reference-item]')];
+const count = document.querySelector<HTMLElement>('[data-reference-count]');
+const normalize = (value: string) => value.toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
+input?.addEventListener('input', () => {
+  const query = normalize(input.value.trim());
+  let visible = 0;
+  for (const item of items) { item.hidden = !normalize(item.dataset.search || '').includes(query); if (!item.hidden) visible++; }
+  if (count) count.textContent = visible ? `${visible} mục tra cứu` : 'Không tìm thấy mục phù hợp.';
+});
+</script>
 

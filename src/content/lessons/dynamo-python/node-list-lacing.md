@@ -55,7 +55,8 @@
         "example.dynamo-python.ghep-danh-sach"
       ]
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

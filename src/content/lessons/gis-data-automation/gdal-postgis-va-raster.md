@@ -8,18 +8,46 @@
   "chapterId": "chapter.gis-data-automation.dinh-dang-cong-cu",
   "order": 3,
   "difficulty": "trung-cap",
-  "prerequisites": ["lesson.gis-data-automation.geojson-geopackage-shp-landxml", "lesson.gis-data-automation.vn2000-crs-reprojection"],
+  "prerequisites": [
+    "lesson.gis-data-automation.geojson-geopackage-shp-landxml",
+    "lesson.gis-data-automation.vn2000-crs-reprojection"
+  ],
   "flow": [
-    {"label": "Nguồn", "detail": "Vector tuyến/ống hoặc raster địa hình"},
-    {"label": "Chuyển", "detail": "GDAL/OGR xử lý file, PostGIS lưu và hỏi đáp"},
-    {"label": "QA", "detail": "Đối chiếu CRS, số feature, geometry và schema"}
+    {
+      "label": "Nguồn",
+      "detail": "Vector tuyến/ống hoặc raster địa hình"
+    },
+    {
+      "label": "Chuyển",
+      "detail": "GDAL/OGR xử lý file, PostGIS lưu và hỏi đáp"
+    },
+    {
+      "label": "QA",
+      "detail": "Đối chiếu CRS, số feature, geometry và schema"
+    }
   ],
   "sources": [
-    {"title": "GDAL — ogr2ogr", "url": "https://gdal.org/en/stable/programs/ogr2ogr.html"},
-    {"title": "PostGIS — ST_IsValid", "url": "https://postgis.net/docs/ST_IsValid.html"},
-    {"title": "QGIS — Raster Data", "url": "https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/raster_data.html"}
+    {
+      "title": "GDAL — ogr2ogr",
+      "url": "https://gdal.org/en/stable/programs/ogr2ogr.html"
+    },
+    {
+      "title": "PostGIS — ST_IsValid",
+      "url": "https://postgis.net/docs/ST_IsValid.html"
+    },
+    {
+      "title": "QGIS — Raster Data",
+      "url": "https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/raster_data.html"
+    }
   ],
-  "compatibility": [{"product": "GDAL / PostGIS / QGIS", "version": "Ghi phiên bản công cụ và CRS thực tế của dự án", "platform": "Windows / macOS / Linux"}]
+  "compatibility": [
+    {
+      "product": "GDAL / PostGIS / QGIS",
+      "version": "Ghi phiên bản công cụ và CRS thực tế của dự án",
+      "platform": "Windows / macOS / Linux"
+    }
+  ],
+  "illustration": "map"
 }
 ---
 

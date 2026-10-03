@@ -1,5 +1,32 @@
 ---
-{"id":"lesson.dynamo-python.bat-dau-dynamo","slug":"bat-dau-dynamo","title":"Tạo graph Dynamo đầu tiên trong Civil 3D","description":"Nhận diện node, dây, Watch và cơ chế dữ liệu đi từ đầu vào đến kết quả.","status":"published","chapterId":"chapter.dynamo-python.bat-dau","order":1,"difficulty":"co-ban","sources":[{"title":"Dynamo Primer — Getting Started with Dynamo for Civil 3D","url":"https://primer2.dynamobim.org/dynamo-for-civil-3d/getting-started"},{"title":"Dynamo Primer — Node Library","url":"https://primer2.dynamobim.org/dynamo-for-civil-3d/node-library"}],"compatibility":[{"product":"Dynamo for Civil 3D","version":"Node và Python engine thay đổi theo phiên bản Civil 3D","platform":"Windows"}]}
+{
+  "id": "lesson.dynamo-python.bat-dau-dynamo",
+  "slug": "bat-dau-dynamo",
+  "title": "Tạo graph Dynamo đầu tiên trong Civil 3D",
+  "description": "Nhận diện node, dây, Watch và cơ chế dữ liệu đi từ đầu vào đến kết quả.",
+  "status": "published",
+  "chapterId": "chapter.dynamo-python.bat-dau",
+  "order": 1,
+  "difficulty": "co-ban",
+  "sources": [
+    {
+      "title": "Dynamo Primer — Getting Started with Dynamo for Civil 3D",
+      "url": "https://primer2.dynamobim.org/dynamo-for-civil-3d/getting-started"
+    },
+    {
+      "title": "Dynamo Primer — Node Library",
+      "url": "https://primer2.dynamobim.org/dynamo-for-civil-3d/node-library"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Dynamo for Civil 3D",
+      "version": "Node và Python engine thay đổi theo phiên bản Civil 3D",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "graph"
+}
 ---
 
 ## Đồ thị là một quy trình nhìn thấy được

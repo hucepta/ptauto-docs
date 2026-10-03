@@ -37,7 +37,8 @@
       "version": "COM/VLA có hỗ trợ",
       "platform": "Windows"
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

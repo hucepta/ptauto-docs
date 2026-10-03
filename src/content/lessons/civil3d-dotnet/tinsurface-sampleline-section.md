@@ -68,7 +68,8 @@
     "Sample Line Group",
     "Section",
     "Section View"
-  ]
+  ],
+  "illustration": "profile"
 }
 ---
 

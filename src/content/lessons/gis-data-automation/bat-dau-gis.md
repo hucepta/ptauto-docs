@@ -1,5 +1,32 @@
 ---
-{"id":"lesson.gis-data-automation.bat-dau-gis","slug":"bat-dau-gis","title":"Một đối tượng hạ tầng trở thành dữ liệu GIS thế nào","description":"Phân biệt hình học, thuộc tính, CRS và kiểm tra kết quả trước khi chuyển CAD sang GIS.","status":"published","chapterId":"chapter.gis-data-automation.bat-dau","order":1,"difficulty":"co-ban","sources":[{"title":"QGIS — Vector Data","url":"https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/vector_data.html"},{"title":"QGIS — Coordinate Reference Systems","url":"https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/coordinate_reference_systems.html"}],"compatibility":[{"product":"QGIS / Python GIS","version":"Đối chiếu thư viện và CRS với dữ liệu dự án","platform":"Windows / macOS / Linux"}]}
+{
+  "id": "lesson.gis-data-automation.bat-dau-gis",
+  "slug": "bat-dau-gis",
+  "title": "Một đối tượng hạ tầng trở thành dữ liệu GIS thế nào",
+  "description": "Phân biệt hình học, thuộc tính, CRS và kiểm tra kết quả trước khi chuyển CAD sang GIS.",
+  "status": "published",
+  "chapterId": "chapter.gis-data-automation.bat-dau",
+  "order": 1,
+  "difficulty": "co-ban",
+  "sources": [
+    {
+      "title": "QGIS — Vector Data",
+      "url": "https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/vector_data.html"
+    },
+    {
+      "title": "QGIS — Coordinate Reference Systems",
+      "url": "https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/coordinate_reference_systems.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "QGIS / Python GIS",
+      "version": "Đối chiếu thư viện và CRS với dữ liệu dự án",
+      "platform": "Windows / macOS / Linux"
+    }
+  ],
+  "illustration": "map"
+}
 ---
 
 ## Từ nét vẽ sang feature

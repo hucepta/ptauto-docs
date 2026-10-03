@@ -62,7 +62,8 @@
     "Profile View",
     "BVC",
     "EVC"
-  ]
+  ],
+  "illustration": "station"
 }
 ---
 

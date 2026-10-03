@@ -55,7 +55,8 @@
     "CAD–GIS",
     "dữ liệu không gian"
   ],
-  "examplePlacements": []
+  "examplePlacements": [],
+  "illustration": "map"
 }
 ---
 

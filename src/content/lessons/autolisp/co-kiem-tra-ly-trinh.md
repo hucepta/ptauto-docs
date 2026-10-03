@@ -8,7 +8,9 @@
   "chapterId": "chapter.autolisp.thuc-hanh-cad",
   "order": 2,
   "difficulty": "trung-cap",
-  "exampleIds": ["example.autolisp.demo-stakes"],
+  "exampleIds": [
+    "example.autolisp.demo-stakes"
+  ],
   "prerequisites": [
     "lesson.autolisp.quy-trinh-cad-utility"
   ],
@@ -38,7 +40,8 @@
       "version": "Có AutoLISP; thử lại trên phiên bản đang dùng",
       "platform": "Windows / macOS"
     }
-  ]
+  ],
+  "illustration": "station"
 }
 ---
 

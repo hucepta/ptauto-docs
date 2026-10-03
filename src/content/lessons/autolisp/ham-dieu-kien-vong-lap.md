@@ -63,7 +63,8 @@
         "example.autolisp.thong-ke-danh-sach"
       ]
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

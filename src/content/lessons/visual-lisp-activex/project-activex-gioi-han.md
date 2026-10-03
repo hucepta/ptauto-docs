@@ -67,7 +67,8 @@
         "example.visual-lisp-activex.chuyen-layer-hang-loat"
       ]
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

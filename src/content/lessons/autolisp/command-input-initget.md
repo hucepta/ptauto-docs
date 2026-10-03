@@ -64,7 +64,8 @@
         "example.autolisp.demo-move"
       ]
     }
-  ]
+  ],
+  "illustration": "terminal"
 }
 ---
 

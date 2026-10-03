@@ -62,7 +62,8 @@
         "example.dynamo-python.qa-csv-coc"
       ]
     }
-  ]
+  ],
+  "illustration": "report"
 }
 ---
 

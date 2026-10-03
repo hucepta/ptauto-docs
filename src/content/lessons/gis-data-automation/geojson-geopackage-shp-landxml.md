@@ -37,7 +37,8 @@
       "version": "Thư viện/CRS theo dự án",
       "platform": "Windows / macOS / Linux"
     }
-  ]
+  ],
+  "illustration": "report"
 }
 ---
 

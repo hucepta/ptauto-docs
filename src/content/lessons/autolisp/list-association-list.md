@@ -57,7 +57,8 @@
         "example.autolisp.doc-assoc"
       ]
     }
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

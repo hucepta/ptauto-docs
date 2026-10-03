@@ -8,14 +8,37 @@
   "chapterId": "chapter.autolisp.du-lieu-ban-ve",
   "order": 3,
   "difficulty": "trung-cap",
-  "prerequisites": ["lesson.autolisp.entity-dxf-layer-attribute"],
-  "flow": [
-    {"label": "Yêu cầu", "detail": "Ai cần xem và sửa mã cọc?"},
-    {"label": "Nơi lưu", "detail": "Attribute, XData hoặc dictionary/Xrecord"},
-    {"label": "Đọc lại", "detail": "Đóng/mở DWG và đối chiếu ID với bảng cọc"}
+  "prerequisites": [
+    "lesson.autolisp.entity-dxf-layer-attribute"
   ],
-  "sources": [{"title": "Autodesk — About Xrecord Objects", "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-LT-AutoLISP/files/GUID-FA5F2E08-24F5-4947-A470-6CA84E404F2A.htm"}],
-  "compatibility": [{"product": "AutoCAD AutoLISP", "version": "Kiểm tra lại API và phiên bản đang dùng", "platform": "Windows / macOS"}]
+  "flow": [
+    {
+      "label": "Yêu cầu",
+      "detail": "Ai cần xem và sửa mã cọc?"
+    },
+    {
+      "label": "Nơi lưu",
+      "detail": "Attribute, XData hoặc dictionary/Xrecord"
+    },
+    {
+      "label": "Đọc lại",
+      "detail": "Đóng/mở DWG và đối chiếu ID với bảng cọc"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — About Xrecord Objects",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-LT-AutoLISP/files/GUID-FA5F2E08-24F5-4947-A470-6CA84E404F2A.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD AutoLISP",
+      "version": "Kiểm tra lại API và phiên bản đang dùng",
+      "platform": "Windows / macOS"
+    }
+  ],
+  "illustration": "metadata"
 }
 ---
 

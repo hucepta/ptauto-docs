@@ -27,7 +27,8 @@
   "aliases": [
     "expression",
     "evaluation"
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

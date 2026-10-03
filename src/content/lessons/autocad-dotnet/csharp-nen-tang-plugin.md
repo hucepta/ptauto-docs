@@ -67,7 +67,8 @@
     "NETLOAD",
     "PDB",
     "AcDbMgd"
-  ]
+  ],
+  "illustration": "terminal"
 }
 ---
 

@@ -76,7 +76,8 @@
     "UI",
     "Jig",
     "Overrule"
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

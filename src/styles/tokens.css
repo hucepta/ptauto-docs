@@ -14,11 +14,15 @@
 html { scroll-padding-top: 7rem; }
 body {
   margin: 0;
+  position: relative;
   color: var(--ink);
   font: 16px/1.75 var(--font);
   background: radial-gradient(ellipse 72vw 45rem at 83% 3%, #185a78 0, transparent 68%), radial-gradient(ellipse 50vw 35rem at 15% 75%, #123e5c 0, transparent 70%), #08243e;
   background-attachment: fixed;
 }
+.site-drawing { position: fixed; inset: 0; width: 100%; height: 100vh; z-index: 0; pointer-events: none; opacity: .21; animation: drawing-breathe 18s ease-in-out infinite alternate; }
+@keyframes drawing-breathe { from { opacity: .11; transform: translateY(8px); } to { opacity: .25; transform: translateY(-8px); } }
+body > main, body > .skip-link { position: relative; z-index: 1; }
 body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background: radial-gradient(ellipse 58vw 30rem at 72% 22%, #38aed522, transparent 78%); opacity: .55; animation: site-atmosphere 16s ease-in-out infinite; }
 @keyframes site-atmosphere { 0%, 100% { opacity: .3; } 55%, 75% { opacity: .6; } }
@@ -48,4 +52,4 @@ button:hover, .button:hover { background: var(--surface); }
 .js-control { display: none; }
 .js .js-control { display: inline-flex; }
 ::selection { background: #bcece9; color: #0b354f; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } body::before { animation: none; opacity: .45; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } body::before, .site-drawing { animation: none; opacity: .16; } }

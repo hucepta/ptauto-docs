@@ -23,9 +23,8 @@ test('keyboard_and_mobile_reader', async ({ page }) => {
     await expect(page.getByRole('link', { name: 'Đến nội dung' })).toBeFocused();
     await page.keyboard.press('Enter');
     await expect(page.getByRole('main')).toBeFocused();
-    await page.getByRole('button', { name: 'Mở điều hướng' }).click();
     await expect(page.getByRole('navigation', { name: 'Điều hướng chính' })).toBeVisible();
-    await page.keyboard.press('Escape');
+    await expect(page.getByRole('button', { name: 'Mở điều hướng' })).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 test('reader_without_javascript', async ({ browser }) => {

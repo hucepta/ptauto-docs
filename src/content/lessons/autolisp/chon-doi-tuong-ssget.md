@@ -43,7 +43,8 @@
         "example.autolisp.dem-line"
       ]
     }
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

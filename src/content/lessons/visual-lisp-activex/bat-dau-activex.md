@@ -1,5 +1,32 @@
 ---
-{"id":"lesson.visual-lisp-activex.bat-dau-activex","slug":"bat-dau-activex","title":"Từ entity đến VLA object","description":"Hiểu khi nào dùng ActiveX, nạp vl-load-com và đọc thuộc tính của một đối tượng đã chọn.","status":"published","chapterId":"chapter.visual-lisp-activex.bat-dau","order":1,"difficulty":"co-ban","sources":[{"title":"Autodesk — About Accessing the AutoCAD Application Object","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-62F07541-9663-4D83-B5EE-24D562351FCE.htm"},{"title":"Autodesk — About Using VLA Functions","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-A0459510-CE7A-4206-9EAA-E25AAB569B20.htm"}],"compatibility":[{"product":"AutoCAD","version":"ActiveX/COM có hỗ trợ","platform":"Windows"}]}
+{
+  "id": "lesson.visual-lisp-activex.bat-dau-activex",
+  "slug": "bat-dau-activex",
+  "title": "Từ entity đến VLA object",
+  "description": "Hiểu khi nào dùng ActiveX, nạp vl-load-com và đọc thuộc tính của một đối tượng đã chọn.",
+  "status": "published",
+  "chapterId": "chapter.visual-lisp-activex.bat-dau",
+  "order": 1,
+  "difficulty": "co-ban",
+  "sources": [
+    {
+      "title": "Autodesk — About Accessing the AutoCAD Application Object",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-62F07541-9663-4D83-B5EE-24D562351FCE.htm"
+    },
+    {
+      "title": "Autodesk — About Using VLA Functions",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-A0459510-CE7A-4206-9EAA-E25AAB569B20.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "ActiveX/COM có hỗ trợ",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "metadata"
+}
 ---
 
 ## Vì sao cần thêm ActiveX

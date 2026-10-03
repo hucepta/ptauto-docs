@@ -1,5 +1,45 @@
 ---
-{"id":"lesson.autolisp.command-line-file-lsp","slug":"command-line-file-lsp","title":"Command Line, file LSP và chu trình nạp lại","description":"Biết nơi viết, nơi chạy, và vì sao Save chưa cập nhật lệnh đang được AutoCAD giữ.","status":"published","chapterId":"chapter.autolisp.bat-dau","order":2,"difficulty":"co-ban","prerequisites":["lesson.autolisp.bat-dau-autolisp"],"flow":[{"label":"Soạn","detail":"Chỉnh file .lsp trong editor và Save"},{"label":"Nạp","detail":"APPLOAD hoặc load đưa mã mới vào AutoCAD"},{"label":"Gọi","detail":"Gõ tên command tại Command Line và đọc phản hồi"}],"sources":[{"title":"Autodesk — AutoLISP Developer's Guide","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-265AADB3-FB89-4D34-AA9D-6ADF70FF7D4B.htm"}],"compatibility":[{"product":"AutoCAD","version":"Có hỗ trợ AutoLISP","platform":"Windows / macOS"}]}
+{
+  "id": "lesson.autolisp.command-line-file-lsp",
+  "slug": "command-line-file-lsp",
+  "title": "Command Line, file LSP và chu trình nạp lại",
+  "description": "Biết nơi viết, nơi chạy, và vì sao Save chưa cập nhật lệnh đang được AutoCAD giữ.",
+  "status": "published",
+  "chapterId": "chapter.autolisp.bat-dau",
+  "order": 2,
+  "difficulty": "co-ban",
+  "prerequisites": [
+    "lesson.autolisp.bat-dau-autolisp"
+  ],
+  "flow": [
+    {
+      "label": "Soạn",
+      "detail": "Chỉnh file .lsp trong editor và Save"
+    },
+    {
+      "label": "Nạp",
+      "detail": "APPLOAD hoặc load đưa mã mới vào AutoCAD"
+    },
+    {
+      "label": "Gọi",
+      "detail": "Gõ tên command tại Command Line và đọc phản hồi"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — AutoLISP Developer's Guide",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-265AADB3-FB89-4D34-AA9D-6ADF70FF7D4B.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có hỗ trợ AutoLISP",
+      "platform": "Windows / macOS"
+    }
+  ],
+  "illustration": "terminal"
+}
 ---
 
 ## Hai cửa sổ làm hai việc khác nhau

@@ -3,9 +3,9 @@ import type { Technology } from '../../domain/content/schema';
 interface Props { title: string; description: string; technology: Technology; href: string; }
 const { title, description, href } = Astro.props;
 ---
-<article class="knowledge-card">
+<a class="knowledge-card" href={href} aria-label={title}>
   <div class="knowledge-copy">
-    <h3><a href={href}>{title}<span aria-hidden="true"> →</span></a></h3>
+    <h3>{title}<span aria-hidden="true"> →</span></h3>
     <p>{description}</p>
   </div>
-</article>
+</a>

@@ -1,5 +1,4 @@
 <section class="construction-hero" data-construction-hero aria-labelledby="landing-title">
-  <div class="construction-grid" aria-hidden="true"></div>
   <div class="construction-horizon" aria-hidden="true"></div>
   <svg class="construction-scene" viewBox="0 0 1200 460" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
     <g transform="translate(150 110) scale(.75)">
@@ -59,19 +58,12 @@
     margin: 1.5rem auto 0;
     min-height: 440px;
     border-radius: 4px;
-    background: linear-gradient(180deg, #0a2540 0%, #0a2540 43%, #14608f 100%);
+    background: linear-gradient(180deg, #0a2540eb 0%, #0a2540e8 43%, #14608fe0 100%);
     border: 1px solid #245877;
     color: #fff;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
-  .construction-grid, .construction-horizon, .construction-shade { position: absolute; pointer-events: none; }
-  .construction-grid {
-    inset: 0;
-    background-image: linear-gradient(#a8ddff22 1px, transparent 1px), linear-gradient(90deg, #a8ddff22 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: .45;
-    animation: grid-cycle 16s linear infinite;
-  }
+  .construction-horizon, .construction-shade { position: absolute; pointer-events: none; }
   .construction-horizon {
     inset: 50% 0 0;
     background: radial-gradient(ellipse at 60% 100%, #e9904f 0%, #bf784a80 32%, transparent 72%);
@@ -138,11 +130,10 @@
     93.75% { stroke-dashoffset: 0; opacity: 1; }
     100% { stroke-dashoffset: 1; opacity: 1; }
   }
-  @keyframes grow-left { 0%, 31.25% { transform: scaleY(0); opacity: 0; } 50%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75% { transform: scaleY(1); opacity: 0; } 100% { transform: scaleY(0); opacity: 0; } }
-  @keyframes grow-main { 0%, 34% { transform: scaleY(0); opacity: 0; } 58%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75% { transform: scaleY(1); opacity: 0; } 100% { transform: scaleY(0); opacity: 0; } }
-  @keyframes grow-right { 0%, 37% { transform: scaleY(0); opacity: 0; } 62.5%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75% { transform: scaleY(1); opacity: 0; } 100% { transform: scaleY(0); opacity: 0; } }
+  @keyframes grow-left { 0%, 31.25% { transform: scaleY(.3); opacity: .3; } 50%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75%, 100% { transform: scaleY(.3); opacity: .3; } }
+  @keyframes grow-main { 0%, 34% { transform: scaleY(.3); opacity: .3; } 58%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75%, 100% { transform: scaleY(.3); opacity: .3; } }
+  @keyframes grow-right { 0%, 37% { transform: scaleY(.3); opacity: .3; } 62.5%, 71.875% { transform: scaleY(1); opacity: 1; } 93.75%, 100% { transform: scaleY(.3); opacity: .3; } }
   @keyframes light-cycle { 0%, 52% { opacity: 0; } 62.5%, 71.875% { opacity: 1; } 93.75%, 100% { opacity: 0; } }
-  @keyframes grid-cycle { 0%, 31.25%, 100% { opacity: .45; } 62.5%, 71.875% { opacity: .08; } }
   @keyframes horizon-cycle { 0%, 31.25%, 93.75%, 100% { opacity: 0; } 62.5%, 71.875% { opacity: .65; } }
   @keyframes title-cycle { 0%, 31.25%, 100% { background-position: 0% 50%; } 62.5%, 71.875% { background-position: 100% 50%; } }
   @media (max-width: 1080px) {
@@ -163,13 +154,12 @@
     .construction-building { transform: scaleY(1); opacity: 1; }
     .lit-window { opacity: 1; }
     .wireframe path { stroke-dashoffset: 0; opacity: .2; }
-    .construction-grid { opacity: .08; }
     .construction-horizon { opacity: .65; }
     .gradient-title { background-position: 100% 50%; }
   }
   @media (forced-colors: active) {
     .gradient-title { color: CanvasText; -webkit-text-fill-color: CanvasText; background: none; }
-    .construction-grid, .construction-horizon, .construction-scene, .construction-shade { display: none; }
+    .construction-horizon, .construction-scene, .construction-shade { display: none; }
     .construction-hero { border-color: CanvasText; }
   }
 </style>

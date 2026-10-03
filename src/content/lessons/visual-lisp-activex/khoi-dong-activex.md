@@ -37,7 +37,8 @@
         "example.visual-lisp-activex.nap-activex"
       ]
     }
-  ]
+  ],
+  "illustration": "terminal"
 }
 ---
 

@@ -37,7 +37,8 @@
       "version": "Build và thử với SDK/host cùng phiên bản",
       "platform": "Windows"
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

@@ -66,7 +66,8 @@
     "Pipe Network",
     "Pressure Network",
     "quantity"
-  ]
+  ],
+  "illustration": "profile"
 }
 ---
 

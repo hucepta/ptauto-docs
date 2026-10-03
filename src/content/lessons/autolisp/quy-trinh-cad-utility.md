@@ -66,7 +66,8 @@
         "example.autolisp.bao-cao-toa-do"
       ]
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

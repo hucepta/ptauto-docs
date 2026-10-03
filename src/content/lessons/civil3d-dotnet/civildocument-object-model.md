@@ -58,7 +58,8 @@
     "Label Styles",
     "Settings",
     "AeccDbMgd"
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

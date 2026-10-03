@@ -60,7 +60,8 @@
         "example.dynamo-python.chuan-hoa-ban-ghi"
       ]
     }
-  ]
+  ],
+  "illustration": "graph"
 }
 ---
 

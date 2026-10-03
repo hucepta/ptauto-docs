@@ -1,15 +1,16 @@
 import { expect, test } from '@playwright/test';
-test('header_search_reaches_search_page_and_query_results', async ({ page }) => {
+test('search_page_remains_available_without_header_search', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('navigation', { name: 'Điều hướng chính' }).getByRole('link', { name: 'Tìm kiếm', exact: true }).click();
+    await expect(page.getByRole('navigation', { name: 'Điều hướng chính' }).getByRole('link', { name: 'Tìm kiếm', exact: true })).toHaveCount(0);
+    await page.goto('/tim-kiem/');
     await page.getByRole('searchbox').fill('danh sach');
     await page.getByRole('button', { name: 'Tìm kiếm', exact: true }).click();
     await expect(page.getByRole('list', { name: 'Kết quả tìm kiếm' }).getByRole('link', { name: 'List', exact: true })).toBeVisible();
 });
-test('slash_shortcut_opens_search_when_home_has_no_search_form', async ({ page }) => {
+test('slash_shortcut_does_not_open_removed_header_search', async ({ page }) => {
     await page.goto('/');
     await page.keyboard.press('/');
-    await expect(page).toHaveURL(/\/tim-kiem\/$/);
+    await expect(page).toHaveURL(/\/$/);
 });
 test('published_queries_and_filters', async ({ page }) => {
     await page.goto('/tim-kiem/?q=doi%20tuong');

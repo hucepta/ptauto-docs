@@ -1,5 +1,32 @@
 ---
-{"id":"lesson.civil3d-dotnet.bat-dau-civil-api","slug":"bat-dau-civil-api","title":"Nhận diện mô hình Civil 3D trước khi viết lệnh","description":"Phân biệt AutoCAD Database với CivilDocument, chuẩn bị host đúng và đọc tuyến đầu tiên.","status":"published","chapterId":"chapter.civil3d-dotnet.bat-dau","order":1,"difficulty":"co-ban","sources":[{"title":"Autodesk — Civil 3D .NET API Developer's Guide","url":"https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-DevGuide/files/GUID-E486351E-EECE-4A87-B148-08B98AEE2B21.htm"},{"title":"Autodesk — AutoCAD Document Object","url":"https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm"}],"compatibility":[{"product":"Civil 3D .NET","version":"SDK và host Civil 3D cùng thế hệ API","platform":"Windows"}]}
+{
+  "id": "lesson.civil3d-dotnet.bat-dau-civil-api",
+  "slug": "bat-dau-civil-api",
+  "title": "Nhận diện mô hình Civil 3D trước khi viết lệnh",
+  "description": "Phân biệt AutoCAD Database với CivilDocument, chuẩn bị host đúng và đọc tuyến đầu tiên.",
+  "status": "published",
+  "chapterId": "chapter.civil3d-dotnet.bat-dau",
+  "order": 1,
+  "difficulty": "co-ban",
+  "sources": [
+    {
+      "title": "Autodesk — Civil 3D .NET API Developer's Guide",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-DevGuide/files/GUID-E486351E-EECE-4A87-B148-08B98AEE2B21.htm"
+    },
+    {
+      "title": "Autodesk — AutoCAD Document Object",
+      "url": "https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "SDK và host Civil 3D cùng thế hệ API",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "metadata"
+}
 ---
 
 ## Vấn đề

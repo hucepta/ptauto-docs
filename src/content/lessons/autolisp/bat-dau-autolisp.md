@@ -1,5 +1,32 @@
 ---
-{"id":"lesson.autolisp.bat-dau-autolisp","slug":"bat-dau-autolisp","title":"Từ thao tác lặp đến lệnh AutoLISP đầu tiên","description":"Hiểu AutoLISP, Command Line, file LSP, VS Code/AutoLISP Extension và chạy một lệnh nhỏ trong AutoCAD.","status":"published","chapterId":"chapter.autolisp.bat-dau","order":1,"difficulty":"co-ban","sources":[{"title":"Autodesk — AutoLISP Developer's Guide","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-265AADB3-FB89-4D34-AA9D-6ADF70FF7D4B.htm"},{"title":"Autodesk — Getting Started with Visual Studio Code","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-LT-AutoLISP/files/GUID-7BE00235-5D40-4789-9E34-D57685E83875.htm"}],"compatibility":[{"product":"AutoCAD","version":"Có hỗ trợ AutoLISP; thực hành tham chiếu AutoCAD 2026","platform":"Windows"}]}
+{
+  "id": "lesson.autolisp.bat-dau-autolisp",
+  "slug": "bat-dau-autolisp",
+  "title": "Từ thao tác lặp đến lệnh AutoLISP đầu tiên",
+  "description": "Hiểu AutoLISP, Command Line, file LSP, VS Code/AutoLISP Extension và chạy một lệnh nhỏ trong AutoCAD.",
+  "status": "published",
+  "chapterId": "chapter.autolisp.bat-dau",
+  "order": 1,
+  "difficulty": "co-ban",
+  "sources": [
+    {
+      "title": "Autodesk — AutoLISP Developer's Guide",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-265AADB3-FB89-4D34-AA9D-6ADF70FF7D4B.htm"
+    },
+    {
+      "title": "Autodesk — Getting Started with Visual Studio Code",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-LT-AutoLISP/files/GUID-7BE00235-5D40-4789-9E34-D57685E83875.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có hỗ trợ AutoLISP; thực hành tham chiếu AutoCAD 2026",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "terminal"
+}
 ---
 
 ## Bắt đầu từ một việc thật

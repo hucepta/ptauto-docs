@@ -1,14 +1,14 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import SearchForm from '../../components/SearchForm.astro';
 import { getContent } from '../../content/catalog';
-import { getContentUrl } from '../../domain/content/graph';
 import { withBase } from '../../domain/content/urls';
 const { graph } = await getContent();
 ---
-<SiteLayout title="Tra cứu API" description="Tra cứu cú pháp, hàm và API theo công nghệ."><div class="page">
-<h1>Tra cứu API</h1><p>Tìm hàm, cú pháp và cách dùng khi đang viết code. Nếu cần hiểu tên gọi cơ bản, hãy mở <a href={withBase('/thuat-ngu/')}>Từ điển kỹ thuật</a>.</p><SearchForm />
-{graph.courses.map(c=><section class="related"><h2><a href={withBase('/tra-cuu/'+c.technology+'/')}>{c.title}</a></h2>
-<ul class="link-list">{graph.concepts.filter(con=>con.technology===c.technology&&con.kind!=='term').map(con=><li><a href={withBase(getContentUrl(graph,con.id))}>{con.title}</a><p>{con.description}</p></li>)}</ul></section>)}
+<SiteLayout title="Tra cứu" description="Tra cứu hàm, cú pháp và cách dùng theo sáu nhóm học."><div class="page">
+<h1>Tra cứu</h1><p class="reference-intro">Chọn một nhóm để tìm hàm, cú pháp, tham số và ví dụ dùng trong công việc. Các khái niệm cơ bản nằm trong <a href={withBase('/thuat-ngu/')}>Từ điển kỹ thuật</a>.</p>
+<div class="reference-course-grid">{graph.courses.map(course => {
+  const count = graph.concepts.filter(concept => concept.technology === course.technology && concept.kind !== 'term').length;
+  return <a class="reference-course-card" href={withBase('/tra-cuu/' + course.technology + '/')}><strong>{course.title}</strong><span>{course.description}</span><small>{count} mục tra cứu</small></a>;
+})}</div>
 </div></SiteLayout>
 

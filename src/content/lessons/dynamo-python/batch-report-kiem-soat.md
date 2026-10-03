@@ -37,7 +37,8 @@
       "version": "Node/engine theo phiên bản host",
       "platform": "Windows"
     }
-  ]
+  ],
+  "illustration": "report"
 }
 ---
 

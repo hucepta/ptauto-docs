@@ -8,14 +8,37 @@
   "chapterId": "chapter.civil3d-dotnet.corridor-va-ha-tang",
   "order": 3,
   "difficulty": "trung-cap",
-  "prerequisites": ["lesson.civil3d-dotnet.pipe-network-va-corridor"],
-  "flow": [
-    {"label": "Nhận loại mạng", "detail": "Tự chảy hay áp lực, trong đúng bản vẽ"},
-    {"label": "Duyệt thành phần", "detail": "Pipe/structure hoặc pressure pipe/fitting"},
-    {"label": "Báo cáo", "detail": "ID, kích cỡ, chiều dài, trạng thái và lỗi"}
+  "prerequisites": [
+    "lesson.civil3d-dotnet.pipe-network-va-corridor"
   ],
-  "sources": [{"title": "Autodesk — PressurePipeNetwork API", "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/f44da82b-7680-f43a-130c-50276aeef60b.htm"}],
-  "compatibility": [{"product": "Civil 3D .NET", "version": "Xác minh lại lớp/thành viên với SDK Civil 3D mục tiêu", "platform": "Windows"}]
+  "flow": [
+    {
+      "label": "Nhận loại mạng",
+      "detail": "Tự chảy hay áp lực, trong đúng bản vẽ"
+    },
+    {
+      "label": "Duyệt thành phần",
+      "detail": "Pipe/structure hoặc pressure pipe/fitting"
+    },
+    {
+      "label": "Báo cáo",
+      "detail": "ID, kích cỡ, chiều dài, trạng thái và lỗi"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — PressurePipeNetwork API",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/f44da82b-7680-f43a-130c-50276aeef60b.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Xác minh lại lớp/thành viên với SDK Civil 3D mục tiêu",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "network"
 }
 ---
 

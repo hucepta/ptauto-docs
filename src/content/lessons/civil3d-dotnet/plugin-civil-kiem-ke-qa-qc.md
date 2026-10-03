@@ -68,7 +68,8 @@
     "logging",
     "Dynamo",
     "Python"
-  ]
+  ],
+  "illustration": "report"
 }
 ---
 

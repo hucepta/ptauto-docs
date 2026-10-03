@@ -37,7 +37,8 @@
       "version": "Có AutoLISP; thử lại trên phiên bản đang dùng",
       "platform": "Windows / macOS"
     }
-  ]
+  ],
+  "illustration": "metadata"
 }
 ---
 

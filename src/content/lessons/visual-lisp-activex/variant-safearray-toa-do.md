@@ -65,7 +65,8 @@
         "example.visual-lisp-activex.tao-lwpolyline"
       ]
     }
-  ]
+  ],
+  "illustration": "curve"
 }
 ---
 

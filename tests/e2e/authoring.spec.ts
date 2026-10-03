@@ -12,7 +12,7 @@ test('knowledge_catalog_covers_the_six_original_technologies', async ({ page, re
         expect(project, course.title).toBeTruthy();
         expect((await request.get(project!.url)).status()).toBe(200);
     }
-    await expect(page.locator('.knowledge-card h3 a')).toContainText(catalog.courses.map(course => course.title));
+    await expect(page.locator('.knowledge-card h3')).toContainText(catalog.courses.map(course => course.title));
 });
 test('project_links_resolve_to_published_content', async ({ page }) => {
     await page.goto('/du-an/autolisp/cad-utility/');

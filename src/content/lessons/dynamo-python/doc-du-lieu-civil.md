@@ -38,7 +38,8 @@
     "Python",
     "dữ liệu"
   ],
-  "examplePlacements": []
+  "examplePlacements": [],
+  "illustration": "graph"
 }
 ---
 

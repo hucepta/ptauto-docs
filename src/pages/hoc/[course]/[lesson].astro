@@ -6,7 +6,9 @@ import ConceptLinks from '../../../components/ConceptLinks.astro';
 import ArticleSteps from '../../../components/ArticleSteps.astro';
 import ArticleEnd from '../../../components/ArticleEnd.astro';
 import Exercise from '../../../components/Exercise.astro';
-import ProcessVisual from '../../../components/ProcessVisual.astro';
+import LessonFlowchart from '../../../components/LessonFlowchart.astro';
+import ProjectVisual from '../../../components/ProjectVisual.astro';
+import { lessonDecisions } from '../../../content/lesson-decisions';
 import { getContent } from '../../../content/catalog';
 import { getLessonCourse, getContentUrl, getLessonNavigation } from '../../../domain/content/graph';
 import type { ChapterEntry, ExerciseEntry } from '../../../domain/content/schema';
@@ -20,14 +22,18 @@ const entry = lessons.find(l => l.data.id === lesson.id)!;
 const { headings } = await render(entry);
 const nav = getLessonNavigation(graph, lesson.id);
 ---
-<LearnLayout title={lesson.title} description={lesson.description} graph={graph} courseId={course.id} activeId={lesson.id} headings={headings}>
+<LearnLayout title={lesson.title} description={lesson.description} graph={graph} courseId={course.id} activeId={lesson.id} headings={[{depth:2,slug:'tong-quan',text:'Tổng quan'},...headings]}>
 <Breadcrumbs items={[{title:'Trang chủ',url:'/'},{title:course.title,url:getContentUrl(graph,course.id)},{title:chapter.title,url:getContentUrl(graph,chapter.id)}]} />
 <header data-content-id={lesson.id} data-content-kind="lesson"><h1>{lesson.title}</h1>
 <div class="article-meta"><span>{lesson.difficulty==='co-ban'?'Cơ bản':lesson.difficulty==='trung-cap'?'Trung cấp':'Nâng cao'}</span><span>Bài học</span></div>
 </header>
 {nav.prerequisites.length>0&&<section class="related" data-pagefind-ignore><h2>Kiến thức cần có</h2><ul class="link-list">{nav.prerequisites.map(id=><li><a href={withBase(getContentUrl(graph,id))}>{graph.entries.get(id)!.title}</a></li>)}</ul></section>}
-<h2 class="overview-heading">Tổng quan</h2>
-<ProcessVisual title={lesson.title} technology={course.technology} steps={(lesson.flow ?? headings.filter(h=>h.depth===2).slice(0,3).map(h=>({label:h.text}))).map(step=>step.label)} />
+<details class="lesson-overview" id="tong-quan" open><summary><h2>Tổng quan</h2></summary>
+  <p>{lesson.description}</p>
+  <ol>{headings.filter(heading => heading.depth === 2).map(heading => <li><a href={'#' + heading.slug}>{heading.text}</a></li>)}</ol>
+</details>
+{lesson.flow && lessonDecisions[lesson.id]?.length && <LessonFlowchart lessonId={lesson.id} title={lesson.title} steps={lesson.flow} />}
+{lesson.illustration && <ProjectVisual visual={lesson.illustration} output={lesson.description} heading="Hình minh họa" note="Mô phỏng nội dung bài học" outputLabel="Nội dung minh họa" />}
 <ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={lesson.exampleIds} placements={lesson.examplePlacements} />
 {lesson.exerciseIds.map(id=><Exercise exercise={graph.entries.get(id) as ExerciseEntry} visibleExampleIds={lesson.exampleIds} />)}
 <ConceptLinks graph={graph} ids={lesson.conceptIds} /><ArticleEnd sources={lesson.sources} compatibility={lesson.compatibility} />

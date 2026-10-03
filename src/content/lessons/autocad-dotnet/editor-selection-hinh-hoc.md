@@ -69,7 +69,8 @@
     "IntersectWith",
     "GetOffsetCurves",
     "bulge"
-  ]
+  ],
+  "illustration": "curve"
 }
 ---
 

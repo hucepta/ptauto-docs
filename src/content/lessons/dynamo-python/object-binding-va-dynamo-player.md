@@ -8,14 +8,37 @@
   "chapterId": "chapter.dynamo-python.python-va-workflow",
   "order": 4,
   "difficulty": "trung-cap",
-  "prerequisites": ["lesson.dynamo-python.python-in-out-engine"],
-  "flow": [
-    {"label": "Chạy lần đầu", "detail": "Graph tạo đối tượng và ghi binding"},
-    {"label": "Đổi input", "detail": "Chạy lại trên cùng document"},
-    {"label": "So sánh", "detail": "Cập nhật object cũ hay thêm object mới?"}
+  "prerequisites": [
+    "lesson.dynamo-python.python-in-out-engine"
   ],
-  "sources": [{"title": "Dynamo Primer — Object Binding for Civil 3D", "url": "https://primer2.dynamobim.org/dynamo-for-civil-3d/advanced-topics/object-binding"}],
-  "compatibility": [{"product": "Dynamo for Civil 3D", "version": "Kiểm tra phiên bản Dynamo/Civil; tùy chọn Binding Data Storage có từ Civil 3D 2022.1", "platform": "Windows"}]
+  "flow": [
+    {
+      "label": "Chạy lần đầu",
+      "detail": "Graph tạo đối tượng và ghi binding"
+    },
+    {
+      "label": "Đổi input",
+      "detail": "Chạy lại trên cùng document"
+    },
+    {
+      "label": "So sánh",
+      "detail": "Cập nhật object cũ hay thêm object mới?"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Dynamo Primer — Object Binding for Civil 3D",
+      "url": "https://primer2.dynamobim.org/dynamo-for-civil-3d/advanced-topics/object-binding"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Dynamo for Civil 3D",
+      "version": "Kiểm tra phiên bản Dynamo/Civil; tùy chọn Binding Data Storage có từ Civil 3D 2022.1",
+      "platform": "Windows"
+    }
+  ],
+  "illustration": "graph"
 }
 ---
 

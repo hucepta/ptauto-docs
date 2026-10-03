@@ -61,7 +61,8 @@
         "example.visual-lisp-activex.chia-curve-theo-do-dai"
       ]
     }
-  ]
+  ],
+  "illustration": "curve"
 }
 ---
 
