@@ -5,5 +5,5 @@
   "description": "Tổ chức tiện ích CAD, xử lý hình học và xác định ranh giới Civil API.",
   "status": "published",
   "courseId": "course.autocad-dotnet",
-  "order": 5
+  "order": 6
 }

@@ -5,6 +5,14 @@
   "description": "Bắt đầu từ biểu thức, dữ liệu và xây dựng lệnh tự động hóa trong AutoCAD.",
   "status": "published",
   "technology": "autolisp",
-  "order": 1
+  "order": 1,
+  "guide": {
+    "question": "AutoLISP là gì?",
+    "answer": "AutoLISP là ngôn ngữ viết lệnh tùy chỉnh chạy trong AutoCAD. Bạn mô tả một quy trình bằng mã .lsp, nạp mã vào bản vẽ rồi gọi lệnh tại Command Line. Nó phù hợp với việc lặp có quy luật: đọc layer, kiểm tra đối tượng, đánh số cọc hoặc lập báo cáo bản vẽ.",
+    "why": "Nếu phải đổi layer hoặc kiểm tra hàng trăm đối tượng theo cùng một quy tắc, làm tay rất dễ bỏ sót. Một lệnh nhỏ giúp bạn thực hiện cùng quy tắc nhiều lần và kiểm tra được kết quả; người thiết kế vẫn quyết định dữ liệu nào được phép sửa.",
+    "setup": ["AutoCAD có hỗ trợ AutoLISP và một bản vẽ thử; bắt đầu với file DWG sao chép.", "Soạn file .lsp bằng VS Code cùng AutoCAD AutoLISP Extension. Visual LISP IDE (VLIDE) là một lựa chọn trên AutoCAD Windows có hỗ trợ.", "Command Line là nơi gọi APPLOAD hoặc load, chạy lệnh và xem phản hồi. Save file chưa tự nạp lại mã vào AutoCAD."],
+    "workflow": [{"label": "Bài toán", "detail": "Chọn thao tác lặp và viết rõ đầu vào, quy tắc xử lý, đầu ra."}, {"label": "Soạn và nạp", "detail": "Lưu .lsp, nạp vào AutoCAD, gọi tên lệnh không có tiền tố c:."}, {"label": "Kiểm tra", "detail": "Chạy trên bản vẽ thử, đối chiếu kết quả và sửa một lỗi mỗi lần."}],
+    "firstResult": "Tạo lệnh HELLO, nạp bằng APPLOAD và thấy phản hồi trong Command Line."
+  }
 }
 

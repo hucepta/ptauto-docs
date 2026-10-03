@@ -5,6 +5,14 @@
   "description": "Làm việc với đối tượng, thuộc tính và collection qua giao diện ActiveX.",
   "status": "published",
   "technology": "visual-lisp-activex",
-  "order": 2
+  "order": 2,
+  "guide": {
+    "question": "Visual LISP và ActiveX dùng để làm gì?",
+    "answer": "Visual LISP mở rộng AutoLISP; ActiveX cho phép truy cập AutoCAD qua mô hình đối tượng COM. Thay vì chỉ đọc danh sách DXF của một entity, bạn có thể lấy đối tượng VLA, đọc property như Layer hoặc gọi method của ModelSpace và Curve.",
+    "why": "Khi cần thao tác nhiều đối tượng, thuộc tính hoặc chiều dài dọc tuyến, mô hình đối tượng giúp tổ chức thao tác rõ hơn. Bạn vẫn cần biết AutoLISP cơ bản để xử lý nil, selection set và kết quả lỗi.",
+    "setup": ["AutoCAD đầy đủ trên Windows; giao diện ActiveX của AutoLISP không áp dụng cho macOS.", "File .lsp nạp trong AutoCAD; gọi (vl-load-com) trước các hàm vla- và vlax-.", "Một DWG thử có LINE và LWPOLYLINE, ưu tiên bản sao vì một số bài sẽ sửa dữ liệu."],
+    "workflow": [{"label": "Chọn", "detail": "Lấy ename hoặc đối tượng bản vẽ cần xử lý."}, {"label": "Chuyển và đọc", "detail": "Đổi sang VLA object, kiểm tra property/method và kiểu dữ liệu COM."}, {"label": "Thay đổi có kiểm tra", "detail": "Thử trên bản vẽ mẫu, xử lý lỗi COM và so sánh trước/sau."}],
+    "firstResult": "Nạp ActiveX, chọn một đối tượng và đọc tên loại đối tượng cùng layer của nó."
+  }
 }
 

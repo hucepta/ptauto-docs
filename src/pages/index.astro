@@ -3,7 +3,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import ConstructionHero from '../components/landing/ConstructionHero.astro';
 import KnowledgeCard from '../components/landing/KnowledgeCard.astro';
 import CodeGeometryDemo from '../components/landing/CodeGeometryDemo.astro';
-import LearningPath from '../components/landing/LearningPath.astro';
 import '../styles/landing.css';
 import { getContent } from '../content/catalog';
 import { getContentUrl, getCourseLessons } from '../domain/content/graph';
@@ -15,7 +14,6 @@ const courses = graph.courses.map(course => ({
   lessonCount: getCourseLessons(graph, course.id).length,
   chapters: graph.chapters.filter(chapter => chapter.courseId === course.id).map(chapter => ({ title: chapter.title, href: withBase(getContentUrl(graph, chapter.id)) })),
 }));
-const stages = courses.map(course => ({ title: course.title, cue: course.chapters[0]?.title || '', href: course.href }));
 const referenceGroups = courses.flatMap(course => {
   const concept = graph.concepts.find(concept => concept.technology === course.technology);
   return concept ? [{ title: concept.title, sample: course.title, href: withBase(getContentUrl(graph, concept.id)) }] : [];
@@ -24,6 +22,10 @@ const referenceGroups = courses.flatMap(course => {
 <SiteLayout title="PTAuto Docs" description="Kho tri thức tiếng Việt về AutoLISP, Visual LISP / ActiveX, AutoCAD .NET, Civil 3D .NET, Dynamo / Python và GIS / Data Automation.">
 <div class="landing" data-landing>
   <ConstructionHero />
+  <section class="landing-section geometry-section" aria-labelledby="geometry-title">
+    <div class="landing-container"><div class="landing-section-heading"><h2 id="geometry-title">Từ code đến bản vẽ</h2></div>
+    <p class="section-note">AutoLISP đặt mốc cách đều dọc tim tuyến. Chọn từng bước để xem mã tìm vị trí và tạo mốc trên bản vẽ thử.</p><CodeGeometryDemo /></div>
+  </section>
   <section id="chu-de" class="landing-section knowledge-section" aria-labelledby="knowledge-title">
     <div class="landing-container">
       <div class="landing-section-heading"><h2 id="knowledge-title">Kho tri thức</h2></div>
@@ -32,15 +34,8 @@ const referenceGroups = courses.flatMap(course => {
       </nav>
     </div>
   </section>
-  <section class="landing-section geometry-section" aria-labelledby="geometry-title">
-    <div class="landing-container"><div class="landing-section-heading"><h2 id="geometry-title">Từ code đến bản vẽ.</h2></div>
-    <p class="section-note">Tạo hai đối tượng, chọn đúng chúng rồi dịch chuyển 30 đơn vị theo trục Y. Chọn từng bước để xem kết quả.</p><CodeGeometryDemo /></div>
-  </section>
-  <section class="landing-section path-section" aria-labelledby="path-title">
-    <div class="landing-container"><div class="landing-section-heading"><h2 id="path-title">Chọn điểm bắt đầu</h2></div><LearningPath steps={stages}/></div>
-  </section>
   <section class="landing-section reference-section" aria-labelledby="reference-title">
-    <div class="landing-container reference-layout"><div class="reference-copy"><h2 id="reference-title">Tra cứu đúng lúc.</h2><p>Cú pháp, kiểu dữ liệu và cách dùng API trong từng chủ đề.</p></div>
+    <div class="landing-container reference-layout"><div class="reference-copy"><h2 id="reference-title">Tra cứu đúng lúc</h2><p>Cú pháp, kiểu dữ liệu và cách dùng API trong từng chủ đề.</p></div>
       <div class="reference-groups">{referenceGroups.map(group => <a href={group.href}><h3>{group.title}</h3><span>{group.sample}</span></a>)}</div>
     </div>
   </section>

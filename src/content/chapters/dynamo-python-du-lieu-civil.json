@@ -5,5 +5,5 @@
   "description": "Lập hợp đồng dữ liệu cho Alignment, Profile, Surface và các đối tượng hạ tầng.",
   "status": "published",
   "courseId": "course.dynamo-python",
-  "order": 2
+  "order": 3
 }

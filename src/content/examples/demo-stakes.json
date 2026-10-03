@@ -1,0 +1,13 @@
+{
+  "id": "example.autolisp.demo-stakes",
+  "slug": "demo-stakes",
+  "title": "Đặt mốc cách đều trên tim tuyến",
+  "description": "PTA_STAKES lấy điểm dọc LWPOLYLINE theo khoảng cách và tạo marker CIRCLE trên DWG thử.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "demo-stakes.lsp",
+  "expectedOutput": "Tim tuyến dài 95 đơn vị, bước 20: tạo 5 marker tại lý trình 0, 20, 40, 60 và 80.",
+  "sources": [{"title":"Autodesk — AutoLISP Developer's Guide","url":"https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-265AADB3-FB89-4D34-AA9D-6ADF70FF7D4B.htm"}],
+  "compatibility": [{"product":"AutoCAD","version":"Có AutoLISP và Visual LISP Curve API; thử trên bản vẽ dùng đơn vị phù hợp","platform":"Windows"}]
+}

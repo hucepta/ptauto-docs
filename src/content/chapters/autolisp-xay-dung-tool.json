@@ -5,5 +5,5 @@
   "description": "Tổ chức module, dữ liệu ứng dụng, file và vòng đời lệnh.",
   "status": "published",
   "courseId": "course.autolisp",
-  "order": 4
+  "order": 5
 }

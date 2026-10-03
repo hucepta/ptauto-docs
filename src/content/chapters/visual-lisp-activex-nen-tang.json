@@ -5,6 +5,5 @@
   "description": "Môi trường Windows và khởi tạo các hàm mở rộng.",
   "status": "published",
   "courseId": "course.visual-lisp-activex",
-  "order": 1
+  "order": 2
 }
-

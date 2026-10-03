@@ -1,17 +1,17 @@
-# Kho tri thức và phạm vi tiếp theo
+# Kho tri thức sau rà soát chương trình
 
-Phạm vi giữ sáu công nghệ trong brief INPUT. Tên chương trong tài liệu dùng để xác định kiến thức; website dùng nhóm chủ đề, không đánh số Chương 1/2. Mỗi chủ đề hiện có bài published thật, định nghĩa, mã mẫu, bài tập và dự án. Không tạo route từ một đề cương trống.
+Phạm vi giữ sáu công nghệ trong brief INPUT. Tên chương trong tài liệu dùng để xác định kiến thức; website dùng nhóm chủ đề, không đánh số Chương 1/2. Mỗi chủ đề có phần nhập môn, bài published thật, định nghĩa, mã mẫu, bài tập và dự án. File DOCX AutoLISP của người dùng giúp kiểm tra cách dẫn dắt và bổ sung thuật ngữ; cấu trúc sáu nhóm vẫn bám brief và tài liệu chính thức.
 
-| Chủ đề | Nhóm | Bài học | Tra cứu | Ví dụ | Bài tập | Dự án |
-|---|---:|---:|---:|---:|---:|---:|
-| AutoLISP | 5 | 10 | 13 | 9 | 3 | 2 |
-| Visual LISP / ActiveX | 5 | 6 | 6 | 5 | 2 | 1 |
-| AutoCAD .NET | 5 | 5 | 4 | 3 | 2 | 1 |
-| Civil 3D .NET | 5 | 5 | 4 | 3 | 2 | 1 |
-| Dynamo / Python | 4 | 5 | 4 | 3 | 2 | 1 |
-| GIS / Data Automation | 4 | 5 | 6 | 3 | 2 | 1 |
+| Chủ đề | Nhóm gồm nhập môn | Bài học | Tra cứu | Dự án |
+|---|---:|---:|---:|---:|
+| AutoLISP | 6 | 19 | 259 | 4 |
+| Visual LISP / ActiveX | 6 | 12 | 9 | 3 |
+| AutoCAD .NET | 6 | 12 | 10 | 3 |
+| Civil 3D .NET | 6 | 12 | 11 | 3 |
+| Dynamo / Python | 5 | 11 | 11 | 3 |
+| GIS / Data Automation | 5 | 11 | 17 | 3 |
 
-Đây là nền tảng và quy trình thực hành của kho tri thức, chưa phải mọi tình huống chuyên sâu của từng SDK. DCL/reactor, Jig/Overrule, xử lý thiết kế Corridor/Pipe Network và pipeline spatial topology nâng cao còn cần ví dụ riêng cùng kiểm chứng trong môi trường đích.
+Các bài mới bao phủ khung cấp cao trong brief, gồm DCL, reactor, Jig/Overrule, mạng áp lực, Object Binding, GDAL/PostGIS và raster. Bài giới thiệu một API không thay cho tài liệu tham chiếu đầy đủ của SDK. Ví dụ cần chạy lại trong đúng bản AutoCAD, Civil 3D hoặc Dynamo trước khi gắn nhãn đã kiểm chứng. Bộ 259 mục AutoLISP gồm 246 thuật ngữ trích và biên tập từ DOCX; một số là từ vựng học thuật chung, nên bước biên tập tiếp theo là gom nghĩa và bổ sung liên kết ngữ cảnh thay vì chỉ tăng số mục.
 
 ## Nguyên tắc biên soạn
 

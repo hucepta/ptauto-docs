@@ -6,6 +6,14 @@
   "status": "published",
   "technology": "autocad-dotnet",
   "order": 3,
+  "guide": {
+    "question": "Plugin AutoCAD .NET là gì?",
+    "answer": "Plugin là DLL C# được AutoCAD nạp để bổ sung lệnh. Mã dùng Document và Editor để giao tiếp, Database và Transaction để đọc hoặc sửa bản vẽ. Một ObjectId là định danh của đối tượng trong cơ sở dữ liệu bản vẽ, không phải chính đối tượng đó.",
+    "why": "Khi một tiện ích cần cấu trúc lớn, nhiều lớp dữ liệu, tích hợp hệ thống khác hoặc triển khai cho nhóm, C# và API .NET tạo nền tảng dễ tổ chức hơn một routine nhỏ.",
+    "setup": ["AutoCAD trên Windows và SDK/reference đúng với phiên bản AutoCAD đích.", "Visual Studio với project Class Library C#; build DLL rồi nạp bằng NETLOAD.", "Bản vẽ thử riêng và quyền kiểm tra log/debug; build DLL chỉ xác nhận biên dịch, chưa chứng minh lệnh chạy đúng trong AutoCAD."],
+    "workflow": [{"label": "Định nghĩa lệnh", "detail": "CommandMethod tạo tên lệnh để gọi trong AutoCAD."}, {"label": "Làm việc với DWG", "detail": "Editor nhận đầu vào; Transaction mở đúng đối tượng để đọc hoặc ghi."}, {"label": "Nạp và thử", "detail": "Build, NETLOAD, chạy trên DWG mẫu và kiểm tra thay đổi."}],
+    "firstResult": "Nạp một DLL tối thiểu và thấy lệnh của mình in thông báo vào Editor."
+  },
   "tags": [
     "C#",
     "AutoCAD",

@@ -6,6 +6,14 @@
   "status": "published",
   "technology": "gis-data-automation",
   "order": 6,
+  "guide": {
+    "question": "GIS và tự động hóa dữ liệu liên quan gì đến CAD?",
+    "answer": "CAD mô tả hình học thiết kế; GIS gắn hình học đó với vị trí địa lý, thuộc tính và hệ tọa độ để trao đổi, kiểm tra, phân tích. Một điểm cọc chỉ có ý nghĩa ngoài thực địa khi biết tọa độ, đơn vị, CRS và nguồn của nó.",
+    "why": "Chuyển một tuyến hoặc mạng thoát nước từ DWG sang GeoPackage mà bỏ qua CRS, ID hoặc thuộc tính có thể tạo dữ liệu trông đúng trên màn hình nhưng sai vị trí hoặc mất quan hệ thiết kế. Quy trình cần kiểm tra trước và sau chuyển đổi.",
+    "setup": ["Một bộ dữ liệu mẫu gồm tọa độ, thuộc tính và thông tin CRS do bên cung cấp xác nhận.", "QGIS để xem kết quả; Python và thư viện xử lý dữ liệu chỉ cài khi bài thực hành yêu cầu.", "Không tự gán một mã EPSG cho mọi dữ liệu VN-2000; xác định kinh tuyến trục, múi chiếu và đơn vị từ hồ sơ gốc."],
+    "workflow": [{"label": "Hiểu nguồn", "detail": "Kiểm tra kiểu hình học, trường dữ liệu, CRS và đơn vị."}, {"label": "Chuyển có kiểm soát", "detail": "Lập mapping ID/thuộc tính, biến đổi CRS nếu cần và ghi định dạng đích."}, {"label": "QA/QC", "detail": "So số lượng, vị trí, topology và báo cáo bản ghi lỗi."}],
+    "firstResult": "Đọc một tệp điểm mẫu, xác nhận CRS và xuất GeoJSON có ID cùng thuộc tính rõ ràng."
+  },
   "tags": [
     "GIS",
     "CRS",

@@ -3,20 +3,27 @@ import { resolve } from 'node:path';
 import { getContent } from '../../content/catalog';
 import { readExampleCode } from '../../domain/content/example-source';
 const { graph } = await getContent();
-const example = graph.examples.find(example => example.id === 'example.autolisp.demo-move');
-if (!example) throw new Error('Missing canonical MOVE example.');
+const example = graph.examples.find(example => example.id === 'example.autolisp.demo-stakes');
+if (!example) throw new Error('Missing canonical stake example.');
 const source = await readExampleCode(example, resolve('src/content/examples/code'));
 const actions = [
-  { key: 'line', label: '01 LINE', description: 'Dựng đường 120 đơn vị và giữ lại entity vừa tạo.' },
-  { key: 'circle', label: '02 CIRCLE', description: 'Tạo vòng tròn bán kính 24, tâm tại (60, 0).' },
-  { key: 'select', label: '03 Chọn đối tượng', description: 'Tạo selection set chỉ gồm hai đối tượng vừa dựng.' },
-  { key: 'move', label: '04 MOVE', description: 'Dịch cả nhóm 30 đơn vị theo trục Y của UCS.' },
+  { key: 'select', label: '01 Chọn tuyến', description: 'Chọn đúng một tim tuyến LWPOLYLINE.' },
+  { key: 'measure', label: '02 Đo tuyến', description: 'Nhập bước 20 m và đo chiều dài tuyến.' },
+  { key: 'sample', label: '03 Lấy lý trình', description: 'Tìm điểm trên tuyến tại 0, 20, 40, 60 và 80 m.' },
+  { key: 'mark', label: '04 Đặt mốc', description: 'Tạo marker trên bản vẽ và đếm kết quả.' },
 ];
 const steps = actions.map(action => {
   const code = source.split(';; step:' + action.key + '\n')[1]?.split(';; step:')[0]?.trim();
   if (!code) throw new Error('Missing example step: ' + action.key);
   return { ...action, code };
 });
+const stakes = [
+  { x: 93, y: 275, label: '0+000' },
+  { x: 164, y: 260, label: '0+020' },
+  { x: 235, y: 223, label: '0+040' },
+  { x: 306, y: 187, label: '0+060' },
+  { x: 378, y: 162, label: '0+080' },
+];
 ---
 <div class="code-geometry-demo motion-reveal" data-code-demo data-step="3">
   <div class="geometry-code">
@@ -24,21 +31,16 @@ const steps = actions.map(action => {
     <div class="code-sequence">{steps.map((step, index) => <div class="code-step" data-code-step={index} aria-current={index === 3 ? 'step' : undefined}><span class="code-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><div><p>{step.description}</p><pre><code>{step.code}</code></pre></div></div>)}</div>
   </div>
   <div class="geometry-output">
-    <div class="demo-toolbar"><span>Model · UCS = World</span><span class="simulation-label">Minh họa thao tác</span></div>
-    <svg id="demo-geometry" viewBox="0 0 520 370" fill="none" aria-hidden="true">
-      <defs><pattern id="demo-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#075d9b" stroke-opacity=".08"/></pattern><marker id="move-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10" fill="#087e87"/></marker></defs>
+    <div class="demo-toolbar"><span>Tim tuyến · bản vẽ thử</span><span class="simulation-label">Minh họa kết quả từng bước</span></div>
+    <svg id="demo-geometry" viewBox="0 0 520 370" fill="none" role="img" aria-label="Tim tuyến cong dài 95 mét và năm mốc cách nhau 20 mét">
+      <defs><pattern id="demo-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#075d9b" stroke-opacity=".09"/></pattern></defs>
       <rect width="520" height="370" fill="url(#demo-grid)"/>
-      <path d="M260 40v266M78 190h362" stroke="#b2c9d2" stroke-dasharray="5 6"/>
-      <g class="demo-origin" stroke="#8faebc" stroke-dasharray="5 5"><path d="M108 190h304"/><circle cx="260" cy="190" r="60.8"/></g>
-      <g data-demo-moving>
-        <path data-demo-line d="M108 190h304" pathLength="1" stroke="#075d9b" stroke-width="2.8" stroke-linecap="round"/>
-        <circle data-demo-circle cx="260" cy="190" r="60.8" stroke="#075d9b" stroke-width="2.8" pathLength="1"/>
-        <g data-demo-selection><rect x="92" y="113" width="336" height="154" fill="#087e87" fill-opacity=".06" stroke="#087e87" stroke-dasharray="6 4"/><g fill="#fff" stroke="#087e87"><rect x="104" y="186" width="8" height="8"/><rect x="408" y="186" width="8" height="8"/><rect x="256" y="125.2" width="8" height="8"/></g></g>
-      </g>
-      <g class="demo-displacement"><path d="M452 190v-76" stroke="#087e87" stroke-width="2" marker-end="url(#move-arrow)"/><text x="448" y="99" text-anchor="end" fill="#087e87" font-family="Consolas, monospace" font-size="13">ΔY = 30</text></g>
-      <path d="M108 286v25m304-25v25M108 304h304m-308-4 8 8m300-8 8 8" stroke="#87a5b4"/>
-      <rect x="232" y="293" width="56" height="22" fill="#f8fcfd"/>
-      <g fill="#53677a" font-family="Consolas, monospace" font-size="12"><text x="242" y="309">120.00</text><text x="16" y="350">WCS</text></g>
+      <path d="M93 275 C145 285 169 260 211 237 S293 191 345 172 S417 147 455 109" stroke="#b6d1db" stroke-width="17" stroke-linecap="round"/>
+      <path class="route-line" d="M93 275 C145 285 169 260 211 237 S293 191 345 172 S417 147 455 109" stroke="#075d9b" stroke-width="3" stroke-linecap="round"/>
+      <g class="route-measure"><path d="M93 310H455" stroke="#77a7b9" stroke-dasharray="5 5"/><path d="M93 301v18M455 301v18" stroke="#77a7b9"/><text x="274" y="330" text-anchor="middle">Tim tuyến 95 m · bước 20 m</text></g>
+      <g class="stake-guides" stroke="#77a7b9" stroke-dasharray="4 4">{stakes.map(stake => <path d={`M${stake.x} ${stake.y + 8}V306`} />)}</g>
+      <g class="stake-points">{stakes.map((stake, index) => <g class="stake-point" style={`--stake-delay:${index * 100}ms`}><circle cx={stake.x} cy={stake.y} r="7" fill="#ffd27a" stroke="#075d9b" stroke-width="2"/><text x={stake.x} y={stake.y - 16} text-anchor="middle">{stake.label}</text></g>)}</g>
+      <text x="30" y="347" class="drawing-note">Đơn vị bản vẽ: m · 5 mốc được tạo</text>
     </svg>
     <div class="demo-controls js-control">{steps.map((step, index) => <button type="button" data-demo-button={index} aria-controls="demo-geometry" aria-pressed={index === 3 ? 'true' : 'false'}>{step.label}</button>)}</div>
   </div>

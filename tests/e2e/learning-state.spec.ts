@@ -15,7 +15,7 @@ test('explicit_completion_only', async ({ page }) => {
     await page.goto('/hoc/autolisp/list-association-list/');
     await expect(page.getByRole('button', { name: 'Đánh dấu hoàn thành', exact: true })).toHaveAttribute('aria-pressed', 'false');
     await page.goto('/hoc/autolisp/');
-    await expect(page.locator('[data-course-progress]')).toContainText('0 / 4');
+    await expect(page.locator('[data-course-progress]')).toContainText(/^0 \/ \d+ bài/);
 });
 test('two_tabs_update_different_lessons', async ({ page, context }) => {
     await page.goto('/hoc/autolisp/bieu-thuc-evaluation/');
@@ -24,7 +24,7 @@ test('two_tabs_update_different_lessons', async ({ page, context }) => {
     await page.getByRole('button', { name: 'Đánh dấu hoàn thành', exact: true }).click();
     await other.getByRole('button', { name: 'Đánh dấu hoàn thành', exact: true }).click();
     await page.goto('/hoc/autolisp/');
-    await expect(page.locator('[data-course-progress]')).toContainText('2 / 4');
+    await expect(page.locator('[data-course-progress]')).toContainText(/^2 \/ \d+ bài/);
     await other.close();
 });
 test('corrupt_or_denied_storage_keeps_reader', async ({ page }) => {

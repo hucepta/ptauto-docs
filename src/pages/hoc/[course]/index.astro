@@ -12,7 +12,13 @@ const chapters = graph.chapters.filter(c => c.courseId === course.id);
 ---
 <LearnLayout title={course.title} description={course.description} graph={graph} courseId={course.id}>
 <Breadcrumbs items={[{title:'Trang chủ',url:'/'},{title:course.title}]} /><h1>{course.title}</h1>
-<p class="progress-label" data-course-progress={course.id}>{lessons.length} bài học hiện có</p><a class="button primary" data-course-start={course.id} href={withBase(getContentUrl(graph,lessons[0].id))}>Bắt đầu học</a>
+{course.guide&&<div class="course-intro">
+  <div class="course-intro-copy"><h2>{course.guide.question}</h2><p>{course.guide.answer}</p><p>{course.guide.why}</p></div>
+  <section class="course-setup" aria-label="Chuẩn bị trước khi học"><h2>Cần chuẩn bị</h2><ul>{course.guide.setup.map(item=><li>{item}</li>)}</ul></section>
+  <section class="course-flow" aria-label="Luồng làm việc"><h2>Một lượt làm việc diễn ra thế nào</h2><ol>{course.guide.workflow.map(step=><li><strong>{step.label}</strong><span>{step.detail}</span></li>)}</ol></section>
+  <p class="course-first-result"><strong>Kết quả đầu tiên:</strong> {course.guide.firstResult}</p>
+</div>}
+<div class="course-start"><p class="progress-label" data-course-progress={course.id}>{lessons.length} bài học hiện có</p><a class="button primary" data-course-start={course.id} href={withBase(getContentUrl(graph,lessons[0].id))}>Vào bài đầu tiên <span aria-hidden="true">→</span></a></div>
 {chapters.map(c=><section class="related"><h2><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a></h2><p class="muted">{c.description}</p>
 <ul class="link-list">{lessons.filter(l=>l.chapterId===c.id).map(l=><li><a href={withBase(getContentUrl(graph,l.id))}>{l.title}</a><p>{l.description}</p></li>)}</ul></section>)}
 </LearnLayout>

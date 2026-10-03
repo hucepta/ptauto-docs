@@ -5,5 +5,5 @@
   "description": "Xử lý lỗi, batch, Undo, reactor và giải phóng tham chiếu.",
   "status": "published",
   "courseId": "course.visual-lisp-activex",
-  "order": 4
+  "order": 5
 }

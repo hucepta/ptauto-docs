@@ -16,9 +16,16 @@ const compatibility = z.array(z.object({ product: z.string(), version: z.string(
 const sources = z.array(z.object({ title: z.string().min(1), url: z.url() })).default([]);
 const examplePlacements = z.array(z.object({ heading: z.string().min(1), exampleIds: z.array(z.string().startsWith('example.')).min(1) })).default([]);
 const common = (prefix: string) => ({ id: z.string().regex(new RegExp(`^${prefix}\\.[a-z0-9.-]+$`)), slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/), title: z.string().trim().min(1), description: z.string().trim().min(1), status: z.enum(['draft', 'published']).default('draft'), tags: strings, aliases: strings, searchableTerms: strings });
-export const courseSchema = z.object({ ...common('course'), technology: technologySchema, order: z.number().int().positive() });
+export const courseSchema = z.object({ ...common('course'), technology: technologySchema, order: z.number().int().positive(), guide: z.object({
+    question: z.string().min(1),
+    answer: z.string().min(1),
+    why: z.string().min(1),
+    setup: z.array(z.string().min(1)).min(1),
+    workflow: z.array(z.object({ label: z.string().min(1), detail: z.string().min(1) })).min(3),
+    firstResult: z.string().min(1),
+}).optional() });
 export const chapterSchema = z.object({ ...common('chapter'), courseId: z.string().startsWith('course.'), order: z.number().int().positive() });
-export const lessonSchema = z.object({ ...common('lesson'), chapterId: z.string().startsWith('chapter.'), order: z.number().int().positive(), difficulty, prerequisites: strings, conceptIds: strings, exampleIds: strings, examplePlacements, exerciseIds: strings, sources, compatibility });
+export const lessonSchema = z.object({ ...common('lesson'), chapterId: z.string().startsWith('chapter.'), order: z.number().int().positive(), difficulty, prerequisites: strings, conceptIds: strings, exampleIds: strings, examplePlacements, exerciseIds: strings, sources, compatibility, flow: z.array(z.object({ label: z.string().min(1), detail: z.string().min(1) })).length(3).optional() });
 export const conceptSchema = z.object({ ...common('concept'), technology: technologySchema, difficulty, kind: z.enum(['term', 'api', 'syntax', 'troubleshooting']), relatedConceptIds: strings, exampleIds: strings, examplePlacements, sources, compatibility });
 export const exampleSchema = z.object({ ...common('example'), technology: technologySchema, language: z.enum(['lisp', 'csharp', 'python', 'json', 'xml', 'text']), sourceFile: z.string().min(1).refine(s => !s.split(/[\\/]/).includes('..') && !/^(?:[\\/]|[a-zA-Z]:)/.test(s), 'File code phải nằm trong examples/code.'), expectedOutput: z.string().optional(), compatibility, sources, verifiedWith: z.object({ product: z.string(), version: z.string(), platform: z.string(), checkedAt: z.iso.datetime() }).optional() });
 export const exerciseSchema = z.object({ ...common('exercise'), technology: technologySchema, difficulty, expectedResult: z.string().min(1), solutionExampleId: z.string().optional(), conceptIds: strings, compatibility });

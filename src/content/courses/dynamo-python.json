@@ -6,6 +6,14 @@
   "status": "published",
   "technology": "dynamo-python",
   "order": 5,
+  "guide": {
+    "question": "Dynamo và Python giúp gì cho thiết kế hạ tầng?",
+    "answer": "Dynamo ghép các node bằng dây để dữ liệu đi qua một đồ thị xử lý. Trong Civil 3D, node có thể đọc hoặc tạo đối tượng CAD/Civil; Python node xử lý trường hợp mà node sẵn có không đủ hoặc quy tắc dữ liệu cần viết rõ.",
+    "why": "Đồ thị phù hợp để thấy ngay đường đi của dữ liệu: lấy danh sách cọc, lọc bản ghi lỗi, tạo bảng kiểm tra hoặc chuẩn bị dữ liệu cho GIS. Python chỉ nên gói một bước có lý do, không giấu cả quy trình trong một ô code.",
+    "setup": ["Civil 3D có Dynamo và một bản vẽ thử. Tạo graph mới và xác nhận node AutoCAD/Civil có sẵn trong phiên bản đang dùng.", "Xem engine Python của Python node trước khi dùng package hoặc .NET API; cách nạp thư viện phụ thuộc phiên bản Dynamo.", "Đầu vào CSV mẫu có vài dòng lỗi để kiểm tra cả nhánh thành công và nhánh lỗi."],
+    "workflow": [{"label": "Nguồn dữ liệu", "detail": "Node đọc DWG, Civil object hoặc file CSV."}, {"label": "Biến đổi", "detail": "List/lacing hoặc Python làm sạch, ghép và kiểm tra dữ liệu."}, {"label": "Kết quả", "detail": "Watch kiểm tra từng bước trước khi ghi lại DWG hoặc xuất báo cáo."}],
+    "firstResult": "Tạo graph ba node để tạo danh sách, biến đổi và xem kết quả trong Watch."
+  },
   "tags": [
     "Dynamo",
     "Python",

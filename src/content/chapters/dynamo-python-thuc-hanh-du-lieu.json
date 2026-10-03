@@ -5,5 +5,5 @@
   "description": "Kiểm tra CSV cọc theo lý trình, bảo toàn tọa độ và chuẩn bị dữ liệu trao đổi GIS.",
   "status": "published",
   "courseId": "course.dynamo-python",
-  "order": 4
+  "order": 5
 }

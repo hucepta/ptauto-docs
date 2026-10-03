@@ -37,3 +37,14 @@ test('reader_without_javascript', async ({ browser }) => {
     await expect(page).toHaveURL(/bien-kieu-du-lieu/);
     await context.close();
 });
+test('long_code_wraps_and_mobile_reader_starts_with_the_article', async ({ page }) => {
+    for (const width of [1226, 390]) {
+        await page.setViewportSize({ width, height: 890 });
+        await page.goto('/hoc/autolisp/ham-dieu-kien-vong-lap/');
+        const pre = page.locator('.code-example pre');
+        await expect(pre).toBeVisible();
+        expect(await pre.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        if (width === 390) await expect(page.locator('.course-nav')).not.toHaveAttribute('open', '');
+    }
+});

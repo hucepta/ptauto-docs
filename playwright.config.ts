@@ -6,6 +6,6 @@ export default defineConfig({
   workers: 1,
   reporter: 'list',
   use: { baseURL: 'http://127.0.0.1:4321', trace: 'retain-on-failure' },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'], ...(process.env.PLAYWRIGHT_USE_INSTALLED_CHROME ? { channel: 'chrome' } : {}) } }],
   webServer: { command: 'node scripts/serve.mjs', url: 'http://127.0.0.1:4321', reuseExistingServer: true, timeout: 30000 },
 });
