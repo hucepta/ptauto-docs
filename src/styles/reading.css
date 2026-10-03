@@ -315,3 +315,41 @@ details.solution > div { margin-top: .75rem; }
   .primary-nav a { font-size: .8rem; padding: .35rem .45rem; white-space: nowrap; }
   .reader-grid { grid-template-columns: 160px minmax(0, 1fr) 160px; }
 }
+/* Reading and navigation refinements */
+.page, .reader-article { counter-reset: teaching-figure; }
+figure { counter-increment: teaching-figure; }
+figure figcaption::before { content: 'Hình ' counter(teaching-figure) '. '; }
+figure figcaption, .lesson-flowchart figcaption, .project-flowchart figcaption, .project-illustration figcaption { display: block; text-align: center; margin: 1rem 0 0; font-size: .9rem; font-weight: 500; }
+.teaching-image { padding: 1rem; margin: 1.5rem 0; border: 1px solid var(--line); background: white; border-radius: 16px; }
+.teaching-image img { display: block; width: auto; max-width: 100%; height: auto; margin: auto; max-height: 620px; object-fit: contain; }
+.teaching-image figcaption small { display: block; font-size: .75rem; }
+.teaching-image p { margin: .8rem 0 0; font-size: .95rem; text-indent: 0; }
+.page > h1 { color: var(--ink); background: none; line-height: 1.35; padding-block: .12em; }
+h1, h2, h3 { overflow-wrap: anywhere; }
+.reader-article { border-radius: 20px; }
+.course-intro, .reader-step, .reference-course-card, .project-flowchart, .lesson-flowchart, .project-illustration, .lesson-pager a, .course-guide, .course-map details { border-radius: 16px; }
+.reference-course-card:hover { transform: none; }
+.reference-preview { margin: 0; padding: 0; list-style: none; }
+.reference-preview li { padding: .7rem 0; border-bottom: 1px solid var(--line); }
+.reference-preview a { font-weight: 600; }
+.reference-course-card h2 { margin: 0; font-size: 1.3rem; }
+.lesson-end { padding: 1.3rem; background: #eaf5f8; border-radius: 18px; margin-top: 2rem; }
+.lesson-end .lesson-pager { margin-top: 1rem; padding-top: 1rem; }
+.course-map { display: grid; gap: .8rem; }
+.course-map details { background: #f1f7fa; border: 1px solid var(--line); padding: 1rem; }
+.course-map summary { cursor: pointer; font-weight: 700; }
+.course-map details[open] > :not(summary) { animation: content-in .22s ease; }
+@keyframes content-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.branch-path { margin: .6rem 0; font-size: .85rem; }
+.author-section { color: #e6f4ff; padding: 2rem 0; }
+.author-section a { color: #a7e5ef; }
+@media (prefers-reduced-motion: reduce) { .course-map details[open] > :not(summary) { animation: none; } }
+.page, .page.narrow { border-radius: 22px; }
+.learning-map { width: 100%; padding-block: 1.5rem; }
+.learning-map-sections { display: grid; gap: .7rem; }
+.map-section { background: #f0f7fa; border: 1px solid var(--line); border-radius: 14px; padding: .8rem 1rem; }
+.map-section summary { cursor: pointer; font-weight: 700; }
+.map-section[open] > :not(summary) { animation: content-in .22s ease; }
+.primary-nav a[aria-current=location] { color: #075d76; background: #e3f3f6; border-color: #b4dae1; }
+.primary-nav a, .button, button { border-radius: 12px; }
+@media (prefers-reduced-motion: reduce) { .map-section[open] > :not(summary) { animation: none; } }

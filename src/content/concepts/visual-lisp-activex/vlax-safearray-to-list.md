@@ -46,3 +46,16 @@ array là SafeArray, không phải Variant bọc ngoài. List hoặc nil.
 ## Kiểm tra khi áp dụng
 
 Kiểm loại Variant trước khi bóc; list phẳng không tự mang ngữ nghĩa điểm.
+
+## Thử với mảng tự tạo
+
+```lisp
+(vl-load-com)
+(setq a (vlax-make-safearray vlax-vbDouble '(0 . 2)))
+(vlax-safearray-fill a '(10.0 20.0 0.0))
+(vlax-safearray->list a) ; (10.0 20.0 0.0)
+```
+
+## Lỗi thường gặp
+
+Coordinates khác cấu trúc theo loại polyline: không nhóm mặc định mỗi ba phần tử khi dữ liệu là XY phẳng. Ví dụ mảng tự tạo ở đây có ba phần tử do bạn xác định cận 0..2.

@@ -10,9 +10,113 @@
     "question": "GIS và tự động hóa dữ liệu liên quan gì đến CAD?",
     "answer": "CAD mô tả hình học thiết kế; GIS gắn hình học đó với vị trí địa lý, thuộc tính và hệ tọa độ để trao đổi, kiểm tra, phân tích. Một điểm cọc chỉ có ý nghĩa ngoài thực địa khi biết tọa độ, đơn vị, CRS và nguồn của nó.",
     "why": "Chuyển một tuyến hoặc mạng thoát nước từ DWG sang GeoPackage mà bỏ qua CRS, ID hoặc thuộc tính có thể tạo dữ liệu trông đúng trên màn hình nhưng sai vị trí hoặc mất quan hệ thiết kế. Quy trình cần kiểm tra trước và sau chuyển đổi.",
-    "setup": ["Một bộ dữ liệu mẫu gồm tọa độ, thuộc tính và thông tin CRS do bên cung cấp xác nhận.", "QGIS để xem kết quả; Python và thư viện xử lý dữ liệu chỉ cài khi bài thực hành yêu cầu.", "Không tự gán một mã EPSG cho mọi dữ liệu VN-2000; xác định kinh tuyến trục, múi chiếu và đơn vị từ hồ sơ gốc."],
-    "workflow": [{"label": "Hiểu nguồn", "detail": "Kiểm tra kiểu hình học, trường dữ liệu, CRS và đơn vị."}, {"label": "Chuyển có kiểm soát", "detail": "Lập mapping ID/thuộc tính, biến đổi CRS nếu cần và ghi định dạng đích."}, {"label": "QA/QC", "detail": "So số lượng, vị trí, topology và báo cáo bản ghi lỗi."}],
-    "firstResult": "Đọc một tệp điểm mẫu, xác nhận CRS và xuất GeoJSON có ID cùng thuộc tính rõ ràng."
+    "setup": [
+      "Một bộ dữ liệu mẫu gồm tọa độ, thuộc tính và thông tin CRS do bên cung cấp xác nhận.",
+      "QGIS để xem kết quả; Python và thư viện xử lý dữ liệu chỉ cài khi bài thực hành yêu cầu.",
+      "Không tự gán một mã EPSG cho mọi dữ liệu VN-2000; xác định kinh tuyến trục, múi chiếu và đơn vị từ hồ sơ gốc."
+    ],
+    "workflow": [
+      {
+        "label": "Hiểu nguồn",
+        "detail": "Kiểm tra kiểu hình học, trường dữ liệu, CRS và đơn vị."
+      },
+      {
+        "label": "Chuyển có kiểm soát",
+        "detail": "Lập mapping ID/thuộc tính, biến đổi CRS nếu cần và ghi định dạng đích."
+      },
+      {
+        "label": "QA/QC",
+        "detail": "So số lượng, vị trí, topology và báo cáo bản ghi lỗi."
+      }
+    ],
+    "firstResult": "QGIS hiển thị ba điểm mẫu; coc.gpkg mở lại có đúng ba ID C01, C02, C03.",
+    "ecosystem": "GIS là hệ thống dữ liệu không gian: mỗi đối tượng có hình học, thuộc tính và hệ quy chiếu. QGIS giúp nhìn và kiểm dữ liệu. GeoPackage/GeoJSON là định dạng trao đổi; GeoPandas/Shapely xử lý bằng Python; GDAL chuyển định dạng và raster; PostGIS lưu, truy vấn dữ liệu không gian trong PostgreSQL. Chọn công cụ sau khi đã hiểu dữ liệu.",
+    "prerequisites": [
+      "Biết tạo tệp văn bản CSV và đọc bảng thuộc tính.",
+      "Biết phân biệt tọa độ x/y với mã đối tượng.",
+      "Có hồ sơ CRS khi xử lý dữ liệu thật; bài mẫu dùng WGS84 được nêu rõ."
+    ],
+    "outcomes": [
+      "Mở CSV thành ba điểm trong QGIS và kiểm từng mã cọc.",
+      "Giải thích hình học, thuộc tính, CRS và đơn vị.",
+      "Xuất GeoPackage rồi mở lại, đối chiếu số lượng và vị trí.",
+      "Chọn phép kiểm hình học và truy vấn không gian phù hợp."
+    ],
+    "nextTechnology": "Quay lại Civil 3D .NET khi cần lấy dữ liệu thiết kế theo đối tượng; dùng GIS cho trao đổi, vị trí và kiểm tra bàn giao.",
+    "map": [
+      {
+        "title": "Giới thiệu",
+        "summary": "Bắt đầu từ một đối tượng có vị trí và thuộc tính.",
+        "topics": [
+          "Điểm, tuyến, vùng",
+          "Vector và raster",
+          "Một hàng là một đối tượng"
+        ]
+      },
+      {
+        "title": "Hệ sinh thái",
+        "summary": "Chọn vai trò của từng công cụ.",
+        "topics": [
+          "QGIS để kiểm bằng mắt",
+          "Python để lặp quy trình",
+          "GDAL và PostGIS"
+        ]
+      },
+      {
+        "title": "Công cụ",
+        "summary": "Nạp dữ liệu mẫu và đọc bảng thuộc tính.",
+        "topics": [
+          "Layer > Add Layer",
+          "X/y và CRS nguồn",
+          "Export > Save Features As"
+        ]
+      },
+      {
+        "title": "Ngôn ngữ và API",
+        "summary": "Tự động hóa sau khi làm được bằng tay.",
+        "topics": [
+          "GeoPandas cho bảng không gian",
+          "Shapely cho hình học phẳng",
+          "SQL và hàm ST_ trong PostGIS"
+        ]
+      },
+      {
+        "title": "Dữ liệu",
+        "summary": "Biết tọa độ có ý nghĩa gì.",
+        "topics": [
+          "Hình học, ID và kiểu trường",
+          "CRS, datum, đơn vị",
+          "Gán CRS khác chuyển CRS"
+        ]
+      },
+      {
+        "title": "Thực hành",
+        "summary": "Ba điểm mẫu đi qua một quy trình có kiểm tra.",
+        "topics": [
+          "CSV > QGIS > GeoPackage",
+          "Đếm và đối chiếu ID",
+          "Kiểm lỗi CRS và bản ghi trùng"
+        ]
+      },
+      {
+        "title": "Dự án",
+        "summary": "Xây quy trình trao đổi CAD–GIS có báo cáo.",
+        "topics": [
+          "Ánh xạ layer và thuộc tính",
+          "Giữ ID nguồn",
+          "Kiểm topology và nhật ký lỗi"
+        ]
+      },
+      {
+        "title": "Tra cứu",
+        "summary": "Tìm phép xử lý theo câu hỏi dữ liệu.",
+        "topics": [
+          "GeoPandas đọc/ghi/chuyển CRS",
+          "Shapely đo và quan hệ hình học",
+          "PostGIS và GDAL"
+        ]
+      }
+    ]
   },
   "tags": [
     "GIS",

@@ -10,9 +10,112 @@
     "question": "Dynamo và Python giúp gì cho thiết kế hạ tầng?",
     "answer": "Dynamo ghép các node bằng dây để dữ liệu đi qua một đồ thị xử lý. Trong Civil 3D, node có thể đọc hoặc tạo đối tượng CAD/Civil; Python node xử lý trường hợp mà node sẵn có không đủ hoặc quy tắc dữ liệu cần viết rõ.",
     "why": "Đồ thị phù hợp để thấy ngay đường đi của dữ liệu: lấy danh sách cọc, lọc bản ghi lỗi, tạo bảng kiểm tra hoặc chuẩn bị dữ liệu cho GIS. Python chỉ nên gói một bước có lý do, không giấu cả quy trình trong một ô code.",
-    "setup": ["Civil 3D có Dynamo và một bản vẽ thử. Tạo graph mới và xác nhận node AutoCAD/Civil có sẵn trong phiên bản đang dùng.", "Xem engine Python của Python node trước khi dùng package hoặc .NET API; cách nạp thư viện phụ thuộc phiên bản Dynamo.", "Đầu vào CSV mẫu có vài dòng lỗi để kiểm tra cả nhánh thành công và nhánh lỗi."],
-    "workflow": [{"label": "Nguồn dữ liệu", "detail": "Node đọc DWG, Civil object hoặc file CSV."}, {"label": "Biến đổi", "detail": "List/lacing hoặc Python làm sạch, ghép và kiểm tra dữ liệu."}, {"label": "Kết quả", "detail": "Watch kiểm tra từng bước trước khi ghi lại DWG hoặc xuất báo cáo."}],
-    "firstResult": "Tạo graph ba node để tạo danh sách, biến đổi và xem kết quả trong Watch."
+    "setup": [
+      "Civil 3D có Dynamo và một bản vẽ thử. Tạo graph mới và xác nhận node AutoCAD/Civil có sẵn trong phiên bản đang dùng.",
+      "Xem engine Python của Python node trước khi dùng package hoặc .NET API; cách nạp thư viện phụ thuộc phiên bản Dynamo.",
+      "Đầu vào CSV mẫu có vài dòng lỗi để kiểm tra cả nhánh thành công và nhánh lỗi."
+    ],
+    "workflow": [
+      {
+        "label": "Nguồn dữ liệu",
+        "detail": "Node đọc DWG, Civil object hoặc file CSV."
+      },
+      {
+        "label": "Biến đổi",
+        "detail": "List/lacing hoặc Python làm sạch, ghép và kiểm tra dữ liệu."
+      },
+      {
+        "label": "Kết quả",
+        "detail": "Watch kiểm tra từng bước trước khi ghi lại DWG hoặc xuất báo cáo."
+      }
+    ],
+    "firstResult": "Watch hiển thị [10, 35, 60] từ đồ thị cộng 10 vào ba lý trình.",
+    "ecosystem": "Dynamo là trình lập trình bằng đồ thị: nối các khối xử lý để nhìn đường đi của dữ liệu. Dynamo for Civil 3D chạy cùng Civil 3D và cung cấp thêm node bản vẽ. Python là ngôn ngữ dùng được trong node Python Script hoặc trong chương trình độc lập; hai môi trường có thư viện và cách truy cập bản vẽ khác nhau.",
+    "prerequisites": [
+      "Biết mở bản vẽ Civil 3D và chọn thẻ trên dải công cụ.",
+      "Biết đọc một bảng có tiêu đề cột và lưu tệp.",
+      "Chưa cần biết lập trình Python; bắt đầu bằng số và Watch."
+    ],
+    "outcomes": [
+      "Tạo, nối và lưu đồ thị có kết quả kiểm được trong Watch.",
+      "Giữ đúng cấu trúc danh sách khi lọc và ghép dữ liệu.",
+      "Viết Python nhận IN, trả OUT và báo rõ bản ghi lỗi.",
+      "Phân biệt dữ liệu hình học Dynamo với đối tượng bản vẽ Civil 3D."
+    ],
+    "nextTechnology": "Chuyển sang GIS để gắn hình học với CRS, thuộc tính và kiểm tra dữ liệu bàn giao.",
+    "map": [
+      {
+        "title": "Giới thiệu",
+        "summary": "Hiểu đồ thị giải quyết việc gì trước khi viết Python.",
+        "topics": [
+          "Khối xử lý và dây nối",
+          "Một kết quả trong Watch"
+        ]
+      },
+      {
+        "title": "Hệ sinh thái",
+        "summary": "Chọn đúng môi trường chạy đồ thị và mã.",
+        "topics": [
+          "Dynamo for Civil 3D",
+          "Dynamo Player",
+          "Python trong node và Python độc lập"
+        ]
+      },
+      {
+        "title": "Công cụ",
+        "summary": "Mở đúng cửa sổ và đọc dữ liệu tại mỗi bước.",
+        "topics": [
+          "Manage > Visual Programming > Dynamo",
+          "New, Library và vùng đặt node",
+          "Manual, Run, Watch, Save"
+        ]
+      },
+      {
+        "title": "Ngôn ngữ và API",
+        "summary": "Từ biểu thức ngắn đến Python và API bản vẽ.",
+        "topics": [
+          "Code Block và DesignScript",
+          "IN/OUT, Python engine",
+          "Phạm vi transaction và assembly host"
+        ]
+      },
+      {
+        "title": "Dữ liệu",
+        "summary": "Cấu trúc danh sách quyết định cách ghép bản ghi.",
+        "topics": [
+          "Danh sách phẳng/lồng",
+          "Chỉ số, mức danh sách và lacing",
+          "Mã cọc, số, chuỗi, null"
+        ]
+      },
+      {
+        "title": "Thực hành",
+        "summary": "Tạo kết quả nhỏ có thể đối chiếu bằng tay.",
+        "topics": [
+          "Cộng lý trình",
+          "Lọc đầu vào lỗi",
+          "CSV UTF-8 và số dòng"
+        ]
+      },
+      {
+        "title": "Dự án",
+        "summary": "Ghép bước đọc, kiểm tra và xuất thành quy trình.",
+        "topics": [
+          "Báo cáo cọc lỗi",
+          "Đọc tuyến/mặt địa hình",
+          "Ghi báo cáo có nguồn và đơn vị"
+        ]
+      },
+      {
+        "title": "Tra cứu",
+        "summary": "Tìm node hoặc hàm theo đầu vào và đầu ra.",
+        "topics": [
+          "Node List/Watch",
+          "Hàm Python xử lý bảng",
+          "Lỗi kiểu dữ liệu và thư viện"
+        ]
+      }
+    ]
   },
   "tags": [
     "Dynamo",

@@ -22,7 +22,7 @@
 
 ## Giải thích
 
-Thành phần nhận đầu vào và tạo đầu ra trong graph Dynamo.
+Thành phần nhận đầu vào và tạo đầu ra trong đồ thị Dynamo.
 
 **Cách hiểu trong khóa:** nút xử lý.
 

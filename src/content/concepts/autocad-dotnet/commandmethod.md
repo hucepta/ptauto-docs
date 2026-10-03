@@ -13,11 +13,17 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu API chính thức",
+      "title": "Autodesk — [CommandMethod]",
       "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_Runtime_CommandMethodAttribute_CommandMethodAttribute_string.html"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +31,14 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public CommandMethodAttribute(
+    string globalName
+);
+```
+
+## Cách gọi
 
 ```csharp
 [CommandMethod("PTA_REPORT")]

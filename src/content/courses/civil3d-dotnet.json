@@ -2,7 +2,7 @@
   "id": "course.civil3d-dotnet",
   "slug": "civil3d-dotnet",
   "title": "Civil 3D .NET",
-  "description": "Đọc mô hình CivilDocument, tuyến và trắc dọc, Surface và trắc ngang, Corridor và hạ tầng; xây quy trình kiểm kê QA/QC.",
+  "description": "Học mô hình Civil, Toolspace và C#; đọc tuyến, mặt và quan hệ thiết kế để xây báo cáo hạ tầng.",
   "status": "published",
   "technology": "civil3d-dotnet",
   "order": 4,
@@ -10,9 +10,112 @@
     "question": "Civil 3D .NET khác AutoCAD .NET ở đâu?",
     "answer": "Civil 3D chạy trên nền AutoCAD và bổ sung các đối tượng thiết kế hạ tầng như Alignment, Profile, TinSurface, Corridor và Pipe Network. Plugin Civil dùng cả Database/Transaction của AutoCAD lẫn CivilDocument và API Civil để đọc quan hệ thiết kế.",
     "why": "Tuyến, mặt đất và mạng hạ tầng có quan hệ phụ thuộc. Một báo cáo lý trình, cao độ hay QA/QC phải đọc đúng đối tượng gốc và trạng thái cập nhật thay vì đo thủ công trên hình hiển thị.",
-    "setup": ["Civil 3D đầy đủ trên Windows và SDK/API đúng phiên bản đích; AutoCAD thường hoặc Object Enabler không thay thế được Civil 3D runtime.", "Visual Studio, bản vẽ Civil 3D mẫu chứa Alignment và Surface, bản sao để thử nghiệm.", "Biết lệnh và Transaction AutoCAD .NET trước khi đi vào đối tượng Civil."],
-    "workflow": [{"label": "Mô hình", "detail": "Xác định tuyến, mặt, trắc dọc hoặc mạng cần đọc."}, {"label": "Đọc quan hệ", "detail": "Từ CivilDocument lấy ObjectId, mở đối tượng trong Transaction và kiểm tra dữ liệu."}, {"label": "Đối chiếu", "detail": "So kết quả với nhãn/bảng trong Civil 3D và ghi rõ phiên bản host."}],
-    "firstResult": "Liệt kê tên các Alignment trong bản vẽ thử mà không sửa mô hình."
+    "setup": [
+      "Mở Civil 3D trên Windows và dùng SDK/reference đúng phiên bản đích.",
+      "Visual Studio với Class Library C#, build DLL rồi dùng NETLOAD.",
+      "Dùng bản sao DWG học có dữ liệu nhỏ để đối chiếu kết quả."
+    ],
+    "workflow": [
+      {
+        "label": "Mô hình",
+        "detail": "Xác định tuyến, mặt, trắc dọc hoặc mạng cần đọc."
+      },
+      {
+        "label": "Đọc quan hệ",
+        "detail": "Từ CivilDocument lấy ObjectId, mở đối tượng trong Transaction và kiểm tra dữ liệu."
+      },
+      {
+        "label": "Đối chiếu",
+        "detail": "So kết quả với nhãn/bảng trong Civil 3D và ghi rõ phiên bản host."
+      }
+    ],
+    "firstResult": "Liệt kê tên các Alignment trong bản vẽ thử mà không sửa mô hình.",
+    "ecosystem": "Civil 3D chạy trên AutoCAD; API Civil bổ sung Alignment, Profile, Surface, Corridor và mạng hạ tầng. C# dùng AutoCAD Database/Transaction cùng CivilDocument để đọc quan hệ mô hình.",
+    "prerequisites": [
+      "Biết mở/lưu DWG, chọn đối tượng và dùng Command Line.",
+      "Hiểu C# cơ bản và ObjectId/Transaction của AutoCAD .NET.",
+      "Có Civil 3D đầy đủ, project C# và SDK cùng phiên bản đích."
+    ],
+    "outcomes": [
+      "Liệt kê tuyến/mặt và đối chiếu với Prospector.",
+      "Theo Alignment tới Profile; hiểu station/offset và cao độ.",
+      "Đọc phụ thuộc Corridor/mạng hạ tầng trước khi lập báo cáo QA/QC."
+    ],
+    "nextTechnology": "Dynamo / Python: phối hợp thao tác mô hình qua đồ thị và xử lý dữ liệu.",
+    "map": [
+      {
+        "title": "Giới thiệu",
+        "summary": "Hiểu mục đích công nghệ và kết quả đầu tiên.",
+        "topics": [
+          "DWG và mô hình hạ tầng",
+          "Alignment/Profile/Surface",
+          "Style và dữ liệu gốc"
+        ]
+      },
+      {
+        "title": "Hệ sinh thái",
+        "summary": "Đọc bản đồ đối tượng và vai trò của từng dịch vụ.",
+        "topics": [
+          "AutoCAD nền",
+          "CivilDocument",
+          "Civil Entity và Data Shortcut"
+        ]
+      },
+      {
+        "title": "Công cụ",
+        "summary": "Chuẩn bị DWG, IDE và references đúng phiên bản.",
+        "topics": [
+          "Civil 3D và Toolspace",
+          "Visual Studio/NETLOAD",
+          "SDK và framework"
+        ]
+      },
+      {
+        "title": "API",
+        "summary": "Dùng đúng entry point, input và quyền đọc/ghi.",
+        "topics": [
+          "Collections/ObjectId",
+          "Station/offset",
+          "Profile/Surface/Corridor"
+        ]
+      },
+      {
+        "title": "Dữ liệu",
+        "summary": "Phân biệt dữ liệu gốc, đối tượng phụ thuộc và cách hiển thị.",
+        "topics": [
+          "Tuyến và trắc dọc",
+          "Mặt và trắc ngang",
+          "CogoPoint/mạng hạ tầng"
+        ]
+      },
+      {
+        "title": "Thực hành",
+        "summary": "Tạo mẫu có đáp án biết trước và kiểm tra các nhánh input.",
+        "topics": [
+          "Hai tuyến có tên",
+          "Đối chiếu Prospector",
+          "Tập rỗng và tham chiếu"
+        ]
+      },
+      {
+        "title": "Dự án",
+        "summary": "Kết hợp các truy vấn thành tiện ích có phạm vi rõ.",
+        "topics": [
+          "Kiểm kê đối tượng",
+          "QA/QC lý trình-cao độ",
+          "Xuất báo cáo dự án"
+        ]
+      },
+      {
+        "title": "Tra cứu",
+        "summary": "Tìm chữ ký cụ thể, điều kiện áp dụng và nguồn chính thức.",
+        "topics": [
+          "Chữ ký API",
+          "Điều kiện và exception",
+          "Tài liệu Autodesk theo phiên bản"
+        ]
+      }
+    ]
   },
   "tags": [
     "Civil 3D",

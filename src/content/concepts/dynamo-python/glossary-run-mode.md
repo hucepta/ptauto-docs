@@ -4,9 +4,9 @@
 
 ## Giải thích
 
-Cách graph chạy lại tự động hoặc theo thao tác người dùng.
+Cách đồ thị chạy lại tự động hoặc theo thao tác người dùng.
 
 ## Trong công việc
 
-Dùng chế độ Manual khi graph có bước ghi nhiều đối tượng.
+Dùng chế độ Manual khi đồ thị có bước ghi nhiều đối tượng.
 

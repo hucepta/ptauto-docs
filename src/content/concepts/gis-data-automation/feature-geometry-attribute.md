@@ -43,7 +43,7 @@
 
 ## Ba thành phần của đối tượng
 
-Feature đại diện một đối tượng cần quản lý. Geometry mô tả vị trí và hình dạng như Point, LineString hoặc Polygon; Attribute mô tả mã, loại, nguồn và giá trị đo. Layer gom Feature theo schema và phạm vi công việc. Với cọc khảo sát, tọa độ là Geometry, còn mã cọc và lý trình là thuộc tính; chúng cần được giữ trong cùng bản ghi để đối chiếu.
+Feature đại diện một đối tượng cần quản lý. Geometry mô tả vị trí và hình dạng như Point, LineString hoặc Polygon; Attribute mô tả mã, loại, nguồn và giá trị đo. Layer gom Feature theo cấu trúc trường và phạm vi công việc. Với cọc khảo sát, tọa độ là Geometry, còn mã cọc và lý trình là thuộc tính; chúng cần được giữ trong cùng bản ghi để đối chiếu.
 
 ## Hình vẽ không tự tạo quan hệ
 

@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.project-activex-gioi-han",
   "slug": "project-activex-gioi-han",
-  "title": "Ứng dụng ActiveX và tiêu chí chuyển sang .NET",
+  "title": "Công cụ quản lý tuyến",
   "description": "Lắp ghép công cụ quản lý hình học tuyến, đánh giá phạm vi và giữ mô hình dữ liệu khi chuyển API.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.ung-dung",
@@ -92,6 +92,6 @@ Batch lớn tạo nhiều lượt gọi COM; đo thời gian với bản vẽ đ
 
 ## Khi chuyển sang AutoCAD .NET
 
-Cân nhắc .NET khi cần mô hình kiểu dữ liệu mạnh, truy cập database sâu hơn, giao diện hoặc quy trình plugin lớn. Việc chuyển API đòi SDK/reference phù hợp và kiểm thử trong host tương ứng; không coi build DLL là chứng minh chạy đúng. Giữ hợp đồng record, thuật toán thuần và bộ ca nghiệm thu để đối chiếu hai phiên bản công cụ.
+Cân nhắc .NET khi cần mô hình kiểu dữ liệu mạnh, truy cập database sâu hơn, giao diện hoặc quy trình plugin lớn. Chọn API đúng phiên bản AutoCAD và kiểm tra công cụ trên các bản vẽ mẫu trước khi bàn giao. Giữ hợp đồng record, thuật toán thuần và bộ ca nghiệm thu để đối chiếu hai phiên bản công cụ.
 
 Thực hành viết bảng so sánh đầu vào, đầu ra, xử lý hủy và Undo cho hai mẫu. Project trong mục dự án yêu cầu kiểm tra đường có cung, UCS xoay và layer khóa. Chỉ công bố hỗ trợ khi đã có nhật ký chạy thực tế; nội dung hiện cung cấp mã và hướng dẫn dựa trên tài liệu.

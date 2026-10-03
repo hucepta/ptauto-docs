@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.tool-error-undo-file-du-lieu",
   "slug": "tool-error-undo-file-du-lieu",
-  "title": "Tổ chức tool, khôi phục trạng thái và lưu dữ liệu",
+  "title": "Lỗi, Undo và file",
   "description": "Kết hợp error handling, Undo, CSV, XData, Dictionary/XRecord và DCL theo vòng đời công cụ.",
   "status": "published",
   "chapterId": "chapter.autolisp.xay-dung-tool",

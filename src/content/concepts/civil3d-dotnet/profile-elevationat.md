@@ -13,11 +13,21 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — Profile.ElevationAt",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/55d4560c-0867-5e73-4d88-04fbac2d2b35.htm"
+    },
+    {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/d068db0a-6cc5-8535-609c-85b357dbf6c9.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +35,14 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public double ElevationAt(
+	double station
+)
+```
+
+## Cách gọi
 
 ```csharp
 double z = profile.ElevationAt(station);

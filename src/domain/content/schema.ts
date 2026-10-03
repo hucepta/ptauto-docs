@@ -23,6 +23,11 @@ export const courseSchema = z.object({ ...common('course'), technology: technolo
     setup: z.array(z.string().min(1)).min(1),
     workflow: z.array(z.object({ label: z.string().min(1), detail: z.string().min(1) })).min(3),
     firstResult: z.string().min(1),
+    ecosystem: z.string().optional(),
+    prerequisites: strings,
+    outcomes: strings,
+    nextTechnology: z.string().optional(),
+    map: z.array(z.object({ title: z.string().min(1), summary: z.string().min(1), topics: strings })).default([]),
 }).optional() });
 export const chapterSchema = z.object({ ...common('chapter'), courseId: z.string().startsWith('course.'), order: z.number().int().positive() });
 export const illustrationKind = z.enum(['report', 'layers', 'station', 'curve', 'metadata', 'profile', 'network', 'graph', 'map', 'terminal', 'dialog']);

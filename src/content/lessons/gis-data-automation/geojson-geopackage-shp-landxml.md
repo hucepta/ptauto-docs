@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.geojson-geopackage-shp-landxml",
   "slug": "geojson-geopackage-shp-landxml",
-  "title": "Chọn GeoJSON, GeoPackage, Shapefile và LandXML đúng mục đích",
+  "title": "Định dạng bàn giao",
   "description": "So phạm vi dữ liệu, CRS, thuộc tính và quan hệ trước khi chọn định dạng bàn giao.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.dinh-dang-cong-cu",
@@ -56,3 +56,9 @@ GeoJSON thuận tiện cho trao đổi feature đơn giản nhưng theo RFC 7946
 ## Thực hành
 
 Xuất 3 cọc sang hai định dạng rồi nhập lại. So ID, chữ tiếng Việt, số thập phân, CRS và số đối tượng. Ghi khác biệt vào bảng QA, không xem “mở được file” là đủ.
+
+## So hai tệp đầu ra
+
+Dùng coc.gpkg từ bài Lưu và kiểm lại. Trong QGIS, chọn lớp coc, chuột phải > Export > Save Features As. Xuất bản riêng `coc.geojson`, chọn GeoJSON và CRS EPSG:4326. Mở lại cả hai tệp, kiểm ba ID, kiểu Point và thuộc tính cao độ. GeoJSON dùng WGS84 kinh/vĩ độ theo RFC 7946; GeoPackage giữ CRS của lớp.
+
+Nếu thử Shapefile, dùng bản riêng và quan sát tên trường dài/kiểu trường; gửi đủ các tệp thành phần, không chỉ .shp. Với LandXML, kiểm dữ liệu thiết kế nào được xuất từ Civil 3D; đừng xem LandXML như bảng GIS thay thế mọi thuộc tính. Viết một bảng so số đối tượng, CRS, trường bị đổi và đối tượng thiết kế bị lấy mẫu. Đó là kết quả kiểm chuyển định dạng của bài.

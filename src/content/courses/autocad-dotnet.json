@@ -2,7 +2,7 @@
   "id": "course.autocad-dotnet",
   "slug": "autocad-dotnet",
   "title": "AutoCAD .NET",
-  "description": "Học C# cho plugin, Database và Transaction, Editor và hình học, rồi xây tiện ích CAD có phạm vi kiểm tra rõ ràng.",
+  "description": "Học AutoCAD và C# từ đầu; tạo plugin, đọc DWG bằng Transaction và xây tiện ích CAD.",
   "status": "published",
   "technology": "autocad-dotnet",
   "order": 3,
@@ -10,9 +10,112 @@
     "question": "Plugin AutoCAD .NET là gì?",
     "answer": "Plugin là DLL C# được AutoCAD nạp để bổ sung lệnh. Mã dùng Document và Editor để giao tiếp, Database và Transaction để đọc hoặc sửa bản vẽ. Một ObjectId là định danh của đối tượng trong cơ sở dữ liệu bản vẽ, không phải chính đối tượng đó.",
     "why": "Khi một tiện ích cần cấu trúc lớn, nhiều lớp dữ liệu, tích hợp hệ thống khác hoặc triển khai cho nhóm, C# và API .NET tạo nền tảng dễ tổ chức hơn một routine nhỏ.",
-    "setup": ["AutoCAD trên Windows và SDK/reference đúng với phiên bản AutoCAD đích.", "Visual Studio với project Class Library C#; build DLL rồi nạp bằng NETLOAD.", "Bản vẽ thử riêng và quyền kiểm tra log/debug; build DLL chỉ xác nhận biên dịch, chưa chứng minh lệnh chạy đúng trong AutoCAD."],
-    "workflow": [{"label": "Định nghĩa lệnh", "detail": "CommandMethod tạo tên lệnh để gọi trong AutoCAD."}, {"label": "Làm việc với DWG", "detail": "Editor nhận đầu vào; Transaction mở đúng đối tượng để đọc hoặc ghi."}, {"label": "Nạp và thử", "detail": "Build, NETLOAD, chạy trên DWG mẫu và kiểm tra thay đổi."}],
-    "firstResult": "Nạp một DLL tối thiểu và thấy lệnh của mình in thông báo vào Editor."
+    "setup": [
+      "Mở AutoCAD trên Windows và dùng SDK/reference đúng phiên bản đích.",
+      "Visual Studio với Class Library C#, build DLL rồi dùng NETLOAD.",
+      "Dùng bản sao DWG học có dữ liệu nhỏ để đối chiếu kết quả."
+    ],
+    "workflow": [
+      {
+        "label": "Định nghĩa lệnh",
+        "detail": "CommandMethod tạo tên lệnh để gọi trong AutoCAD."
+      },
+      {
+        "label": "Làm việc với DWG",
+        "detail": "Editor nhận đầu vào; Transaction mở đúng đối tượng để đọc hoặc ghi."
+      },
+      {
+        "label": "Nạp và thử",
+        "detail": "Build, NETLOAD, chạy trên DWG mẫu và kiểm tra thay đổi."
+      }
+    ],
+    "firstResult": "Nạp một DLL tối thiểu và thấy lệnh của mình in thông báo vào Editor.",
+    "ecosystem": "AutoCAD .NET là Managed API chạy trong AutoCAD trên Windows. C# và Visual Studio tạo DLL, NETLOAD nạp lệnh; Editor phục vụ tương tác, Database/Transaction phục vụ dữ liệu DWG.",
+    "prerequisites": [
+      "Biết LINE, CIRCLE, layer, Model/Layout và chọn đối tượng trong AutoCAD.",
+      "Biết file/thư mục trên Windows; chưa cần từng xây plugin.",
+      "Có AutoCAD, Visual Studio với workload .NET desktop development và references đúng phiên bản."
+    ],
+    "outcomes": [
+      "Tạo Class Library, build DLL, NETLOAD và chạy lệnh C#.",
+      "Nhận input, xử lý Esc và mở entity đúng Transaction.",
+      "Xây báo cáo layer/hình học rồi tách logic để chuyển sang Civil API."
+    ],
+    "nextTechnology": "Civil 3D .NET: bổ sung mô hình tuyến, mặt và hạ tầng trên nền Database/Transaction đã học.",
+    "map": [
+      {
+        "title": "Giới thiệu",
+        "summary": "Hiểu mục đích công nghệ và kết quả đầu tiên.",
+        "topics": [
+          "Plugin DLL và lệnh",
+          "Dữ liệu DWG",
+          "Lộ trình C# cho CAD"
+        ]
+      },
+      {
+        "title": "Hệ sinh thái",
+        "summary": "Đọc bản đồ đối tượng và vai trò của từng dịch vụ.",
+        "topics": [
+          "AutoCAD/Managed API",
+          "Document→Editor/Database",
+          "ObjectId và DBObject"
+        ]
+      },
+      {
+        "title": "Công cụ",
+        "summary": "Chuẩn bị DWG, IDE và references đúng phiên bản.",
+        "topics": [
+          "Visual Studio",
+          "Reference/target framework",
+          "NETLOAD/debug"
+        ]
+      },
+      {
+        "title": "API",
+        "summary": "Dùng đúng entry point, input và quyền đọc/ghi.",
+        "topics": [
+          "CommandMethod",
+          "Transaction và Editor",
+          "Selection/hình học"
+        ]
+      },
+      {
+        "title": "Dữ liệu",
+        "summary": "Phân biệt dữ liệu gốc, đối tượng phụ thuộc và cách hiển thị.",
+        "topics": [
+          "Entity và Symbol Table",
+          "Block/attribute",
+          "XData/Xrecord"
+        ]
+      },
+      {
+        "title": "Thực hành",
+        "summary": "Tạo mẫu có đáp án biết trước và kiểm tra các nhánh input.",
+        "topics": [
+          "Lệnh chào",
+          "Chọn/đo/đếm",
+          "Esc và nhiều DWG"
+        ]
+      },
+      {
+        "title": "Dự án",
+        "summary": "Kết hợp các truy vấn thành tiện ích có phạm vi rõ.",
+        "topics": [
+          "CAD Utility",
+          "Báo cáo layer/hình học",
+          "Tách module Civil"
+        ]
+      },
+      {
+        "title": "Tra cứu",
+        "summary": "Tìm chữ ký cụ thể, điều kiện áp dụng và nguồn chính thức.",
+        "topics": [
+          "Property/method",
+          "Tham số/kết quả",
+          "Lỗi nạp và quyền ghi"
+        ]
+      }
+    ]
   },
   "tags": [
     "C#",

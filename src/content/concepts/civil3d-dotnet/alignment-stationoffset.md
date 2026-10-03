@@ -13,11 +13,17 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu API chính thức",
+      "title": "Autodesk — Alignment.StationOffset",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/c6fe2704-261c-3cbd-d159-4d3324963f6f.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +31,17 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public void StationOffset(
+	double easting,
+	double northing,
+	ref double station,
+	ref double offset
+)
+```
+
+## Cách gọi
 
 ```csharp
 alignment.StationOffset(easting, northing, ref station, ref offset);

@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.property-method-va-vlax-dump",
   "slug": "property-method-va-vlax-dump",
-  "title": "Property, method và cách tự tra một VLA object",
+  "title": "Property và method",
   "description": "Dùng vlax-dump-object để quan sát thành viên, phân biệt đọc, ghi property và gọi method.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.nen-tang",

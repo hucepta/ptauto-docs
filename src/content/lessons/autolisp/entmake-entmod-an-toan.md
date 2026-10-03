@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.entmake-entmod-an-toan",
   "slug": "entmake-entmod-an-toan",
-  "title": "Tạo và sửa entity bằng entmake, entmod",
+  "title": "Tạo và sửa entity",
   "description": "Phân biệt tạo entity mới và sửa danh sách DXF của entity cũ.",
   "status": "published",
   "chapterId": "chapter.autolisp.du-lieu-ban-ve",

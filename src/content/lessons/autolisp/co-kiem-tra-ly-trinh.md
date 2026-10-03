@@ -2,11 +2,11 @@
 {
   "id": "lesson.autolisp.co-kiem-tra-ly-trinh",
   "slug": "co-kiem-tra-ly-trinh",
-  "title": "Bài thực hành: đặt mốc theo lý trình trên tim tuyến",
+  "title": "Kiểm tra lý trình",
   "description": "Chọn polyline, tính điểm theo khoảng cách và tạo marker có kiểm tra giới hạn.",
   "status": "published",
   "chapterId": "chapter.autolisp.thuc-hanh-cad",
-  "order": 2,
+  "order": 3,
   "difficulty": "trung-cap",
   "exampleIds": [
     "example.autolisp.demo-stakes"

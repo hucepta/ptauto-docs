@@ -46,4 +46,4 @@ OUT = [v for v in values if v is not None]
 
 ## Kiểm tra khi áp dụng
 
-Kiểm engine Python và package của host trước khi dùng API Civil trong script.
+Kiểm engine Python và package của ứng dụng chủ trước khi dùng API Civil trong script.

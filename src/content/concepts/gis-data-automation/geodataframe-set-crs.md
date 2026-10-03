@@ -3,7 +3,7 @@
   "id": "concept.gis-data-automation.geodataframe-set-crs",
   "slug": "geodataframe-set-crs",
   "title": "GeoDataFrame.set_crs",
-  "description": "Gán CRS nguồn đã được xác minh mà không đổi số tọa độ.",
+  "description": "Bảng có nhãn CRS; tọa độ không đổi.",
   "status": "published",
   "technology": "gis-data-automation",
   "difficulty": "trung-cap",
@@ -13,7 +13,7 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu chính thức",
+      "title": "Tài liệu chính thức: GeoDataFrame.set_crs",
       "url": "https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.set_crs.html"
     }
   ],
@@ -24,24 +24,29 @@
 }
 ---
 
-## Cú pháp
+## Cú pháp và cổng
 
 ```python
-gdf = gdf.set_crs('EPSG:xxxx')
+gdf.set_crs(crs=None, epsg=None, inplace=False, allow_override=False)
 ```
 
-## Tham số và kết quả
+## Tham số
 
-crs phải được chứng minh từ hồ sơ dữ liệu. GeoDataFrame có nhãn CRS; tọa độ giữ nguyên.
+crs/epsg là hệ nguồn đã xác minh; allow_override cho ghi đè nhãn cũ.
 
-## Cách dùng
+## Kết quả
 
-Dùng khi file thiếu metadata CRS nhưng nguồn có WKT/EPSG đáng tin.
+Bảng có nhãn CRS; tọa độ không đổi.
+
+## Thực hành
 
 ```python
-gdf = gdf.set_crs(source_crs)
+import geopandas as gpd
+gdf=gpd.GeoDataFrame({"id":["C01"]},geometry=gpd.points_from_xy([106.7],[10.77]))
+gdf=gdf.set_crs(epsg=4326)
+print(gdf.geometry.x.iloc[0]) # 106.7
 ```
 
-## Kiểm tra khi áp dụng
+## Dễ nhầm
 
-Không dùng set_crs để chuyển tọa độ hoặc đoán hệ VN-2000.
+Chỉ gán 4326 vì nguồn minh họa được biết là WGS84. Không dùng allow_override để che xung đột CRS thật.

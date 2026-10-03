@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.chuyen-tool-lisp-sang-net",
   "slug": "chuyen-tool-lisp-sang-net",
-  "title": "Chuyển một tool AutoLISP sang plugin C#",
+  "title": "Chuyển Lisp sang C#",
   "description": "Giữ hợp đồng đầu vào/đầu ra khi đổi cách truy cập bản vẽ.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.cad-utility-va-civil",

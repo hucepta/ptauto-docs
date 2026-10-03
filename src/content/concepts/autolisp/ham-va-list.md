@@ -36,8 +36,8 @@
   "compatibility": [
     {
       "product": "AutoCAD",
-      "version": "Có AutoLISP; cần kiểm thử phiên bản sử dụng",
-      "platform": "Windows / macOS"
+      "version": "Tham chiếu API 2026; xem trang nguồn cho phiên bản cụ thể",
+      "platform": "Windows, Mac OS, and Web"
     }
   ]
 }

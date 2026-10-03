@@ -22,7 +22,7 @@
 
 ## Giải thích
 
-Dynamo ghi nhớ đối tượng đã tạo để cập nhật khi graph chạy lại thay vì luôn tạo bản mới.
+Dynamo ghi nhớ đối tượng đã tạo để cập nhật khi đồ thị chạy lại thay vì luôn tạo bản mới.
 
 **Cách hiểu trong khóa:** liên kết đối tượng.
 

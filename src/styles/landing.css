@@ -126,3 +126,17 @@
 @media (forced-colors: active) {
   .knowledge-card, .code-geometry-demo { border-color: CanvasText; }
 }
+.knowledge-card, .code-geometry-demo, .reference-groups a, .term-card { border-radius: 18px; }
+.knowledge-meta { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+.subject-badge { display: inline-grid; place-items: center; min-width: 48px; height: 44px; background: #0d526b; color: white; border-radius: 12px; font: 700 1.1rem var(--mono); }
+.demo-controls { display: flex; flex-wrap: wrap; }
+.demo-controls button { flex: 1 1 105px; white-space: normal; height: auto; }
+.code-geometry-demo { max-height: none; min-height: 0; }
+.knowledge-badge { min-width: 48px; height: 44px; border-radius: 12px; font-weight: 700; font-size: 1rem; }
+.knowledge-status { font-size: .8rem; color: #37536b; }
+.home-footer { color: #e3f3fa; border-top: 1px solid #47748c; }
+.home-footer h2 { color: white; }
+.home-footer a { color: #a5e8f3; }
+.footer-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; }
+.author-name { font-size: 1.3rem; font-weight: 700; }
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; } }

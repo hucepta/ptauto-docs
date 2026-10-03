@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.plugin-tin-cay",
   "slug": "plugin-tin-cay",
-  "title": "Xây plugin AutoCAD tin cậy",
+  "title": "Plugin ổn định",
   "description": "Quản lý tài liệu, events, Undo, lỗi, dữ liệu mở rộng và mục đích của UI, Jig, Overrule.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.plugin-tin-cay",

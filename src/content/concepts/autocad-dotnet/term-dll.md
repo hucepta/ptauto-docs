@@ -3,7 +3,7 @@
   "id": "concept.autocad-dotnet.term-dll",
   "slug": "term-dll",
   "title": "DLL",
-  "description": "Tệp biên dịch chứa plugin C# để AutoCAD nạp bằng NETLOAD; build được chưa chứng minh chạy đúng trong host.",
+  "description": "Tệp biên dịch chứa plugin C# để AutoCAD nạp bằng NETLOAD; DLL bổ sung lệnh trong môi trường AutoCAD.",
   "status": "published",
   "technology": "autocad-dotnet",
   "difficulty": "co-ban",
@@ -22,7 +22,7 @@
 
 ## Giải thích
 
-Tệp biên dịch chứa plugin C# để AutoCAD nạp bằng NETLOAD; build được chưa chứng minh chạy đúng trong host.
+Tệp biên dịch chứa plugin C# để AutoCAD nạp bằng NETLOAD; DLL bổ sung lệnh trong môi trường AutoCAD.
 
 **Cách hiểu trong khóa:** thư viện liên kết động.
 

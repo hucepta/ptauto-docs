@@ -1,6 +1,7 @@
 ---
 import LearnLayout from '../../../layouts/LearnLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CourseProjects from '../../../components/CourseProjects.astro';
 import { getContent } from '../../../content/catalog';
 import { getCourseLessons, getContentUrl } from '../../../domain/content/graph';
 import { withBase } from '../../../domain/content/urls';
@@ -9,17 +10,26 @@ const { course } = Astro.props;
 const { graph } = await getContent();
 const lessons = getCourseLessons(graph, course.id);
 const chapters = graph.chapters.filter(c => c.courseId === course.id);
+const nextCourse = { autolisp: 'visual-lisp-activex', 'visual-lisp-activex': 'autocad-dotnet', 'autocad-dotnet': 'civil3d-dotnet', 'civil3d-dotnet': 'dynamo-python', 'dynamo-python': 'gis-data-automation', 'gis-data-automation': 'civil3d-dotnet' }[course.technology];
+const headings = [{depth:2,slug:'ban-do',text:'Bản đồ học'},...chapters.map(c=>({depth:2,slug:c.slug,text:c.title})),{depth:2,slug:'du-an-mau',text:'Dự án mẫu'}];
 ---
-<LearnLayout title={course.title} description={course.description} graph={graph} courseId={course.id}>
+<LearnLayout title={course.title} description={course.description} graph={graph} courseId={course.id} headings={headings}>
 <Breadcrumbs items={[{title:'Trang chủ',url:'/'},{title:course.title}]} /><h1>{course.title}</h1>
 <p class="progress-label course-progress-top" data-course-progress={course.id}>0 / {lessons.length} bài đã hoàn thành · Lưu trên thiết bị này</p>
 {course.guide&&<div class="course-intro">
   <div class="course-intro-copy"><h2>{course.guide.question}</h2><p>{course.guide.answer}</p><p>{course.guide.why}</p></div>
   <section class="course-setup" aria-label="Chuẩn bị trước khi học"><h2>Cần chuẩn bị</h2><ul>{course.guide.setup.map(item=><li>{item}</li>)}</ul></section>
-  <section class="course-flow" aria-label="Luồng làm việc"><h2>Một lượt làm việc diễn ra thế nào</h2><ol>{course.guide.workflow.map(step=><li><strong>{step.label}</strong><span>{step.detail}</span></li>)}</ol></section>
+  <section class="course-flow" aria-label="Luồng làm việc"><h2>Cách làm việc</h2><ol>{course.guide.workflow.map(step=><li><strong>{step.label}</strong><span>{step.detail}</span></li>)}</ol></section>
+  <section id="ban-do" class="learning-map"><h2>Bản đồ học</h2>{course.guide.ecosystem&&<p>{course.guide.ecosystem}</p>}{course.guide.prerequisites.length>0&&<><h3>Trước khi học</h3><ul>{course.guide.prerequisites.map(item=><li>{item}</li>)}</ul></>}
+  <div class="learning-map-sections">{course.guide.map.map((section,index)=><details class="map-section" open={index===0}><summary>{section.title}</summary><p>{section.summary}</p><ul>{section.topics.map(topic=><li>{topic}</li>)}</ul></details>)}</div>
+  {course.guide.outcomes.length>0&&<><h3>Học xong làm được gì?</h3><ul>{course.guide.outcomes.map(item=><li>{item}</li>)}</ul></>}<p><strong>Kết quả đầu tiên:</strong> {course.guide.firstResult}</p>
+  </section>
 </div>}
 <div class="course-start"><a class="button primary" data-course-start={course.id} href={withBase(getContentUrl(graph,lessons[0].id))}>Bắt đầu học</a></div>
-{chapters.map(c=><section class="related"><h2><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a></h2><p class="muted">{c.description}</p>
+{chapters.map(c=><section class="related" id={c.slug}><h2><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a></h2><p class="muted">{c.description}</p>
 <ul class="link-list">{lessons.filter(l=>l.chapterId===c.id).map(l=><li><a href={withBase(getContentUrl(graph,l.id))}>{l.title}</a><p>{l.description}</p></li>)}</ul></section>)}
+<CourseProjects graph={graph} technology={course.technology} />
+<section class="related"><h2>Học tiếp</h2><p>{course.guide?.nextTechnology}</p><ul class="link-list">{graph.courses.filter(c=>c.technology===nextCourse).map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p></li>)}<li><a href={withBase('/tra-cuu/'+course.technology+'/')}>Tra cứu {course.title}</a></li></ul></section>
+<p data-course-finished={course.id} hidden><a class="button" href={withBase('/')}>Về trang chủ</a></p>
 </LearnLayout>
 

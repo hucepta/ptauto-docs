@@ -45,3 +45,17 @@ Không có đối số, luôn trả nil. Nếu đã nạp các hàm mở rộng,
 
 Gọi ở phần khởi tạo trước khi dùng các hàm mở rộng ActiveX. Chỉ áp dụng trên Windows; không dùng bước này để khẳng định code chạy trên macOS hoặc Web.
 
+
+## Ví dụ
+
+```lisp
+(vl-load-com)
+(setq app (vlax-get-acad-object))
+(vla-get-Name app)
+```
+
+Kết quả cuối là tên ứng dụng đang chạy. nil từ vl-load-com là kết quả bình thường, không phải báo lỗi nạp.
+
+## Lỗi thường gặp
+
+Nạp file LSP không tự bảo đảm phần mở rộng COM đã được gọi. Đặt vl-load-com trước các lời gọi vla-/vlax- cần COM; kiểm tra nền tảng Windows và phạm vi hỗ trợ API của phiên bản.

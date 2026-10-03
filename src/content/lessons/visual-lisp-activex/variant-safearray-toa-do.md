@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.variant-safearray-toa-do",
   "slug": "variant-safearray-toa-do",
-  "title": "Variant, SafeArray và tọa độ ActiveX",
+  "title": "Dữ liệu COM",
   "description": "Đóng gói dữ liệu COM đúng kiểu, đọc Coordinates và tạo LWPolyline có quy ước rõ.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.du-lieu-hinh-hoc",
@@ -92,4 +92,4 @@ Ví dụ PTA_VLA_RECT tạo bốn đỉnh (0,0), (120,0), (120,60), (0,60) trong
 
 Sau khi APPLOAD trên AutoCAD Windows, chạy PTA_VLA_RECT trong bản vẽ thử. Đối chiếu số đỉnh, chiều dài cạnh, trạng thái kín và cao độ; dùng Undo để kiểm tra nhóm sửa đổi. Mã có nhánh dọn dẹp, nhưng việc kết thúc Undo không tự xóa phần đã tạo nếu lỗi xảy ra giữa chừng.
 
-Bài tập đọc Coordinates rồi dựng list điểm đầy đủ. Thử UCS xoay và polyline có elevation khác 0. Đừng ghi lại Coordinates chỉ để xem kết quả: số phần tử thay đổi có thể cắt bớt hoặc thêm đỉnh. Ghi nhận host thực tế trước khi đưa mẫu vào tool đang sử dụng.
+Bài tập đọc Coordinates rồi dựng list điểm đầy đủ. Thử UCS xoay và polyline có elevation khác 0. Đừng ghi lại Coordinates chỉ để xem kết quả: số phần tử thay đổi có thể cắt bớt hoặc thêm đỉnh. Đối chiếu tọa độ với Properties trước khi ghép vào công cụ.

@@ -1,0 +1,59 @@
+---
+{
+  "id": "concept.autocad-dotnet.object-id-is-null",
+  "slug": "object-id-is-null",
+  "title": "ObjectId.IsNull",
+  "description": "ID rỗng",
+  "status": "published",
+  "technology": "autocad-dotnet",
+  "difficulty": "co-ban",
+  "kind": "api",
+  "relatedConceptIds": [],
+  "exampleIds": [],
+  "examplePlacements": [],
+  "sources": [
+    {
+      "title": "Autodesk — ObjectId.IsNull",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_DatabaseServices_ObjectId_IsNull.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Chữ ký theo tài liệu AutoCAD 2026; đối chiếu SDK đích.",
+      "platform": "Windows"
+    }
+  ],
+  "tags": [],
+  "aliases": [],
+  "searchableTerms": [
+    "ObjectId.IsNull"
+  ]
+}
+---
+
+## Cú pháp
+
+```csharp
+public bool IsNull;
+```
+
+## Tham số và kết quả
+
+Không có tham số; bool nhận diện ObjectId.Null.
+
+## Ví dụ
+
+ID rỗng. Đoạn dưới đặt trong lệnh C#; `ed` là Editor của Document đang làm việc, `tr` là Transaction còn mở. `id` là ObjectId lấy từ selection hoặc bảng trong đúng Database; kiểm tra trước khi gọi GetObject.
+
+```csharp
+if (id.IsNull) return;
+```
+
+## Lỗi thường gặp
+
+IsNull false chưa đảm bảo object còn hợp lệ hoặc đúng Database.
+
+## Thực hành
+
+Chạy trên bản sao DWG, ghi giá trị hoặc số lượng trước khi thực hiện và đối chiếu trong bảng Properties hoặc Toolspace. Nếu sửa dữ liệu, mở đối tượng ForWrite và Commit transaction; nếu chỉ đọc, giữ ForRead và sao chép giá trị trước khi transaction kết thúc.

@@ -13,11 +13,21 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — CivilDocument.GetAlignmentIds",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/768e0508-6ee6-3da7-410b-4a059f6ddcbf.htm"
+    },
+    {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/6b21bf2d-709c-3fc8-5133-abded01ec6ed.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +35,12 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public ObjectIdCollection GetAlignmentIds()
+```
+
+## Cách gọi
 
 ```csharp
 ObjectIdCollection ids = civilDoc.GetAlignmentIds();

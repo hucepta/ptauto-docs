@@ -32,7 +32,7 @@ List.GetItemAtIndex(list, index)
 
 ## Đầu vào và đầu ra
 
-index bắt đầu từ 0; list có thể là list lồng nhau. Phần tử hoặc sublist tại index theo level đang chọn.
+index bắt đầu từ 0; list có thể là danh sách lồng nhau. Phần tử hoặc danh sách con tại index theo level đang chọn.
 
 ## Cách dùng
 
@@ -44,4 +44,4 @@ List.GetItemAtIndex(["A", "B"], 0) → "A"
 
 ## Kiểm tra khi áp dụng
 
-Không giả định index 0 là phần tử đầu của mọi sublist; xem list level.
+Không giả định index 0 là phần tử đầu của mọi danh sách con; xem list level.

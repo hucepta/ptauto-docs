@@ -2,20 +2,24 @@
 {
   "id": "lesson.autocad-dotnet.bat-dau-plugin",
   "slug": "bat-dau-plugin",
-  "title": "Tạo và nạp plugin C# đầu tiên",
-  "description": "Hiểu DLL, CommandMethod, NETLOAD và nơi mã plugin chạy trong AutoCAD.",
+  "title": "Nạp plugin đầu tiên",
+  "description": "Tạo project, tham chiếu API và chạy một lệnh C# trong AutoCAD.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.bat-dau",
   "order": 1,
   "difficulty": "co-ban",
   "sources": [
     {
-      "title": "Autodesk — AutoCAD .NET Developer's Guide",
-      "url": "https://help.autodesk.com/view/OARX/2026/ENU/"
+      "title": "Autodesk — Command definition",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-F77E8FE0-8034-4704-93BD-F717608F8223.htm"
     },
     {
-      "title": "Autodesk — About the Document Object",
-      "url": "https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm"
+      "title": "Autodesk — Document object",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm"
+    },
+    {
+      "title": "Autodesk — Managed .NET compatibility",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm"
     }
   ],
   "compatibility": [
@@ -29,37 +33,51 @@
 }
 ---
 
-## Lệnh .NET sống ở đâu
+## Plugin và môi trường
 
-Với AutoLISP bạn nạp `.lsp`; với AutoCAD .NET bạn biên dịch project C# thành DLL rồi dùng `NETLOAD`. AutoCAD gọi method được đánh dấu `CommandMethod` khi người dùng gõ tên lệnh. Plugin chạy trong tiến trình AutoCAD và dùng các assembly/API của đúng phiên bản host; một DLL build thành công vẫn cần được thử trong AutoCAD thật.
+AutoCAD .NET cho phép viết lệnh bằng C#, biên dịch thành DLL và nạp vào AutoCAD. AutoCAD chạy plugin; Visual Studio là nơi viết và build mã. DLL đầu tiên chỉ in thông báo để ta học đường đi từ source tới command trước khi sửa bản vẽ.
 
-```text
-File .cs → project C# + Autodesk references → build DLL → NETLOAD → gõ lệnh → Editor phản hồi
-```
+Cần AutoCAD trên Windows, Visual Studio có workload **.NET desktop development**, và thư viện Managed API của phiên bản AutoCAD sử dụng. Bài chọn AutoCAD 2025/.NET 8 làm ví dụ cụ thể. Với phiên bản khác, tra bảng tương thích Autodesk và chọn framework/reference đúng phiên bản; không tự đổi target chỉ vì máy có SDK mới hơn.
 
-## Chuẩn bị project nhỏ
+## Tạo project từng bước
 
-Tạo Class Library theo hướng dẫn SDK cho phiên bản AutoCAD bạn dùng. Thêm reference AutoCAD managed API phù hợp, thường gồm `AcMgd`, `AcDbMgd` và `AcCoreMgd` theo SDK đó. Đặt các reference Autodesk ở chế độ không sao chép vào thư mục output nếu hướng dẫn SDK yêu cầu. Đừng tự lấy DLL từ một phiên bản AutoCAD khác để “cho build qua”.
-
-## Viết lệnh chỉ đọc
+1. Mở Visual Studio Installer, chọn **Modify** tại bản Visual Studio, đánh dấu **.NET desktop development**, chọn **Modify** để cài workload nếu chưa có.
+2. Mở Visual Studio → **Create a new project**. Gõ `Class Library`, lọc ngôn ngữ **C#**, chọn project .NET phù hợp → **Next**. Đặt tên `PTFirstPlugin`, chọn thư mục học riêng → **Next** → chọn **.NET 8.0** → **Create**.
+3. Trong **Solution Explorer**, nhấp phải project → **Properties**. Với ví dụ Windows, đặt Target framework là `net8.0-windows` trong file `.csproj` nếu cần. Ở **Build**, chọn Platform target **x64**.
+4. Nhấp phải **Dependencies** → **Add Project Reference** → **Browse** → **Browse...**. Chọn `AcMgd.dll`, `AcDbMgd.dll`, `AcCoreMgd.dll` từ SDK/cài đặt AutoCAD 2025. Chọn **Add** rồi **OK**. Trong Properties của từng reference, đặt **Copy Local = False** để AutoCAD cung cấp thư viện khi chạy.
+5. Đổi tên `Class1.cs` thành `FirstCommands.cs`, thay nội dung bằng đoạn dưới rồi **Ctrl+S**.
 
 ```csharp
-using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.Runtime;
+using AcApp = Autodesk.AutoCAD.ApplicationServices.Core.Application;
 
 public class FirstCommands
 {
     [CommandMethod("PT_HELLO")]
     public void Hello()
     {
-        var document = Application.DocumentManager.MdiActiveDocument;
-        document.Editor.WriteMessage("\nPlugin da duoc nap.");
+        var doc = AcApp.DocumentManager.MdiActiveDocument;
+        if (doc == null) return;
+        doc.Editor.WriteMessage("\nXin chao tu C#.");
     }
 }
 ```
 
-Ở đây `Application.DocumentManager` lấy document đang mở; `Editor.WriteMessage` gửi phản hồi về Command Line. Chưa có `Transaction` vì bài này chưa đọc hay sửa một entity trong Database. Build DLL, mở DWG thử, dùng `NETLOAD` chọn DLL và gọi `PT_HELLO`.
+`using` chọn namespace. Attribute `CommandMethod` công bố tên `PT_HELLO`; method public `Hello` không nhận tham số được AutoCAD gọi. `doc` là tài liệu đang mở; `Editor.WriteMessage` đưa chuỗi vào Command Line. Dấu `\n` xuống dòng. Chưa cần Transaction vì ta không mở DBObject.
 
-## Kiểm tra
+## Build và nạp
 
-Ghi lại phiên bản AutoCAD, SDK và framework đã dùng. Sau khi sửa chuỗi thông báo, build lại rồi nạp DLL mới theo quy trình phù hợp với host; nếu AutoCAD vẫn dùng mã cũ, kiểm tra DLL thực tế đã nạp và phiên làm việc. Bài sau sẽ giải thích `Document`, `Editor`, `Database`, `ObjectId` và `Transaction` trước khi chạm vào bản vẽ.
+1. Chọn **Build → Build Solution** hoặc **Ctrl+Shift+B**. Mở **View → Output**, chọn **Build**. Khi thành công, tìm DLL trong `bin/Debug/net8.0-windows/` của project.
+2. Mở AutoCAD, chọn **New**, tạo DWG học rồi **Save As** thành `PT_NET_01.dwg`. Dùng **Ctrl+9** để hiện Command Line nếu bị ẩn.
+3. Gõ `NETLOAD` → Enter, chọn `PTFirstPlugin.dll` → **Open**. Nếu thư mục bị chặn, thêm thư mục học đáng tin cậy qua **OPTIONS → Files → Trusted Locations → Add** theo chính sách máy.
+4. Gõ `PT_HELLO` → Enter. Command Line phải in `Xin chao tu C#.` một lần. `F2` mở lịch sử lệnh để đọc lại.
+
+## Đọc lỗi và sửa một thay đổi
+
+Nếu namespace không tìm thấy, xem reference đúng assembly và phiên bản. Nếu tên lệnh không tồn tại, kiểm tra NETLOAD đã chọn đúng DLL và method có public cùng attribute. DLL Class Library không phải chương trình độc lập để chạy bằng nút Start thông thường.
+
+Đổi chuỗi thành `Bai hoc 1`, lưu và build. Đóng phiên AutoCAD đã nạp DLL rồi mở lại, NETLOAD DLL mới và gọi lệnh; assembly đã nạp thường tồn tại đến khi tiến trình kết thúc. Kết quả phải chuyển sang chuỗi mới.
+
+## Bài tập
+
+Thêm lệnh `PT_DRAWING` in `doc.Name`. Chạy trên hai tab DWG, mỗi lần chuyển tab và gọi lại lệnh. Kết quả phải là tên đường dẫn tài liệu đang hoạt động, không phải tên project Visual Studio. Cả hai lệnh không tạo LINE hoặc đổi layer.

@@ -4,7 +4,7 @@ test('course_entry_and_reader_controls_follow_the_new_learning_flow', async ({ p
   await page.goto('/hoc/autolisp/');
   await expect(page.locator('[data-course-progress]')).toBeVisible();
   await expect(page.locator('[data-course-start]')).toHaveText('Bắt đầu học');
-  await expect(page.getByText('Kết quả đầu tiên:')).toHaveCount(0);
+  await expect(page.getByText('Kết quả đầu tiên:')).toHaveCount(1);
   await page.locator('[data-course-start]').click();
   await expect(page.getByRole('heading', { name: 'Tổng quan', exact: true })).toBeVisible();
   await expect(page.locator('.article-actions-end > *')).toHaveCount(3);
@@ -21,7 +21,7 @@ test('project_catalog_groups_all_six_tracks_with_guides', async ({ page, request
     await expect(page.getByRole('heading', { name: 'Hướng dẫn giải' })).toBeVisible();
     await expect(page.locator('.project-flowchart')).toBeVisible();
     await expect(page.locator('.project-aspect')).toHaveCount(9);
-    await expect(page.getByText('Kết quả cần đối chiếu:')).toBeVisible();
+    await expect(page.locator('.project-illustration figcaption')).toBeVisible();
   }
 });
 
@@ -30,7 +30,7 @@ test('home_saved_preview_uses_real_bookmarks', async ({ page }) => {
   await page.locator('[data-bookmark]').click();
   await page.goto('/');
   await expect(page.locator('[data-home-bookmarks-list] li')).toHaveCount(1);
-  await expect(page.locator('[data-home-bookmarks-list]')).toContainText('Từ thao tác lặp đến lệnh AutoLISP đầu tiên');
+  await expect(page.locator('[data-home-bookmarks-list]')).toContainText('Lệnh AutoLISP đầu tiên');
 });
 
 test('toc_tracks_the_visible_section', async ({ page }) => {

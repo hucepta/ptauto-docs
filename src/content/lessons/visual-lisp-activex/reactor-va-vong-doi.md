@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.reactor-va-vong-doi",
   "slug": "reactor-va-vong-doi",
-  "title": "Reactor: phản ứng với sự kiện mà không gây vòng lặp",
+  "title": "Sự kiện reactor",
   "description": "Đăng ký, giới hạn và gỡ reactor theo vòng đời một tool AutoCAD.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.tool-on-dinh",

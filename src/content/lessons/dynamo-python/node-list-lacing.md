@@ -2,7 +2,7 @@
 {
   "id": "lesson.dynamo-python.node-list-lacing",
   "slug": "node-list-lacing",
-  "title": "Node, list và lacing trong đồ thị",
+  "title": "Ghép danh sách",
   "description": "Đọc luồng dữ liệu và dự đoán kết quả khi scalar, list hoặc nested list đi qua node.",
   "status": "published",
   "chapterId": "chapter.dynamo-python.du-lieu-va-do-thi",
@@ -62,7 +62,7 @@
 
 ## Đọc đồ thị theo luồng dữ liệu
 
-Dynamo biểu diễn chương trình bằng node và dây nối. Node nhận giá trị ở cổng đầu vào, thực hiện một thao tác rồi đưa kết quả ra cổng đầu ra; dây thể hiện sự phụ thuộc dữ liệu. Vì vậy, vị trí node trên canvas giúp người đọc theo dõi, còn kết nối quyết định phép tính. Một graph xuất cọc có thể đi từ danh sách lý trình, qua bước tính tọa độ, tới bảng kiểm tra. Hãy đọc kiểu dữ liệu tại từng ranh giới: số, chuỗi, Boolean, hình học hay đối tượng được host bao bọc. Giá trị null cần được xử lý trước phép tính tiếp theo.
+Dynamo biểu diễn chương trình bằng node và dây nối. Node nhận giá trị ở cổng đầu vào, thực hiện một thao tác rồi đưa kết quả ra cổng đầu ra; dây thể hiện sự phụ thuộc dữ liệu. Vì vậy, vị trí node trên canvas giúp người đọc theo dõi, còn kết nối quyết định phép tính. Một đồ thị xuất cọc có thể đi từ danh sách lý trình, qua bước tính tọa độ, tới bảng kiểm tra. Hãy đọc kiểu dữ liệu tại từng ranh giới: số, chuỗi, Boolean, hình học hay đối tượng được ứng dụng chủ bao bọc. Giá trị null cần được xử lý trước phép tính tiếp theo.
 
 ## Giữ cấu trúc list có ý nghĩa
 
@@ -70,7 +70,7 @@ List có thứ tự và chỉ số đầu tiên là 0. Nested list chứa các l
 
 ## Dự đoán lacing trước khi chạy
 
-Lacing quy định ghép nhiều đầu vào dạng list. Với X gồm hai số và Y gồm ba số, Shortest tạo hai cặp; Longest tạo ba cặp bằng cách dùng lại phần tử cuối của list ngắn; Cross Product tạo sáu tổ hợp. Đây là lựa chọn nghiệp vụ: ghép cọc với cao độ tương ứng khác với tạo một lưới thử. Khi dữ liệu phải tương ứng một–một, hãy kiểm tra độ dài bằng nhau trước, vì Shortest có thể làm mất hàng mà graph vẫn chạy. Ví dụ Python đi kèm thực hiện chính quy tắc ghép nghiêm ngặt đó.
+Lacing quy định ghép nhiều đầu vào dạng list. Với X gồm hai số và Y gồm ba số, Shortest tạo hai cặp; Longest tạo ba cặp bằng cách dùng lại phần tử cuối của list ngắn; Cross Product tạo sáu tổ hợp. Đây là lựa chọn nghiệp vụ: ghép cọc với cao độ tương ứng khác với tạo một lưới thử. Khi dữ liệu phải tương ứng một–một, hãy kiểm tra độ dài bằng nhau trước, vì Shortest có thể làm mất hàng mà đồ thị vẫn chạy. Ví dụ Python đi kèm thực hiện chính quy tắc ghép nghiêm ngặt đó.
 
 ## Dùng logic để bảo vệ hình học
 
@@ -78,4 +78,4 @@ Boolean biểu diễn điều kiện đúng hoặc sai. Dùng điều kiện nh�
 
 ## Thực hành quan sát kết quả
 
-Tạo hai list khác độ dài và dự đoán số kết quả của từng lacing. Sau đó gom theo hai tuyến, quan sát trước và sau Flatten. Ghi rõ cấu trúc mong đợi cạnh nhóm node. Một graph có hình đẹp nhưng mất mã cọc chưa đạt yêu cầu trao đổi dữ liệu.
+Tạo hai list khác độ dài và dự đoán số kết quả của từng lacing. Sau đó gom theo hai tuyến, quan sát trước và sau Flatten. Ghi rõ cấu trúc mong đợi cạnh nhóm node. Một đồ thị có hình đẹp nhưng mất mã cọc chưa đạt yêu cầu trao đổi dữ liệu.

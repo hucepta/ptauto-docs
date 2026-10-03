@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.tao-entity-transaction",
   "slug": "tao-entity-transaction",
-  "title": "Tạo entity trong Transaction",
+  "title": "Tạo entity",
   "description": "Đi từ Database đến ModelSpace, thêm entity và commit có kiểm soát.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.plugin-transaction",

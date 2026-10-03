@@ -13,11 +13,17 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu API chính thức",
+      "title": "Autodesk — Editor.GetEntity",
       "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_EditorInput_Editor_GetEntity_PromptEntityOptions.html"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +31,14 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public PromptEntityResult GetEntity(
+    PromptEntityOptions options
+);
+```
+
+## Cách gọi
 
 ```csharp
 PromptEntityResult result = editor.GetEntity(options);

@@ -13,11 +13,17 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu API chính thức",
+      "title": "Autodesk — Surface.FindElevationAtXY",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/d280ff4f-4c4b-f910-7a27-0e787a43448f.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +31,15 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public double FindElevationAtXY(
+	double x,
+	double y
+)
+```
+
+## Cách gọi
 
 ```csharp
 double z = surface.FindElevationAtXY(x, y);

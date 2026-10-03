@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.curve-parameter-distance",
   "slug": "curve-parameter-distance",
-  "title": "Curve API: parameter, khoảng cách và điểm",
+  "title": "Đo dọc curve",
   "description": "Đo chiều dài, lấy điểm theo khoảng cách và hiểu giới hạn closest point, derivative.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.du-lieu-hinh-hoc",

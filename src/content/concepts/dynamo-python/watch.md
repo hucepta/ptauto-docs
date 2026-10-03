@@ -3,7 +3,7 @@
   "id": "concept.dynamo-python.watch",
   "slug": "watch",
   "title": "Watch",
-  "description": "Hiển thị dữ liệu trung gian trong graph để kiểm kiểu, null và level.",
+  "description": "Hiển thị dữ liệu đầu vào và cấu trúc các nhánh.",
   "status": "published",
   "technology": "dynamo-python",
   "difficulty": "trung-cap",
@@ -13,7 +13,7 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Dynamo Primer",
+      "title": "Tài liệu chính thức: Watch",
       "url": "https://primer.dynamobim.org/en/03_Anatomy-of-a-Dynamo-Definition/3-1_dynamo_nodes.html"
     }
   ],
@@ -24,24 +24,24 @@
 }
 ---
 
-## Cú pháp hoặc cổng node
+## Cú pháp và cổng
 
 ```text
-data → Watch
+Watch: in → dữ liệu hiển thị
 ```
 
-## Đầu vào và đầu ra
+## Tham số
 
-Nối output của node cần kiểm vào Watch. Hiển thị danh sách, nhánh lồng và giá trị hiện có.
+in nhận số, chuỗi, danh sách hoặc giá trị cần quan sát.
 
-## Cách dùng
+## Kết quả
 
-Đặt Watch sau node đọc Civil và sau node lọc để đối chiếu số dòng.
+Hiển thị dữ liệu đầu vào và cấu trúc các nhánh.
 
-```text
-GetAlignmentIds → Watch → số lượng/nhóm ID
-```
+## Thực hành
 
-## Kiểm tra khi áp dụng
+Tạo Code Block `[0,25,50];`. Tìm Watch bằng ô Library bên trái hoặc chuột phải vùng trống > tìm Watch. Nối cổng ra Code Block sang cổng in của Watch, chọn Manual và bấm Run. Mở nhánh Watch: ba phần tử có chỉ số 0/1/2 và giá trị 0/25/50.
 
-Watch không xác nhận dữ liệu đúng trong DWG; cần kiểm đối chiếu host.
+## Dễ nhầm
+
+Watch quan sát dữ liệu; không tự tạo bảng trong DWG và không chứng minh tọa độ đúng CRS.

@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.list-association-list",
   "slug": "list-association-list",
-  "title": "List và Association List",
+  "title": "List và cặp khóa",
   "description": "Tạo list từ giá trị đang có và đọc dữ liệu theo khóa bằng assoc.",
   "status": "published",
   "chapterId": "chapter.autolisp.ngon-ngu-co-ban",

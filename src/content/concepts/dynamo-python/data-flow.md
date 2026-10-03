@@ -44,7 +44,7 @@ Node biểu diễn một phép xử lý; cổng mô tả giá trị nhận hoặ
 
 ## Kiểu dữ liệu tại ranh giới
 
-Một số 12, chuỗi “12” và list chứa 12 là ba đầu vào khác nhau. Boolean mô tả điều kiện, còn null biểu thị thiếu kết quả tùy thao tác. Hình học Dynamo và đối tượng host có vai trò khác: Point dùng để tính hình học không tự mang mã cọc hay CRS. Khi gặp lỗi, đọc cổng yêu cầu loại gì và quan sát giá trị thực tế bằng Watch.
+Một số 12, chuỗi “12” và list chứa 12 là ba đầu vào khác nhau. Boolean mô tả điều kiện, còn null biểu thị thiếu kết quả tùy thao tác. Hình học Dynamo và đối tượng ứng dụng chủ có vai trò khác: Point dùng để tính hình học không tự mang mã cọc hay CRS. Khi gặp lỗi, đọc cổng yêu cầu loại gì và quan sát giá trị thực tế bằng Watch.
 
 ## Cách kiểm tra
 

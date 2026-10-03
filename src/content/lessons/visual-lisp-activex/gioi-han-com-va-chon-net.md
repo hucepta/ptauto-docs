@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.gioi-han-com-va-chon-net",
   "slug": "gioi-han-com-va-chon-net",
-  "title": "Khi nào giữ ActiveX, khi nào chuyển sang .NET",
+  "title": "Chuyển sang .NET",
   "description": "Đánh giá phạm vi API, tốc độ, phụ thuộc Windows và nhu cầu bảo trì của tool.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.ung-dung",
@@ -18,7 +18,7 @@
     },
     {
       "label": "Giới hạn",
-      "detail": "Kiểm tra API/host và thử trên bản vẽ thật"
+      "detail": "Chọn API đúng phiên bản và thử trên bản vẽ mẫu"
     },
     {
       "label": "Quyết định",

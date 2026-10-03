@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.object-model-transaction",
   "slug": "object-model-transaction",
-  "title": "Object Model, Database và Transaction",
+  "title": "Database và Transaction",
   "description": "Theo dấu ObjectId từ lệnh đến entity, hiểu sự khác nhau giữa đọc, tạo và sửa dữ liệu.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.plugin-transaction",
@@ -86,4 +86,4 @@ Một transaction chỉ đọc vẫn cần kết thúc bằng `using`. Không g�
 
 Nhầm Database giữa hai Document khiến ObjectId không còn thuộc phạm vi mong đợi. Nhầm Model space với CurrentSpaceId cũng làm báo cáo đếm sai khu vực. Hãy ghi rõ phạm vi selection, database và record trong thiết kế lệnh.
 
-Chạy mẫu trên bản vẽ có LINE và CIRCLE; filter chỉ lấy LINE. Sau đó thử Esc, chuyển sang Paper space và chạy lại. Với bài tập tạo/sửa, dùng bản sao DWG, đối chiếu số entity trước/sau và thử Undo. Biên dịch thành công cần được bổ sung bằng kiểm tra thực tế trong host tương ứng.
+Chạy mẫu trên bản vẽ có LINE và CIRCLE; filter chỉ lấy LINE. Sau đó thử Esc, chuyển sang Paper space và chạy lại. Với bài tập tạo/sửa, dùng bản sao DWG, đối chiếu số entity trước/sau và thử Undo.

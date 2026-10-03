@@ -55,7 +55,7 @@ List chứa các item có chỉ số từ 0. Nested list chứa list con, dùng 
 
 ## Lacing ghép các đầu vào
 
-Với hai list phẳng dài 2 và 3, Shortest ghép theo vị trí thành 2 cặp. Longest tạo 3 cặp, lặp phần tử cuối của list ngắn. Cross Product tạo mọi tổ hợp, tổng 6 cặp. Kết quả cụ thể còn phụ thuộc chữ ký cổng và cấp list node xử lý. Lacing không kiểm tra hai item có thực sự cùng cọc hay cùng tuyến.
+Với hai danh sách phẳng dài 2 và 3, Shortest ghép theo vị trí thành 2 cặp. Longest tạo 3 cặp, lặp phần tử cuối của list ngắn. Cross Product tạo mọi tổ hợp, tổng 6 cặp. Kết quả cụ thể còn phụ thuộc chữ ký cổng và cấp list node xử lý. Lacing không kiểm tra hai item có thực sự cùng cọc hay cùng tuyến.
 
 ## Chọn quy tắc theo nghiệp vụ
 

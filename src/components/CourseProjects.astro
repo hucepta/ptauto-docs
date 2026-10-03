@@ -1,0 +1,10 @@
+---
+import type { ContentGraph } from '../domain/content/graph';
+import type { Technology } from '../domain/content/schema';
+import { getContentUrl } from '../domain/content/graph';
+import { withBase } from '../domain/content/urls';
+interface Props { graph: ContentGraph; technology: Technology; }
+const { graph, technology } = Astro.props;
+const projects = graph.projects.filter(project => project.technology === technology);
+---
+{projects.length > 0 && <section class="related course-projects" id="du-an-mau"><h2>Dự án mẫu</h2><p>Ghép những kỹ năng vừa học để giải một bài toán cụ thể.</p><ul class="link-list">{projects.map(project => <li><a href={withBase(getContentUrl(graph, project.id))}>{project.title}</a><p>{project.description}</p></li>)}</ul></section>}

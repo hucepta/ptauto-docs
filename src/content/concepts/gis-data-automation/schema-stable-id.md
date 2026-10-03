@@ -51,14 +51,14 @@
 }
 ---
 
-## Schema là hợp đồng dữ liệu
+## cấu trúc trường là hợp đồng dữ liệu
 
-Schema quy định tên trường, kiểu, giá trị thiếu và quy tắc chấp nhận. Field mapping chỉ rõ trường nguồn nào tạo trường đích nào và phép chuyển áp dụng. Với station_m, cần số và đơn vị mét; station_label giữ cách trình bày. Mã “0007” là chuỗi, không nên bị chuyển thành 7 rồi dùng làm khóa.
+cấu trúc trường quy định tên trường, kiểu, giá trị thiếu và quy tắc chấp nhận. Field ánh xạ chỉ rõ trường nguồn nào tạo trường đích nào và phép chuyển áp dụng. Với station_m, cần số và đơn vị mét; station_label giữ cách trình bày. Mã “0007” là chuỗi, không nên bị chuyển thành 7 rồi dùng làm khóa.
 
 ## Định danh theo nguồn hoặc nghiệp vụ
 
-Số hàng không ổn định khi lọc hay sắp xếp. Trong một bản vẽ quản lý, source_id cùng handle giúp truy dấu entity. Handle không tự bền qua tạo lại hoặc sao chép, nên mã tài sản nghiệp vụ vẫn cần quản lý riêng. UUID xác định từ khóa nguồn giúp xuất lại cùng bản ghi ra cùng mã; đầu vào cho khóa phải được chuẩn hóa bằng quy tắc cố định.
+Số hàng không ổn định khi lọc hay sắp xếp. Trong một bản vẽ quản lý, source_id cùng handle giúp truy dấu đối tượng bản vẽ. Handle không tự bền qua tạo lại hoặc sao chép, nên mã tài sản nghiệp vụ vẫn cần quản lý riêng. UUID xác định từ khóa nguồn giúp xuất lại cùng bản ghi ra cùng mã; đầu vào cho khóa phải được chuẩn hóa bằng quy tắc cố định.
 
 ## Bảo toàn liên kết
 
-Bảng cọc mang alignment_id thay vì phụ thuộc thứ tự bảng tuyến. Kiểm tra khóa cha tồn tại, mã trùng và trường bắt buộc trước ghi dữ liệu. Giữ schema_version và bảng đối chiếu khi thay đổi schema. Ví dụ mapping đi kèm dùng dictionary đã trích xuất; nó không đọc DWG. Thử đổi thứ tự bản ghi và xác nhận feature_id giữ nguyên, đồng thời hàng trùng khóa được đưa vào rejected.
+Bảng cọc mang alignment_id thay vì phụ thuộc thứ tự bảng tuyến. Kiểm tra khóa cha tồn tại, mã trùng và trường bắt buộc trước ghi dữ liệu. Giữ schema_version và bảng đối chiếu khi thay đổi cấu trúc trường. Ví dụ ánh xạ đi kèm dùng dictionary đã trích xuất; nó không đọc DWG. Thử đổi thứ tự bản ghi và xác nhận feature_id giữ nguyên, đồng thời hàng trùng khóa được đưa vào rejected.

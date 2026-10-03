@@ -3,7 +3,7 @@
   "id": "concept.gis-data-automation.geodataframe-to-crs",
   "slug": "geodataframe-to-crs",
   "title": "GeoDataFrame.to_crs",
-  "description": "Biến đổi tọa độ geometry từ CRS nguồn đã biết sang CRS đích.",
+  "description": "Bảng có tọa độ hình học mới trong CRS đích.",
   "status": "published",
   "technology": "gis-data-automation",
   "difficulty": "trung-cap",
@@ -13,7 +13,7 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu chính thức",
+      "title": "Tài liệu chính thức: GeoDataFrame.to_crs",
       "url": "https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.to_crs.html"
     }
   ],
@@ -24,24 +24,30 @@
 }
 ---
 
-## Cú pháp
+## Cú pháp và cổng
 
 ```python
-converted = gdf.to_crs(target_crs)
+gdf.to_crs(crs=None, epsg=None, inplace=False)
 ```
 
-## Tham số và kết quả
+## Tham số
 
-gdf.crs phải đúng; target_crs là CRS đích hợp lệ. GeoDataFrame mới có geometry đã biến đổi.
+crs/epsg là hệ đích; gdf phải có CRS nguồn đúng.
 
-## Cách dùng
+## Kết quả
 
-Đưa dữ liệu GIS về cùng CRS với lớp đích trước khi spatial join.
+Bảng có tọa độ hình học mới trong CRS đích.
+
+## Thực hành
 
 ```python
-converted = gdf.to_crs('EPSG:3857')
+import geopandas as gpd
+gdf=gpd.GeoDataFrame({"id":["C01"]},geometry=gpd.points_from_xy([106.7],[10.77]),crs="EPSG:4326")
+converted=gdf.to_crs(epsg=3857)
+print(converted.crs) # EPSG:3857
+print(converted.geometry.x.iloc[0] != 106.7) # True
 ```
 
-## Kiểm tra khi áp dụng
+## Dễ nhầm
 
-Kiểm vị trí mẫu, đơn vị và khu vực áp dụng; không dùng Web Mercator cho phép đo chính xác tùy tiện.
+3857 dùng minh họa hiển thị, không mặc định cho đo đạc. Cột thuộc tính x/y không tự chuyển theo hình học.

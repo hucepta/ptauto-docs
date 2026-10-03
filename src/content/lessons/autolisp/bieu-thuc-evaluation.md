@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.bieu-thuc-evaluation",
   "slug": "bieu-thuc-evaluation",
-  "title": "Biểu thức và evaluation",
+  "title": "Đọc biểu thức",
   "description": "Đọc cú pháp dạng tiền tố, hiểu lúc nào AutoLISP tính biểu thức và lúc nào giữ dữ liệu nguyên dạng.",
   "status": "published",
   "chapterId": "chapter.autolisp.ngon-ngu-co-ban",

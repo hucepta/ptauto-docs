@@ -7,7 +7,6 @@ import ArticleSteps from '../../../components/ArticleSteps.astro';
 import ArticleEnd from '../../../components/ArticleEnd.astro';
 import Exercise from '../../../components/Exercise.astro';
 import LessonFlowchart from '../../../components/LessonFlowchart.astro';
-import ProjectVisual from '../../../components/ProjectVisual.astro';
 import { lessonDecisions } from '../../../content/lesson-decisions';
 import { getContent } from '../../../content/catalog';
 import { getLessonCourse, getContentUrl, getLessonNavigation } from '../../../domain/content/graph';
@@ -33,13 +32,12 @@ const nav = getLessonNavigation(graph, lesson.id);
   <ol>{headings.filter(heading => heading.depth === 2).map(heading => <li><a href={'#' + heading.slug}>{heading.text}</a></li>)}</ol>
 </details>
 {lesson.flow && lessonDecisions[lesson.id]?.length && <LessonFlowchart lessonId={lesson.id} title={lesson.title} steps={lesson.flow} />}
-{lesson.illustration && <ProjectVisual visual={lesson.illustration} output={lesson.description} heading="Hình minh họa" note="Mô phỏng nội dung bài học" outputLabel="Nội dung minh họa" />}
-<ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={lesson.exampleIds} placements={lesson.examplePlacements} />
+<ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={lesson.exampleIds} placements={lesson.examplePlacements} contentSlug={course.slug+'/'+lesson.slug} />
 {lesson.exerciseIds.map(id=><Exercise exercise={graph.entries.get(id) as ExerciseEntry} visibleExampleIds={lesson.exampleIds} />)}
 <ConceptLinks graph={graph} ids={lesson.conceptIds} /><ArticleEnd sources={lesson.sources} compatibility={lesson.compatibility} />
-<div class="article-actions article-actions-end"><button class="js-control" data-bookmark={lesson.id} aria-pressed="false">Lưu bài</button><button class="js-control" data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button>{nav.next&&<a class="button" href={withBase(getContentUrl(graph,nav.next))}>Bài tiếp</a>}</div><p class="status-message" data-storage-status role="status"></p>
+<footer class="lesson-end"><div class="article-actions article-actions-end"><button class="js-control" disabled data-bookmark={lesson.id} aria-pressed="false">Lưu bài</button><button class="js-control" disabled data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button><a class="button" href={withBase('/')}>Về trang chủ</a></div><p class="status-message" data-storage-status role="status"></p>
 <nav class="lesson-pager" aria-label="Chuyển bài" data-pagefind-ignore>
 {nav.previous?<a href={withBase(getContentUrl(graph,nav.previous))}><span>Bài trước</span>{graph.entries.get(nav.previous)!.title}</a>:<span></span>}
-{nav.next?<a href={withBase(getContentUrl(graph,nav.next))}><span>Bài tiếp</span>{graph.entries.get(nav.next)!.title}</a>:<span class="muted">Bạn đã tới bài cuối hiện có.</span>}
-</nav></LearnLayout>
+{nav.next?<a href={withBase(getContentUrl(graph,nav.next))}><span>Bài sau →</span>{graph.entries.get(nav.next)!.title}</a>:<a href={withBase('/')}><span>Đã tới bài cuối</span>Về trang chủ</a>}
+</nav></footer></LearnLayout>
 

@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.dinh-dang-thu-vien",
   "slug": "dinh-dang-thu-vien",
-  "title": "Chọn định dạng và thư viện cho dữ liệu CAD–GIS",
+  "title": "Chọn tệp và công cụ",
   "description": "So sánh định dạng trao đổi và xác định công cụ theo hình học, thuộc tính, CRS và dữ liệu cần giữ.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.dinh-dang-cong-cu",
@@ -96,11 +96,11 @@ Một định dạng thuận tiện cho hiển thị chưa chắc giữ được
 
 | Định dạng | Vai trò và điểm cần kiểm tra |
 | --- | --- |
-| DWG / DXF | DWG giữ cấu trúc CAD; DXF trao đổi entity. Khả năng đọc DWG phụ thuộc driver. DXF qua OGR không cung cấp sẵn georeferencing. |
+| DWG / DXF | DWG giữ cấu trúc CAD; DXF trao đổi đối tượng bản vẽ. Khả năng đọc DWG phụ thuộc driver. DXF qua OGR không cung cấp sẵn georeferencing. |
 | SHP | Bộ file vector, đi cùng DBF và thường có PRJ. Kiểm tra giới hạn tên trường, kiểu dữ liệu và encoding. |
 | GeoJSON | Văn bản Feature/Geometry/Attribute thuận tiện trao đổi web; RFC 7946 quy định WGS84 và longitude/latitude. |
 | GeoPackage | Container SQLite có quy tắc OGC cho dữ liệu không gian và bảng; phù hợp giao nhiều lớp có metadata CRS. |
-| CSV | Bảng đơn giản; cần schema và hồ sơ tọa độ riêng nếu chứa X/Y. |
+| CSV | Bảng đơn giản; cần cấu trúc trường và hồ sơ tọa độ riêng nếu chứa X/Y. |
 | KML / KMZ | KML thường phục vụ trình bày địa lý; KMZ đóng gói KML và tài nguyên. Kiểm tra khả năng bảo toàn thuộc tính. |
 | GeoTIFF | Raster có thông tin địa lý; kiểm tra band, NoData, độ phân giải và hệ cao độ. |
 | LandXML | Trao đổi một số dữ liệu kỹ thuật Civil; phạm vi và tùy chọn xuất/import phụ thuộc sản phẩm. |
@@ -111,4 +111,4 @@ GDAL/OGR đọc, ghi và chuyển nhiều định dạng; driver có trong bản
 
 ## Thực hành xuất một lớp điểm
 
-Ví dụ đi kèm nhận CSV đã được xác nhận là WGS84 longitude/latitude, kiểm tra mã, số hữu hạn và khoảng giá trị rồi tạo FeatureCollection. Cao độ Civil được giữ trong properties vì chưa biết hệ cao độ để dùng làm tọa độ thứ ba của GeoJSON. Script không reprojection. Thử đổi cột sang x_m/y_m: phải dừng vì sai schema. Với nguồn VN-2000, hoàn thành hồ sơ CRS và chọn phép biến đổi trước khi đưa dữ liệu vào ví dụ.
+Ví dụ đi kèm nhận CSV đã được xác nhận là WGS84 longitude/latitude, kiểm tra mã, số hữu hạn và khoảng giá trị rồi tạo FeatureCollection. Cao độ Civil được giữ trong properties vì chưa biết hệ cao độ để dùng làm tọa độ thứ ba của GeoJSON. Script không reprojection. Thử đổi cột sang x_m/y_m: phải dừng vì sai cấu trúc trường. Với nguồn VN-2000, hoàn thành hồ sơ CRS và chọn phép biến đổi trước khi đưa dữ liệu vào ví dụ.

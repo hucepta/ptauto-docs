@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.pipe-network-va-corridor",
   "slug": "pipe-network-va-corridor",
-  "title": "Corridor và Pipe Network: đọc quan hệ trước khi tính khối lượng",
+  "title": "Mạng và Corridor",
   "description": "Nhận biết baseline, region, assembly và mạng ống trong một bài kiểm kê hạ tầng.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.corridor-va-ha-tang",

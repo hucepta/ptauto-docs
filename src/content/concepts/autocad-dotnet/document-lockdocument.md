@@ -13,11 +13,21 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — Document.LockDocument",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_ApplicationServices_Document_LockDocument.html"
+    },
+    {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-A2CD7540-69C5-4085-BCE8-2A8ACE16BFDD.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +35,12 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public DocumentLock LockDocument();
+```
+
+## Cách gọi
 
 ```csharp
 using (DocumentLock lockDoc = doc.LockDocument()) { /* ghi DB */ }

@@ -1,10 +1,12 @@
 ---
 import type { Technology } from '../../domain/content/schema';
-interface Props { title: string; description: string; technology: Technology; href: string; }
-const { title, description, href } = Astro.props;
+interface Props { title: string; description: string; technology: Technology; href: string; courseId: string; lessonCount: number; }
+const { title, description, href, technology, courseId, lessonCount } = Astro.props;
+const marks = { autolisp: 'LSP', 'visual-lisp-activex': 'VL', 'autocad-dotnet': 'C#', 'civil3d-dotnet': 'C3D', 'dynamo-python': 'PY', 'gis-data-automation': 'GIS' };
 ---
 <a class="knowledge-card" href={href} aria-label={title}>
   <div class="knowledge-copy">
+    <div class="knowledge-meta"><span class="knowledge-badge" aria-hidden="true">{marks[technology]}</span><span class="knowledge-status" data-course-remaining={courseId}>{lessonCount} bài học</span></div>
     <h3>{title}<span aria-hidden="true"> →</span></h3>
     <p>{description}</p>
   </div>

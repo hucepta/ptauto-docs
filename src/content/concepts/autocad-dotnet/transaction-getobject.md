@@ -13,11 +13,21 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — Transaction.GetObject",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_DatabaseServices_Transaction_GetObject_ObjectId_OpenMode.html"
+    },
+    {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +35,15 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public virtual DBObject GetObject(
+    ObjectId id,
+    OpenMode mode
+);
+```
+
+## Cách gọi
 
 ```csharp
 DBObject obj = tr.GetObject(id, OpenMode.ForRead);

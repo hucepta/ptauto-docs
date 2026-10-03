@@ -13,8 +13,8 @@ interface Props {
 const { sources, compatibility } = Astro.props;
 ---
 {(compatibility.length>0||sources.length>0)&&<details class="article-end" data-pagefind-ignore>
-<summary>Phạm vi áp dụng và tài liệu gốc</summary>
-{compatibility.length>0&&<div><h2>Phạm vi áp dụng</h2><p>{compatibility.map(c=>`${c.product}${c.platform ? ` trên ${c.platform}` : ''} (${c.version})`).join('; ')}. Hãy kiểm tra API và chạy thử trên đúng phiên bản phần mềm bạn dùng.</p></div>}
+<summary>Phần mềm và nguồn tham khảo</summary>
+{compatibility.length>0&&<div><h2>Phần mềm dùng trong bài</h2><p>{compatibility.map(c=>`${c.product}${c.platform ? ` trên ${c.platform}` : ''} (${c.version})`).join('; ')}.</p></div>}
 {sources.length>0&&<div><h2>Đọc thêm trong tài liệu gốc</h2><ul>{sources.map(s=><li><a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a></li>)}</ul></div>}
 </details>}
 

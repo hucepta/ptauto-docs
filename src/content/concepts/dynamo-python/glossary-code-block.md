@@ -4,7 +4,7 @@
 
 ## Giải thích
 
-Node cho phép viết biểu thức DesignScript ngắn trong graph.
+Node cho phép viết biểu thức DesignScript ngắn trong đồ thị.
 
 ## Trong công việc
 

@@ -1,0 +1,16 @@
+export const author = {
+  name: 'Phạm Tuấn Anh',
+  bio: 'Sinh viên năm 8 Đại học Xây dựng Hà Nội',
+  email: '0103466@st.huce.edu.vn',
+  purpose: 'Tôi xây trang web này để biến kiến thức rời rạc về tự động hóa CAD, Civil 3D và GIS thành một lộ trình học rõ ràng cho người Việt.',
+};
+export const mainSources = [
+  { title: 'Autodesk · AutoLISP và ActiveX', url: 'https://help.autodesk.com/view/OARX/2026/ENU/' },
+  { title: 'Autodesk · AutoCAD .NET', url: 'https://help.autodesk.com/cloudhelp/2026/ENU/OARX-DevGuide-Managed/files/index.htm' },
+  { title: 'Autodesk · Civil 3D API', url: 'https://help.autodesk.com/cloudhelp/2026/ENU/Civil3D-DevGuide/files/index.htm' },
+  { title: 'Dynamo Primer', url: 'https://primer2.dynamobim.org/' },
+  { title: 'Python', url: 'https://docs.python.org/3/' },
+  { title: 'QGIS', url: 'https://docs.qgis.org/3.40/en/docs/' },
+  { title: 'GeoPandas', url: 'https://geopandas.org/en/stable/docs.html' },
+  { title: 'PostGIS', url: 'https://postgis.net/documentation/' },
+];

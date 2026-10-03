@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.system-variable-va-phuc-hoi",
   "slug": "system-variable-va-phuc-hoi",
-  "title": "System variable và khôi phục trạng thái AutoCAD",
+  "title": "Lưu trạng thái AutoCAD",
   "description": "Đọc, thay đổi tạm và trả lại trạng thái bản vẽ khi lệnh kết thúc hoặc bị hủy.",
   "status": "published",
   "chapterId": "chapter.autolisp.tuong-tac-ban-ve",

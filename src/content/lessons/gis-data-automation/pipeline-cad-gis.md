@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.pipeline-cad-gis",
   "slug": "pipeline-cad-gis",
-  "title": "Thực hành pipeline CAD sang GIS có QA/QC",
+  "title": "Quy trình CAD–GIS",
   "description": "Ghép hồ sơ CRS, mapping, sàng lọc hình học và bàn giao để tạo quy trình nhỏ có thể kiểm tra.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.qa-pipeline",
@@ -63,7 +63,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "chuẩn-bị-hồ-sơ-và-schema",
+      "heading": "chuẩn-bị-hồ-sơ-và-cấu-trúc-trường",
       "exampleIds": [
         "example.gis-data-automation.map-cad-records"
       ]
@@ -87,11 +87,11 @@
 
 ## Đặt phạm vi cho một lớp trước
 
-Bắt đầu với lớp tim tuyến gồm đường và mã nguồn từ một bản vẽ. Xác định ModelSpace, layer được chọn và cách xử lý block hoặc đường cong trước bước trích xuất. Dùng công cụ CAD hoặc driver đã đối chiếu để xuất DXF/bảng; ghi phiên bản và những entity bị bỏ qua. File chuyển đổi không đủ để chứng minh đã giữ trọn mô hình Corridor hoặc trắc dọc.
+Bắt đầu với lớp tim tuyến gồm đường và mã nguồn từ một bản vẽ. Xác định ModelSpace, layer được chọn và cách xử lý block hoặc đường cong trước bước trích xuất. Dùng công cụ CAD hoặc driver đã đối chiếu để xuất DXF/bảng; ghi phiên bản và những đối tượng bản vẽ bị bỏ qua. File chuyển đổi không đủ để chứng minh đã giữ trọn mô hình Corridor hoặc trắc dọc.
 
-## Chuẩn bị hồ sơ và schema
+## Chuẩn bị hồ sơ và cấu trúc trường
 
-Tạo hồ sơ nguồn gồm source_id, ngày xuất, đơn vị, loại Geometry và định nghĩa CRS đã xác nhận. Với nguồn VN-2000, yêu cầu tham số đầy đủ thay vì chọn một EPSG chung. Định nghĩa mapping từ handle/layer sang mã nguồn và lớp nghiệp vụ; giữ bảng liên kết để lần xuất sau đối chiếu được. Mẫu mapping dùng bản ghi dictionary đã trích xuất, tạo feature_id ổn định trong cùng nguồn. Thay đổi tên file không nên tự tạo source_id mới nếu bộ nguồn vẫn là cùng một bản vẽ quản lý.
+Tạo hồ sơ nguồn gồm source_id, ngày xuất, đơn vị, loại Geometry và định nghĩa CRS đã xác nhận. Với nguồn VN-2000, yêu cầu tham số đầy đủ thay vì chọn một EPSG chung. Định nghĩa ánh xạ từ handle/layer sang mã nguồn và lớp nghiệp vụ; giữ bảng liên kết để lần xuất sau đối chiếu được. Mẫu ánh xạ dùng bản ghi dictionary đã trích xuất, tạo feature_id ổn định trong cùng nguồn. Thay đổi tên file không nên tự tạo source_id mới nếu bộ nguồn vẫn là cùng một bản vẽ quản lý.
 
 ## Chạy QA trước chuyển hệ
 
@@ -103,4 +103,4 @@ Nếu nguồn đã có tọa độ đúng nhưng thiếu metadata, gán CRS đã
 
 ## Đối chiếu bộ bàn giao
 
-Bộ giao gồm dữ liệu accepted, rejected, hồ sơ CRS/schema và báo cáo tổng. Mở đầu ra bằng công cụ GIS khác và so mã, phạm vi, đơn vị cùng vài vị trí đã biết. Thử lại cùng đầu vào để xác nhận ID không đổi; thêm một entity và kiểm tra chỉ xuất hiện mã mới tương ứng. Ghi rõ bước nào đã chạy trong CAD, bước nào chỉ xử lý bảng và kiểm tra nào còn thiếu. Thực hành đạt khi có thể giải thích từng Feature từ nguồn tới đích.
+Bộ giao gồm dữ liệu accepted, rejected, hồ sơ CRS/cấu trúc trường và báo cáo tổng. Mở đầu ra bằng công cụ GIS khác và so mã, phạm vi, đơn vị cùng vài vị trí đã biết. Thử lại cùng đầu vào để xác nhận ID không đổi; thêm một đối tượng bản vẽ và kiểm tra chỉ xuất hiện mã mới tương ứng. Ghi rõ bước nào đã chạy trong CAD, bước nào chỉ xử lý bảng và kiểm tra nào còn thiếu. Thực hành đạt khi có thể giải thích từng Feature từ nguồn tới đích.

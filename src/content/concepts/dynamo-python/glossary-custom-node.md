@@ -8,5 +8,5 @@ Node do người dùng đóng gói để tái sử dụng một nhóm thao tác.
 
 ## Trong công việc
 
-Đóng gói bước chuẩn hóa station dùng ở nhiều graph.
+Đóng gói bước chuẩn hóa station dùng ở nhiều đồ thị.
 

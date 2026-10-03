@@ -2,11 +2,11 @@
 {
   "id": "lesson.autolisp.vlide-ide-extension-debug",
   "slug": "vlide-ide-extension-debug",
-  "title": "VLIDE, AutoLISP Extension và cách khoanh vùng lỗi",
+  "title": "Soạn và gỡ lỗi LSP",
   "description": "Biết vai trò của IDE/debugger và sửa lỗi theo nơi chạy, file nạp, cú pháp, dữ liệu, luồng.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 3,
+  "order": 5,
   "difficulty": "co-ban",
   "prerequisites": [
     "lesson.autolisp.command-line-file-lsp"
@@ -60,7 +60,7 @@ Bạn đã tạo `hello.lsp`, nhưng khi gõ `HELLO` trong AutoCAD thì không t
 | VLIDE | Môi trường Visual LISP tích hợp trong AutoCAD bản Windows có hỗ trợ | Cửa sổ viết mã, kiểm tra biểu thức và debugger |
 | AutoCAD Command Line | Nạp file bằng `APPLOAD` hoặc `(load "...")`, rồi gọi tên lệnh | Prompt, thông báo, đối tượng mới trong DWG |
 
-**Extension** là phần mở rộng thêm khả năng cho một ứng dụng. AutoCAD AutoLISP Extension là phần mở rộng cho VS Code; nó không phải một file Lisp của bạn và không tự chạy lệnh trong bản vẽ. Autodesk hiện hướng người mới dùng VS Code với extension này. VLIDE vẫn hữu ích khi làm việc trong bản AutoCAD Windows hỗ trợ nó; đường đi và tính năng cụ thể phụ thuộc phiên bản/host.
+**Extension** là phần mở rộng thêm khả năng cho một ứng dụng. AutoCAD AutoLISP Extension là phần mở rộng cho VS Code; nó không phải một file Lisp của bạn và không tự chạy lệnh trong bản vẽ. Autodesk hiện hướng người mới dùng VS Code với extension này. VLIDE vẫn hữu ích khi làm việc trong bản AutoCAD Windows hỗ trợ nó; đường đi và tính năng cụ thể phụ thuộc phiên bản AutoCAD.
 
 ## Một vòng viết và chạy lệnh
 

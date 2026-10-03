@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.editor-selection-hinh-hoc",
   "slug": "editor-selection-hinh-hoc",
-  "title": "Editor, Selection và hình học",
+  "title": "Chọn và tính hình học",
   "description": "Đọc input có kiểm tra trạng thái, lọc selection và xử lý hình học trong đúng hệ tọa độ.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.editor-va-hinh-hoc",

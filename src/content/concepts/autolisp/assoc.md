@@ -57,3 +57,15 @@ Trả mục tìm được, hoặc nil nếu không có khóa. Với dữ liệu 
 
 Giữ thống nhất kiểu khóa giữa nơi tạo dữ liệu và nơi tra cứu. Trước khi sử dụng kết quả như số hoặc chuỗi, kiểm tra việc tìm mục có thành công hay không.
 
+
+## Ví dụ tại Command Line
+
+```lisp
+(setq data '((0 . "LINE") (8 . "ROAD")))
+(cdr (assoc 8 data)) ; "ROAD"
+(assoc 62 data) ; nil
+```
+
+## Lỗi thường gặp
+
+Không dùng giá trị chưa tìm được như số màu. Khi assoc trả nil, có thể entity dùng giá trị mặc định thay vì lưu mã DXF đó trực tiếp.

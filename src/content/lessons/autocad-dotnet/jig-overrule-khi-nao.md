@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.jig-overrule-khi-nao",
   "slug": "jig-overrule-khi-nao",
-  "title": "Jig và Overrule: chọn đúng điểm mở rộng tương tác",
+  "title": "Jig và Overrule",
   "description": "Phân biệt xem trước hình học khi nhập điểm với thay đổi hành vi hiển thị của entity.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.plugin-tin-cay",

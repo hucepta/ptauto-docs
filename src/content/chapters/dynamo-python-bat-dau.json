@@ -1,1 +1,9 @@
-{"id":"chapter.dynamo-python.bat-dau","slug":"bat-dau","title":"Bắt đầu với đồ thị Dynamo","description":"Tạo graph đầu tiên và quan sát dữ liệu qua Watch.","status":"published","courseId":"course.dynamo-python","order":1}
+{
+  "id": "chapter.dynamo-python.bat-dau",
+  "slug": "bat-dau",
+  "title": "Bắt đầu",
+  "description": "Tạo graph đầu tiên và quan sát dữ liệu qua Watch.",
+  "status": "published",
+  "courseId": "course.dynamo-python",
+  "order": 1
+}

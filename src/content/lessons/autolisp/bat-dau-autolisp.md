@@ -2,11 +2,11 @@
 {
   "id": "lesson.autolisp.bat-dau-autolisp",
   "slug": "bat-dau-autolisp",
-  "title": "Từ thao tác lặp đến lệnh AutoLISP đầu tiên",
+  "title": "Lệnh AutoLISP đầu tiên",
   "description": "Hiểu AutoLISP, Command Line, file LSP, VS Code/AutoLISP Extension và chạy một lệnh nhỏ trong AutoCAD.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 1,
+  "order": 2,
   "difficulty": "co-ban",
   "sources": [
     {
@@ -67,3 +67,10 @@ Mở một DWG thử. Gõ `APPLOAD`, chọn `hello.lsp`, sau đó gõ `HELLO` t�
 ## Kiểm tra
 
 Đổi thông báo thành `Da nap ban moi`, Save và nạp lại. Nếu vẫn thấy dòng cũ, kiểm tra đường dẫn file đã nạp. Nếu AutoCAD báo không biết `HELLO`, kiểm tra tên file, việc nạp và dấu ngoặc. Ghi lại ba bước bạn thực hiện và phản hồi nhận được; đó là quy trình gỡ lỗi đầu tiên.
+
+
+## Làm theo trong AutoCAD
+
+Bật Command Line bằng Ctrl+9 trên Windows. Gõ APPLOAD, duyệt đến hello.lsp, chọn file rồi bấm Load. Khi hộp thoại báo nạp thành công, bấm Close và nhấp lại Command Line. Gõ HELLO rồi Enter; thông báo phải xuất hiện trong lịch sử lệnh. Mở F2 nếu cần đọc lại.
+
+**Bài tập:** đổi thông báo, Save, nạp lại và chạy. Ghi tên file, tên lệnh và dòng phản hồi. Nếu ba mục không khớp, kiểm tra đường dẫn trước khi sửa thân hàm.

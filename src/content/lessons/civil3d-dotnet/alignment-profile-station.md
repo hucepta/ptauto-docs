@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.alignment-profile-station",
   "slug": "alignment-profile-station",
-  "title": "Alignment, station/offset và Profile",
+  "title": "Tuyến và trắc dọc",
   "description": "Phân biệt hình học tuyến, trắc dọc, PVI, đường cong đứng và hình thức hiển thị trong Profile View.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.tuyen-va-trac-doc",

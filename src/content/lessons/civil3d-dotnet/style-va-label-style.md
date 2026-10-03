@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.style-va-label-style",
   "slug": "style-va-label-style",
-  "title": "Styles, Label Styles và Settings trong Civil 3D",
+  "title": "Style và nhãn",
   "description": "Tách dữ liệu thiết kế khỏi cách trình bày trước khi tạo hoặc sửa đối tượng.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.doi-tuong-thiet-ke",

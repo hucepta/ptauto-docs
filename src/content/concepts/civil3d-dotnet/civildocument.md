@@ -70,4 +70,4 @@ Mẫu kiểm kê liệt kê tên và loại trong Document hiện tại. Hai Ali
 
 Khi xử lý một tài liệu cụ thể, CivilDocument phải gắn với cùng Database dùng để mở transaction. Đừng lấy root của tab hiện hành rồi mở ID trong một database khác.
 
-Ví dụ yêu cầu Civil 3D đầy đủ và reference đúng SDK. Object Enabler hỗ trợ trao đổi hình thức hiển thị và thao tác AutoCAD giới hạn; đây không phải môi trường nghiệm thu command CivilDocument của tài liệu này. Nếu DLL không nạp được, kiểm tra dependency trước khi kết luận collection không tồn tại.
+Ví dụ yêu cầu Civil 3D đầy đủ và reference đúng SDK. Dùng Civil 3D đầy đủ cho các command CivilDocument. Nếu DLL không nạp được, kiểm tra dependency trước khi kết luận collection không tồn tại.

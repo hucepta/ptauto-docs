@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.command-input-initget",
   "slug": "command-input-initget",
-  "title": "Lệnh CAD, dữ liệu nhập và initget",
+  "title": "Nhập dữ liệu cho lệnh",
   "description": "Thiết kế lời nhắc, kiểm tra hủy và truyền đúng chuỗi đối số cho command.",
   "status": "published",
   "chapterId": "chapter.autolisp.tuong-tac-ban-ve",
@@ -91,4 +91,4 @@ Ví dụ PTDEMO giả định UCS World: tạo LINE từ (0,0) tới (120,0), t�
 
 Nếu thay CMDECHO hoặc OSMODE, lưu giá trị cũ và khôi phục ở đường thành công lẫn đường lỗi. Nhóm các sửa đổi bằng Undo Begin/End. Khi cần gọi lệnh trong `*error*`, `command-s` phù hợp với chuỗi đối số hoàn chỉnh và không chứa PAUSE.
 
-Chạy PTDEMO trên bản vẽ thử có sẵn một LINE khác. Kiểm tra LINE cũ giữ vị trí, hai đối tượng mới dịch đúng và Undo hoạt động theo thiết kế. Ghi phiên bản host, UCS và kết quả; mã mẫu chưa được chạy trong AutoCAD tại đây.
+Chạy PTDEMO trên bản vẽ thử có sẵn một LINE khác. Kiểm tra LINE cũ giữ vị trí, hai đối tượng mới dịch đúng và Undo hoạt động theo thiết kế. Ghi UCS và kết quả của từng lượt thử để so sánh khi chỉnh sửa mã.

@@ -1,7 +1,7 @@
 {
   "id": "chapter.dynamo-python.du-lieu-civil",
   "slug": "du-lieu-civil",
-  "title": "Đọc dữ liệu Civil 3D",
+  "title": "Dữ liệu Civil 3D",
   "description": "Lập hợp đồng dữ liệu cho Alignment, Profile, Surface và các đối tượng hạ tầng.",
   "status": "published",
   "courseId": "course.dynamo-python",

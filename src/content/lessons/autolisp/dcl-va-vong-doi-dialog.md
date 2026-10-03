@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.dcl-va-vong-doi-dialog",
   "slug": "dcl-va-vong-doi-dialog",
-  "title": "DCL: từ hai file đến một hộp thoại có kiểm soát",
+  "title": "Hộp thoại DCL",
   "description": "Hiểu file LSP/DCL, vòng đời load_dialog/new_dialog/start_dialog/unload_dialog và xử lý Cancel.",
   "status": "published",
   "chapterId": "chapter.autolisp.xay-dung-tool",

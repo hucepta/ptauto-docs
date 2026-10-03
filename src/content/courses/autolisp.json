@@ -10,9 +10,118 @@
     "question": "AutoLISP là gì?",
     "answer": "AutoLISP là ngôn ngữ viết lệnh tùy chỉnh chạy trong AutoCAD. Bạn mô tả một quy trình bằng mã .lsp, nạp mã vào bản vẽ rồi gọi lệnh tại Command Line. Nó phù hợp với việc lặp có quy luật: đọc layer, kiểm tra đối tượng, đánh số cọc hoặc lập báo cáo bản vẽ.",
     "why": "Nếu phải đổi layer hoặc kiểm tra hàng trăm đối tượng theo cùng một quy tắc, làm tay rất dễ bỏ sót. Một lệnh nhỏ giúp bạn thực hiện cùng quy tắc nhiều lần và kiểm tra được kết quả; người thiết kế vẫn quyết định dữ liệu nào được phép sửa.",
-    "setup": ["AutoCAD có hỗ trợ AutoLISP và một bản vẽ thử; bắt đầu với file DWG sao chép.", "Soạn file .lsp bằng VS Code cùng AutoCAD AutoLISP Extension. Visual LISP IDE (VLIDE) là một lựa chọn trên AutoCAD Windows có hỗ trợ.", "Command Line là nơi gọi APPLOAD hoặc load, chạy lệnh và xem phản hồi. Save file chưa tự nạp lại mã vào AutoCAD."],
-    "workflow": [{"label": "Bài toán", "detail": "Chọn thao tác lặp và viết rõ đầu vào, quy tắc xử lý, đầu ra."}, {"label": "Soạn và nạp", "detail": "Lưu .lsp, nạp vào AutoCAD, gọi tên lệnh không có tiền tố c:."}, {"label": "Kiểm tra", "detail": "Chạy trên bản vẽ thử, đối chiếu kết quả và sửa một lỗi mỗi lần."}],
-    "firstResult": "Tạo lệnh HELLO, nạp bằng APPLOAD và thấy phản hồi trong Command Line."
+    "setup": [
+      "AutoCAD có hỗ trợ AutoLISP và một bản vẽ thử; bắt đầu với file DWG sao chép.",
+      "Soạn file .lsp bằng VS Code cùng AutoCAD AutoLISP Extension. Visual LISP IDE (VLIDE) là một lựa chọn trên AutoCAD Windows có hỗ trợ.",
+      "Command Line là nơi gọi APPLOAD hoặc load, chạy lệnh và xem phản hồi. Save file chưa tự nạp lại mã vào AutoCAD."
+    ],
+    "workflow": [
+      {
+        "label": "Bài toán",
+        "detail": "Chọn thao tác lặp và viết rõ đầu vào, quy tắc xử lý, đầu ra."
+      },
+      {
+        "label": "Soạn và nạp",
+        "detail": "Lưu .lsp, nạp vào AutoCAD, gọi tên lệnh không có tiền tố c:."
+      },
+      {
+        "label": "Kiểm tra",
+        "detail": "Chạy trên bản vẽ thử, đối chiếu kết quả và sửa một lỗi mỗi lần."
+      }
+    ],
+    "firstResult": "Tạo lệnh HELLO, nạp bằng APPLOAD và thấy phản hồi trong Command Line.",
+    "ecosystem": "AutoLISP là điểm vào nhanh cho tự động hóa bản vẽ AutoCAD: viết file LSP, nạp vào bản vẽ và gọi lệnh. Học dữ liệu DXF để đọc entity; tiếp tục với Visual LISP/ActiveX để làm việc bằng object, rồi cân nhắc .NET khi cần plugin lớn. AutoCAD thực hiện lệnh và giữ DWG; VS Code chỉ là nơi soạn mã.",
+    "prerequisites": [
+      "Biết mở, lưu DWG và dùng LINE, CIRCLE, LAYER.",
+      "Biết gọi lệnh tại Command Line và chọn đối tượng.",
+      "Chuẩn bị bản vẽ học riêng cùng thư mục lưu LSP."
+    ],
+    "outcomes": [
+      "Nạp và sửa lệnh LSP của mình.",
+      "Xử lý list, chuỗi, input và selection set.",
+      "Đọc DXF, tạo hoặc sửa entity có kiểm tra.",
+      "Xuất báo cáo và đóng gói một CAD Utility có Undo."
+    ],
+    "nextTechnology": "Visual LISP / ActiveX: tiếp tục dùng AutoLISP để đọc property, duyệt collection và đo curve.",
+    "map": [
+      {
+        "title": "Làm quen",
+        "summary": "Biết AutoLISP giải quyết việc gì và chạy ở đâu.",
+        "topics": [
+          "Biểu thức",
+          "Command Line",
+          "Lệnh HELLO"
+        ]
+      },
+      {
+        "title": "Trong AutoCAD",
+        "summary": "Phân biệt bản vẽ, mã LSP và các API liên quan.",
+        "topics": [
+          "DWG",
+          "DXF",
+          "AutoLISP và .NET"
+        ]
+      },
+      {
+        "title": "Chuẩn bị công cụ",
+        "summary": "Tạo thư mục học, soạn mã và nạp lại đúng file.",
+        "topics": [
+          "VS Code",
+          "AutoLISP Extension",
+          "APPLOAD",
+          "VLIDE"
+        ]
+      },
+      {
+        "title": "Ngôn ngữ và API",
+        "summary": "Học biểu thức nhỏ trước khi viết lệnh có input.",
+        "topics": [
+          "setq và defun",
+          "List",
+          "Điều kiện",
+          "Input"
+        ]
+      },
+      {
+        "title": "Dữ liệu bản vẽ",
+        "summary": "Đọc và thay đổi entity theo cấu trúc rõ ràng.",
+        "topics": [
+          "Selection set",
+          "DXF",
+          "UCS/WCS",
+          "XData"
+        ]
+      },
+      {
+        "title": "Luyện từng bước",
+        "summary": "Mỗi bài có dữ liệu đầu vào và kết quả để đối chiếu.",
+        "topics": [
+          "Đếm LINE",
+          "Đọc layer",
+          "Xuất CSV",
+          "Xử lý hủy"
+        ]
+      },
+      {
+        "title": "Làm công cụ",
+        "summary": "Ghép hàm nhỏ thành tiện ích dùng lại.",
+        "topics": [
+          "CAD Utility",
+          "Quản lý cọc",
+          "Undo",
+          "Đóng gói"
+        ]
+      },
+      {
+        "title": "Tra cứu",
+        "summary": "Tìm chữ ký hàm, đối số và lỗi khi đang viết mã.",
+        "topics": [
+          "Hàm AutoLISP",
+          "DCL",
+          "Lỗi thường gặp",
+          "Nguồn Autodesk"
+        ]
+      }
+    ]
   }
 }
-

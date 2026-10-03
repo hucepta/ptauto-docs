@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.mang-ong-ap-luc-va-thoat-nuoc",
   "slug": "mang-ong-ap-luc-va-thoat-nuoc",
-  "title": "Mạng ống tự chảy và mạng áp lực trong Civil 3D",
+  "title": "Mạng ống",
   "description": "Không gộp Pipe Network và Pressure Network thành một mô hình dữ liệu khi kiểm kê hạ tầng.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.corridor-va-ha-tang",

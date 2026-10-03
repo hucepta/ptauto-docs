@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.xdata-xrecord-va-documentlock",
   "slug": "xdata-xrecord-va-documentlock",
-  "title": "Lưu metadata và khóa document đúng lúc",
+  "title": "Dữ liệu mở rộng",
   "description": "Phân biệt XData/Xrecord và điều kiện cần DocumentLock khi tool ghi nhiều bản vẽ.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.plugin-tin-cay",

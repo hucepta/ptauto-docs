@@ -13,11 +13,21 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — Alignment.PointLocation",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/f7b94f73-828d-7988-4347-207ae780cc5c.htm"
+    },
+    {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2023/ENU/Civil3D-DevGuide/files/GUID-8CEA16C1-D0F0-44A6-98B0-5120F2A69CB0.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +35,17 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public void PointLocation(
+	double station,
+	double offset,
+	ref double easting,
+	ref double northing
+)
+```
+
+## Cách gọi
 
 ```csharp
 alignment.PointLocation(station, offset, ref easting, ref northing);

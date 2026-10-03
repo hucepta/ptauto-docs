@@ -44,4 +44,4 @@ A=[1,2], B=[10,20,30]: Cross Product tạo 6 cặp.
 
 ## Kiểm tra khi áp dụng
 
-Trước khi tạo entity, dự đoán số kết quả để tránh nhân bản ngoài ý muốn.
+Trước khi tạo đối tượng bản vẽ, dự đoán số kết quả để tránh nhân bản ngoài ý muốn.

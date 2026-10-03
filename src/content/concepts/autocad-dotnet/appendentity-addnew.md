@@ -13,11 +13,17 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu API chính thức",
+      "title": "Autodesk — AppendEntity và AddNewlyCreatedDBObject",
       "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_DatabaseServices_Transaction_AddNewlyCreatedDBObject_DBObject__MarshalAsUnmanagedType_U1__bool.html"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +31,15 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public virtual void AddNewlyCreatedDBObject(
+    DBObject obj,
+    [MarshalAs(UnmanagedType.U1)] bool add
+);
+```
+
+## Cách gọi
 
 ```csharp
 ObjectId id = space.AppendEntity(entity);

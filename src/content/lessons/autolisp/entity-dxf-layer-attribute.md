@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.entity-dxf-layer-attribute",
   "slug": "entity-dxf-layer-attribute",
-  "title": "Entity, DXF, layer và attribute",
+  "title": "Đọc entity và DXF",
   "description": "Đọc entget, sửa entmod, tạo entmake và duyệt attribute bằng entnext có điểm dừng.",
   "status": "published",
   "chapterId": "chapter.autolisp.du-lieu-ban-ve",

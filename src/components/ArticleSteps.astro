@@ -1,6 +1,8 @@
 ---
 import CodePanel from './CodePanel.astro';
 import CodeExample from './CodeExample.astro';
+import TeachingImage from './TeachingImage.astro';
+import media from '../content/teaching-media.json';
 import { buildReaderSteps, type ExamplePlacement } from '../domain/content/reader-steps';
 import { getExampleAnchor, type ContentGraph } from '../domain/content/graph';
 import { readExampleCode } from '../domain/content/example-source';
@@ -11,8 +13,10 @@ interface Props {
   exampleIds: string[];
   placements: ExamplePlacement[];
   language?: string;
+  contentSlug?: string;
 }
-const { html, graph, exampleIds, placements, language = 'lisp' } = Astro.props;
+const { html, graph, exampleIds, placements, language = 'lisp', contentSlug } = Astro.props;
+const images = media.filter(image => image.lesson === contentSlug);
 const { introHtml, steps, remainingExampleIds } = buildReaderSteps(html, placements, exampleIds);
 const examples = new Map(await Promise.all(exampleIds.map(async id => {
   const example = graph.entries.get(id) as ExampleEntry;
@@ -36,6 +40,7 @@ const examples = new Map(await Promise.all(exampleIds.map(async id => {
         return <CodeExample example={example} code={code} anchorId={getExampleAnchor(id)} />;
       })}
     </div>}
+    {images.filter(image => image.afterStep === index).map(image => <TeachingImage image={image} />)}
   </section>)}
   {remainingExampleIds.length > 0 && <section class="reader-step has-code">
     <div class="step-copy"><span class="step-number" aria-hidden="true">{String(steps.length + 1).padStart(2, '0')}</span><div class="step-description prose"><h2>Ví dụ thực hành</h2></div></div>

@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.closest-point-va-tiep-tuyen",
   "slug": "closest-point-va-tiep-tuyen",
-  "title": "Điểm gần nhất và hướng tiếp tuyến trên curve",
+  "title": "Điểm gần và tiếp tuyến",
   "description": "Lấy điểm nằm trên tim tuyến và tiếp tuyến để đặt nhãn/cọc đúng hướng.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.du-lieu-hinh-hoc",

@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.chuoi-so-va-kiem-tra-du-lieu",
   "slug": "chuoi-so-va-kiem-tra-du-lieu",
-  "title": "Chuỗi, số và kiểm tra dữ liệu trước khi tính",
+  "title": "Chuỗi và số",
   "description": "Chuyển và kiểm tra dữ liệu nhập để báo cáo lý trình không bị sai kiểu.",
   "status": "published",
   "chapterId": "chapter.autolisp.ngon-ngu-co-ban",

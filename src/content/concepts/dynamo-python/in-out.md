@@ -55,12 +55,12 @@
 
 ## Đọc cổng theo chỉ số
 
-IN là collection đầu vào do Python node cung cấp; IN[0] lấy cổng đầu tiên. Đặt tên biến theo nghiệp vụ ngay sau khi đọc, rồi kiểm tra kiểu và cấu trúc. Một cổng có thể mang cả bảng hai chiều, không phải mỗi hàng ứng với một cổng. Thiếu cổng hoặc thiếu cấu hình là lỗi của hợp đồng graph và nên dừng với thông báo rõ.
+IN là collection đầu vào do Python node cung cấp; IN[0] lấy cổng đầu tiên. Đặt tên biến theo nghiệp vụ ngay sau khi đọc, rồi kiểm tra kiểu và cấu trúc. Một cổng có thể mang cả bảng hai chiều, không phải mỗi hàng ứng với một cổng. Thiếu cổng hoặc thiếu cấu hình là lỗi của hợp đồng đồ thị và nên dừng với thông báo rõ.
 
 ## Trả dữ liệu có cấu trúc
 
-Gán OUT bằng giá trị muốn đưa về graph. Dùng list cho chuỗi có thứ tự và dictionary cho bản ghi theo khóa. Báo cáo có thể gồm accepted, rejected và counts để phía sau quyết định có xuất hay không. Không trả xen lẫn DBObject và số vào một list nếu các node sau chỉ hiểu dữ liệu thuần.
+Gán OUT bằng giá trị muốn đưa về đồ thị. Dùng list cho chuỗi có thứ tự và dictionary cho bản ghi theo khóa. Báo cáo có thể gồm accepted, rejected và counts để phía sau quyết định có xuất hay không. Không trả xen lẫn DBObject và số vào một list nếu các node sau chỉ hiểu dữ liệu thuần.
 
 ## Chọn phạm vi lỗi
 
-Lỗi một hàng cần giữ số hàng, mã nguồn và lý do; lỗi toàn bảng như thiếu header cần dừng trước vòng lặp. Tránh bắt mọi exception rồi trả list rỗng, vì người đọc sẽ tưởng nguồn không có dữ liệu. Các ví dụ kèm bài dùng Python 3 và thư viện chuẩn. Chúng cần IN trong Dynamo; để thử ngoài host, người thử phải cấp cùng dữ liệu đầu vào, không suy rằng script đã đọc bản vẽ.
+Lỗi một hàng cần giữ số hàng, mã nguồn và lý do; lỗi toàn bảng như thiếu header cần dừng trước vòng lặp. Tránh bắt mọi exception rồi trả list rỗng, vì người đọc sẽ tưởng nguồn không có dữ liệu. Các ví dụ kèm bài dùng Python 3 và thư viện chuẩn. Chúng cần IN trong Dynamo; để thử ngoài ứng dụng chủ, người thử phải cấp cùng dữ liệu đầu vào, không suy rằng script đã đọc bản vẽ.

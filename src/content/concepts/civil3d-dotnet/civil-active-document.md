@@ -13,11 +13,21 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — CivilApplication.ActiveDocument",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/1275b124-60de-f957-fd8c-479eed3c6b00.htm"
+    },
+    {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-DevGuide/files/GUID-E486351E-EECE-4A87-B148-08B98AEE2B21.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +35,12 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public static CivilDocument ActiveDocument { get; }
+```
+
+## Cách gọi
 
 ```csharp
 CivilDocument civilDoc = CivilApplication.ActiveDocument;

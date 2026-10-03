@@ -4,7 +4,7 @@
 
 ## Giải thích
 
-Node hiển thị giá trị trung gian hoặc kết quả để gỡ lỗi graph.
+Node hiển thị giá trị trung gian hoặc kết quả để gỡ lỗi đồ thị.
 
 ## Trong công việc
 

@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.khoi-dong-activex",
   "slug": "khoi-dong-activex",
-  "title": "Khởi động ActiveX với vl-load-com",
+  "title": "Nạp ActiveX",
   "description": "Chuẩn bị môi trường Windows và nạp các hàm mở rộng trước khi dùng vla-, vlax- hoặc vlr-.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.nen-tang",

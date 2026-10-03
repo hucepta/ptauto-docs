@@ -3,7 +3,7 @@ test('learn_to_reference_and_back', async ({ page }) => {
     await page.goto('/hoc/autolisp/list-association-list/');
     await page.getByRole('link', { name: 'List', exact: true }).first().click();
     await expect(page).toHaveURL(/tra-cuu\/autolisp\/list\//);
-    await page.getByRole('link', { name: 'List và Association List', exact: true }).click();
+    await page.getByRole('link', { name: 'List và cặp khóa', exact: true }).click();
     await expect(page).toHaveURL(/hoc\/autolisp\/list-association-list\//);
 });
 test('glossary_resolves_same_concept', async ({ page }) => {
@@ -31,8 +31,8 @@ test('reader_without_javascript', async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4321/hoc/autolisp/bieu-thuc-evaluation/');
-    await expect(page.getByRole('heading', { name: 'Biểu thức và evaluation', exact: true })).toBeVisible();
-    await page.getByRole('link', { name: /Bài tiếp.*Biến và kiểu dữ liệu/ }).click();
+    await expect(page.getByRole('heading', { name: 'Đọc biểu thức', exact: true })).toBeVisible();
+    await page.getByRole('link', { name: /Bài sau.*Biến và kiểu dữ liệu/ }).click();
     await expect(page).toHaveURL(/bien-kieu-du-lieu/);
     await context.close();
 });

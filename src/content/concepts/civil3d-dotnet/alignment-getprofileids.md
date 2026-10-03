@@ -13,11 +13,17 @@
   "examplePlacements": [],
   "sources": [
     {
-      "title": "Tài liệu API chính thức",
+      "title": "Autodesk — Alignment.GetProfileIds",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/13710c82-f2b8-44f6-3574-f73f918fc39e.htm"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "Civil 3D .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +31,12 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public ObjectIdCollection GetProfileIds()
+```
+
+## Cách gọi
 
 ```csharp
 ObjectIdCollection ids = alignment.GetProfileIds();

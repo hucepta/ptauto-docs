@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.gdal-postgis-va-raster",
   "slug": "gdal-postgis-va-raster",
-  "title": "GDAL, PostGIS và raster trong chuỗi bàn giao GIS",
+  "title": "GDAL và PostGIS",
   "description": "Biết khi nào dùng file, cơ sở dữ liệu không gian và dữ liệu ô lưới; phân biệt gán CRS với chuyển tọa độ.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.dinh-dang-cong-cu",
@@ -38,6 +38,18 @@
     {
       "title": "QGIS — Raster Data",
       "url": "https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/raster_data.html"
+    },
+    {
+      "title": "GDAL: ogrinfo",
+      "url": "https://gdal.org/en/stable/programs/ogrinfo.html"
+    },
+    {
+      "title": "GDAL: gdalinfo",
+      "url": "https://gdal.org/en/stable/programs/gdalinfo.html"
+    },
+    {
+      "title": "PostGIS: version",
+      "url": "https://postgis.net/docs/PostGIS_Full_Version.html"
     }
   ],
   "compatibility": [
@@ -63,8 +75,16 @@
 
 ## Thử một lô nhỏ trước
 
-Chọn 3 feature tuyến với ID ổn định, một geometry lỗi và một raster mẫu. Ghi CRS gốc từ metadata hoặc hồ sơ nguồn; nếu không biết CRS, dừng để xác minh. **Gán CRS** chỉ mô tả tọa độ đang có; **reprojection** biến đổi số tọa độ. Trong `ogr2ogr`, `-a_srs` và `-t_srs` tương ứng hai mục đích khác nhau. Sau chuyển đổi, mở output để so số feature, ID, kiểu geometry, đơn vị và bounding box.
+Chọn 3 feature tuyến với ID ổn định, một geometry lỗi và một raster mẫu. Ghi CRS gốc từ metadata hoặc hồ sơ nguồn; nếu không biết CRS, dừng để xác minh. **Gán CRS** chỉ mô tả tọa độ đang có; **reprojection** biến đổi số tọa độ. Trong `ogr2ogr`, `-a_srs` và `-t_srs` tương ứng hai mục đích khác nhau. Sau chuyển đổi, mở đầu ra để so số feature, ID, kiểu geometry, đơn vị và bounding box.
 
 ## Thực hành
 
 Lập báo cáo trước/sau cho một GeoPackage: số feature, CRS, năm trường quan trọng và số geometry không hợp lệ. Đưa raster vào cùng canvas, chỉ kiểm tra vị trí tương đối sau khi CRS của cả hai nguồn đã được xác nhận. Nếu một đối tượng mất ID hoặc lệch vị trí, ghi lỗi và không tự động sửa bằng cách chọn EPSG theo cảm tính.
+
+## Kiểm một tệp bằng GDAL
+
+Mở cửa sổ lệnh của môi trường có GDAL. Chạy `ogrinfo -so coc.gpkg coc` để đọc thông tin lớp coc: loại hình, số đối tượng, CRS và các trường. Nếu báo không tìm lệnh, dùng môi trường GDAL đã cài thay vì đưa lệnh này vào Python Script của Dynamo. Kiểm danh sách driver bằng `ogrinfo --formats` trước khi chọn một định dạng.
+
+Với raster, `gdalinfo cao-do.tif` đọc kích thước lưới, CRS, dải dữ liệu và NoData. NoData biểu thị không có mẫu, không tự bằng cao độ 0. Chưa chạy phép chuyển hoặc ghi đè tệp gốc khi chưa kiểm metadata.
+
+PostGIS yêu cầu PostgreSQL có extension PostGIS; SQL `SELECT PostGIS_Full_Version();` kiểm phiên bản. Hàm ST_ là hàm cơ sở dữ liệu SQL, không phải phương thức Shapely. Đặt dữ liệu trong cấu trúc trường thử và dùng truy vấn SELECT trước khi UPDATE/DELETE. Kết quả bài là bảng ghi công cụ/phiên bản, số đối tượng hoặc kích thước raster và thông tin CRS đọc từ nguồn.

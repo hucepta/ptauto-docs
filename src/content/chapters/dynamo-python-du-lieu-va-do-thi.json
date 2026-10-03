@@ -1,7 +1,7 @@
 {
   "id": "chapter.dynamo-python.du-lieu-va-do-thi",
   "slug": "du-lieu-va-do-thi",
-  "title": "Dữ liệu và đồ thị",
+  "title": "Danh sách và đồ thị",
   "description": "Node, data flow, cấu trúc list, lacing và logic trước khi xử lý dữ liệu bản vẽ.",
   "status": "published",
   "courseId": "course.dynamo-python",

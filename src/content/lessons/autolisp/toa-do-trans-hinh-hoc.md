@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.toa-do-trans-hinh-hoc",
   "slug": "toa-do-trans-hinh-hoc",
-  "title": "Hệ tọa độ, trans và phép tính hình học",
+  "title": "Tọa độ và hình học",
   "description": "Phân biệt điểm với vector và chuyển WCS, UCS, OCS trước khi đọc, sửa hoặc gọi lệnh.",
   "status": "published",
   "chapterId": "chapter.autolisp.tuong-tac-ban-ve",
@@ -91,4 +91,4 @@ Hai điểm phải được đưa về cùng hệ trước khi trừ tọa độ
 
 Ví dụ PTA_COORD_REPORT in điểm vừa chọn ở UCS, điểm WCS và vector trục X của UCS trong WCS. Chạy một lần với UCS World, rồi đặt UCS xoay 90 độ và chạy lại ở cùng vị trí hình học. Tọa độ WCS của vị trí phải ổn định; số UCS và vector hướng có thể đổi.
 
-Bài tập yêu cầu chuyển qua lại UCS–WCS, kiểm tra sai số nhỏ và giữ đủ ba thành phần. Khi lấy điểm OCS 2D của polyline, bổ sung elevation đúng trước khi chuyển. Kết quả mong đợi là tiêu chí thực hành, chưa phải bản ghi kiểm thử host.
+Bài tập yêu cầu chuyển qua lại UCS–WCS, kiểm tra sai số nhỏ và giữ đủ ba thành phần. Khi lấy điểm OCS 2D của polyline, bổ sung elevation đúng trước khi chuyển. Đối chiếu điểm trước và sau chuyển đổi trong cùng bản vẽ.

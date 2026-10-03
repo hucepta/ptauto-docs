@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.modelspace-paperspace-layout",
   "slug": "modelspace-paperspace-layout",
-  "title": "ModelSpace, PaperSpace và Layout trong Object Model",
+  "title": "Model và Layout",
   "description": "Xác định collection đang chứa đối tượng trước khi đọc hoặc tạo dữ liệu.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.object-model",

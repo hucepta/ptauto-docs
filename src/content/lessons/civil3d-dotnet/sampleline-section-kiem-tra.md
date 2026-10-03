@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.sampleline-section-kiem-tra",
   "slug": "sampleline-section-kiem-tra",
-  "title": "Sample Line, Section và kiểm tra mặt cắt",
+  "title": "Mặt cắt ngang",
   "description": "Đi từ nhóm Sample Line đến Section, nhận biết thiếu dữ liệu ở từng lý trình.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.surface-va-trac-ngang",

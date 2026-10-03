@@ -1,1 +1,9 @@
-{"id":"chapter.gis-data-automation.bat-dau","slug":"bat-dau","title":"Bắt đầu với dữ liệu không gian","description":"Nhận diện tọa độ, thuộc tính, CRS và đầu ra kiểm chứng được.","status":"published","courseId":"course.gis-data-automation","order":1}
+{
+  "id": "chapter.gis-data-automation.bat-dau",
+  "slug": "bat-dau",
+  "title": "Bắt đầu",
+  "description": "Nhận diện tọa độ, thuộc tính, CRS và đầu ra kiểm chứng được.",
+  "status": "published",
+  "courseId": "course.gis-data-automation",
+  "order": 1
+}

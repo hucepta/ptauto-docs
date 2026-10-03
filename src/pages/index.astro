@@ -5,14 +5,15 @@ import KnowledgeCard from '../components/landing/KnowledgeCard.astro';
 import CodeGeometryDemo from '../components/landing/CodeGeometryDemo.astro';
 import '../styles/landing.css';
 import { getContent } from '../content/catalog';
-import { getContentUrl } from '../domain/content/graph';
+import { getContentUrl, getCourseLessons } from '../domain/content/graph';
+import { author, mainSources } from '../content/site-info';
 import { withBase } from '../domain/content/urls';
 const { graph } = await getContent();
 const courses = graph.courses.map(course => ({
   ...course,
   href: withBase(getContentUrl(graph, course.id)),
 }));
-const starterTerms = ['concept.autolisp.thuat-ngu-autolisp', 'concept.autolisp.thuat-ngu-autocad-net', 'concept.autolisp.thuat-ngu-activex', 'concept.autocad-dotnet.term-dll', 'concept.civil3d-dotnet.term-station', 'concept.dynamo-python.term-node', 'concept.gis-data-automation.term-topology'];
+const starterTerms = ['concept.autolisp.thuat-ngu-autolisp', 'concept.autolisp.thuat-ngu-autocad-net', 'concept.autolisp.thuat-ngu-activex', 'concept.civil3d-dotnet.term-station', 'concept.dynamo-python.term-node', 'concept.gis-data-automation.term-topology'];
 const referenceGroups = starterTerms.map(id => graph.entries.get(id)).filter(Boolean).map(concept => ({ title: concept!.title, sample: concept!.description, href: withBase(getContentUrl(graph, concept!.id)) }));
 const featuredProjects = courses.map(course => graph.projects.find(project => project.technology === course.technology)).filter(Boolean);
 ---
@@ -27,7 +28,7 @@ const featuredProjects = courses.map(course => graph.projects.find(project => pr
     <div class="landing-container">
       <div class="landing-section-heading"><h2 id="knowledge-title">Kho tri thức</h2></div>
       <nav class="knowledge-grid" aria-label="Chủ đề học">
-        {courses.map(course => <KnowledgeCard title={course.title} description={course.description} technology={course.technology} href={course.href} />)}
+        {courses.map(course => <KnowledgeCard title={course.title} description={course.description} technology={course.technology} href={course.href} courseId={course.id} lessonCount={getCourseLessons(graph, course.id).length} />)}
       </nav>
     </div>
   </section>
@@ -38,6 +39,7 @@ const featuredProjects = courses.map(course => graph.projects.find(project => pr
   </section>
   <section class="landing-section home-projects" aria-labelledby="home-project-title"><div class="landing-container"><h2 id="home-project-title">Dự án mẫu</h2><p class="section-note">Từ bài học đến công cụ kiểm tra và tự động hóa hạ tầng kỹ thuật.</p><div class="home-project-grid">{featuredProjects.map(project => <a href={withBase(getContentUrl(graph,project!.id))}><strong>{project!.title}</strong><span>{project!.description}</span></a>)}</div><a class="section-more" href={withBase('/du-an/')}>Xem tất cả dự án →</a></div></section>
   <section class="landing-section home-saved" aria-labelledby="home-saved-title"><div class="landing-container"><h2 id="home-saved-title">Điều đã lưu</h2><p class="section-note" data-bookmarks-empty>Bài và dự án bạn lưu sẽ xuất hiện ở đây trên thiết bị này.</p><ul class="home-saved-list" data-home-bookmarks-list></ul><a class="section-more" href={withBase('/da-luu/')}>Mở danh sách đã lưu →</a></div></section>
+  <footer class="landing-section home-footer"><div class="landing-container footer-grid"><section aria-labelledby="author-title"><h2 id="author-title">Tác giả</h2><p class="author-name">{author.name}</p><p>{author.bio}</p><p>{author.purpose}</p><a href={'mailto:' + author.email}>{author.email}</a></section><section aria-labelledby="sources-title"><h2 id="sources-title">Nguồn chính</h2><ul>{mainSources.map(source => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul><p>Và một số nguồn khác được dẫn trong từng bài.</p></section></div></footer>
 </div>
 <script>import '../client/landing';</script>
 </SiteLayout>

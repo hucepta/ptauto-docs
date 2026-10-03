@@ -2,13 +2,14 @@
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { getContent } from '../../content/catalog';
 import { withBase } from '../../domain/content/urls';
+import { getContentUrl } from '../../domain/content/graph';
 const { graph } = await getContent();
 ---
 <SiteLayout title="Tra cứu" description="Tra cứu hàm, cú pháp và cách dùng theo sáu nhóm học."><div class="page">
 <h1>Tra cứu</h1><p class="reference-intro">Chọn một nhóm để tìm hàm, cú pháp, tham số và ví dụ dùng trong công việc. Các khái niệm cơ bản nằm trong <a href={withBase('/thuat-ngu/')}>Từ điển kỹ thuật</a>.</p>
 <div class="reference-course-grid">{graph.courses.map(course => {
-  const count = graph.concepts.filter(concept => concept.technology === course.technology && concept.kind !== 'term').length;
-  return <a class="reference-course-card" href={withBase('/tra-cuu/' + course.technology + '/')}><strong>{course.title}</strong><span>{course.description}</span><small>{count} mục tra cứu</small></a>;
+  const entries = graph.concepts.filter(concept => concept.technology === course.technology && concept.kind !== 'term');
+  return <section class="reference-course-card"><h2><a href={withBase('/tra-cuu/' + course.technology + '/')}>{course.title}</a></h2><p>{course.description}</p><ul class="reference-preview">{entries.slice(0,7).map(entry => <li><a href={withBase(getContentUrl(graph,entry.id))}>{entry.title}</a></li>)}</ul><a class="reference-all" href={withBase('/tra-cuu/' + course.technology + '/')}>Xem đủ {entries.length} mục →</a></section>;
 })}</div>
 </div></SiteLayout>
 

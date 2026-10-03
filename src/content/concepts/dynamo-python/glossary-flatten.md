@@ -4,7 +4,7 @@
 
 ## Giải thích
 
-Thao tác làm phẳng cấu trúc list lồng theo số mức được chọn.
+Thao tác làm phẳng cấu trúc danh sách lồng theo số mức được chọn.
 
 ## Trong công việc
 

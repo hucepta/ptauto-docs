@@ -6,7 +6,7 @@ export const lessonDecisions: Record<string, LessonDecision[]> = {
     { after: 0, question: 'AutoCAD đã nạp đúng file .lsp vừa Save?', no: 'Nạp lại file bằng APPLOAD/load và kiểm đường dẫn.', yes: 'Gọi lại tên lệnh và đọc phản hồi.' }
   ],
   'lesson.autolisp.vlide-ide-extension-debug': [
-    { after: 0, question: 'Lỗi nằm ở nơi soạn mã hay lúc chạy trong AutoCAD?', no: 'Kiểm file đã Save/nạp và Command Line.', yes: 'Khoanh vùng cú pháp, dữ liệu và luồng trong debugger.' }
+    { after: 0, question: 'Trình soạn thảo đang báo lỗi cú pháp?', no: 'Kiểm file đã lưu/nạp và phản hồi trong Command Line.', yes: 'Sửa vị trí được đánh dấu rồi lưu file và nạp lại.' }
   ],
   'lesson.autolisp.chuoi-so-va-kiem-tra-du-lieu': [
     { after: 0, question: 'Chuỗi nhập chuyển được thành số hợp lệ?', no: 'Báo lỗi và yêu cầu nhập lại; chưa tính hình học.', yes: 'Tính bằng số đã kiểm tra.' }
@@ -22,7 +22,7 @@ export const lessonDecisions: Record<string, LessonDecision[]> = {
     { after: 0, question: 'Entity và mã DXF phù hợp thao tác?', no: 'Dừng; không gọi entmod/entmake với dữ liệu thiếu.', yes: 'Tạo mới hoặc sửa entity đúng nhánh.' }
   ],
   'lesson.autolisp.xdata-xrecord-va-attribute': [
-    { after: 0, question: 'Dữ liệu cần hiển thị, gắn entity hay lưu cấu trúc?', no: 'Làm rõ vòng đời mã cọc trước khi chọn nơi lưu.', yes: 'Chọn Attribute, XData hoặc Xrecord tương ứng.' }
+    { after: 0, question: 'Đã xác định nơi lưu và vòng đời dữ liệu?', no: 'Làm rõ dữ liệu cần hiển thị, gắn đối tượng hay lưu trong từ điển.', yes: 'Chọn Attribute, XData hoặc Xrecord theo nhu cầu.' }
   ],
   'lesson.visual-lisp-activex.reactor-va-vong-doi': [
     { after: 1, question: 'Callback có đang tự gây lại cùng sự kiện?', no: 'Xử lý tối thiểu rồi thoát callback.', yes: 'Chặn tái nhập và chuyển việc nặng ra ngoài callback.' }

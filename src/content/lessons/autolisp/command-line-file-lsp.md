@@ -2,11 +2,11 @@
 {
   "id": "lesson.autolisp.command-line-file-lsp",
   "slug": "command-line-file-lsp",
-  "title": "Command Line, file LSP và chu trình nạp lại",
+  "title": "Nạp file LSP",
   "description": "Biết nơi viết, nơi chạy, và vì sao Save chưa cập nhật lệnh đang được AutoCAD giữ.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 2,
+  "order": 3,
   "difficulty": "co-ban",
   "prerequisites": [
     "lesson.autolisp.bat-dau-autolisp"

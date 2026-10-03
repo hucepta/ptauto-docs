@@ -20,7 +20,7 @@ test.beforeAll(async () => {
 test.afterAll(() => server?.kill());
 test('search_and_reader_deep_links_work_under_base', async ({ page }) => {
     await page.goto('http://127.0.0.1:4323/ptauto-docs/hoc/autolisp/list-association-list/');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('List và Association List');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('List và cặp khóa');
     await page.getByRole('link', { name: 'List', exact: true }).first().click();
     await expect(page).toHaveURL(/4323\/ptauto-docs\/tra-cuu\/autolisp\/list\//);
     await page.goto('http://127.0.0.1:4323/ptauto-docs/tim-kiem/?q=danh%20sach');

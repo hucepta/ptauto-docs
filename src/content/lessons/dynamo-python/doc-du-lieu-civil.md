@@ -2,7 +2,7 @@
 {
   "id": "lesson.dynamo-python.doc-du-lieu-civil",
   "slug": "doc-du-lieu-civil",
-  "title": "Đọc dữ liệu AutoCAD và Civil 3D qua hợp đồng dữ liệu",
+  "title": "Đọc dữ liệu Civil 3D",
   "description": "Chọn dữ liệu cần lấy từ đối tượng Civil, kiểm tra ngữ cảnh host và chuyển thành bản ghi dễ kiểm tra.",
   "status": "published",
   "chapterId": "chapter.dynamo-python.du-lieu-civil",
@@ -45,7 +45,7 @@
 
 ## Phân biệt đối tượng và dữ liệu xuất
 
-Đối tượng AutoCAD như Polyline hoặc BlockReference thuộc database bản vẽ. Alignment, Profile và Surface thêm quan hệ thiết kế của Civil 3D. Một đường nhìn giống tim tuyến chưa chắc là Alignment; một đường trắc dọc trên giấy chưa chắc còn Profile. Trước khi dựng graph, ghi loại đối tượng đầu vào và bảng đầu ra cần lấy. Ví dụ bảng cọc cần mã tuyến, lý trình, offset, tọa độ và nguồn cao độ.
+Đối tượng AutoCAD như Polyline hoặc BlockReference thuộc database bản vẽ. Alignment, Profile và Surface thêm quan hệ thiết kế của Civil 3D. Một đường nhìn giống tim tuyến chưa chắc là Alignment; một đường trắc dọc trên giấy chưa chắc còn Profile. Trước khi dựng đồ thị, ghi loại đối tượng đầu vào và bảng đầu ra cần lấy. Ví dụ bảng cọc cần mã tuyến, lý trình, offset, tọa độ và nguồn cao độ.
 
 ## Đọc tuyến, trắc dọc và bề mặt
 
@@ -57,8 +57,8 @@ Sample Line và nhóm của nó liên quan đến tuyến, vị trí lấy mẫu
 
 ## Chọn cách đọc theo bản cài đặt
 
-Dùng thư viện node và graph mẫu đi kèm đúng Civil 3D để tìm thao tác đọc phù hợp. Tên node, kiểu wrapper và phạm vi hỗ trợ thay đổi giữa các bản; không suy tên node từ tên class .NET. Khi phải dùng Python với API, mở đối tượng trong Transaction theo ngữ cảnh host, lấy giá trị thuần rồi kết thúc phạm vi đọc. Không giữ DBObject để dùng sau khi Transaction đã đóng. Ghi Civil 3D, Dynamo, engine và package dùng cho graph; AutoCAD thuần không cung cấp đầy đủ mô hình Civil.
+Dùng thư viện node và đồ thị mẫu đi kèm đúng Civil 3D để tìm thao tác đọc phù hợp. Tên node, kiểu đối tượng bao và phạm vi hỗ trợ thay đổi giữa các bản; không suy tên node từ tên class .NET. Khi phải dùng Python với API, mở đối tượng trong Transaction theo ngữ cảnh ứng dụng chủ, lấy giá trị thuần rồi kết thúc phạm vi đọc. Không giữ DBObject để dùng sau khi Transaction đã đóng. Ghi Civil 3D, Dynamo, engine và package dùng cho đồ thị; AutoCAD thuần không cung cấp đầy đủ mô hình Civil.
 
 ## Kiểm tra trên bộ dữ liệu nhỏ
 
-Bắt đầu với một tuyến, một Profile, một Surface và ba vị trí đã đối chiếu thủ công. Thử điểm ngoài Surface và lựa chọn rỗng. Nhật ký thử phải tách kết quả đọc AutoCAD khỏi kết quả đọc Civil 3D, vì graph xử lý được list không chứng minh API host đã hoạt động.
+Bắt đầu với một tuyến, một Profile, một Surface và ba vị trí đã đối chiếu thủ công. Thử điểm ngoài Surface và lựa chọn rỗng. Nhật ký thử phải tách kết quả đọc AutoCAD khỏi kết quả đọc Civil 3D, vì đồ thị xử lý được list không chứng minh API ứng dụng chủ đã hoạt động.

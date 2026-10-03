@@ -2,20 +2,24 @@
 {
   "id": "lesson.gis-data-automation.bat-dau-gis",
   "slug": "bat-dau-gis",
-  "title": "Một đối tượng hạ tầng trở thành dữ liệu GIS thế nào",
-  "description": "Phân biệt hình học, thuộc tính, CRS và kiểm tra kết quả trước khi chuyển CAD sang GIS.",
+  "title": "Hiểu dữ liệu GIS",
+  "description": "Hiểu hình học, thuộc tính và CRS qua ba điểm cọc minh họa.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.bat-dau",
   "order": 1,
   "difficulty": "co-ban",
   "sources": [
     {
-      "title": "QGIS — Vector Data",
+      "title": "QGIS: dữ liệu vector",
       "url": "https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/vector_data.html"
     },
     {
-      "title": "QGIS — Coordinate Reference Systems",
-      "url": "https://docs.qgis.org/3.10/en/docs/gentle_gis_introduction/coordinate_reference_systems.html"
+      "title": "QGIS: mở tệp và CSV",
+      "url": "https://docs.qgis.org/3.44/en/docs/user_manual/managing_data_source/opening_data.html"
+    },
+    {
+      "title": "QGIS: dữ liệu vector",
+      "url": "https://docs.qgis.org/3.44/en/docs/user_manual/working_with_vector/vector_properties.html"
     }
   ],
   "compatibility": [
@@ -29,28 +33,43 @@
 }
 ---
 
-## Từ nét vẽ sang feature
+## Một điểm cần những gì
 
-Trong CAD, một LINE có hình dạng và các thông tin như layer. Trong GIS, một **feature** kết hợp hình học, bảng thuộc tính và vị trí trong một hệ quy chiếu. Ví dụ một đoạn ống thoát nước cần hình tuyến, mã ống, đường kính, vật liệu và CRS của tọa độ. Chỉ đổi đuôi DWG sang định dạng khác không tạo ra những thuộc tính còn thiếu.
+Một đối tượng GIS gồm hình học và thuộc tính, được đặt trong hệ quy chiếu đã biết. Trước khi chọn thư viện Python, ta cần đọc được một hàng dữ liệu và giải thích vị trí của nó. Bài đầu dùng ba điểm mẫu tưởng tượng, không phải số liệu đo đạc để thiết kế.
 
-| Phần dữ liệu | Ví dụ | Kiểm tra |
+| Phần | Ví dụ | Ý nghĩa |
 | --- | --- | --- |
-| Hình học | LineString biểu diễn tim ống | Số điểm, chiều dài, hướng tuyến |
-| Thuộc tính | `pipe_id`, `diameter_mm` | ID không rỗng, đường kính hợp lý |
-| CRS và đơn vị | Hồ sơ tọa độ dự án | Nguồn xác nhận, đơn vị độ hay mét |
+| Hình học | Point với hai số x/y | Vị trí điểm |
+| Thuộc tính | stake_id=C01, elevation_m=2.5 | Mã và thông tin của cọc |
+| CRS | EPSG:4326 | Kinh/vĩ độ WGS84, đơn vị góc |
 
-```text
-DWG/Civil + hồ sơ tọa độ → mapping đối tượng → feature có ID → chuyển CRS nếu cần → QA/QC → GeoPackage/GeoJSON
+**CRS** là hệ quy chiếu tọa độ; **EPSG** là danh mục mã hệ quy chiếu. Mã 4326 trong bài được chọn vì số mẫu được viết dưới dạng kinh/vĩ độ. Không dùng nó để gán cho dữ liệu dự án chưa rõ hệ nguồn.
+
+## Điểm, tuyến, vùng và raster
+
+Dữ liệu vector mô tả hình bằng điểm, tuyến và vùng. Point dùng cho cọc; LineString dùng cho tuyến ống; Polygon dùng cho ranh khu đất. Một dòng trong bảng thuộc tính thường ứng với một đối tượng hình học, gọi là feature. Một đối tượng nhiều phần vẫn có thể chỉ là một dòng.
+
+Raster là lưới ô: mỗi ô giữ giá trị như cao độ hoặc màu ảnh. Bảng cọc không tự trở thành raster; đường đồng mức cũng không tự là mô hình cao độ đầy đủ. Chọn loại dữ liệu theo điều cần mô tả.
+
+## Tạo nguồn mẫu rõ ràng
+
+Mở trình soạn văn bản, sao chép nội dung sau và lưu `coc-mau.csv` bằng UTF-8. Chọn kiểu tất cả tệp nếu trình soạn tự thêm `.txt`; xác nhận tên thật là `.csv`.
+
+```csv
+stake_id,x,y,elevation_m
+C01,106.7000,10.7700,2.5
+C02,106.7005,10.7705,2.7
+C03,106.7010,10.7710,2.6
 ```
 
-## Cần xác minh CRS trước khi xuất
+Tệp có một dòng tiêu đề, ba dòng dữ liệu, bốn cột. x là kinh độ; y là vĩ độ. elevation_m là thuộc tính minh họa theo mét, không tự biến hình học thành điểm 3D hoặc xác định hệ cao độ.
 
-**Gán CRS** nói cho phần mềm biết tọa độ hiện có đang dùng hệ nào; nó không đổi giá trị số. **Reprojection** tính ra tọa độ mới trong hệ đích. Không đoán một mã EPSG chung cho mọi dự án VN-2000. Hãy lấy kinh tuyến trục, múi chiếu, datum và đơn vị từ hồ sơ bàn giao; nếu thiếu, dừng việc định vị chính xác và yêu cầu làm rõ nguồn.
+## Đọc trước khi mở phần mềm
 
-## Bài thử không cần CAD
+Mỗi ID C01/C02/C03 xuất hiện một lần. Các giá trị x/y dùng dấu chấm thập phân và dấu phẩy ngăn cột. Nếu đổi x/y cho nhau, bảng vẫn có số hợp lệ nhưng điểm sẽ sai vị trí. Nếu đổi CRS nguồn, phần mềm có thể hiểu cùng số theo nghĩa khác mà không báo lỗi.
 
-Tạo bảng ba điểm cọc với `stake_id`, `x`, `y` và một cột nguồn CRS. Mở trong QGIS, kiểm tra vị trí trên nền bản đồ phù hợp, rồi ghi ra GeoPackage thử. Đếm lại ba đối tượng và đối chiếu từng ID. Nếu tọa độ là mét địa phương nhưng hiển thị như độ kinh/vĩ, bạn đã phát hiện một lỗi CRS trước khi giao dữ liệu.
+CAD thường dùng đơn vị bản vẽ; GIS cần biết dữ liệu nằm ở đâu. Một nét đúng hình trên màn hình chưa đủ để chuyển sang vị trí thực địa. Với hồ sơ VN-2000, phải lấy datum, kinh tuyến trục, múi chiếu, đơn vị và thông tin chuyển đổi từ hồ sơ nguồn; tên VN-2000 một mình chưa đủ.
 
-## Kiểm tra
+## Kết quả của bài
 
-Giải thích bằng lời vì sao hai tuyến có cùng hình dạng trên màn hình vẫn có thể nằm sai vị trí ngoài thực địa. Liệt kê ba thông tin bạn cần xin từ đơn vị cung cấp trước khi chuyển bản vẽ hạ tầng sang GIS.
+Giữ tệp CSV để dùng ở bài sau. Tự chỉ ra hàng của C02, giá trị cao độ và cặp kinh/vĩ độ của nó. Nếu bạn giải thích được vì sao elevation_m không phải CRS và vì sao ba ID phải đi cùng ba hình học, bạn đã có mô hình dữ liệu để bắt đầu QGIS.

@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.corridor-ha-tang-quantity",
   "slug": "corridor-ha-tang-quantity",
-  "title": "Corridor, FeatureLine và các mạng hạ tầng",
+  "title": "Corridor và hạ tầng",
   "description": "Hiểu baseline/region/assembly, corridor surface, Grading và dữ liệu cần kiểm tra trước khi tính quantity.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.corridor-va-ha-tang",

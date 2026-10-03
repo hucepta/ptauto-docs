@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.etl-spatial-qa",
   "slug": "etl-spatial-qa",
-  "title": "ETL, spatial validity và topology trong QA/QC",
+  "title": "Kiểm dữ liệu",
   "description": "Xây các lớp kiểm tra độc lập, giữ dữ liệu lỗi và tạo báo cáo batch có thể truy vết.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.qa-pipeline",
@@ -68,7 +68,7 @@
 
 ## ETL có đầu vào và đầu ra rõ ràng
 
-ETL gồm Extract lấy dữ liệu nguồn, Transform chuẩn hóa theo quy tắc và Load đưa vào nơi đích. Trong CAD–GIS, Extract có thể là linework từ DXF hoặc bảng đã xuất từ Civil; Transform gồm mapping, chuyển kiểu và xử lý tọa độ; Load có thể tạo GeoPackage. Mỗi bước cần schema và điều kiện chấp nhận. Một dòng bị loại cần lý do và đường dẫn truy lại đối tượng.
+ETL gồm Extract lấy dữ liệu nguồn, Transform chuẩn hóa theo quy tắc và Load đưa vào nơi đích. Trong CAD–GIS, Extract có thể là linework từ DXF hoặc bảng đã xuất từ Civil; Transform gồm ánh xạ, chuyển kiểu và xử lý tọa độ; Load có thể tạo GeoPackage. Mỗi bước cần cấu trúc trường và điều kiện chấp nhận. Một dòng bị loại cần lý do và đường dẫn truy lại đối tượng.
 
 ## Tách kiểm tra thuộc tính khỏi hình học
 
@@ -82,6 +82,6 @@ Một polygon hợp lệ theo mô hình hình học vẫn có thể chồng lên
 
 make_valid có thể làm Geometry đổi loại hoặc tách thành nhiều phần; xem kết quả trước khi chấp nhận. Snap theo dung sai có thể nối nhầm hai đối tượng gần nhau. Đặt dung sai theo đơn vị và mục đích đã được dự án quyết định; không dùng số 0,01 trên tọa độ độ để hiểu là một centimet. Giữ bản trước sửa, mã lỗi và quyết định người kiểm duyệt. Lỗi thiếu CRS nên dừng phép kiểm tra khoảng cách, thay vì gán CRS để pipeline chạy tiếp.
 
-## Báo cáo cho batch và thử nghiệm
+## Báo cáo cho theo lô và thử nghiệm
 
-Mỗi lần chạy ghi nguồn, schema, CRS, cấu hình dung sai, phiên bản thư viện, số đối tượng và tổng lỗi theo quy tắc. Phân biệt lỗi làm dừng file với lỗi một Feature. Thử đường dài 3–4–5, đường có hai đỉnh trùng, mã trùng và số NaN. Đối chiếu số đầu vào với accepted/rejected, rồi dùng công cụ hình học để kiểm tra lớp hoàn chỉnh. Báo cáo tốt cho biết điều đã kiểm tra và phần còn cần kiểm tra.
+Mỗi lần chạy ghi nguồn, cấu trúc trường, CRS, cấu hình dung sai, phiên bản thư viện, số đối tượng và tổng lỗi theo quy tắc. Phân biệt lỗi làm dừng file với lỗi một Feature. Thử đường dài 3–4–5, đường có hai đỉnh trùng, mã trùng và số NaN. Đối chiếu số đầu vào với accepted/rejected, rồi dùng công cụ hình học để kiểm tra lớp hoàn chỉnh. Báo cáo tốt cho biết điều đã kiểm tra và phần còn cần kiểm tra.

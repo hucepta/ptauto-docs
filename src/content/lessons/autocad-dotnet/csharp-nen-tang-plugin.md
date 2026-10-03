@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.csharp-nen-tang-plugin",
   "slug": "csharp-nen-tang-plugin",
-  "title": "C# nền tảng cho plugin CAD",
+  "title": "C# cho plugin",
   "description": "Từ class và collection đến DLL có reference đúng phiên bản và quy trình debug trong host.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.csharp-cho-cad",
@@ -90,7 +90,7 @@ Người dùng nhấn Esc là trạng thái input, không phải lỗi thiết k
 
 ## Project, DLL và reference
 
-Solution chứa các project; class library tạo assembly DLL được host nạp. Mẫu ở đây chọn SDK AutoCAD 2025 và .NET 8 theo bảng tương thích Autodesk. Dùng target `net8.0-windows`, x64 và reference `AcCoreMgd.dll`, `AcDbMgd.dll`, `AcMgd.dll` đúng SDK; đặt Copy Local thành False cho thư viện host. Đây là mục tiêu biên dịch của mẫu, chưa phải kết quả chạy thử.
+Solution chứa các project; class library tạo assembly DLL được host nạp. Mẫu ở đây chọn SDK AutoCAD 2025 và .NET 8 theo bảng tương thích Autodesk. Dùng target `net8.0-windows`, x64 và reference `AcCoreMgd.dll`, `AcDbMgd.dll`, `AcMgd.dll` đúng SDK; đặt Copy Local thành False cho thư viện host.
 
 ## Debug và thực hành
 

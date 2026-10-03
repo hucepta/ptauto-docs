@@ -44,4 +44,4 @@ Chọn @L2 ở cổng list khi muốn xử lý từng sublist cấp 2.
 
 ## Kiểm tra khi áp dụng
 
-L1/L2 không mô tả cùng lớp dữ liệu ở mọi graph; xem Preview thực tế.
+L1/L2 không mô tả cùng lớp dữ liệu ở mọi đồ thị; xem Preview thực tế.

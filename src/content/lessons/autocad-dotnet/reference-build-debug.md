@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.reference-build-debug",
   "slug": "reference-build-debug",
-  "title": "Reference, build và debug plugin theo đúng phiên bản",
+  "title": "Reference và debug",
   "description": "Phân biệt lỗi biên dịch, lỗi nạp DLL và lỗi khi lệnh chạy trong AutoCAD.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.csharp-cho-cad",

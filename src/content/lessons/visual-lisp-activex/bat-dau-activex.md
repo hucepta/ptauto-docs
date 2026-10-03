@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.bat-dau-activex",
   "slug": "bat-dau-activex",
-  "title": "Từ entity đến VLA object",
+  "title": "Đọc object đầu tiên",
   "description": "Hiểu khi nào dùng ActiveX, nạp vl-load-com và đọc thuộc tính của một đối tượng đã chọn.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.bat-dau",
@@ -56,8 +56,8 @@ Mở DWG thử có LINE. Chạy từng biểu thức sau trong AutoCAD Command L
 )
 ```
 
-`entsel` trả một list chứa ename và điểm chọn; `car` lấy ename. Nhánh `if` ngăn chuyển đổi khi người dùng bấm Escape hoặc không chọn được đối tượng. `vla-get-ObjectName` trả tên loại đối tượng theo COM; `vla-get-Layer` trả tên layer. Chưa có dòng nào sửa DWG.
+`entsel` trả một list chứa ename và điểm chọn; `car` lấy ename. Nhánh `if` ngăn chuyển đổi khi người dùng nhấn Enter mà không chọn được đối tượng. `vla-get-ObjectName` trả tên loại đối tượng theo COM; `vla-get-Layer` trả tên layer. Chưa có dòng nào sửa DWG.
 
 ## Kiểm tra
 
-Chọn một CIRCLE rồi so kết quả với LINE. Bấm Enter mà không chọn để thấy nhánh `nil`. Nếu gọi `vla-get-Layer` trực tiếp với ename, bạn sẽ thấy vì sao phải chuyển sang VLA object. Sau bài này, học Object Model để hiểu đối tượng đang nằm ở đâu trong Document.
+Chọn một CIRCLE rồi so kết quả với LINE. Bấm Enter mà không chọn để thấy nhánh `nil`. Escape hủy input và dừng lượt chạy; khi cần xử lý hủy trong một công cụ có thay đổi trạng thái, thêm hàm xử lý lỗi để khôi phục. Nếu gọi `vla-get-Layer` trực tiếp với ename, bạn sẽ thấy vì sao phải chuyển sang VLA object. Sau bài này, học Object Model để hiểu đối tượng đang nằm ở đâu trong Document.

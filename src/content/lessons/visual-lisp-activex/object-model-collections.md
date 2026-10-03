@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.object-model-collections",
   "slug": "object-model-collections",
-  "title": "Object Model và phạm vi collection",
+  "title": "Duyệt collection",
   "description": "Đi từ Application tới Document, ModelSpace, PaperSpace, Layers, Blocks và Layouts.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.object-model",

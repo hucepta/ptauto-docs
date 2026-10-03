@@ -1,7 +1,7 @@
 {
   "id": "chapter.gis-data-automation.qa-pipeline",
   "slug": "qa-pipeline",
-  "title": "QA/QC và pipeline",
+  "title": "Kiểm tra dữ liệu",
   "description": "Làm sạch, kiểm tra không gian, báo cáo và thực hành chuyển dữ liệu CAD sang GIS.",
   "status": "published",
   "courseId": "course.gis-data-automation",

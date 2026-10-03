@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.dependency-rebuild-validation",
   "slug": "dependency-rebuild-validation",
-  "title": "Dependency, rebuild và validation trong plugin Civil",
+  "title": "Phụ thuộc và rebuild",
   "description": "Không xuất báo cáo từ mô hình chưa cập nhật hoặc có quan hệ đứt.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.plugin-qa-qc",

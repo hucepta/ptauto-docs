@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.xdata-xrecord-va-attribute",
   "slug": "xdata-xrecord-va-attribute",
-  "title": "Gắn mã cọc vào bản vẽ: Attribute, XData hay Xrecord?",
+  "title": "XData và Attribute",
   "description": "Chọn nơi lưu mã và thông số cọc theo cách người dùng sẽ đọc, sửa và trao đổi DWG.",
   "status": "published",
   "chapterId": "chapter.autolisp.du-lieu-ban-ve",

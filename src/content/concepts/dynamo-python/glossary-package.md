@@ -8,5 +8,5 @@ Bộ node mở rộng được cài thêm cho Dynamo.
 
 ## Trong công việc
 
-Ghi tên và phiên bản package mà graph phụ thuộc.
+Ghi tên và phiên bản package mà đồ thị phụ thuộc.
 

@@ -13,11 +13,21 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — Editor.GetSelection",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_EditorInput_Editor_GetSelection_SelectionFilter.html"
+    },
+    {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-__OVERLOADED_GetSelection_Autodesk_AutoCAD_EditorInput_Editor.html"
     }
   ],
-  "compatibility": [],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
+  ],
   "aliases": [],
   "tags": [],
   "searchableTerms": []
@@ -25,6 +35,14 @@
 ---
 
 ## Cú pháp
+
+```csharp
+public PromptSelectionResult GetSelection(
+    SelectionFilter filter
+);
+```
+
+## Cách gọi
 
 ```csharp
 PromptSelectionResult result = editor.GetSelection(new PromptSelectionOptions(), filter);

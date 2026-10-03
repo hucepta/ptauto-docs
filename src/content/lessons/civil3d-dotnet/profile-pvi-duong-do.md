@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.profile-pvi-duong-do",
   "slug": "profile-pvi-duong-do",
-  "title": "Profile và PVI trong bài toán trắc dọc",
+  "title": "Đường đỏ và PVI",
   "description": "Phân biệt profile mặt đất với profile thiết kế, đọc PVI và kiểm tra phạm vi lý trình.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.tuyen-va-trac-doc",

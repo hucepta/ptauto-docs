@@ -4,9 +4,9 @@
 
 ## Giải thích
 
-Không gian chứa graph, node và dây nối của một tác vụ Dynamo.
+Không gian chứa đồ thị, node và dây nối của một tác vụ Dynamo.
 
 ## Trong công việc
 
-Tách graph kiểm dữ liệu khỏi graph tạo đối tượng.
+Tách đồ thị kiểm dữ liệu khỏi đồ thị tạo đối tượng.
 

@@ -44,4 +44,4 @@ list=[1,2,3], f(x)=x*2 → mapped=[2,4,6]
 
 ## Kiểm tra khi áp dụng
 
-Trong graph mới, xem List@Level trước nếu chỉ cần điều khiển cấp đầu vào.
+Trong đồ thị mới, xem List@Level trước nếu chỉ cần điều khiển cấp đầu vào.

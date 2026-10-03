@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.plugin-civil-kiem-ke-qa-qc",
   "slug": "plugin-civil-kiem-ke-qa-qc",
-  "title": "Plugin Civil: kiểm kê, validation và QA/QC",
+  "title": "Kiểm kê Civil",
   "description": "Tổ chức plugin chỉ đọc, ghi tình trạng thiết kế và tách rebuild khỏi bước kiểm tra hiện trạng.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.plugin-qa-qc",
@@ -81,7 +81,7 @@ Plugin QA/QC cần chỉ rõ object được kiểm tra, quy tắc và bằng ch
 
 ## Dependency và validation
 
-Mẫu chọn Civil 3D 2025/.NET 8 với thư viện AutoCAD và Civil đúng phiên bản. Chạy trong Civil 3D đầy đủ; AutoCAD thường hoặc Object Enabler không được dùng làm bằng chứng nghiệm thu Civil API. Ghi assembly tham chiếu và build host để chẩn đoán dependency.
+Mẫu chọn Civil 3D 2025/.NET 8 với thư viện AutoCAD và Civil đúng phiên bản. Chạy trong Civil 3D đầy đủ; Bài thực hành cần Civil 3D đầy đủ và các reference của cùng phiên bản.
 
 Trước kiểm tra sâu, xác nhận Document/Database khớp nhau, ObjectId còn hợp lệ, kiểu object đúng và collection không rỗng. Quy tắc nghiệp vụ nên có mã và mô tả riêng: thiếu profile cần dùng, surface không phủ điểm kiểm tra, region chưa có target. Tên object không phải khóa ổn định giữa các DWG.
 

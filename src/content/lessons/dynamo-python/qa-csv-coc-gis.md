@@ -2,7 +2,7 @@
 {
   "id": "lesson.dynamo-python.qa-csv-coc-gis",
   "slug": "qa-csv-coc-gis",
-  "title": "Kiểm tra CSV cọc và chuẩn bị dữ liệu sang GIS",
+  "title": "Kiểm CSV cọc",
   "description": "Kiểm tra mã cọc, lý trình, tọa độ và chênh cao trên bảng xuất từ Civil mà không suy đoán CRS.",
   "status": "published",
   "chapterId": "chapter.dynamo-python.thuc-hanh-du-lieu",
@@ -77,4 +77,4 @@ Bảng accepted vẫn mang tọa độ của nguồn. Giao kèm hồ sơ CRS, đ
 
 ## Thử các trường hợp biên
 
-Nối chuỗi CSV vào IN[0], phạm vi vào IN[1] và IN[2], ngưỡng vào IN[3]. Ví dụ trả accepted, rejected và report_csv; nó không đọc DWG hoặc gọi Civil API. Thử lý trình đúng hai đầu, ngoài phạm vi, mã trùng, NaN và thiếu cao độ bề mặt. Tổng accepted cộng rejected phải bằng số bản ghi đầu vào. Sau đó đối chiếu một cọc với bản vẽ nguồn trên đúng host.
+Nối chuỗi CSV vào IN[0], phạm vi vào IN[1] và IN[2], ngưỡng vào IN[3]. Ví dụ trả accepted, rejected và report_csv; nó không đọc DWG hoặc gọi Civil API. Thử lý trình đúng hai đầu, ngoài phạm vi, mã trùng, NaN và thiếu cao độ bề mặt. Tổng accepted cộng rejected phải bằng số bản ghi đầu vào. Sau đó đối chiếu một cọc với bản vẽ nguồn trên đúng ứng dụng chủ.

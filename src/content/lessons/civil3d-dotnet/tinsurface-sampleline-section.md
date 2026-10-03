@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.tinsurface-sampleline-section",
   "slug": "tinsurface-sampleline-section",
-  "title": "TinSurface, Sample Line và Section",
+  "title": "Mặt và trắc ngang",
   "description": "Đọc cao độ bề mặt, hiểu boundary/breakline/contour và theo quan hệ nguồn dữ liệu trắc ngang.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.surface-va-trac-ngang",

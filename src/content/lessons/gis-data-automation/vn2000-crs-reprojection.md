@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.vn2000-crs-reprojection",
   "slug": "vn2000-crs-reprojection",
-  "title": "VN-2000, CRS và phép chuyển tọa độ có kiểm chứng",
+  "title": "Chuyển hệ tọa độ",
   "description": "Phân biệt gán CRS với reprojection và không đoán EPSG cho hồ sơ VN-2000.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.du-lieu-khong-gian",
@@ -51,3 +51,11 @@ Tọa độ 500000, 1200000 có thể là mét trong một hệ chiếu phẳng,
 ## Thực hành
 
 Lập phiếu thông tin CRS cho một bộ cọc: nguồn, datum, phép chiếu, kinh tuyến trục, múi, đơn vị và điểm kiểm tra. Nếu thiếu hai mục quan trọng, nêu lý do chưa được chuyển tọa độ. Sau khi chuyển, so ít nhất một điểm mốc đã biết.
+
+## Hồ sơ cần trước phép chuyển
+
+Ghi vào bảng: datum, kinh tuyến trục, múi chiếu, đơn vị, thứ tự X/Y, phép chuyển datum được cho phép và hệ cao độ. Lấy từ hồ sơ của bên cung cấp; tên tỉnh hoặc tên VN-2000 không tự xác định đầy đủ các thông số này.
+
+Trong QGIS, mở Properties > Information của lớp và đọc CRS đang lưu. Đối chiếu với hồ sơ trước khi gán hệ nguồn. Sau đó Export > Save Features As sang một tệp riêng, chọn CRS đích cần bàn giao. Kiểm một số điểm khống chế đã biết ở cả hai hệ; ghi sai lệch và phép chuyển được sử dụng. Tọa độ hình học được chuyển nhưng cột x/y cũ chỉ là thuộc tính thường và cần quy trình cập nhật riêng nếu muốn bàn giao lại chúng.
+
+Nếu thiếu thông số, vẫn có thể kiểm mã trùng và trường rỗng; chưa thể kết luận vị trí chính xác. Báo cáo nên ghi phần đã kiểm và dữ kiện đang thiếu để người nhận biết bước tiếp theo.

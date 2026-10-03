@@ -2,7 +2,7 @@
 {
   "id": "lesson.civil3d-dotnet.civildocument-object-model",
   "slug": "civildocument-object-model",
-  "title": "CivilDocument và Object Model",
+  "title": "CivilDocument",
   "description": "Truy cập Civil objects qua Database, collections, styles, labels và settings đúng tài liệu.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.doi-tuong-thiet-ke",
@@ -85,8 +85,8 @@ Settings chứa mặc định và quy tắc hành vi theo phạm vi drawing, fea
 
 Ví dụ ở đây nhắm Civil 3D 2025, .NET 8, Windows x64. Reference nền theo Autodesk gồm `AcCoreMgd.dll`, `AcDbMgd.dll`, `AcMgd.dll`, `AecBaseMgd.dll` và `AeccDbMgd.dll`; đặt Copy Local thành False. Dùng file từ SDK/cài đặt đúng phiên bản, không chép DLL Civil vào thư mục tiện ích AutoCAD để giả lập host.
 
-Cần Civil 3D đầy đủ cho bài thực hành. Object Enabler hỗ trợ xem và thao tác giới hạn qua AutoCAD, không được coi là môi trường nghiệm thu Civil API. Các mẫu chưa được biên dịch hay chạy trong host.
+Cần Civil 3D đầy đủ cho bài thực hành. Object Enabler trong AutoCAD hỗ trợ hiển thị đối tượng Civil; bài học dùng Civil 3D đầy đủ.
 
 ## Thực hành
 
-Build DLL với reference đã chọn, mở bản sao DWG trong Civil 3D, dùng NETLOAD rồi gọi `PTA_CIVIL_INVENTORY`. Đối chiếu với Prospector, thử DWG rỗng và chuyển tab. Ghi bản build host, số dòng, tên object và lỗi dependency nếu có; không dùng kết quả build thay kết quả chạy.
+Build DLL với reference đã chọn, mở bản sao DWG trong Civil 3D, dùng NETLOAD rồi gọi `PTA_CIVIL_INVENTORY`. Đối chiếu với Prospector, thử DWG rỗng và chuyển tab. Đối chiếu số dòng, tên đối tượng và thông báo lỗi để tìm sai phạm vi dữ liệu.

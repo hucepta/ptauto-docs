@@ -10,9 +10,118 @@
     "question": "Visual LISP và ActiveX dùng để làm gì?",
     "answer": "Visual LISP mở rộng AutoLISP; ActiveX cho phép truy cập AutoCAD qua mô hình đối tượng COM. Thay vì chỉ đọc danh sách DXF của một entity, bạn có thể lấy đối tượng VLA, đọc property như Layer hoặc gọi method của ModelSpace và Curve.",
     "why": "Khi cần thao tác nhiều đối tượng, thuộc tính hoặc chiều dài dọc tuyến, mô hình đối tượng giúp tổ chức thao tác rõ hơn. Bạn vẫn cần biết AutoLISP cơ bản để xử lý nil, selection set và kết quả lỗi.",
-    "setup": ["AutoCAD đầy đủ trên Windows; giao diện ActiveX của AutoLISP không áp dụng cho macOS.", "File .lsp nạp trong AutoCAD; gọi (vl-load-com) trước các hàm vla- và vlax-.", "Một DWG thử có LINE và LWPOLYLINE, ưu tiên bản sao vì một số bài sẽ sửa dữ liệu."],
-    "workflow": [{"label": "Chọn", "detail": "Lấy ename hoặc đối tượng bản vẽ cần xử lý."}, {"label": "Chuyển và đọc", "detail": "Đổi sang VLA object, kiểm tra property/method và kiểu dữ liệu COM."}, {"label": "Thay đổi có kiểm tra", "detail": "Thử trên bản vẽ mẫu, xử lý lỗi COM và so sánh trước/sau."}],
-    "firstResult": "Nạp ActiveX, chọn một đối tượng và đọc tên loại đối tượng cùng layer của nó."
+    "setup": [
+      "AutoCAD đầy đủ trên Windows; giao diện ActiveX của AutoLISP không áp dụng cho macOS.",
+      "File .lsp nạp trong AutoCAD; gọi (vl-load-com) trước các hàm vla- và vlax-.",
+      "Một DWG thử có LINE và LWPOLYLINE, ưu tiên bản sao vì một số bài sẽ sửa dữ liệu."
+    ],
+    "workflow": [
+      {
+        "label": "Chọn",
+        "detail": "Lấy ename hoặc đối tượng bản vẽ cần xử lý."
+      },
+      {
+        "label": "Chuyển và đọc",
+        "detail": "Đổi sang VLA object, kiểm tra property/method và kiểu dữ liệu COM."
+      },
+      {
+        "label": "Thay đổi có kiểm tra",
+        "detail": "Thử trên bản vẽ mẫu, xử lý lỗi COM và so sánh trước/sau."
+      }
+    ],
+    "firstResult": "Nạp ActiveX, chọn một đối tượng và đọc tên loại đối tượng cùng layer của nó.",
+    "ecosystem": "Visual LISP nối tiếp AutoLISP với các hàm mở rộng; ActiveX là giao diện COM của AutoCAD Windows. Từ ename, bạn đổi sang VLA object để truy cập Application, Document và các collection. Dùng Curve API khi cần lý trình và tiếp tuyến. Đây là bước học mô hình đối tượng trước AutoCAD .NET C#.",
+    "prerequisites": [
+      "Viết được defun và xử lý nil trong AutoLISP.",
+      "Biết entsel, ssget, entget và list tọa độ.",
+      "Có AutoCAD Windows cùng DWG thử; đọc phạm vi hỗ trợ của API theo phiên bản."
+    ],
+    "outcomes": [
+      "Phân biệt ename với VLA object.",
+      "Tìm property và method trên đúng loại object.",
+      "Duyệt ModelSpace và Layers, tạo hình học đơn giản.",
+      "Đổi Variant/SafeArray, đo curve và xử lý lỗi COM."
+    ],
+    "nextTechnology": "AutoCAD .NET C#: học C#, ObjectId và Transaction khi công cụ cần cấu trúc plugin và API mạnh hơn.",
+    "map": [
+      {
+        "title": "Bắt đầu",
+        "summary": "Đọc layer của đối tượng đầu tiên bằng ActiveX.",
+        "topics": [
+          "vl-load-com",
+          "ename → VLA",
+          "Đọc Layer"
+        ]
+      },
+      {
+        "title": "Hệ đối tượng",
+        "summary": "Đi từ ứng dụng đến bản vẽ và đối tượng.",
+        "topics": [
+          "Application",
+          "Document",
+          "ModelSpace",
+          "Collections"
+        ]
+      },
+      {
+        "title": "Công cụ học",
+        "summary": "Nạp file và quan sát object trong Command Line.",
+        "topics": [
+          "APPLOAD",
+          "VS Code",
+          "vlax-dump-object"
+        ]
+      },
+      {
+        "title": "Property và method",
+        "summary": "Đọc, ghi và gọi thao tác đúng chữ ký.",
+        "topics": [
+          "vla-get",
+          "vla-put",
+          "vlax-invoke-method",
+          "Kiểm tra hỗ trợ"
+        ]
+      },
+      {
+        "title": "Dữ liệu và hình học",
+        "summary": "Đổi dữ liệu COM và hiểu khoảng cách dọc curve.",
+        "topics": [
+          "Variant",
+          "SafeArray",
+          "WCS",
+          "Curve parameter"
+        ]
+      },
+      {
+        "title": "Thực hành",
+        "summary": "Tạo kết quả nhỏ rồi đối chiếu trong Properties.",
+        "topics": [
+          "Tạo LINE",
+          "Đọc layer",
+          "Lý trình",
+          "Bắt lỗi COM"
+        ]
+      },
+      {
+        "title": "Công cụ dùng lại",
+        "summary": "Tổ chức xử lý hàng loạt và ranh giới chuyển .NET.",
+        "topics": [
+          "Undo",
+          "Batch",
+          "Reactor",
+          "Quản lý tuyến"
+        ]
+      },
+      {
+        "title": "Tra cứu",
+        "summary": "Tìm API theo object, đối số và dạng kết quả.",
+        "topics": [
+          "Hàm vlax",
+          "Method vla",
+          "Giới hạn Windows",
+          "Nguồn Autodesk"
+        ]
+      }
+    ]
   }
 }
-

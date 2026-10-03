@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.feature-crs",
   "slug": "feature-crs",
-  "title": "Feature, dữ liệu không gian và CRS",
+  "title": "Đối tượng và CRS",
   "description": "Diễn giải Geometry, Attribute, vector/raster và tọa độ trước khi chuyển dữ liệu CAD sang GIS.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.du-lieu-khong-gian",
@@ -62,7 +62,7 @@
 
 ## Feature gắn hình học với thuộc tính
 
-Một Feature đại diện một đối tượng nghiệp vụ, như cọc khảo sát hoặc đoạn đường. Geometry mô tả vị trí và hình dạng; Attribute mô tả mã, loại, nguồn và các giá trị đi kèm. Layer tập hợp các Feature theo schema và mục đích sử dụng. Một điểm thiếu mã có thể vẽ đúng nhưng khó đối chiếu với hồ sơ.
+Một Feature đại diện một đối tượng nghiệp vụ, như cọc khảo sát hoặc đoạn đường. Geometry mô tả vị trí và hình dạng; Attribute mô tả mã, loại, nguồn và các giá trị đi kèm. Layer tập hợp các Feature theo cấu trúc trường và mục đích sử dụng. Một điểm thiếu mã có thể vẽ đúng nhưng khó đối chiếu với hồ sơ.
 
 ## Chọn vector hoặc raster theo dữ liệu
 

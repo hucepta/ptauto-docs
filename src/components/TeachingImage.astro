@@ -1,0 +1,10 @@
+---
+import { withBase } from '../domain/content/urls';
+interface Props { image: { path: string; caption: string; instruction: string; sourceUrl: string; sourceLabel: string; width: number; height: number } }
+const { image } = Astro.props;
+---
+<figure class="teaching-image">
+  <a href={withBase(image.path)} target="_blank" aria-label={'Phóng to: '+image.caption}><img src={withBase(image.path)} alt={image.caption} width={image.width} height={image.height} loading="lazy" decoding="async" /></a>
+  <figcaption>{image.caption}<small>Nguồn: <a href={image.sourceUrl} target="_blank" rel="noreferrer">{image.sourceLabel}</a></small></figcaption>
+  <p>{image.instruction}</p>
+</figure>

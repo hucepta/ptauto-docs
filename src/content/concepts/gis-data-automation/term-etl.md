@@ -22,7 +22,7 @@
 
 ## Giải thích
 
-Chuỗi đọc dữ liệu nguồn, làm sạch/đổi schema rồi ghi dữ liệu đích kèm kiểm tra.
+Chuỗi đọc dữ liệu nguồn, làm sạch/đổi cấu trúc trường rồi ghi dữ liệu đích kèm kiểm tra.
 
 **Cách hiểu trong khóa:** trích xuất biến đổi nạp.
 

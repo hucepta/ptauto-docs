@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.chon-doi-tuong-ssget",
   "slug": "chon-doi-tuong-ssget",
-  "title": "Chọn đối tượng với ssget",
+  "title": "Chọn đối tượng",
   "description": "Tạo selection set, lọc LINE và xử lý trường hợp không có đối tượng phù hợp.",
   "status": "published",
   "chapterId": "chapter.autolisp.tuong-tac-ban-ve",

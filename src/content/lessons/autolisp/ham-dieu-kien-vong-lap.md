@@ -2,7 +2,7 @@
 {
   "id": "lesson.autolisp.ham-dieu-kien-vong-lap",
   "slug": "ham-dieu-kien-vong-lap",
-  "title": "Hàm, điều kiện và biến đổi danh sách",
+  "title": "Hàm và vòng lặp",
   "description": "Dùng defun, cond, vòng lặp, mapcar, lambda và apply để tách tính toán khỏi lệnh CAD.",
   "status": "published",
   "chapterId": "chapter.autolisp.ngon-ngu-co-ban",

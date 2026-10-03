@@ -15,6 +15,10 @@
   "examplePlacements": [],
   "sources": [
     {
+      "title": "Autodesk — SelectionFilter",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_EditorInput_SelectionFilter_SelectionFilter_TypedValue__.html"
+    },
+    {
       "title": "Autodesk — Use Selection Filters to Define Selection Set Rules (.NET, 2024)",
       "url": "https://help.autodesk.com/cloudhelp/2024/ENU/OARX-DevGuide-Managed/files/GUID-125398A5-184C-4114-9212-A2FF28FC1F1D.htm"
     },
@@ -33,9 +37,24 @@
     "GetSelection",
     "PromptStatus",
     "ByLayer"
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD .NET",
+      "version": "Đối chiếu chữ ký với SDK phiên bản đích.",
+      "platform": "Windows"
+    }
   ]
 }
 ---
+
+## Cú pháp
+
+```csharp
+public SelectionFilter(
+    TypedValue\[\] value
+);
+```
 
 ## Định nghĩa
 

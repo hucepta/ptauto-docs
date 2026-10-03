@@ -2,11 +2,11 @@
 {
   "id": "lesson.autolisp.quy-trinh-cad-utility",
   "slug": "quy-trinh-cad-utility",
-  "title": "Quy trình CAD Utility từ yêu cầu tới bàn giao",
+  "title": "Báo cáo CAD",
   "description": "Xây báo cáo hình học nhỏ, kiểm tra dữ liệu và dùng chung nền tảng cho quản lý cọc, tuyến.",
   "status": "published",
   "chapterId": "chapter.autolisp.thuc-hanh-cad",
-  "order": 1,
+  "order": 2,
   "difficulty": "trung-cap",
   "prerequisites": [
     "lesson.autolisp.tool-error-undo-file-du-lieu"
@@ -91,6 +91,17 @@ Một ROAD Manager ở mức AutoCAD có thể quản lý polyline, layer và m�
 
 ## Nghiệm thu và chuyển tiếp
 
-Bản vẽ thử gồm hai LINE, một CIRCLE, một LINE 3D và layer có dấu phẩy trong tên. Kiểm tra số dòng, quoting CSV, tọa độ và trường hợp hủy. Xoay UCS rồi xuất lại cùng LINE: cột WCS phải giữ nguyên. Ghi host, phiên bản, hệ điều hành và kết quả từng ca trong nhật ký.
+Bản vẽ thử gồm hai LINE, một CIRCLE, một LINE 3D và layer có dấu phẩy trong tên. Kiểm tra số dòng, quoting CSV, tọa độ và trường hợp hủy. Xoay UCS rồi xuất lại cùng LINE: cột WCS phải giữ nguyên. Ghi phiên bản AutoCAD và kết quả từng ca để so sánh khi chỉnh sửa công cụ.
 
 Khi cần collection, property hoặc đo khoảng cách dọc polyline có cung, chuyển sang Visual LISP / ActiveX trên Windows. Giữ hàm tính toán và record dữ liệu đã chuẩn hóa; chỉ thay lớp đọc API. Nội dung này cung cấp hướng dẫn và mã mẫu, chưa có lần chạy AutoCAD được ghi nhận.
+
+
+## Thực hiện báo cáo trong phần mềm
+
+1. Tạo DWG học bằng New, dùng LINE vẽ từ WCS (0,0,0) đến (30,40,0); Length phải là 50. Vẽ thêm CIRCLE để kiểm tra bộ lọc bỏ loại không phù hợp.
+2. Soạn và Save ví dụ xuất CSV của bài, dùng APPLOAD → Load → Close để nạp. Gọi đúng tên lệnh c: trong ví dụ, rồi chọn LINE; nếu có hộp chọn file, lưu dưới tên mới trong thư mục học.
+3. Mở file CSV bằng VS Code qua File → Open File. Kiểm tra header, số dòng và các tọa độ (0,0,0), (30,40,0). Tên layer có dấu phẩy phải được bao quote theo quy tắc CSV.
+4. Trong AutoCAD, xoay UCS và xuất lại cùng LINE sang file thứ hai. So tọa độ WCS giữa hai file; dữ liệu phải giữ nguyên dù tọa độ UCS trên màn hình thay đổi.
+5. Thử Enter không chọn và hủy hộp lưu. Công cụ phải dừng có thông báo, không tạo báo cáo làm người dùng tưởng dữ liệu đầy đủ.
+
+**Bài tập:** bổ sung số lượng entity hợp lệ và số entity bị bỏ qua vào phản hồi Command Line; đối chiếu số dòng dữ liệu CSV với số hợp lệ trước khi dùng cho thống kê.

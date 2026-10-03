@@ -2,7 +2,7 @@
 {
   "id": "lesson.gis-data-automation.schema-cad-gis",
   "slug": "schema-cad-gis",
-  "title": "Mapping CAD–Civil–GIS và định danh ổn định",
+  "title": "Cấu trúc dữ liệu",
   "description": "Thiết kế schema, ánh xạ trường và khóa liên kết để trao đổi dữ liệu mà vẫn truy về nguồn.",
   "status": "published",
   "chapterId": "chapter.gis-data-automation.ket-noi-cad-gis",
@@ -62,7 +62,7 @@
 
 ## Bắt đầu từ đối tượng nghiệp vụ
 
-CAD tổ chức entity theo layer, block, style và quan hệ database; GIS tổ chức Feature theo lớp dữ liệu và trường. Chuyển linework sang GIS cần trả lời đường đó là tim tuyến, mép đường hay nét trình bày. Layer hỗ trợ phân loại nhưng không thay thế schema nghiệp vụ. Với dữ liệu Civil, Alignment có thể sinh lớp tim tuyến cùng bảng lý trình; Profile giữ quan hệ tới tuyến; pipe cần tham chiếu đến structure. Quyết định đầu ra trước, rồi chọn thuộc tính và hình học cần lấy.
+CAD tổ chức đối tượng bản vẽ theo layer, block, style và quan hệ database; GIS tổ chức Feature theo lớp dữ liệu và trường. Chuyển linework sang GIS cần trả lời đường đó là tim tuyến, mép đường hay nét trình bày. Layer hỗ trợ phân loại nhưng không thay thế cấu trúc trường nghiệp vụ. Với dữ liệu Civil, Alignment có thể sinh lớp tim tuyến cùng bảng lý trình; Profile giữ quan hệ tới tuyến; pipe cần tham chiếu đến structure. Quyết định đầu ra trước, rồi chọn thuộc tính và hình học cần lấy.
 
 ## Lập bảng ánh xạ trường
 
@@ -78,4 +78,4 @@ Dữ liệu tuyến có thể tách thành bảng tuyến và bảng cọc, mỗ
 
 ## Thực hành ánh xạ và đối chiếu
 
-Chuẩn bị ba bản ghi có handle, layer và đường đỉnh đã trích xuất. Chạy ví dụ mapping hai lần sau khi đổi thứ tự hàng: mã ổn định phải giữ nguyên. Thử thiếu handle và trùng khóa nguồn; cả hai cần báo lỗi rõ. Ví dụ dùng dictionary thuần, không mở DWG. Khi áp dụng thực tế, đối chiếu tổng đối tượng theo loại, mã liên kết và mức mất thông tin trước khi chấp nhận kết quả.
+Chuẩn bị ba bản ghi có handle, layer và đường đỉnh đã trích xuất. Chạy ví dụ ánh xạ hai lần sau khi đổi thứ tự hàng: mã ổn định phải giữ nguyên. Thử thiếu handle và trùng khóa nguồn; cả hai cần báo lỗi rõ. Ví dụ dùng dictionary thuần, không mở DWG. Khi áp dụng thực tế, đối chiếu tổng đối tượng theo loại, mã liên kết và mức mất thông tin trước khi chấp nhận kết quả.

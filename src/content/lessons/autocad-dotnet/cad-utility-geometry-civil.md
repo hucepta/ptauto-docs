@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.cad-utility-geometry-civil",
   "slug": "cad-utility-geometry-civil",
-  "title": "CAD Utility, Geometry workflow và bước sang Civil",
+  "title": "Tiện ích CAD",
   "description": "Ghép các lệnh chỉ đọc thành tiện ích có tiêu chí nghiệm thu, rồi xác định phần nào cần Civil API.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.cad-utility-va-civil",
@@ -89,10 +89,10 @@ Ví dụ hai đường giao ở một đỉnh chung cần một điểm trong b�
 
 Một Polyline biểu diễn tim đường bằng hình học nhưng không chứa toàn bộ ý nghĩa Alignment, station equations, Profile hay Corridor. Geometry Engine có thể nhận điểm và segment; ROAD Manager cần thêm mô hình quan hệ giữa tuyến, trắc dọc và các đầu vào thiết kế.
 
-Tách assembly tiện ích AutoCAD khỏi assembly dùng Civil API. Phần AutoCAD tham chiếu thư viện AutoCAD; phần Civil cần SDK Civil phù hợp và host Civil 3D đầy đủ. Object Enabler hỗ trợ trao đổi đối tượng qua thao tác AutoCAD, không được dùng làm tiêu chí nghiệm thu các lệnh quản lý CivilDocument.
+Tách assembly tiện ích AutoCAD khỏi assembly dùng Civil API. Phần AutoCAD tham chiếu thư viện AutoCAD; phần Civil cần SDK Civil phù hợp và host Civil 3D đầy đủ. Object Enabler hỗ trợ trao đổi đối tượng qua thao tác AutoCAD, không thay thế Civil 3D để chạy bài thực hành CivilDocument.
 
 ## Kiểm tra và mở rộng
 
-Thực hiện [project CAD Utility](../../../du-an/autocad-dotnet/cad-utility-chi-doc/) với mẫu nhắm SDK 2025/.NET 8. Chạy selection hỗn hợp, Polyline mở/đóng, Esc và hai Document. Ghi host cùng kết quả trước khi xác nhận hỗ trợ.
+Thực hiện [project CAD Utility](../../../du-an/autocad-dotnet/cad-utility-chi-doc/) với mẫu nhắm SDK 2025/.NET 8. Chạy selection hỗn hợp, Polyline mở/đóng, Esc và hai Document. Đối chiếu số lượng và tổng chiều dài với DWG mẫu.
 
 Sau khi có báo cáo ổn định, bổ sung xuất file và quy tắc kiểm tra hình học. Module Civil cần kiểm tra riêng theo SDK và host.

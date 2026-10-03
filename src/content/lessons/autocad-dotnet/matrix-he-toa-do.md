@@ -2,7 +2,7 @@
 {
   "id": "lesson.autocad-dotnet.matrix-he-toa-do",
   "slug": "matrix-he-toa-do",
-  "title": "Point, Vector, Matrix và hệ tọa độ trong plugin",
+  "title": "Đổi hệ tọa độ",
   "description": "Chuyển hình học đúng hệ trước khi tính offset hoặc chèn cọc.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.editor-va-hinh-hoc",

@@ -2,7 +2,7 @@
 {
   "id": "lesson.dynamo-python.graph-csv-batch",
   "slug": "graph-csv-batch",
-  "title": "Thiết kế graph làm sạch CSV và xử lý hàng loạt",
+  "title": "Làm sạch CSV",
   "description": "Chia graph theo trách nhiệm, giữ nguồn dữ liệu và đo chi phí trước khi tối ưu workflow.",
   "status": "published",
   "chapterId": "chapter.dynamo-python.python-va-workflow",
@@ -67,9 +67,9 @@
 }
 ---
 
-## Chia graph theo trách nhiệm
+## Chia đồ thị theo trách nhiệm
 
-Một graph bảo trì được cần cho biết đầu vào đến từ đâu, quy tắc nào đã áp dụng và kết quả nào sẽ được giao. Tổ chức nhóm đọc nguồn, chuẩn hóa, kiểm tra, xuất và báo cáo theo luồng trái sang phải. Ghi schema và đơn vị bên cạnh các ranh giới. Dùng node cho thao tác người đọc cần nhìn trực tiếp; dùng Python khi nhiều quy tắc liên quan thành một hàm rõ nghĩa. Không gom toàn bộ lựa chọn bản vẽ, kiểm tra dữ liệu và ghi file vào một node khó kiểm tra.
+Một đồ thị bảo trì được cần cho biết đầu vào đến từ đâu, quy tắc nào đã áp dụng và kết quả nào sẽ được giao. Tổ chức nhóm đọc nguồn, chuẩn hóa, kiểm tra, xuất và báo cáo theo luồng trái sang phải. Ghi cấu trúc trường và đơn vị bên cạnh các ranh giới. Dùng node cho thao tác người đọc cần nhìn trực tiếp; dùng Python khi nhiều quy tắc liên quan thành một hàm rõ nghĩa. Không gom toàn bộ lựa chọn bản vẽ, kiểm tra dữ liệu và ghi file vào một node khó kiểm tra.
 
 ## Chuẩn hóa mà vẫn truy vết
 
@@ -79,10 +79,10 @@ Giữ một bản dữ liệu nguồn và tạo bản ghi chuẩn riêng. Cắt 
 
 CSV là văn bản dạng bảng; dấu phân cách, quoting và encoding cần được quy định. Dùng csv.reader hoặc DictReader thay vì split dấu phẩy, vì tên có dấu phẩy có thể nằm trong dấu nháy. Khi đọc file bằng Python 3, chỉ rõ encoding và newline. Excel workbook có sheet, kiểu ô và công thức; xuất CSV chỉ giữ bảng giá trị của sheet được chọn. Kiểm tra các trường ngày, số thập phân và mã sau khi xuất. Không giả định một dấu phẩy luôn là dấu thập phân hay dấu chia cột.
 
-## Chạy batch có ranh giới
+## Chạy theo lô có ranh giới
 
-Với nhiều file, lập danh sách nguồn, phiên bản schema và thư mục đầu ra trước khi chạy. Mỗi file tạo kết quả cùng báo cáo riêng; tổng hợp số hàng accepted/rejected ở cuối. Lỗi schema toàn file khác lỗi một hàng và cần trạng thái khác nhau. Chạy lại phải cho cùng mã và cùng dữ liệu nếu đầu vào không đổi. Với bước ghi bản vẽ, tách khỏi bước đọc và kiểm tra, chạy Manual trên bản sao sau khi đã xem báo cáo.
+Với nhiều file, lập danh sách nguồn, phiên bản cấu trúc trường và thư mục đầu ra trước khi chạy. Mỗi file tạo kết quả cùng báo cáo riêng; tổng hợp số hàng accepted/rejected ở cuối. Lỗi cấu trúc trường toàn file khác lỗi một hàng và cần trạng thái khác nhau. Chạy lại phải cho cùng mã và cùng dữ liệu nếu đầu vào không đổi. Với bước ghi bản vẽ, tách khỏi bước đọc và kiểm tra, chạy Manual trên bản sao sau khi đã xem báo cáo.
 
 ## Đo trước khi tối ưu
 
-Ghi thời gian đọc, xử lý và xuất theo từng giai đoạn. Giảm gọi API lặp bằng cách đọc các giá trị cần thiết một lần; giữ bộ nhớ trong giới hạn bằng từng lô phù hợp. Tránh Cross Product vô tình tạo hàng triệu tổ hợp. Tắt preview hình học nặng khi nó không giúp kiểm tra. Trước khi tăng batch, thử hai file nhỏ: một đúng và một thiếu cột, rồi xác nhận lỗi của file thứ hai không làm mất báo cáo file thứ nhất.
+Ghi thời gian đọc, xử lý và xuất theo từng giai đoạn. Giảm gọi API lặp bằng cách đọc các giá trị cần thiết một lần; giữ bộ nhớ trong giới hạn bằng từng lô phù hợp. Tránh Cross Product vô tình tạo hàng triệu tổ hợp. Tắt preview hình học nặng khi nó không giúp kiểm tra. Trước khi tăng theo lô, thử hai file nhỏ: một đúng và một thiếu cột, rồi xác nhận lỗi của file thứ hai không làm mất báo cáo file thứ nhất.

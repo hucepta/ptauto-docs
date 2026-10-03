@@ -2,7 +2,7 @@
 {
   "id": "lesson.dynamo-python.python-in-out-engine",
   "slug": "python-in-out-engine",
-  "title": "Python IN/OUT, collection và engine trong Dynamo",
+  "title": "Đầu vào Python",
   "description": "Tạo ranh giới dữ liệu rõ ràng, chọn engine đúng host và kiểm soát lỗi khi dùng Python hoặc .NET.",
   "status": "published",
   "chapterId": "chapter.dynamo-python.python-va-workflow",
@@ -67,7 +67,7 @@
 
 ## Xem IN và OUT như một hợp đồng
 
-Trong Python node, IN chứa dữ liệu từ các cổng vào theo chỉ số: IN[0] là cổng đầu tiên. OUT là giá trị trả về graph. Đặt tên biến theo ý nghĩa ngay khi đọc cổng, chẳng hạn rows và headers; ghi kiểu, đơn vị và cách xử lý rỗng trong ghi chú graph. Một đầu vào là list các hàng khác với một list chứa tọa độ của một điểm. Ví dụ đi kèm nhận bảng hai chiều, kiểm tra số cột rồi tạo các bản ghi; lỗi cấu trúc được trả riêng để người dùng tìm đúng hàng.
+Trong Python node, IN chứa dữ liệu từ các cổng vào theo chỉ số: IN[0] là cổng đầu tiên. OUT là giá trị trả về đồ thị. Đặt tên biến theo ý nghĩa ngay khi đọc cổng, chẳng hạn rows và headers; ghi kiểu, đơn vị và cách xử lý rỗng trong ghi chú đồ thị. Một đầu vào là list các hàng khác với một list chứa tọa độ của một điểm. Ví dụ đi kèm nhận bảng hai chiều, kiểm tra số cột rồi tạo các bản ghi; lỗi cấu trúc được trả riêng để người dùng tìm đúng hàng.
 
 ## Chọn list hay dictionary
 
@@ -79,8 +79,8 @@ IronPython triển khai Python trên .NET; khả năng dùng thư viện có C e
 
 ## Tách dữ liệu thuần khỏi .NET
 
-Ví dụ của bài dùng Python 3 và thư viện chuẩn, không cần assembly Civil. Khi gọi API thật, cần assembly đúng phiên bản host, namespace, chuyển kiểu và cách chọn overload tương ứng engine. Wrapper Dynamo, ObjectId và DBObject không thay thế nhau. Để phần gọi API trả số, chuỗi và collection thuần; phần làm sạch phía sau sẽ dễ thử độc lập. Không thêm import clr vào script CSV nếu script không dùng .NET.
+Ví dụ của bài dùng Python 3 và thư viện chuẩn, không cần assembly Civil. Khi gọi API thật, cần assembly đúng phiên bản ứng dụng chủ, namespace, chuyển kiểu và cách chọn overload tương ứng engine. đối tượng bao Dynamo, ObjectId và DBObject không thay thế nhau. Để phần gọi API trả số, chuỗi và collection thuần; phần làm sạch phía sau sẽ dễ thử độc lập. Không thêm import clr vào script CSV nếu script không dùng .NET.
 
 ## Báo lỗi theo phạm vi
 
-Lỗi cấu hình như thiếu cổng vào nên dừng node với thông báo rõ. Lỗi một hàng dữ liệu nên được thu vào danh sách rejected có mã và lý do. Chỉ bắt exception dự kiến; tránh except trống che lỗi lập trình. Thử list rỗng, thiếu cột, số không hợp lệ và mã trùng trước khi nối lại graph có host.
+Lỗi cấu hình như thiếu cổng vào nên dừng node với thông báo rõ. Lỗi một hàng dữ liệu nên được thu vào danh sách rejected có mã và lý do. Chỉ bắt exception dự kiến; tránh except trống che lỗi lập trình. Thử list rỗng, thiếu cột, số không hợp lệ và mã trùng trước khi nối lại đồ thị có ứng dụng chủ.

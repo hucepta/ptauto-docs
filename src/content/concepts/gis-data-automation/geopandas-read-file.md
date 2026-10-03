@@ -36,7 +36,7 @@ path là nguồn; layer dùng khi tệp có nhiều lớp. GeoDataFrame với ge
 
 ## Cách dùng
 
-Đọc bản sao dữ liệu, kiểm số feature, CRS và schema trước ETL.
+Đọc bản sao dữ liệu, kiểm số feature, CRS và cấu trúc trường trước ETL.
 
 ```python
 gdf = geopandas.read_file('source.gpkg', layer='pipe')

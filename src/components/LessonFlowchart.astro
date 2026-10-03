@@ -5,7 +5,6 @@ const { lessonId, title, steps } = Astro.props;
 const decisions = lessonDecisions[lessonId] ?? [];
 ---
 <figure class="lesson-flowchart" aria-label={'Sơ đồ luồng ' + title}>
-  <figcaption>Sơ đồ luồng · {title}</figcaption>
   <div class="flow-node flow-start">Bắt đầu</div>
   {steps.map((step, index) => <>
     <div class="flow-connector" aria-hidden="true">↓</div>
@@ -14,7 +13,9 @@ const decisions = lessonDecisions[lessonId] ?? [];
       <div class="flow-connector" aria-hidden="true">↓</div>
       <div class="flow-gate"><span>{decision.question}</span></div>
       <div class="lesson-branch"><div><b>Không ↓</b><p>{decision.no}</p><small>{decision.noContinues ? 'Tiếp tục dọn dẹp ↓' : 'Kết thúc nhánh'}</small></div><div><b>Có ↓</b><p>{decision.yes}</p><small>Tiếp tục ↓</small></div></div>
+      <p class="branch-path">{decision.noContinues ? 'Hai nhánh cùng đi đến bước dọn dẹp bên dưới.' : 'Chỉ nhánh Có tiếp tục tới bước bên dưới.'}</p>
     </>)}
   </>)}
   <div class="flow-connector" aria-hidden="true">↓</div><div class="flow-finish">Kết thúc</div>
+  <figcaption>Luồng xử lý: {title}</figcaption>
 </figure>

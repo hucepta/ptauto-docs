@@ -2,7 +2,7 @@
 {
   "id": "lesson.visual-lisp-activex.batch-com-error-reactor",
   "slug": "batch-com-error-reactor",
-  "title": "Batch ActiveX, COM error và reactor an toàn",
+  "title": "Xử lý hàng loạt",
   "description": "Lọc phạm vi, ghi kết quả từng đối tượng, gom Undo và kiểm soát vòng đời callback.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.tool-on-dinh",
