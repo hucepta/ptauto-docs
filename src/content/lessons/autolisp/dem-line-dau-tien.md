@@ -38,7 +38,7 @@
 }
 ---
 
-## Chuẩn bị kết quả có thể kiểm tra
+## Dữ liệu thực hành
 
 Mở DWG học riêng. Trong Model, dùng LINE tạo đúng ba đoạn độc lập, Enter sau mỗi đoạn; dùng CIRCLE tạo một đường tròn. Mỗi đoạn LINE là một entity. Một polyline có ba đoạn vẫn là một entity LWPOLYLINE và không thuộc bài đếm này.
 

@@ -35,9 +35,9 @@ const nav = getLessonNavigation(graph, lesson.id);
 <ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={lesson.exampleIds} placements={lesson.examplePlacements} contentSlug={course.slug+'/'+lesson.slug} />
 {lesson.exerciseIds.map(id=><Exercise exercise={graph.entries.get(id) as ExerciseEntry} visibleExampleIds={lesson.exampleIds} />)}
 <ConceptLinks graph={graph} ids={lesson.conceptIds} /><ArticleEnd sources={lesson.sources} compatibility={lesson.compatibility} />
-<footer class="lesson-end"><div class="article-actions article-actions-end"><button class="js-control" disabled data-bookmark={lesson.id} aria-pressed="false">Lưu bài</button><button class="js-control" disabled data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button><a class="button" href={withBase('/')}>Về trang chủ</a></div><p class="status-message" data-storage-status role="status"></p>
+<footer class="lesson-end"><div class="article-actions article-actions-end"><button class="js-control" disabled data-bookmark={lesson.id} aria-pressed="false">Lưu bài</button><button class="js-control" disabled data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button>{nav.next&&<a class="button" href={withBase(getContentUrl(graph,nav.next))}>Bài sau →</a>}</div><p class="status-message" data-storage-status role="status"></p>
 <nav class="lesson-pager" aria-label="Chuyển bài" data-pagefind-ignore>
 {nav.previous?<a href={withBase(getContentUrl(graph,nav.previous))}><span>Bài trước</span>{graph.entries.get(nav.previous)!.title}</a>:<span></span>}
-{nav.next?<a href={withBase(getContentUrl(graph,nav.next))}><span>Bài sau →</span>{graph.entries.get(nav.next)!.title}</a>:<a href={withBase('/')}><span>Đã tới bài cuối</span>Về trang chủ</a>}
+<a href={withBase('/')}><span>{nav.next?'Trang chủ':'Đã tới bài cuối'}</span>Về trang chủ</a>
 </nav></footer></LearnLayout>
 

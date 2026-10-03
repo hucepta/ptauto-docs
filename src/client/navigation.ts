@@ -18,5 +18,25 @@ document.addEventListener('keydown', event => {
         }
     }
 });
-if (matchMedia('(max-width:760px)').matches)
-    document.querySelectorAll<HTMLDetailsElement>('.course-nav').forEach(el => { el.open = false; });
+const compact = matchMedia('(max-width:1000px)');
+const updatePanels = () => {
+    document.querySelectorAll<HTMLDetailsElement>('.course-nav, .toc details').forEach(el => { el.open = !compact.matches; });
+};
+updatePanels();
+compact.addEventListener('change', updatePanels);
+const header = document.querySelector('.site-header');
+if (header) new ResizeObserver(() => document.documentElement.style.setProperty('--header-height', header.getBoundingClientRect().height+'px')).observe(header);
+const toc = document.querySelector<HTMLElement>('.toc');
+const updateReadingOffset = () => document.documentElement.style.setProperty('--reading-nav-height', compact.matches && toc ? toc.getBoundingClientRect().height+'px' : '0px');
+if (toc) {
+    new ResizeObserver(updateReadingOffset).observe(toc);
+    toc.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+        if (compact.matches) {
+            const details = toc.querySelector('details');
+            if (details) details.open = false;
+            updateReadingOffset();
+        }
+    }));
+}
+compact.addEventListener('change', updateReadingOffset);
+updateReadingOffset();

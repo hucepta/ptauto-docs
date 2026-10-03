@@ -6,7 +6,7 @@ test('reference_sections_show_links_and_substantial_catalogs', async ({ page }) 
   await expect(groups).toHaveCount(6);
   for (const group of await groups.all()) {
     await expect(group.locator('.reference-preview a')).toHaveCount(7);
-    const count = Number((await group.locator('.reference-all').innerText()).match(/\d+/)?.[0]);
+    const count = Number(await group.getAttribute('data-reference-total'));
     expect(count).toBeGreaterThanOrEqual(60);
   }
 });
@@ -30,5 +30,5 @@ test('lesson_has_real_image_caption_below_and_unified_footer', async ({ page }) 
   expect(captionBox!.y).toBeGreaterThan(imageBox!.y + imageBox!.height);
   await expect(page.locator('.lesson-end [data-bookmark]')).toHaveCount(1);
   await expect(page.locator('.lesson-end .lesson-pager')).toHaveCount(1);
-  await expect(page.locator('.lesson-end a[href="/"]').first()).toHaveText('Về trang chủ');
+  await expect(page.locator('.lesson-end a[href="/"]').first()).toContainText('Về trang chủ');
 });

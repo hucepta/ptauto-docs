@@ -3,10 +3,10 @@ export type LessonDecision = { after: 0 | 1; question: string; no: string; yes: 
 /** Authored decision points, used only where the lesson actually teaches a branch. */
 export const lessonDecisions: Record<string, LessonDecision[]> = {
   'lesson.autolisp.command-line-file-lsp': [
-    { after: 0, question: 'AutoCAD đã nạp đúng file .lsp vừa Save?', no: 'Nạp lại file bằng APPLOAD/load và kiểm đường dẫn.', yes: 'Gọi lại tên lệnh và đọc phản hồi.' }
+    { after: 1, question: 'AutoCAD đã nạp đúng file LSP vừa lưu?', no: 'Dừng, kiểm đường dẫn rồi nạp lại bằng APPLOAD/load.', yes: 'Gọi tên lệnh và đọc phản hồi.' }
   ],
   'lesson.autolisp.vlide-ide-extension-debug': [
-    { after: 0, question: 'Trình soạn thảo đang báo lỗi cú pháp?', no: 'Kiểm file đã lưu/nạp và phản hồi trong Command Line.', yes: 'Sửa vị trí được đánh dấu rồi lưu file và nạp lại.' }
+    { after: 0, question: 'File đã hết lỗi cú pháp và sẵn sàng nạp?', no: 'Sửa vị trí được đánh dấu rồi lưu; kiểm tra lại trước khi nạp.', yes: 'Nạp đúng file đã lưu và kiểm tra phản hồi trong Command Line.' }
   ],
   'lesson.autolisp.chuoi-so-va-kiem-tra-du-lieu': [
     { after: 0, question: 'Chuỗi nhập chuyển được thành số hợp lệ?', no: 'Báo lỗi và yêu cầu nhập lại; chưa tính hình học.', yes: 'Tính bằng số đã kiểm tra.' }

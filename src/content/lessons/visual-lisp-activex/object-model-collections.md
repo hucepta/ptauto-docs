@@ -64,7 +64,7 @@
 }
 ---
 
-## Đi từ Application tới Document
+## Cây đối tượng AutoCAD
 
 AutoCAD ActiveX tổ chức đối tượng thành cây. `vlax-get-acad-object` lấy Application của phiên AutoCAD; `vla-get-ActiveDocument` lấy bản vẽ đang hoạt động. Documents là collection các bản vẽ mở. Lưu Document ở đầu lệnh giúp tránh đọc nhầm bản vẽ nếu công cụ mở hoặc chuyển document.
 

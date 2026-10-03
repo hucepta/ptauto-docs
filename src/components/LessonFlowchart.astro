@@ -1,5 +1,6 @@
 ---
 import { lessonDecisions } from '../content/lesson-decisions';
+import FlowEdge from './FlowEdge.astro';
 interface Props { lessonId: string; title: string; steps: { label: string; detail: string }[]; }
 const { lessonId, title, steps } = Astro.props;
 const decisions = lessonDecisions[lessonId] ?? [];
@@ -7,15 +8,16 @@ const decisions = lessonDecisions[lessonId] ?? [];
 <figure class="lesson-flowchart" aria-label={'Sơ đồ luồng ' + title}>
   <div class="flow-node flow-start">Bắt đầu</div>
   {steps.map((step, index) => <>
-    <div class="flow-connector" aria-hidden="true">↓</div>
+    <FlowEdge />
     <div class="flow-node flow-process"><small>{String(index + 1).padStart(2, '0')} · {step.label}</small>{step.detail}</div>
     {decisions.filter(decision => decision.after === index).map(decision => <>
-      <div class="flow-connector" aria-hidden="true">↓</div>
+      <FlowEdge />
       <div class="flow-gate"><span>{decision.question}</span></div>
+      <svg class="branch-edges" viewBox="0 0 100 35" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0V10H25V28M50 10H75V28" fill="none" stroke="#255d7c" stroke-width="1.2" vector-effect="non-scaling-stroke"/><path d="m23 26 2 8 2-8m46 0 2 8 2-8" fill="#255d7c"/></svg>
       <div class="lesson-branch"><div><b>Không ↓</b><p>{decision.no}</p><small>{decision.noContinues ? 'Tiếp tục dọn dẹp ↓' : 'Kết thúc nhánh'}</small></div><div><b>Có ↓</b><p>{decision.yes}</p><small>Tiếp tục ↓</small></div></div>
-      <p class="branch-path">{decision.noContinues ? 'Hai nhánh cùng đi đến bước dọn dẹp bên dưới.' : 'Chỉ nhánh Có tiếp tục tới bước bên dưới.'}</p>
+      <svg class="branch-edges" viewBox="0 0 100 35" preserveAspectRatio="none" aria-hidden="true"><path d={decision.noContinues?'M25 0V10H50V29M75 0V10H50':'M75 0V10H50V29'} fill="none" stroke="#255d7c" stroke-width="1.2" vector-effect="non-scaling-stroke"/><path d="m48 27 2 8 2-8" fill="#255d7c"/></svg>
     </>)}
   </>)}
-  <div class="flow-connector" aria-hidden="true">↓</div><div class="flow-finish">Kết thúc</div>
+  <FlowEdge /><div class="flow-finish">Kết thúc</div>
   <figcaption>Luồng xử lý: {title}</figcaption>
 </figure>

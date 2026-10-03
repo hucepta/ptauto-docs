@@ -60,7 +60,7 @@
 }
 ---
 
-## Bắt đầu từ đối tượng nghiệp vụ
+## Xác định đối tượng dữ liệu
 
 CAD tổ chức đối tượng bản vẽ theo layer, block, style và quan hệ database; GIS tổ chức Feature theo lớp dữ liệu và trường. Chuyển linework sang GIS cần trả lời đường đó là tim tuyến, mép đường hay nét trình bày. Layer hỗ trợ phân loại nhưng không thay thế cấu trúc trường nghiệp vụ. Với dữ liệu Civil, Alignment có thể sinh lớp tim tuyến cùng bảng lý trình; Profile giữ quan hệ tới tuyến; pipe cần tham chiếu đến structure. Quyết định đầu ra trước, rồi chọn thuộc tính và hình học cần lấy.
 

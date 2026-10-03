@@ -29,7 +29,7 @@
 }
 ---
 
-## Bắt đầu từ một việc thật
+## Chọn việc cần tự động hóa
 
 Giả sử 500 ghi chú trong hồ sơ hạ tầng phải được kiểm tra layer. Nếu mỗi ghi chú đều cần cùng một thao tác, bạn có thể mô tả quy tắc một lần rồi để AutoCAD thực hiện lặp. Đó là chỗ AutoLISP hữu ích. Nó là ngôn ngữ chạy trong AutoCAD để tạo lệnh theo quy trình của bạn; nó không tự hiểu bản vẽ hay quyết định layer nào đúng.
 
@@ -41,7 +41,7 @@ Giả sử 500 ghi chú trong hồ sơ hạ tầng phải được kiểm tra la
 
 Trước khi sửa bản vẽ bằng code, ta bắt đầu bằng lệnh chỉ in thông báo. Nhờ vậy bạn biết chắc file đã được soạn, nạp và chạy đúng nơi.
 
-## Những nơi bạn sẽ làm việc
+## Công cụ làm việc
 
 **VS Code** là trình soạn file `.lsp`. **AutoCAD AutoLISP Extension** giúp nhận diện cú pháp và gỡ lỗi trong môi trường được hỗ trợ. **VLIDE** là môi trường biên tập Visual LISP có trên AutoCAD Windows hỗ trợ tính năng này. **AutoCAD Command Line** là nơi gọi `APPLOAD`, gõ tên lệnh và xem phản hồi. Mã chạy trong AutoCAD, không chạy trong ô soạn thảo như một chương trình độc lập.
 

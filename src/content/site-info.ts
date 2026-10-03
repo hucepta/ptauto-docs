@@ -2,7 +2,7 @@ export const author = {
   name: 'Phạm Tuấn Anh',
   bio: 'Sinh viên năm 8 Đại học Xây dựng Hà Nội',
   email: '0103466@st.huce.edu.vn',
-  purpose: 'Tôi xây trang web này để biến kiến thức rời rạc về tự động hóa CAD, Civil 3D và GIS thành một lộ trình học rõ ràng cho người Việt.',
+  phone: '0973203858',
 };
 export const mainSources = [
   { title: 'Autodesk · AutoLISP và ActiveX', url: 'https://help.autodesk.com/view/OARX/2026/ENU/' },

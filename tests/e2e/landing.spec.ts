@@ -65,7 +65,7 @@ test('demo_step_changes_code_and_visible_geometry_together', async ({ page }) =>
     await expect(demo.locator('.contour-settings')).toHaveCSS('opacity', '1');
     await demo.getByRole('button', { name: '03 Tính đường', exact: true }).click();
     await expect(demo.locator('.contour-lines')).toHaveCSS('opacity', '1');
-    await demo.getByRole('button', { name: '04 Vẽ kết quả', exact: true }).click();
+    await demo.getByRole('button', { name: '04 Lên cao độ', exact: true }).click();
     await expect(demo.locator('.contour-labels')).toHaveCSS('opacity', '1');
     await expect(demo.locator('[data-code-step="3"] pre')).toContainText('RCT:lwpolyline');
     await expect(demo.locator('[data-code-step="3"]')).toHaveAttribute('aria-current', 'step');

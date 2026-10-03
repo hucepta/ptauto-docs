@@ -4,12 +4,22 @@ import { getContent } from '../../content/catalog';
 import { withBase } from '../../domain/content/urls';
 import { getContentUrl } from '../../domain/content/graph';
 const { graph } = await getContent();
+const previewSlugs: Record<string, string[]> = {
+  'autolisp': ['defun', 'setq', 'list', 'ssget', 'entget', 'command', 'getpoint'],
+  'visual-lisp-activex': ['vl-load-com', 'vlax-ename-to-vla-object', 'vla-get-activedocument', 'vlax-get-property', 'vlax-invoke-method', 'vlax-safearray-to-list', 'vl-catch-all-apply'],
+  'autocad-dotnet': ['active-document', 'starttransaction', 'transaction-getobject', 'transaction-commit', 'editor-getselection', 'documentlock', 'selectionfilter'],
+  'civil3d-dotnet': ['civildocument', 'getsurfaceids', 'alignment-stationoffset', 'surface-findelevationatxy', 'tinsurface', 'civil-document-cogo-points', 'station-offset'],
+  'dynamo-python': ['watch', 'list-count', 'list-getitematindex', 'list-flatten', 'python-list', 'python-zip', 'python-type'],
+  'gis-data-automation': ['geodataframe-set-crs', 'geodataframe-to-crs', 'gdal-ogrinfo', 'gdal-ogr2ogr', 'gdal-gdalinfo', 'gdal-gdalwarp', 'st-z'],
+};
 ---
 <SiteLayout title="Tra cứu" description="Tra cứu hàm, cú pháp và cách dùng theo sáu nhóm học."><div class="page">
 <h1>Tra cứu</h1><p class="reference-intro">Chọn một nhóm để tìm hàm, cú pháp, tham số và ví dụ dùng trong công việc. Các khái niệm cơ bản nằm trong <a href={withBase('/thuat-ngu/')}>Từ điển kỹ thuật</a>.</p>
 <div class="reference-course-grid">{graph.courses.map(course => {
   const entries = graph.concepts.filter(concept => concept.technology === course.technology && concept.kind !== 'term');
-  return <section class="reference-course-card"><h2><a href={withBase('/tra-cuu/' + course.technology + '/')}>{course.title}</a></h2><p>{course.description}</p><ul class="reference-preview">{entries.slice(0,7).map(entry => <li><a href={withBase(getContentUrl(graph,entry.id))}>{entry.title}</a></li>)}</ul><a class="reference-all" href={withBase('/tra-cuu/' + course.technology + '/')}>Xem đủ {entries.length} mục →</a></section>;
+  const preferred = (previewSlugs[course.technology] ?? []).flatMap(slug => entries.filter(entry => entry.slug === slug));
+  const preview = [...preferred, ...entries.filter(entry => !preferred.includes(entry))].slice(0,7);
+  return <section class="reference-course-card" data-reference-total={entries.length}><h2><a href={withBase('/tra-cuu/' + course.technology + '/')}>{course.title}</a></h2><p>{course.description}</p><ul class="reference-preview">{preview.map(entry => <li><a href={withBase(getContentUrl(graph,entry.id))}>{entry.title}</a></li>)}</ul><a class="reference-all" href={withBase('/tra-cuu/' + course.technology + '/')}>Xem thêm {Math.max(0,entries.length-preview.length)} mục →</a></section>;
 })}</div>
 </div></SiteLayout>
 

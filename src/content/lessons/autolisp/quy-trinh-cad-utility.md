@@ -60,7 +60,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "thực-hiện-theo-từng-bước-có-thể-kiểm-tra",
+      "heading": "quy-trình-thực-hiện",
       "exampleIds": [
         "example.autolisp.xuat-line-csv",
         "example.autolisp.bao-cao-toa-do"
@@ -77,7 +77,7 @@ CAD Utility hữu ích bắt đầu từ một công việc cụ thể: xuất d
 
 Đơn vị bản vẽ không tự biến thành mét. Ghi đơn vị quy ước của dự án trong tài liệu bàn giao và phân biệt chiều dài 3D với chiều dài chiếu phẳng. Với LINE có Z khác nhau, hai kết quả này khác nhau. Đừng dùng báo cáo để suy luận dữ liệu tuyến hoặc cọc chưa được khai báo.
 
-## Thực hiện theo từng bước có thể kiểm tra
+## Quy trình thực hiện
 
 Thử hàm tính chiều dài với chênh lệch tọa độ 3, 4, 0 cho kết quả 5. Tiếp theo đọc một LINE bằng `entget`, lấy group 10, 11 rồi tạo một record. Sau đó duyệt selection set và cuối cùng mới thêm bước chọn file.
 

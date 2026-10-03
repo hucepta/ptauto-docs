@@ -32,10 +32,10 @@ async function initialize() {
         document.querySelectorAll<HTMLElement>('[data-lesson-marker]').forEach(el => { el.textContent = snapshot.progress[el.dataset.lessonMarker!]?.completed ? '✓' : ''; el.setAttribute('aria-label', el.textContent ? 'Đã hoàn thành' : 'Chưa hoàn thành'); });
         for (const course of catalog.courses) {
             const p = getProgressForIds(course.lessonIds, snapshot);
-            document.querySelectorAll<HTMLElement>('[data-course-remaining]').forEach(el => { if (el.dataset.courseRemaining === course.id) el.textContent = p.completed ? (p.total - p.completed) + ' bài còn lại / ' + p.total : p.total + ' bài học'; });
+            document.querySelectorAll<HTMLElement>('[data-course-remaining]').forEach(el => { if (el.dataset.courseRemaining === course.id) el.textContent = p.completed ? (p.total - p.completed) + ' bài còn lại' : p.total + ' bài học'; });
             document.querySelectorAll<HTMLElement>('[data-course-finished]').forEach(el => { if (el.dataset.courseFinished === course.id) el.hidden = p.completed < p.total; });
             document.querySelectorAll<HTMLElement>('[data-course-progress]').forEach(el => { if (el.dataset.courseProgress === course.id)
-                el.textContent = p.completed + ' / ' + p.total + ' bài đã hoàn thành · Lưu trên thiết bị này'; });
+                el.textContent = p.completed + ' / ' + p.total + ' bài đã hoàn thành'; });
             const next = getContinueFromCourses(catalog.courses, snapshot, course.id);
             document.querySelectorAll<HTMLAnchorElement>('[data-course-start]').forEach(el => {
                 if (el.dataset.courseStart !== course.id)

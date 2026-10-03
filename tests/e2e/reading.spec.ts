@@ -32,7 +32,7 @@ test('reader_without_javascript', async ({ browser }) => {
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4321/hoc/autolisp/bieu-thuc-evaluation/');
     await expect(page.getByRole('heading', { name: 'Đọc biểu thức', exact: true })).toBeVisible();
-    await page.getByRole('link', { name: /Bài sau.*Biến và kiểu dữ liệu/ }).click();
+    await page.getByRole('link', { name: 'Bài sau →', exact: true }).click();
     await expect(page).toHaveURL(/bien-kieu-du-lieu/);
     await context.close();
 });

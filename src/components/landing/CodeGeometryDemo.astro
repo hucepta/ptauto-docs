@@ -15,7 +15,7 @@ const steps = [
   (RCT:contour-polylines contour-segments))
 (setq world-contour-polyline
   (RCT:world-polyline base contour-polyline))` },
-  { label: '04 Vẽ kết quả', description: 'Đưa đường đồng mức vào bản vẽ và ghi nhãn cao độ.', code: `(foreach contour-polyline contour-polylines
+  { label: '04 Lên cao độ', description: 'Đưa đường đồng mức vào bản vẽ và ghi nhãn cao độ.', code: `(foreach contour-polyline contour-polylines
   (setq world-contour-polyline
     (RCT:world-polyline base contour-polyline))
   (RCT:lwpolyline world-contour-polyline layer
