@@ -1,0 +1,9 @@
+{
+  "id": "chapter.gis-data-automation.dinh-dang-cong-cu",
+  "slug": "dinh-dang-cong-cu",
+  "title": "Định dạng và công cụ",
+  "description": "Chọn định dạng trao đổi và phạm vi của thư viện theo loại dữ liệu cần giữ.",
+  "status": "published",
+  "courseId": "course.gis-data-automation",
+  "order": 3
+}

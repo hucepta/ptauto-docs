@@ -1,0 +1,50 @@
+{
+  "id": "example.autocad-dotnet.doc-xdata",
+  "slug": "doc-xdata",
+  "title": "Đọc XData của một Registered Application",
+  "description": "PTA_XDATA_READ xem các TypedValue của app trên một entity, không đăng ký app hoặc ghi payload.",
+  "status": "published",
+  "technology": "autocad-dotnet",
+  "language": "csharp",
+  "sourceFile": "autocad-doc-xdata.cs",
+  "expectedOutput": "Entity có XData của app đã nhập: in từng mã DXF và giá trị. App không có dữ liệu: báo thiếu XData. Không tạo RegApp và không thay payload.",
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "2025 — mục tiêu SDK và .NET 8; cần kiểm tra trong host",
+      "platform": "Windows x64"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — About Managed .NET Compatibility (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm"
+    },
+    {
+      "title": "Autodesk — Command Definition (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-F77E8FE0-8034-4704-93BD-F717608F8223.htm"
+    },
+    {
+      "title": "Autodesk — Use Transactions to Access and Create Objects (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm"
+    },
+    {
+      "title": "Autodesk — DBObject.GetXDataForApplication Method",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_DatabaseServices_DBObject_GetXDataForApplication_string.html"
+    },
+    {
+      "title": "Autodesk — ResultBuffer Data Type (.NET, 2024)",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENU/OARX-DevGuide-Managed/files/GUID-A43BA3F1-513E-42E5-A21F-633FAF97B5C9.htm"
+    }
+  ],
+  "tags": [
+    "C#",
+    "chỉ đọc"
+  ],
+  "searchableTerms": [
+    "PTA_XDATA_READ",
+    "GetXDataForApplication",
+    "ResultBuffer",
+    "Registered Application"
+  ]
+}

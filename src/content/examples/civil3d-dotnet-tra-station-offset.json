@@ -1,0 +1,46 @@
+{
+  "id": "example.civil3d-dotnet.tra-station-offset",
+  "slug": "tra-station-offset",
+  "title": "Tra station/offset theo tọa độ X/Y",
+  "description": "PTA_STATION_OFFSET chọn Alignment và tra vị trí ngang bằng StationOffset; xử lý điểm ngoài phạm vi.",
+  "status": "published",
+  "technology": "civil3d-dotnet",
+  "language": "csharp",
+  "sourceFile": "civil-tra-station-offset.cs",
+  "expectedOutput": "Tuyến thẳng (0,0)–(100,0), lý trình đầu 0 và không có station equation: (50,10) trả station 50 và độ lớn offset 10; cần đối chiếu dấu. Điểm ngoài phạm vi được báo riêng; Esc không sửa tuyến.",
+  "compatibility": [
+    {
+      "product": "Civil 3D",
+      "version": "2025 — mục tiêu SDK và .NET 8; cần kiểm tra trong host",
+      "platform": "Windows x64"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — Add Library References in the Reference Manager (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/Civil3D-DevGuide/files/GUID-267E68C8-AD2D-4F7F-87DF-831018D56CDB.htm"
+    },
+    {
+      "title": "Autodesk — StationOffset(Double, Double, ref Double, ref Double)",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/c6fe2704-261c-3cbd-d159-4d3324963f6f.htm"
+    },
+    {
+      "title": "Autodesk — Modifying Stations with Station Equations",
+      "url": "https://help.autodesk.com/cloudhelp/2021/ENU/Civil3D-DevGuide/files/GUID-F23CC3E9-C29D-4B98-90A2-604C3D8BDC81.htm"
+    },
+    {
+      "title": "Autodesk — Use Transactions to Access and Create Objects (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm"
+    }
+  ],
+  "tags": [
+    "C#",
+    "chỉ đọc"
+  ],
+  "searchableTerms": [
+    "PTA_STATION_OFFSET",
+    "Alignment.StationOffset",
+    "PointNotOnEntityException",
+    "PromptDoubleOptions"
+  ]
+}

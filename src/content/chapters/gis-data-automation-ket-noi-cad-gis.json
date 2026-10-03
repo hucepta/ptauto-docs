@@ -1,0 +1,9 @@
+{
+  "id": "chapter.gis-data-automation.ket-noi-cad-gis",
+  "slug": "ket-noi-cad-gis",
+  "title": "Kết nối CAD và GIS",
+  "description": "Mapping dữ liệu, định danh ổn định và bảo toàn quan hệ thiết kế khi trao đổi.",
+  "status": "published",
+  "courseId": "course.gis-data-automation",
+  "order": 2
+}

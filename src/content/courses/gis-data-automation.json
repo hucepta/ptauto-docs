@@ -2,9 +2,21 @@
   "id": "course.gis-data-automation",
   "slug": "gis-data-automation",
   "title": "GIS / Data Automation",
-  "description": "Chuẩn hóa dữ liệu không gian, hệ tọa độ và quy trình trao đổi dữ liệu.",
-  "status": "draft",
+  "description": "Hiểu dữ liệu không gian, xác định CRS và xây quy trình CAD–GIS có schema, QA/QC và báo cáo.",
+  "status": "published",
   "technology": "gis-data-automation",
-  "order": 6
+  "order": 6,
+  "tags": [
+    "GIS",
+    "CRS",
+    "CAD–GIS",
+    "ETL"
+  ],
+  "searchableTerms": [
+    "VN-2000",
+    "WGS84",
+    "GeoJSON",
+    "GeoPackage",
+    "topology"
+  ]
 }
-

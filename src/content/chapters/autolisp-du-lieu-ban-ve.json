@@ -1,0 +1,9 @@
+{
+  "id": "chapter.autolisp.du-lieu-ban-ve",
+  "slug": "du-lieu-ban-ve",
+  "title": "Dữ liệu bản vẽ",
+  "description": "Đọc DXF, tạo và sửa entity, quản lý layer và attribute.",
+  "status": "published",
+  "courseId": "course.autolisp",
+  "order": 3
+}

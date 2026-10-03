@@ -1,0 +1,9 @@
+{
+  "id": "chapter.dynamo-python.thuc-hanh-du-lieu",
+  "slug": "thuc-hanh-du-lieu",
+  "title": "Thực hành kiểm tra dữ liệu",
+  "description": "Kiểm tra CSV cọc theo lý trình, bảo toàn tọa độ và chuẩn bị dữ liệu trao đổi GIS.",
+  "status": "published",
+  "courseId": "course.dynamo-python",
+  "order": 4
+}

@@ -1,18 +1,14 @@
 ---
-interface Props { kind: 'cad' | 'lisp' | 'civil' | 'dotnet'; title: string; description: string; href?: string; available?: boolean; }
-const { kind, title, description, href, available = true } = Astro.props;
-const labels = { cad: 'Geometry', lisp: 'Expression / Entity', civil: 'Surface / Alignment', dotnet: 'Tool / Command' };
+import type { Technology } from '../../domain/content/schema';
+interface Props { title: string; description: string; technology: Technology; href: string; lessonCount: number; chapters: { title: string; href: string }[]; }
+const { title, description, technology, href, lessonCount, chapters } = Astro.props;
+const badges = { autolisp: 'LSP', 'visual-lisp-activex': 'VL', 'autocad-dotnet': 'C#', 'civil3d-dotnet': 'C3D', 'dynamo-python': 'PY', 'gis-data-automation': 'GIS' };
 ---
-<article class:list={['knowledge-card',`knowledge-${kind}`]}>
-  <div class="knowledge-preview" aria-hidden="true">
-    <span class="preview-label">{labels[kind]}</span>
-    <svg viewBox="0 0 260 142" fill="none" class="mini-drawing">
-      <path d="M0 36h260M0 72h260M0 108h260M43 0v142M86 0v142M130 0v142M174 0v142M217 0v142" stroke="currentColor" stroke-opacity=".07"/>
-      {kind==='cad'&&<g stroke="currentColor" stroke-width="1.6"><path class="mini-trace" pathLength="1" d="M47 103V43h100l57 60Z"/><circle class="mini-trace" pathLength="1" cx="126" cy="76" r="28"/><path d="M91 76h70m-35-36v72" stroke-opacity=".3" stroke-dasharray="4 5"/><path d="M47 115h157m-157-5v10m157-10v10" stroke-opacity=".55"/></g>}
-      {kind==='lisp'&&<><g stroke="currentColor" stroke-width="1.6"><rect x="137" y="31" width="72" height="74" rx="2" class="mini-selected"/><circle cx="173" cy="67" r="22"/><path d="M125 22h97v92h-97Z" stroke-dasharray="4 4" class="mini-selection"/></g><g fill="currentColor" font-family="Consolas, monospace" font-size="13"><text x="21" y="55">(ssget …)</text><text x="21" y="80">(entget …)</text></g></>}
-      {kind==='civil'&&<g stroke="currentColor" stroke-width="1.5"><path d="M22 112c38-45 43-8 82-39s64 10 131-39M20 92c36-44 54-10 81-37s71 9 135-40M28 132c36-43 60-14 93-42s69 2 116-26" opacity=".4" class="contour-lines"/><path class="mini-trace" pathLength="1" d="M25 116c52-7 49-53 94-55s61 21 117-19" stroke-width="2.4"/><path d="M39 132v-17m44 0v-28m44 16V62m44 36V66m44 20V53" stroke-dasharray="3 4" opacity=".3"/></g>}
-      {kind==='dotnet'&&<><g fill="currentColor" font-family="Consolas, monospace" font-size="12"><text x="19" y="44">[CommandMethod("PT")]</text><text x="19" y="68">public void Run()</text><text x="19" y="92">{'{ … }'}</text></g><g class="mini-plugin" stroke="currentColor" stroke-width="1.6"><rect x="197" y="80" width="36" height="36" rx="3"/><path d="M215 88v20m-10-10h20"/></g></>}
-    </svg>
+<article class="knowledge-card">
+  <div class="knowledge-copy">
+    <div class="knowledge-meta"><span class="knowledge-badge" aria-hidden="true">{badges[technology]}</span><span class="knowledge-status">{lessonCount} bài học</span></div>
+    <h3><a href={href}>{title}<span aria-hidden="true"> →</span></a></h3>
+    <p>{description}</p>
+    <ul class="knowledge-chapters">{chapters.map(chapter => <li><a href={chapter.href}>{chapter.title}</a></li>)}</ul>
   </div>
-  <div class="knowledge-copy"><h3>{href&&available?<a href={href}>{title}</a>:title}</h3><p>{description}</p><span class="knowledge-status">{available?'Khám phá kiến thức':'Đang biên soạn'}</span></div>
 </article>

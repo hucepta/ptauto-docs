@@ -1,0 +1,9 @@
+{
+  "id": "chapter.dynamo-python.python-va-workflow",
+  "slug": "python-va-workflow",
+  "title": "Python và quy trình",
+  "description": "Ranh giới IN/OUT, engine Python, làm sạch dữ liệu và tổ chức graph để bảo trì.",
+  "status": "published",
+  "courseId": "course.dynamo-python",
+  "order": 3
+}

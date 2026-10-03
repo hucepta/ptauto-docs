@@ -2,9 +2,8 @@
   "id": "chapter.gis-data-automation.du-lieu-khong-gian",
   "slug": "du-lieu-khong-gian",
   "title": "Dữ liệu không gian",
-  "description": "Hệ tọa độ, geometry và định dạng trao đổi.",
-  "status": "draft",
+  "description": "Feature, Geometry, Attribute, vector/raster và cách diễn giải tọa độ bằng CRS.",
+  "status": "published",
   "courseId": "course.gis-data-automation",
   "order": 1
 }
-

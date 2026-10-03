@@ -1,0 +1,40 @@
+{
+  "id": "example.dynamo-python.ghep-danh-sach",
+  "slug": "ghep-danh-sach",
+  "title": "Ghép lý trình và cao độ có kiểm tra",
+  "description": "IN[0] là list lý trình theo mét, IN[1] là list cao độ theo mét; từ chối độ dài khác nhau và số không hữu hạn.",
+  "status": "published",
+  "technology": "dynamo-python",
+  "language": "python",
+  "sourceFile": "dynamo-python/ghep-danh-sach.py",
+  "expectedOutput": "IN[0]=[0, 20], IN[1]=[5, 6] tạo count=2 và hai bản ghi station_m/z_m. Hai list khác độ dài gây ValueError.",
+  "sources": [
+    {
+      "title": "Python — Data Structures",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html"
+    },
+    {
+      "title": "Python — math",
+      "url": "https://docs.python.org/3/library/math.html"
+    },
+    {
+      "title": "Dynamo Primer — What's a List",
+      "url": "https://primer2.dynamobim.org/5_essential_nodes_and_concepts/5-4_designing-with-lists/1-whats-a-list"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Python",
+      "version": "Python 3.9+; chỉ thư viện chuẩn"
+    },
+    {
+      "product": "Dynamo",
+      "version": "Python node dùng CPython3 hoặc PythonNet3; cần thử lại trên đúng host và engine"
+    }
+  ],
+  "tags": [
+    "Python",
+    "dữ liệu",
+    "QA/QC"
+  ]
+}

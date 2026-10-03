@@ -1,10 +1,9 @@
 {
   "id": "chapter.civil3d-dotnet.doi-tuong-thiet-ke",
   "slug": "doi-tuong-thiet-ke",
-  "title": "Đối tượng thiết kế",
-  "description": "Surface, Alignment và Profile.",
-  "status": "draft",
+  "title": "CivilDocument và đối tượng thiết kế",
+  "description": "Mô hình đối tượng, collections, styles, labels và settings.",
+  "status": "published",
   "courseId": "course.civil3d-dotnet",
   "order": 1
 }
-

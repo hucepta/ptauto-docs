@@ -1,0 +1,9 @@
+{
+  "id": "chapter.civil3d-dotnet.surface-va-trac-ngang",
+  "slug": "surface-va-trac-ngang",
+  "title": "Surface và trắc ngang",
+  "description": "TinSurface, dữ liệu định nghĩa, Sample Line và Section.",
+  "status": "published",
+  "courseId": "course.civil3d-dotnet",
+  "order": 3
+}

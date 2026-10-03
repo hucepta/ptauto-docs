@@ -1,0 +1,9 @@
+{
+  "id": "chapter.autocad-dotnet.plugin-tin-cay",
+  "slug": "plugin-tin-cay",
+  "title": "Plugin tin cậy",
+  "description": "Khóa tài liệu, nhiều bản vẽ, events, dữ liệu mở rộng và giao diện.",
+  "status": "published",
+  "courseId": "course.autocad-dotnet",
+  "order": 4
+}

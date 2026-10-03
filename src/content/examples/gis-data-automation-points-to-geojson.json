@@ -1,0 +1,40 @@
+{
+  "id": "example.gis-data-automation.points-to-geojson",
+  "slug": "points-to-geojson",
+  "title": "Tạo GeoJSON từ CSV WGS84 đã xác nhận",
+  "description": "Chỉ nhận declared_crs='OGC:CRS84' và các cột point_id,longitude,latitude; kiểm tra mã và tọa độ, giữ z_m trong properties.",
+  "status": "published",
+  "technology": "gis-data-automation",
+  "language": "python",
+  "sourceFile": "gis-data-automation/points-to-geojson.py",
+  "expectedOutput": "Dữ liệu học tập trong main tạo một Feature Point tại [106.7,10.8] và loại một hàng latitude=100. collection tuân cấu trúc FeatureCollection; z_m chỉ nằm trong properties. Script không chuyển CRS.",
+  "sources": [
+    {
+      "title": "IETF — RFC 7946: The GeoJSON Format",
+      "url": "https://datatracker.ietf.org/doc/html/rfc7946"
+    },
+    {
+      "title": "Python — csv",
+      "url": "https://docs.python.org/3/library/csv.html"
+    },
+    {
+      "title": "Python — json",
+      "url": "https://docs.python.org/3/library/json.html"
+    },
+    {
+      "title": "Python — math",
+      "url": "https://docs.python.org/3/library/math.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Python",
+      "version": "Python 3.9+; chỉ thư viện chuẩn, không đọc DWG và không reprojection"
+    }
+  ],
+  "tags": [
+    "Python",
+    "dữ liệu",
+    "QA/QC"
+  ]
+}

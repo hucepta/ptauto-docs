@@ -1,0 +1,51 @@
+{
+  "id": "example.autocad-dotnet.doc-polyline",
+  "slug": "doc-polyline",
+  "title": "Đọc thông số Polyline",
+  "description": "PTA_POLYLINE_INFO nhận một lightweight Polyline, báo số đỉnh, chiều dài và diện tích nếu đã đóng.",
+  "status": "published",
+  "technology": "autocad-dotnet",
+  "language": "csharp",
+  "sourceFile": "autocad-doc-polyline.cs",
+  "expectedOutput": "Polyline hình chữ nhật 10×5 đã đóng: chiều dài 30.000, diện tích 50.000. Polyline mở không báo diện tích; CIRCLE bị từ chối; Esc kết thúc.",
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "2025 — mục tiêu SDK và .NET 8; cần kiểm tra trong host",
+      "platform": "Windows x64"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — About Managed .NET Compatibility (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm"
+    },
+    {
+      "title": "Autodesk — Command Definition (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-F77E8FE0-8034-4704-93BD-F717608F8223.htm"
+    },
+    {
+      "title": "Autodesk — Use Transactions to Access and Create Objects (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm"
+    },
+    {
+      "title": "Autodesk — Polyline Properties",
+      "url": "https://help.autodesk.com/cloudhelp/2019/ENU/OARX-ManagedRefGuide/files/OREFNET-__MEMBERTYPE_Properties_Autodesk_AutoCAD_DatabaseServices_Polyline.html"
+    },
+    {
+      "title": "Autodesk — Convert Coordinates (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-0EFA65CC-C1AB-4B99-8159-C31602C1A5E8.htm"
+    }
+  ],
+  "tags": [
+    "C#",
+    "chỉ đọc"
+  ],
+  "searchableTerms": [
+    "PTA_POLYLINE_INFO",
+    "Polyline.Length",
+    "Polyline.Area",
+    "PromptEntityOptions",
+    "Closed"
+  ]
+}

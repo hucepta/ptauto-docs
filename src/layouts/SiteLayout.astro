@@ -9,7 +9,7 @@ interface Props {
     description: string;
 }
 const { title, description } = Astro.props;
-const nav = [['Tra cứu', '/tra-cuu/'], ['Thuật ngữ', '/thuat-ngu/'], ['Dự án', '/du-an/'], ['Đã lưu', '/da-luu/']];
+const nav = [['Kho tri thức', '/#chu-de'], ['Tra cứu', '/tra-cuu/'], ['Thuật ngữ', '/thuat-ngu/'], ['Dự án', '/du-an/'], ['Đã lưu', '/da-luu/']];
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
 const searchShortcut = ['/', '/tra-cuu/', '/tim-kiem/'].includes(pathname);
 ---
@@ -26,8 +26,8 @@ const searchShortcut = ['/', '/tra-cuu/', '/tim-kiem/'].includes(pathname);
 <a class="brand" href={withBase('/')} aria-label="PTAuto Docs — Trang chủ"><img src={withBase('/brand-logo.svg')} width="174" height="53" alt="PTAuto Docs" /></a>
 <button class="menu-toggle" data-menu-toggle aria-controls="primary-nav" aria-expanded="false" aria-label="Mở điều hướng">Điều hướng</button>
 <nav id="primary-nav" class="primary-nav" aria-label="Điều hướng chính" data-primary-nav>
-{nav.map(([label,href])=><a href={withBase(href)} aria-current={pathname.startsWith(href)?'page':undefined}>{label}</a>)}
-<a class="search-link" href={withBase('/tim-kiem/')}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Tìm kiếm{searchShortcut&&<kbd aria-hidden="true">/</kbd>}</a>
+{nav.map(([label,href])=><a href={withBase(href)} aria-current={(href==='/#chu-de'?pathname==='/':pathname.startsWith(href))?'page':undefined}>{label}</a>)}
+<a class="search-link" data-search-link href={withBase('/tim-kiem/')}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Tìm kiếm{searchShortcut&&<kbd aria-hidden="true">/</kbd>}</a>
 </nav></div></header>
 <main id="content" tabindex="-1"><slot /></main>
 <script>import '../client/navigation';</script>

@@ -1,0 +1,36 @@
+{
+  "id": "example.visual-lisp-activex.thong-ke-modelspace",
+  "slug": "thong-ke-modelspace",
+  "title": "Thống kê ObjectName trong ModelSpace",
+  "description": "PTA_MODELSPACE_STATS duyệt collection của Document hiện hành và chỉ đọc main object.",
+  "status": "published",
+  "technology": "visual-lisp-activex",
+  "language": "lisp",
+  "sourceFile": "visual-lisp-activex-thong-ke-modelspace.lsp",
+  "expectedOutput": "In tên DWG và số object theo ObjectName. Với bản thử chỉ có hai LINE, một CIRCLE: AcDbLine=2, AcDbCircle=1; hình học bên trong block definition không được trải ra.",
+  "sources": [
+    {
+      "title": "Autodesk — About the AutoCAD Object Model (ActiveX)",
+      "url": "https://help.autodesk.com/cloudhelp/2024/CHS/AutoCAD-ActiveX/files/GUID-68D6EFA7-ED2D-482C-BBA6-EB22F2854348.htm"
+    },
+    {
+      "title": "Autodesk — About Working With Collection Objects",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ESP/AutoCAD-AutoLISP/files/GUID-100F8BDB-2852-4986-BC09-53F77AFCDB96.htm"
+    },
+    {
+      "title": "Autodesk — About Releasing Objects and Freeing Memory",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-LT-AutoLISP/files/GUID-4A2C849B-C0E0-4991-905D-A916B2CD3F25.htm"
+    },
+    {
+      "title": "Autodesk — vl-catch-all-apply",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-E08CC2A6-787A-422F-8BD3-18812996794C.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có ActiveX; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows"
+    }
+  ]
+}

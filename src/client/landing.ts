@@ -5,11 +5,10 @@ if (landing) {
     const demo = landing.querySelector<HTMLElement>('[data-code-demo]');
     const codeSteps = [...landing.querySelectorAll<HTMLElement>('[data-code-step]')];
     const buttons = [...landing.querySelectorAll<HTMLButtonElement>('[data-demo-button]')];
-    const status = landing.querySelector<HTMLElement>('[data-demo-status]');
     let frame = 0, elapsed = 0, previous = 0;
     let playing = false, inView = false, seen = false;
     const pause = () => { cancelAnimationFrame(frame); frame = 0; previous = 0; };
-    const show = (index: number, announce = false) => {
+    const show = (index: number) => {
         if (!demo) return;
         demo.dataset.step = String(index);
         codeSteps.forEach((element, step) => {
@@ -17,10 +16,6 @@ if (landing) {
             else element.removeAttribute('aria-current');
         });
         buttons.forEach((button, step) => button.setAttribute('aria-pressed', String(step === index)));
-        if (status) {
-            status.setAttribute('aria-live', announce ? 'polite' : 'off');
-            status.textContent = codeSteps[index]?.querySelector('p')?.textContent || '';
-        }
     };
     const schedule = () => {
         if (playing && inView && !document.hidden && !reduced.matches && !frame)
@@ -49,9 +44,8 @@ if (landing) {
         }
     };
     buttons.forEach((button, index) => button.addEventListener('click', () => {
-        playing = false; seen = true; pause(); show(index, true);
+        playing = false; seen = true; pause(); show(index);
     }, { signal: listeners.signal }));
-    landing.querySelector('[data-demo-replay]')?.addEventListener('click', begin, { signal: listeners.signal });
     reduced.addEventListener('change', applyMotion, { signal: listeners.signal });
     document.addEventListener('visibilitychange', () => document.hidden ? pause() : schedule(), { signal: listeners.signal });
     const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {

@@ -1,0 +1,36 @@
+{
+  "id": "example.gis-data-automation.map-cad-records",
+  "slug": "map-cad-records",
+  "title": "Mapping bản ghi CAD và tạo mã nguồn ổn định",
+  "description": "Chuẩn hóa source_id/handle/layer của dictionary đã trích xuất; tạo UUID xác định và giữ Geometry cho bước QA tiếp theo.",
+  "status": "published",
+  "technology": "gis-data-automation",
+  "language": "python",
+  "sourceFile": "gis-data-automation/map-cad-records.py",
+  "expectedOutput": "Hai bản ghi có handle khác nhau tạo hai feature_id. Đổi thứ tự đầu vào giữ nguyên feature_id theo handle. Mọi hàng có handle trùng trong cùng source_id bị loại; script không mở DWG.",
+  "sources": [
+    {
+      "title": "Python — uuid",
+      "url": "https://docs.python.org/3/library/uuid.html"
+    },
+    {
+      "title": "Python — json",
+      "url": "https://docs.python.org/3/library/json.html"
+    },
+    {
+      "title": "GDAL — AutoCAD DXF",
+      "url": "https://gdal.org/en/stable/drivers/vector/dxf.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Python",
+      "version": "Python 3.9+; chỉ thư viện chuẩn, không đọc DWG và không reprojection"
+    }
+  ],
+  "tags": [
+    "Python",
+    "dữ liệu",
+    "QA/QC"
+  ]
+}

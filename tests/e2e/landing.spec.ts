@@ -1,16 +1,20 @@
 import { expect, test } from '@playwright/test';
 
-test('construction_hero_keeps_one_cta_and_command_search_usable', async ({ page }) => {
+test('hero_is_compact_and_removes_the_selected_extra_controls', async ({ page }) => {
     await page.goto('/');
     const hero = page.locator('[data-construction-hero]');
+    await page.setViewportSize({ width: 1440, height: 1178 });
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Từ thao tác đến thuật toán.');
     await expect(page.getByRole('link', { name: 'Bắt đầu học', exact: true })).toBeVisible();
-    await page.keyboard.press('/');
-    await expect(page.getByRole('searchbox')).toBeFocused();
+    expect((await hero.boundingBox())!.height).toBeLessThan(540);
+    await expect(hero.getByRole('search')).toHaveCount(0);
+    await expect(hero.getByRole('checkbox')).toHaveCount(0);
     await expect(hero.getByRole('link')).toHaveCount(1);
     await expect(hero.getByRole('link')).toHaveCSS('background-color', 'rgb(255, 210, 122)');
     await expect(hero.getByRole('link')).toHaveCSS('background-image', 'none');
-    await expect(hero.getByText('Command:', { exact: true })).toBeVisible();
+    await expect(page.locator('.knowledge-bridge,.demo-bottom,[data-demo-replay]')).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'Mở tìm kiếm', exact: true })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'Thuật ngữ kỹ thuật', exact: true })).toHaveCount(0);
     await expect(page.locator('.section-index,.hero-flow')).toHaveCount(0);
     await expect(page.locator('[data-continue]')).toHaveCount(0);
     await expect(page.getByText('CAD · BIM · Dữ liệu', { exact: true })).toHaveCount(0);
@@ -40,15 +44,13 @@ test('construction_scene_repeats_wireframe_growth_and_fade_in_a_stable_16_second
     expect(await hero.boundingBox()).toEqual(bounds);
 });
 
-test('hero_motion_can_be_paused_without_javascript', async ({ browser }) => {
+test('homepage_topics_are_available_without_javascript', async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     try {
         const page = await context.newPage();
         await page.goto('http://127.0.0.1:4321/');
-        await page.getByRole('checkbox', { name: 'Tạm dừng chuyển động', exact: true }).check();
-        const states = await page.locator('[data-construction-hero]').evaluate(element => element.getAnimations({ subtree: true }).map(animation => animation.playState));
-        expect(states.length).toBeGreaterThan(0);
-        expect(states.every(state => state === 'paused')).toBe(true);
+        await expect(page.getByRole('navigation', { name: 'Chủ đề học' }).getByRole('link', { name: 'GIS / Data Automation', exact: true })).toBeVisible();
+        await expect(page.locator('[data-construction-hero] form,[data-construction-hero] input')).toHaveCount(0);
     } finally { await context.close(); }
 });
 
@@ -57,14 +59,18 @@ test('demo_step_changes_code_and_visible_geometry_together', async ({ page }) =>
     const demo = page.locator('[data-code-demo]');
     await demo.scrollIntoViewIfNeeded();
     await demo.getByRole('button', { name: '01 LINE', exact: true }).click();
+    await expect(demo.locator('[data-demo-moving]')).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 0, 0)');
+    const start = await demo.locator('[data-demo-line]').boundingBox();
     await expect(demo.locator('[data-demo-circle]')).toHaveCSS('opacity', '0');
     await expect(demo.locator('[data-code-step="0"]')).toHaveAttribute('aria-current', 'step');
     await demo.getByRole('button', { name: '02 CIRCLE', exact: true }).click();
     await expect(demo.locator('[data-demo-circle]')).toHaveCSS('opacity', '1');
     await demo.getByRole('button', { name: '03 Chọn đối tượng', exact: true }).click();
     await expect(demo.locator('[data-demo-selection]')).toHaveCSS('opacity', '1');
-    await demo.getByRole('button', { name: '04 Chuyển layer', exact: true }).click();
-    await expect(demo.locator('[data-demo-layer]')).toHaveCSS('stroke', 'rgb(8, 126, 135)');
+    await expect(demo.getByRole('button', { name: '04 MOVE', exact: true })).toBeVisible();
+    await demo.getByRole('button', { name: '04 MOVE', exact: true }).click();
+    await expect.poll(async () => (await demo.locator('[data-demo-line]').boundingBox())!.y).toBeLessThan(start!.y - 60);
+    await expect(demo.locator('[data-code-step="3"] pre')).toContainText('"_.MOVE"');
     await expect(demo.locator('[data-code-step="3"]')).toHaveAttribute('aria-current', 'step');
 });
 

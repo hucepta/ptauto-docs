@@ -2,9 +2,20 @@
   "id": "course.autocad-dotnet",
   "slug": "autocad-dotnet",
   "title": "AutoCAD .NET",
-  "description": "Xây dựng plugin C#: transaction, database, editor và giao diện lệnh.",
-  "status": "draft",
+  "description": "Học C# cho plugin, Database và Transaction, Editor và hình học, rồi xây tiện ích CAD có phạm vi kiểm tra rõ ràng.",
+  "status": "published",
   "technology": "autocad-dotnet",
-  "order": 3
+  "order": 3,
+  "tags": [
+    "C#",
+    "AutoCAD",
+    "plugin"
+  ],
+  "searchableTerms": [
+    "CommandMethod",
+    "ObjectId",
+    "Transaction",
+    "SelectionFilter",
+    "DocumentLock"
+  ]
 }
-

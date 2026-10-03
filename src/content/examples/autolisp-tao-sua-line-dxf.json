@@ -1,0 +1,48 @@
+{
+  "id": "example.autolisp.tao-sua-line-dxf",
+  "slug": "tao-sua-line-dxf",
+  "title": "Tạo LINE và sửa màu bằng DXF",
+  "description": "PTA_DXF_LINE nhận hai điểm UCS, tạo LINE bằng entmake ở WCS rồi đổi màu ACI bằng entmod.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "autolisp-tao-sua-line-dxf.lsp",
+  "expectedOutput": "Một LINE trên layer 0 giữa hai điểm đã chọn, màu ACI 3. Layer 0 khóa hoặc hai điểm trùng bị từ chối; các sửa đổi thuộc cùng nhóm Undo.",
+  "sources": [
+    {
+      "title": "Autodesk — entmake (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-D47983BA-1E5D-417D-85B8-6F3DE5F506BA.htm"
+    },
+    {
+      "title": "Autodesk — entmod (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-C7D27797-247E-49B9-937C-0D8C58F4C832.htm"
+    },
+    {
+      "title": "Autodesk — LINE (DXF)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-DXF/files/GUID-FCEF5726-53AE-4C43-B4EA-C84EB8686A66.htm"
+    },
+    {
+      "title": "Autodesk — trans (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-AutoLISP-Reference/files/GUID-1A316343-0B68-4DBE-8F49-B4D601CB8FCC.htm"
+    },
+    {
+      "title": "Autodesk — command-s (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2024/CHS/AutoCAD-AutoLISP-Reference/files/GUID-5C9DC003-3DD2-4770-95E7-7E19A4EE19A1.htm"
+    },
+    {
+      "title": "Autodesk — About Undoing Changes Made by a Routine",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP/files/GUID-4481039B-77DA-4500-AE8B-3D2AD6951115.htm"
+    },
+    {
+      "title": "Autodesk — LAYER (DXF)",
+      "url": "https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-DXF/files/GUID-D94802B0-8BE8-4AC9-8054-17197688AFDB.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có AutoLISP; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows / macOS"
+    }
+  ]
+}

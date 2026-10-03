@@ -1,0 +1,32 @@
+{
+  "id": "example.autolisp.xuat-line-csv",
+  "slug": "xuat-line-csv",
+  "title": "Xuất LINE ra CSV với tọa độ WCS",
+  "description": "PTA_EXPORT_LINES chỉ xuất LINE được chọn, đóng file khi lỗi và khôi phục DIMZIN; yêu cầu engine Unicode.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "autolisp-xuat-line-csv.lsp",
+  "expectedOutput": "CSV UTF-8 BOM: handle,layer,x1,y1,z1,x2,y2,z2,length3d. Mỗi LINE một dòng; chuỗi được quote; số có sáu chữ số thập phân. Không sửa DWG; file đã có sẽ bị ghi đè khi được chọn.",
+  "sources": [
+    {
+      "title": "Autodesk — entget (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-12540DAE-C84B-4BDB-AEEC-DDFE5BE3C42A.htm"
+    },
+    {
+      "title": "Autodesk — LINE (DXF)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-DXF/files/GUID-FCEF5726-53AE-4C43-B4EA-C84EB8686A66.htm"
+    },
+    {
+      "title": "Autodesk — open (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-AutoLISP-Reference/files/GUID-089A323F-21FF-4337-99A9-375758E23BA4.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "2026; cần LISPSYS=1 hoặc 2; chưa chạy trên host",
+      "platform": "Windows / macOS"
+    }
+  ]
+}

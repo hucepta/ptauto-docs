@@ -1,0 +1,44 @@
+{
+  "id": "example.dynamo-python.qa-csv-coc",
+  "slug": "qa-csv-coc",
+  "title": "QA lý trình và chênh cao từ CSV",
+  "description": "IN[0] là chuỗi CSV một tuyến; IN[1]/IN[2] là phạm vi station_m; IN[3] là ngưỡng chênh cao theo mét. Trả bản ghi và CSV báo cáo.",
+  "status": "published",
+  "technology": "dynamo-python",
+  "language": "python",
+  "sourceFile": "dynamo-python/qa-csv-coc.py",
+  "expectedOutput": "CSV học tập ba cọc P01/P02/P03, phạm vi 0–40 m và ngưỡng 0,05 m: P01 có 2/2,01 m được nhận; P02 có 2,08/2 m bị loại; P03 thiếu surface_z_m được nhận với trạng thái chưa đối chiếu. accepted=2, rejected=1.",
+  "sources": [
+    {
+      "title": "Python — csv",
+      "url": "https://docs.python.org/3/library/csv.html"
+    },
+    {
+      "title": "Python — math",
+      "url": "https://docs.python.org/3/library/math.html"
+    },
+    {
+      "title": "Python — io",
+      "url": "https://docs.python.org/3/library/io.html"
+    },
+    {
+      "title": "Python — Errors and Exceptions",
+      "url": "https://docs.python.org/3/tutorial/errors.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Python",
+      "version": "Python 3.9+; chỉ thư viện chuẩn"
+    },
+    {
+      "product": "Dynamo",
+      "version": "Python node dùng CPython3 hoặc PythonNet3; cần thử lại trên đúng host và engine"
+    }
+  ],
+  "tags": [
+    "Python",
+    "dữ liệu",
+    "QA/QC"
+  ]
+}

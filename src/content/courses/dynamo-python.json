@@ -2,9 +2,21 @@
   "id": "course.dynamo-python",
   "slug": "dynamo-python",
   "title": "Dynamo / Python",
-  "description": "Kết nối đồ thị Dynamo với Python để xử lý mô hình và dữ liệu.",
-  "status": "draft",
+  "description": "Thiết kế đồ thị, đọc dữ liệu Civil 3D và dùng Python để chuẩn hóa, kiểm tra, trao đổi dữ liệu.",
+  "status": "published",
   "technology": "dynamo-python",
-  "order": 5
+  "order": 5,
+  "tags": [
+    "Dynamo",
+    "Python",
+    "Civil 3D",
+    "QA/QC"
+  ],
+  "searchableTerms": [
+    "visual programming",
+    "IN",
+    "OUT",
+    "lacing",
+    "CSV"
+  ]
 }
-

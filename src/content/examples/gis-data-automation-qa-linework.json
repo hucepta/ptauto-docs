@@ -1,0 +1,36 @@
+{
+  "id": "example.gis-data-automation.qa-linework",
+  "slug": "qa-linework",
+  "title": "Sàng lọc linework theo đơn vị mét",
+  "description": "Kiểm tra feature_id, đỉnh 2D hữu hạn, đoạn trùng và chiều dài tối thiểu trên dictionary; không kiểm tra đầy đủ topology.",
+  "status": "published",
+  "technology": "gis-data-automation",
+  "language": "python",
+  "sourceFile": "gis-data-automation/qa-linework.py",
+  "expectedOutput": "Đường [[0,0],[3,4]] có length_m=5. Đường có hai đỉnh liên tiếp trùng hoặc feature_id trùng bị loại. coordinate_unit khác 'm' dừng trước tính chiều dài; không tự gán CRS. Đỉnh là chuỗi số được chuẩn hóa thành số trong Geometry đầu ra; bản ghi nguồn giữ nguyên.",
+  "sources": [
+    {
+      "title": "Python — math",
+      "url": "https://docs.python.org/3/library/math.html"
+    },
+    {
+      "title": "Shapely — User Manual",
+      "url": "https://shapely.readthedocs.io/en/stable/manual.html"
+    },
+    {
+      "title": "PostGIS — ST_IsValid",
+      "url": "https://postgis.net/docs/ST_IsValid.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Python",
+      "version": "Python 3.9+; chỉ thư viện chuẩn, không đọc DWG và không reprojection"
+    }
+  ],
+  "tags": [
+    "Python",
+    "dữ liệu",
+    "QA/QC"
+  ]
+}

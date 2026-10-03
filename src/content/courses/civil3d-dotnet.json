@@ -2,9 +2,20 @@
   "id": "course.civil3d-dotnet",
   "slug": "civil3d-dotnet",
   "title": "Civil 3D .NET",
-  "description": "Tự động hóa Surface, Alignment, Profile, Corridor và dữ liệu thiết kế.",
-  "status": "draft",
+  "description": "Đọc mô hình CivilDocument, tuyến và trắc dọc, Surface và trắc ngang, Corridor và hạ tầng; xây quy trình kiểm kê QA/QC.",
+  "status": "published",
   "technology": "civil3d-dotnet",
-  "order": 4
+  "order": 4,
+  "tags": [
+    "Civil 3D",
+    "C#",
+    "thiết kế hạ tầng"
+  ],
+  "searchableTerms": [
+    "CivilDocument",
+    "Alignment",
+    "Profile",
+    "TinSurface",
+    "Corridor"
+  ]
 }
-

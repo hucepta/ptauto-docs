@@ -1,0 +1,37 @@
+(vl-load-com)
+(defun pta:stats-release (object / result)
+  (if (and (= (type object) 'VLA-OBJECT)
+           (not (vlax-object-released-p object)))
+    (progn
+      (setq result (vl-catch-all-apply 'vlax-release-object (list object)))
+      (if (vl-catch-all-error-p result)
+        (prompt (strcat "\nKhông giải phóng được tham chiếu: "
+                        (vl-catch-all-error-message result)))))))
+
+(defun c:PTA_MODELSPACE_STATS (/ *error* app doc space object counts kind pair reference)
+  (defun *error* (message)
+    (foreach reference (list object space doc app)
+      (pta:stats-release reference))
+    (if message (prompt (strcat "\nThống kê đã dừng: " message)))
+    (princ))
+  (setq app (vlax-get-acad-object)
+        doc (vla-get-ActiveDocument app)
+        space (vla-get-ModelSpace doc)
+        counts nil)
+  (prompt (strcat "\nBản vẽ: " (vla-get-Name doc)))
+  (vlax-for object space
+    (setq kind (vla-get-ObjectName object)
+          pair (assoc kind counts))
+    (setq counts
+      (if pair
+        (subst (cons kind (1+ (cdr pair))) pair counts)
+        (cons (cons kind 1) counts)))
+    (pta:stats-release object)
+    (setq object nil))
+  (foreach pair (reverse counts)
+    (prompt (strcat "\n" (car pair) " = " (itoa (cdr pair)))))
+  (if (not counts) (prompt "\nModelSpace không có main object."))
+  (foreach reference (list space doc app)
+    (pta:stats-release reference))
+  (princ))
+(princ)

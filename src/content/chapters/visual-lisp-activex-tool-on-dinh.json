@@ -1,0 +1,9 @@
+{
+  "id": "chapter.visual-lisp-activex.tool-on-dinh",
+  "slug": "tool-on-dinh",
+  "title": "Tiện ích ActiveX ổn định",
+  "description": "Xử lý lỗi, batch, Undo, reactor và giải phóng tham chiếu.",
+  "status": "published",
+  "courseId": "course.visual-lisp-activex",
+  "order": 4
+}

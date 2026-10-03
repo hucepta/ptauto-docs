@@ -1,0 +1,36 @@
+{
+  "id": "example.autolisp.demo-move",
+  "slug": "demo-move",
+  "title": "Tạo và dịch hai đối tượng bằng MOVE",
+  "description": "Giữ entity vừa tạo, đưa chúng vào selection set rồi dịch 30 đơn vị theo trục Y của UCS.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "demo-move.lsp",
+  "expectedOutput": "Trong bản vẽ thử với UCS = World, LINE dài 120 và CIRCLE bán kính 24 cùng dịch lên 30 đơn vị. Không chọn các đối tượng có sẵn.",
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có hỗ trợ AutoLISP",
+      "platform": "Windows / macOS"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — ssadd",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-22337977-82F2-4394-B209-39DE2B4B9E86.htm"
+    },
+    {
+      "title": "Autodesk — entlast",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-75DBA9B2-034B-4377-A4E2-21D37B298D86.htm"
+    },
+    {
+      "title": "Autodesk — Selection Sets",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-1DABEF81-C431-442A-8916-7F9079AA7799.htm"
+    },
+    {
+      "title": "Autodesk — MOVE",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Core/files/GUID-47CE7325-84C0-4414-80A3-29DC98392709.htm"
+    }
+  ]
+}

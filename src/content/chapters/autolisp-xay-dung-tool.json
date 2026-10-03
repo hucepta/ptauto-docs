@@ -1,0 +1,9 @@
+{
+  "id": "chapter.autolisp.xay-dung-tool",
+  "slug": "xay-dung-tool",
+  "title": "Xây dựng tiện ích AutoLISP",
+  "description": "Tổ chức module, dữ liệu ứng dụng, file và vòng đời lệnh.",
+  "status": "published",
+  "courseId": "course.autolisp",
+  "order": 4
+}

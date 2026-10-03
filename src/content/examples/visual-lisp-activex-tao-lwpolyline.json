@@ -1,0 +1,40 @@
+{
+  "id": "example.visual-lisp-activex.tao-lwpolyline",
+  "slug": "tao-lwpolyline",
+  "title": "Tạo hình chữ nhật bằng SafeArray",
+  "description": "PTA_VLA_RECT tạo LWPolyline kín trong ModelSpace, OCS chuẩn, elevation 0 và một nhóm Undo.",
+  "status": "published",
+  "technology": "visual-lisp-activex",
+  "language": "lisp",
+  "sourceFile": "visual-lisp-activex-tao-lwpolyline.lsp",
+  "expectedOutput": "Một LWPolyline kín có bốn đỉnh (0,0), (120,0), (120,60), (0,60), elevation 0, chiều dài 360; thay đổi UCS không thay vị trí hình theo UCS. Chưa được chạy trên host.",
+  "sources": [
+    {
+      "title": "Autodesk — vlax-make-safearray (AutoLISP/ActiveX)",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-MAC-AutoLISP-Reference/files/GUID-E0D40331-096B-4A52-A0D7-10204829C4A6.htm"
+    },
+    {
+      "title": "Autodesk — AddLightWeightPolyline Method",
+      "url": "https://help.autodesk.com/cloudhelp/2019/CHT/AutoCAD-ActiveX-Reference/files/GUID-2003E0A1-5FB5-48A7-8CDA-2804F7C61C1C.htm"
+    },
+    {
+      "title": "Autodesk — Coordinates Property",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ITA/AutoCAD-LT-ActiveX-Reference/files/GUID-11CAC0D6-DFCF-4653-8403-CF5AFD689773.htm"
+    },
+    {
+      "title": "Autodesk — StartUndoMark Method",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-ActiveX-Reference/files/GUID-7C669949-1327-4CFD-96CF-CE65EC38DAA8.htm"
+    },
+    {
+      "title": "Autodesk — About Releasing Objects and Freeing Memory",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-LT-AutoLISP/files/GUID-4A2C849B-C0E0-4991-905D-A916B2CD3F25.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có ActiveX; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "chapter.civil3d-dotnet.corridor-va-ha-tang",
+  "slug": "corridor-va-ha-tang",
+  "title": "Corridor và hạ tầng",
+  "description": "Baseline, region, assembly, FeatureLine, Grading và các mạng ống.",
+  "status": "published",
+  "courseId": "course.civil3d-dotnet",
+  "order": 4
+}

@@ -1,8 +1,7 @@
 ---
-interface Props { steps: { title: string; cue: string; href?: string }[]; }
+interface Props { steps: { title: string; cue: string; href: string }[]; }
 const { steps } = Astro.props;
 ---
 <div class="learning-path motion-reveal">
-  <svg class="path-connector" viewBox="0 0 1200 32" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M0 16h1200" pathLength="1" stroke="currentColor" stroke-width="1.5"/></svg>
-  <ol>{steps.map((step,index)=><li style={`--node-delay:${index*.09}s`}><span class="path-node" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><code>{step.cue}</code><h3>{step.href?<a href={step.href}>{step.title}</a>:step.title}</h3>{!step.href&&<span class="path-soon">Đang biên soạn</span>}</li>)}</ol>
+  <ol>{steps.map((step,index)=><li><span class="path-node" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><code>{step.cue}</code><h3><a href={step.href}>{step.title}</a></h3></li>)}</ol>
 </div>

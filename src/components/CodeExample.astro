@@ -11,6 +11,6 @@ const { example, code, anchorId } = Astro.props;
 <CodePanel code={code} language={example.language} filename={example.sourceFile.split(/[\\/]/).at(-1)} anchorId={anchorId}>
 <h3>{example.title}</h3>
 {example.expectedOutput&&<p><strong>Kết quả mong đợi:</strong> {example.expectedOutput}</p>}
-<p>{example.verifiedWith?'Đã chạy: '+example.verifiedWith.product+' '+example.verifiedWith.version:'Mã để thực hành · Chưa có bản ghi chạy trong AutoCAD.'}</p>
+<p>{example.verifiedWith?'Đã chạy: '+example.verifiedWith.product+' '+example.verifiedWith.version:'Mã để thực hành · Chưa có bản ghi chạy trong môi trường đích.'}</p>
 </CodePanel>
 

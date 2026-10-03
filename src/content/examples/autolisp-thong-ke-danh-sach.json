@@ -1,0 +1,36 @@
+{
+  "id": "example.autolisp.thong-ke-danh-sach",
+  "slug": "thong-ke-danh-sach",
+  "title": "Lọc, biến đổi và thống kê list",
+  "description": "PTA_LIST_STATS minh họa foreach, mapcar/lambda và apply trên dữ liệu tự tạo.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "autolisp-thong-ke-danh-sach.lsp",
+  "expectedOutput": "Với (12 -3 0 8) và hệ số 2: values=(24.0 16.0), count=2, total=40.0, average=20.0. List rỗng có average=nil.",
+  "sources": [
+    {
+      "title": "Autodesk — defun (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-AutoLISP-Reference/files/GUID-5269529D-A013-4AB4-AAB7-DBA1C7CA73EB.htm"
+    },
+    {
+      "title": "Autodesk — cond (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-AutoLISP-Reference/files/GUID-7BA45202-D95F-4F2D-8D83-965024826074.htm"
+    },
+    {
+      "title": "Autodesk — mapcar (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-AutoLISP-Reference/files/GUID-8802AE73-1A05-457E-8A51-09677C23E26E.htm"
+    },
+    {
+      "title": "Autodesk — apply (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-0574ADA0-0950-456A-9330-A2518421536E.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có AutoLISP; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows / macOS"
+    }
+  ]
+}

@@ -2,66 +2,48 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ConstructionHero from '../components/landing/ConstructionHero.astro';
 import KnowledgeCard from '../components/landing/KnowledgeCard.astro';
-import KnowledgeBridge from '../components/landing/KnowledgeBridge.astro';
 import CodeGeometryDemo from '../components/landing/CodeGeometryDemo.astro';
 import LearningPath from '../components/landing/LearningPath.astro';
 import '../styles/landing.css';
 import { getContent } from '../content/catalog';
-import { getContentUrl } from '../domain/content/graph';
+import { getContentUrl, getCourseLessons } from '../domain/content/graph';
 import { withBase } from '../domain/content/urls';
 const { graph } = await getContent();
-const autolisp = graph.courses.find(course => course.technology==='autolisp');
-const courseHref = autolisp ? withBase(getContentUrl(graph,autolisp.id)) : withBase('/#chu-de');
-const cadLesson = graph.lessons.find(lesson => lesson.conceptIds.includes('concept.autolisp.ssget'));
-const cadHref = cadLesson ? withBase(getContentUrl(graph,cadLesson.id)) : courseHref;
-const firstProject = graph.projects[0];
-const stages = [
-  { title:'Dùng CAD', cue:'LINE / CIRCLE', href:cadHref },
-  { title:'Hiểu CAD', cue:'Entity / DXF', href:withBase('/tra-cuu/') },
-  { title:'Viết AutoLISP', cue:'(defun …)', href:courseHref },
-  { title:'Tự động hóa', cue:'(ssget …)', href:cadHref },
-  { title:'Xây Tool', cue:'c:PT', href:firstProject?withBase(getContentUrl(graph,firstProject.id)):withBase('/du-an/') },
-  { title:'Plugin .NET', cue:'CommandMethod' },
-  { title:'Ứng dụng Civil 3D', cue:'Surface / Profile' },
-];
-const referenceGroups = [
-  { title:'Hàm', sample:'list · assoc · ssget', query:'ssget' },
-  { title:'Lệnh', sample:'command · c:PT', query:'lệnh' },
-  { title:'Biến', sample:'setq · kiểu dữ liệu', query:'setq' },
-  { title:'DXF', sample:'Mã nhóm · dữ liệu', query:'DXF' },
-  { title:'Entity', sample:'Đối tượng · selection', query:'đối tượng' },
-  { title:'API', sample:'Visual LISP · ActiveX', query:'vl-load-com' },
-];
+const courses = graph.courses.map(course => ({
+  ...course,
+  href: withBase(getContentUrl(graph, course.id)),
+  lessonCount: getCourseLessons(graph, course.id).length,
+  chapters: graph.chapters.filter(chapter => chapter.courseId === course.id).map(chapter => ({ title: chapter.title, href: withBase(getContentUrl(graph, chapter.id)) })),
+}));
+const stages = courses.map(course => ({ title: course.title, cue: course.chapters[0]?.title || '', href: course.href }));
+const referenceGroups = courses.flatMap(course => {
+  const concept = graph.concepts.find(concept => concept.technology === course.technology);
+  return concept ? [{ title: concept.title, sample: course.title, href: withBase(getContentUrl(graph, concept.id)) }] : [];
+});
 ---
-<SiteLayout title="PTAuto Docs" description="Từ thao tác đến thuật toán. Học cách hiểu, lập trình và tự động hóa CAD với tài liệu tiếng Việt về AutoLISP, Civil 3D và .NET.">
+<SiteLayout title="PTAuto Docs" description="Kho tri thức tiếng Việt về AutoLISP, Visual LISP / ActiveX, AutoCAD .NET, Civil 3D .NET, Dynamo / Python và GIS / Data Automation.">
 <div class="landing" data-landing>
   <ConstructionHero />
   <section id="chu-de" class="landing-section knowledge-section" aria-labelledby="knowledge-title">
     <div class="landing-container">
-      <KnowledgeBridge />
-      <div class="landing-section-heading"><h2 id="knowledge-title">Bạn sẽ học gì?</h2></div>
-      <div class="knowledge-grid">
-        <KnowledgeCard kind="cad" title="CAD" description="Hiểu hình học, đối tượng, layer và dữ liệu phía sau mỗi thao tác." href={cadHref}/>
-        <KnowledgeCard kind="lisp" title="AutoLISP" description="Từ biểu thức nhỏ đến lệnh xử lý cả nhóm đối tượng." href={courseHref}/>
-        <KnowledgeCard kind="civil" title="Civil 3D" description="Làm việc với surface, alignment, profile và dữ liệu thiết kế." available={false}/>
-        <KnowledgeCard kind="dotnet" title=".NET" description="Đưa logic của bạn vào command và plugin cho AutoCAD." available={false}/>
-      </div>
-      <nav class="landing-topics" aria-label="Chủ đề học"><span>Chủ đề học</span><div>{graph.courses.map(course=><a class="button" href={withBase(getContentUrl(graph,course.id))}>{course.title}<span aria-hidden="true"> →</span></a>)}</div></nav>
+      <div class="landing-section-heading"><h2 id="knowledge-title">Kho tri thức</h2></div>
+      <nav class="knowledge-grid" aria-label="Chủ đề học">
+        {courses.map(course => <KnowledgeCard title={course.title} description={course.description} technology={course.technology} href={course.href} lessonCount={course.lessonCount} chapters={course.chapters} />)}
+      </nav>
     </div>
   </section>
   <section class="landing-section geometry-section" aria-labelledby="geometry-title">
     <div class="landing-container"><div class="landing-section-heading"><h2 id="geometry-title">Từ code đến bản vẽ.</h2></div>
-    <p class="section-note">Mỗi lệnh tác động lên hình học. Chọn một bước để xem điều gì thay đổi.</p><CodeGeometryDemo /></div>
+    <p class="section-note">Tạo hai đối tượng, chọn đúng chúng rồi dịch chuyển 30 đơn vị theo trục Y. Chọn từng bước để xem kết quả.</p><CodeGeometryDemo /></div>
   </section>
   <section class="landing-section path-section" aria-labelledby="path-title">
-    <div class="landing-container"><div class="landing-section-heading"><h2 id="path-title">Đi từ thao tác đến công cụ.</h2></div><LearningPath steps={stages}/></div>
+    <div class="landing-container"><div class="landing-section-heading"><h2 id="path-title">Chọn điểm bắt đầu</h2></div><LearningPath steps={stages}/></div>
   </section>
   <section class="landing-section reference-section" aria-labelledby="reference-title">
-    <div class="landing-container reference-layout"><div class="reference-copy"><h2 id="reference-title">Tra cứu đúng lúc.</h2><p>Đi thẳng tới cú pháp, định nghĩa và ví dụ khi đang viết lệnh.</p><a class="button primary" href={withBase('/tim-kiem/')}>Mở tìm kiếm</a><a class="reference-glossary" href={withBase('/thuat-ngu/')}>Thuật ngữ kỹ thuật</a></div>
-      <div class="reference-groups">{referenceGroups.map(group=><a href={withBase('/tim-kiem/?q='+encodeURIComponent(group.query))}><h3>{group.title}</h3><span>{group.sample}</span></a>)}</div>
+    <div class="landing-container reference-layout"><div class="reference-copy"><h2 id="reference-title">Tra cứu đúng lúc.</h2><p>Cú pháp, kiểu dữ liệu và cách dùng API trong từng chủ đề.</p></div>
+      <div class="reference-groups">{referenceGroups.map(group => <a href={group.href}><h3>{group.title}</h3><span>{group.sample}</span></a>)}</div>
     </div>
   </section>
 </div>
 <script>import '../client/landing';</script>
 </SiteLayout>
-

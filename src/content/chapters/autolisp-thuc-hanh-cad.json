@@ -1,0 +1,9 @@
+{
+  "id": "chapter.autolisp.thuc-hanh-cad",
+  "slug": "thuc-hanh-cad",
+  "title": "Thực hành tiện ích CAD",
+  "description": "Ghép lựa chọn, hình học và báo cáo thành công cụ có tiêu chí nghiệm thu.",
+  "status": "published",
+  "courseId": "course.autolisp",
+  "order": 5
+}

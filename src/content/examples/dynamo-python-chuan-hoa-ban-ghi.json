@@ -1,0 +1,40 @@
+{
+  "id": "example.dynamo-python.chuan-hoa-ban-ghi",
+  "slug": "chuan-hoa-ban-ghi",
+  "title": "Chuẩn hóa bảng thành bản ghi",
+  "description": "IN[0] chứa các hàng không gồm header; IN[1] là list tên cột. Giữ mã chuỗi, chuyển số và báo lỗi theo hàng.",
+  "status": "published",
+  "technology": "dynamo-python",
+  "language": "python",
+  "sourceFile": "dynamo-python/chuan-hoa-ban-ghi.py",
+  "expectedOutput": "Với header point_id,station_m,x_m,y_m,z_m, hàng [' P01 ','0','500','1000','2'] được nhận; hàng ['P02','loi','501','1001','3'] bị loại do station_m. counts.input=2, accepted=1, rejected=1.",
+  "sources": [
+    {
+      "title": "Python — Data Structures",
+      "url": "https://docs.python.org/3/tutorial/datastructures.html"
+    },
+    {
+      "title": "Python — Errors and Exceptions",
+      "url": "https://docs.python.org/3/tutorial/errors.html"
+    },
+    {
+      "title": "Python — math",
+      "url": "https://docs.python.org/3/library/math.html"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "Python",
+      "version": "Python 3.9+; chỉ thư viện chuẩn"
+    },
+    {
+      "product": "Dynamo",
+      "version": "Python node dùng CPython3 hoặc PythonNet3; cần thử lại trên đúng host và engine"
+    }
+  ],
+  "tags": [
+    "Python",
+    "dữ liệu",
+    "QA/QC"
+  ]
+}

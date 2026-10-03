@@ -1,30 +1,45 @@
 ---
-const steps = [
-  { label: '01 LINE', code: '(command "_.LINE" \'(0 0) \'(120 0) "")', description: 'Dựng đường từ hai điểm.' },
-  { label: '02 CIRCLE', code: '(command "_.CIRCLE" \'(60 0) 24)', description: 'Tạo vòng tròn từ tâm và bán kính.' },
-  { label: '03 Chọn đối tượng', code: '(setq ss (ssget "_X" \'((0 . "LINE,CIRCLE"))))', description: 'Lấy nhóm đường và vòng tròn.' },
-  { label: '04 Chuyển layer', code: '(setq data (entget (ssname ss 0)))\n(entmod (subst \'(8 . "PTAuto") (assoc 8 data) data))', description: 'Chuyển đường sang layer PTAuto đã có.' },
+import { resolve } from 'node:path';
+import { getContent } from '../../content/catalog';
+import { readExampleCode } from '../../domain/content/example-source';
+const { graph } = await getContent();
+const example = graph.examples.find(example => example.id === 'example.autolisp.demo-move');
+if (!example) throw new Error('Missing canonical MOVE example.');
+const source = await readExampleCode(example, resolve('src/content/examples/code'));
+const actions = [
+  { key: 'line', label: '01 LINE', description: 'Dựng đường 120 đơn vị và giữ lại entity vừa tạo.' },
+  { key: 'circle', label: '02 CIRCLE', description: 'Tạo vòng tròn bán kính 24, tâm tại (60, 0).' },
+  { key: 'select', label: '03 Chọn đối tượng', description: 'Tạo selection set chỉ gồm hai đối tượng vừa dựng.' },
+  { key: 'move', label: '04 MOVE', description: 'Dịch cả nhóm 30 đơn vị theo trục Y của UCS.' },
 ];
+const steps = actions.map(action => {
+  const code = source.split(';; step:' + action.key + '\n')[1]?.split(';; step:')[0]?.trim();
+  if (!code) throw new Error('Missing example step: ' + action.key);
+  return { ...action, code };
+});
 ---
 <div class="code-geometry-demo motion-reveal" data-code-demo data-step="3">
   <div class="geometry-code">
-    <div class="demo-toolbar"><span>pt-demo.lsp</span><span>AutoLISP</span></div>
-    <div class="code-sequence">{steps.map((step, index)=><div class="code-step" data-code-step={index} aria-current={index===3?'step':undefined}><span class="code-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><div><p>{step.description}</p><pre><code>{step.code}</code></pre></div></div>)}</div>
+    <div class="demo-toolbar"><span>{example.sourceFile}</span><span>AutoLISP</span></div>
+    <div class="code-sequence">{steps.map((step, index) => <div class="code-step" data-code-step={index} aria-current={index === 3 ? 'step' : undefined}><span class="code-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><div><p>{step.description}</p><pre><code>{step.code}</code></pre></div></div>)}</div>
   </div>
   <div class="geometry-output">
-    <div class="demo-toolbar"><span>Model</span><span class="simulation-label">Minh họa thao tác</span></div>
+    <div class="demo-toolbar"><span>Model · UCS = World</span><span class="simulation-label">Minh họa thao tác</span></div>
     <svg id="demo-geometry" viewBox="0 0 520 370" fill="none" aria-hidden="true">
-      <defs><pattern id="demo-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#075d9b" stroke-opacity=".08"/></pattern></defs>
+      <defs><pattern id="demo-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#075d9b" stroke-opacity=".08"/></pattern><marker id="move-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10" fill="#087e87"/></marker></defs>
       <rect width="520" height="370" fill="url(#demo-grid)"/>
-      <path d="M260 64v242M78 190h362" stroke="#b2c9d2" stroke-dasharray="5 6"/>
-      <g data-demo-layer stroke="#075d9b" stroke-width="2.8" stroke-linecap="round"><path data-demo-line d="M108 190h304" pathLength="1"/></g>
-      <circle data-demo-circle cx="260" cy="190" r="72" stroke="#075d9b" stroke-width="2.8" pathLength="1"/>
-      <g data-demo-selection><rect x="92" y="102" width="336" height="176" fill="#087e87" fill-opacity=".06" stroke="#087e87" stroke-dasharray="6 4"/><g fill="#fff" stroke="#087e87"><rect x="104" y="186" width="8" height="8"/><rect x="408" y="186" width="8" height="8"/><rect x="256" y="114" width="8" height="8"/></g></g>
+      <path d="M260 40v266M78 190h362" stroke="#b2c9d2" stroke-dasharray="5 6"/>
+      <g class="demo-origin" stroke="#8faebc" stroke-dasharray="5 5"><path d="M108 190h304"/><circle cx="260" cy="190" r="60.8"/></g>
+      <g data-demo-moving>
+        <path data-demo-line d="M108 190h304" pathLength="1" stroke="#075d9b" stroke-width="2.8" stroke-linecap="round"/>
+        <circle data-demo-circle cx="260" cy="190" r="60.8" stroke="#075d9b" stroke-width="2.8" pathLength="1"/>
+        <g data-demo-selection><rect x="92" y="113" width="336" height="154" fill="#087e87" fill-opacity=".06" stroke="#087e87" stroke-dasharray="6 4"/><g fill="#fff" stroke="#087e87"><rect x="104" y="186" width="8" height="8"/><rect x="408" y="186" width="8" height="8"/><rect x="256" y="125.2" width="8" height="8"/></g></g>
+      </g>
+      <g class="demo-displacement"><path d="M452 190v-76" stroke="#087e87" stroke-width="2" marker-end="url(#move-arrow)"/><text x="448" y="99" text-anchor="end" fill="#087e87" font-family="Consolas, monospace" font-size="13">ΔY = 30</text></g>
       <path d="M108 286v25m304-25v25M108 304h304m-308-4 8 8m300-8 8 8" stroke="#87a5b4"/>
       <rect x="232" y="293" width="56" height="22" fill="#f8fcfd"/>
-      <g fill="#53677a" font-family="Consolas, monospace" font-size="12"><text x="242" y="309">120.00</text><text x="16" y="350">WCS</text><text x="391" y="350" class="demo-layer-label">PTAuto</text></g>
+      <g fill="#53677a" font-family="Consolas, monospace" font-size="12"><text x="242" y="309">120.00</text><text x="16" y="350">WCS</text></g>
     </svg>
-    <div class="demo-controls js-control">{steps.map((step,index)=><button type="button" data-demo-button={index} aria-controls="demo-geometry" aria-pressed={index===3?'true':'false'}>{step.label}</button>)}</div>
+    <div class="demo-controls js-control">{steps.map((step, index) => <button type="button" data-demo-button={index} aria-controls="demo-geometry" aria-pressed={index === 3 ? 'true' : 'false'}>{step.label}</button>)}</div>
   </div>
-  <div class="demo-bottom"><p data-demo-status role="status">Chuyển đường sang layer PTAuto đã có.</p><button class="js-control" type="button" data-demo-replay>Chạy lại</button></div>
 </div>

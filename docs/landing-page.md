@@ -1,44 +1,27 @@
-# Landing page CAD / AutoLISP
+# Trang chủ và kho tri thức
 
-Homepage là lớp giới thiệu trước phần documentation. Các link học và dự án lấy từ content graph; Civil 3D và .NET hiển thị “Đang biên soạn” khi chưa có nội dung đã phát hành.
+Trang chủ giới thiệu sáu chủ đề trong INPUT: AutoLISP, Visual LISP / ActiveX, AutoCAD .NET C#, Civil 3D .NET API, Dynamo / Python và GIS / Data Automation. Thẻ chủ đề, nhóm kiến thức, số bài và liên kết tra cứu lấy từ content graph. Không tạo một lộ trình nghề nghiệp thay thế phạm vi kỹ thuật này.
 
-Chọn chủ đề học ngay tại `/#chu-de` trên homepage. Header không còn mục “Học”; nút “Bắt đầu học” dẫn tới khu vực này. Các course published được sinh thành link trực tiếp từ graph, gồm AutoLISP và Visual LISP / ActiveX hiện tại. Breadcrumb bài học/nhóm/course quay về “Trang chủ”. `/hoc/` cũ chuyển về `/#chu-de` bằng meta refresh tức thời, có link fallback và hoạt động khi tắt JavaScript; URL từng course/bài, ID và tiến độ được giữ.
+## Giao diện
 
-## File và component
+Hero nằm trong khung cùng chiều rộng với nội dung, cao tối thiểu 440px trên desktop. Bố cục nhỏ hơn trên điện thoại giữ SVG ở đáy, dùng safe-area inset và system-ui. Tiêu đề có khoảng trống cho dấu tiếng Việt. Chỉ dòng “đến thuật toán.” có gradient; CTA “Bắt đầu học” màu vàng phẳng và dẫn tới `/#chu-de`.
 
-- `src/pages/index.astro`: bố cục, copy và link tới nội dung/search hiện có.
-- `src/components/landing/ConstructionHero.astro`: hero độc lập với CSS/SVG, command search và nút tạm dừng chuyển động không cần JavaScript.
-- `KnowledgeBridge.astro`: hình học tách thành các nhóm kiến thức khi vào viewport.
-- `KnowledgeCard.astro`: mini-demo cho CAD, AutoLISP, Civil 3D và .NET; hover hoặc focus chạy hiệu ứng ngắn.
-- `CodeGeometryDemo.astro`: bốn bước code/geometry, nút chọn bước và chạy lại.
-- `LearningPath.astro`: bảy bước học, connector desktop/tablet/mobile.
-- `src/client/landing.ts`: controller các phần bên dưới hero, IntersectionObserver và một vòng RAF hữu hạn cho demo.
-- `src/styles/landing.css`: CSS/SVG animation và responsive của các phần bên dưới hero. CSS của hero nằm trong component riêng.
-- `reading.css`: bỏ CSS homepage cũ đã không còn dùng; giữ style reader/catalog.
-- `tests/e2e/landing.spec.ts`, `shell.spec.ts`: hành vi animation, demo, reduced motion, viewport và đọc không JavaScript.
+Chu kỳ CSS/SVG 16 giây vẫn vẽ wireframe, mọc công trình, sáng cửa sổ rồi mờ về bản vẽ. Reduced motion tắt animation và hiện công trình hoàn chỉnh. Theo phản hồi mới, hero không có ô Command hoặc nút tạm dừng. KnowledgeBridge và thanh trạng thái/chạy lại dưới demo đã bỏ.
 
-## Motion
+Header dùng logo đã được cung cấp, nền trắng và liên kết “Kho tri thức”. Điều hướng thu gọn trên tablet/mobile; Escape đóng menu. Tìm kiếm trên header vẫn hoạt động. Phím `/` focus ô tìm kiếm có sẵn hoặc chuyển tới trang tìm kiếm nếu trang hiện tại không có ô nhập.
 
-Hero lặp chu kỳ 16 giây: 0–5s vẽ wireframe ba khối nhà, sàn, cột và cần cẩu; 5–10s các khối mọc từ đáy theo stagger, cửa sổ sáng vàng và chân trời chuyển cam; 10–11,5s giữ công trình hoàn chỉnh, sau đó mờ về bản vẽ để lặp. Wireframe dùng `pathLength="1"` và stroke-dashoffset; khối, cửa sổ, lưới và chân trời chỉ chuyển động bằng transform/opacity. Không animation kích thước hay vị trí trong layout.
+Không còn mục “Học” hoặc catalog học riêng. `/hoc/` chuyển về `/#chu-de` với fallback không cần JavaScript; URL từng course/bài, ID và tiến độ giữ nguyên. Tiêu đề course hiển thị đúng tên công nghệ.
 
-Chỉ dòng “đến thuật toán.” dùng gradient cyan → vàng → cam, background-position theo cùng chu kỳ. “Từ thao tác” màu trắng; lớp nền trên luôn tối. CTA duy nhất trong hero là “Bắt đầu học”, màu vàng phẳng, góc 3px. Ô `Command:` gửi truy vấn tới tìm kiếm hiện có; `/` vẫn focus ô nhập, Enter hoặc nút ↵ gửi truy vấn. Con trỏ nhấp nháy chỉ xuất hiện khi ô chưa có nội dung và chưa focus.
+## Demo có nguồn dùng chung
 
-SVG ở nửa dưới với `preserveAspectRatio="xMidYMax slice"`; responsive giữ công trình ở đáy. Hero dùng font system-ui, safe-area inset và viewport-fit=cover. Checkbox “Tạm dừng chuyển động” dừng mọi animation của hero bằng CSS, kể cả khi không có JavaScript.
+`CodeGeometryDemo.astro` đọc `example.autolisp.demo-move` qua `readExampleCode`. File `demo-move.lsp` là nguồn dùng chung cho homepage, tra cứu MOVE và bài tương tác bản vẽ.
 
-Scroll làm geometry tách thành bốn nhóm; connector lộ trình được vẽ dần. Mini-demo hover không lặp vô hạn. Demo code tự chạy một lượt khi vào viewport; chọn bước dừng autoplay, “Chạy lại” bắt đầu lượt mới. RAF dừng khi demo ngoài viewport hoặc tab bị ẩn; listener/observer được cleanup khi rời trang.
+Bốn bước: tạo LINE dài 120, tạo CIRCLE bán kính 24, chọn đúng hai entity mới bằng ssadd, MOVE cả nhóm 30 đơn vị theo trục Y của UCS. Mô phỏng giả định UCS = World; hình vẽ dùng đúng tỉ lệ bán kính và chiều dài. Vị trí cũ nét đứt cùng vector ΔY làm rõ bước dịch chuyển.
 
-Code → geometry là mô phỏng trực quan, không thực thi AutoLISP trong trình duyệt. Bước `entmod` minh họa đổi LINE sang layer PTAuto đã tồn tại. Không dùng kết quả mô phỏng làm bằng chứng code đã chạy trong AutoCAD.
+Demo không thực thi AutoLISP trong trình duyệt. Autoplay chạy một lượt khi vào viewport; chọn bước dừng autoplay. RAF dừng khi ngoài viewport hoặc tab bị ẩn. Reduced motion vẫn cho chọn bước thủ công. Không JavaScript vẫn đọc được đầy đủ mã và dùng liên kết chủ đề.
 
-Reduced motion tắt toàn bộ animation của hero, hiện công trình hoàn chỉnh với cửa sổ sáng; demo bên dưới hiện bước cuối và vẫn chọn bước thủ công được. Không JavaScript vẫn đọc đủ nội dung/code và dùng được link/search. SVG trang trí được ẩn khỏi accessibility tree; nội dung chính là HTML. Landing JS/CSS chỉ nằm trên homepage.
+## Kiểm chứng
 
-Không thêm dependency. Dùng SVG, CSS, IntersectionObserver, requestAnimationFrame và matchMedia có sẵn trong trình duyệt; không video/canvas/WebGL.
+`node scripts/verify.mjs` chạy type check, lint, unit, build, Pagefind, kiểm tra artifact và browser tests. Các test bao phủ phản hồi bị xóa, chu kỳ animation, kích thước ổn định, MOVE đồng bộ mã/hình, sáu chủ đề có bài thật, tìm kiếm từ header, redirect cũ và lưu tiến độ. Kiểm tra viewport 360/768/843/1440px và accessibility trong pipeline.
 
-## Kiểm tra và polish
-
-Chạy `npm run verify` để kiểm tra type, lint, unit, production build, Pagefind, artifact và browser. E2E landing kiểm tra các mốc 1/10/14/17s, chu kỳ 16s vô hạn, kích thước hero ổn định, một CTA, command search, pause không JavaScript, reduced motion và demo đồng bộ với code. Kiểm tra không tràn/cắt tiêu đề ở 360/768/843/1440px. Axe và test search/docs hiện có vẫn nằm trong pipeline.
-
-Lượt kiểm tra hero 2026-10-02: Astro check 0 lỗi/cảnh báo, lint đạt, 34 unit và 38 browser tests đạt, artifact 28 trang HTML và 17 search records. Đã xem ảnh các mốc 1/4,9/8/11/14/17s cùng bố cục desktop/tablet/mobile và reduced motion trên Chromium 153 ở localhost; không có page error. Đối chiếu DOM xác nhận bốn section bên dưới giữ nguyên cấu trúc và nội dung, ngoại trừ các nhãn số được yêu cầu bỏ. Content graph vẫn có build ID `a74f0cd495fd3b9c`.
-
-Chưa kiểm tra thủ công bằng NVDA/VoiceOver; phép đo hiện tại là lab Chromium trên localhost.
-
-Sau thay đổi điều hướng: check/lint/build, 34 unit và 36 browser tests đạt. Các test mới bao phủ đi từ homepage tới mọi course published, redirect không JavaScript và breadcrumb về homepage. `CourseList.astro` đã bỏ vì không còn catalog học riêng.
+Ảnh QA và kết quả phát hành nằm trong OUTPUT/PTAUTO_DOCS_QA. Kiểm chứng web không chứng minh mã CAD đã chạy trong host; chỉ điền verifiedWith sau một lần chạy có bản ghi thật.

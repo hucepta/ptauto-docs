@@ -1,0 +1,9 @@
+{
+  "id": "chapter.visual-lisp-activex.object-model",
+  "slug": "object-model",
+  "title": "Đối tượng và collection",
+  "description": "Đi từ Application tới Document và phạm vi đối tượng cần xử lý.",
+  "status": "published",
+  "courseId": "course.visual-lisp-activex",
+  "order": 2
+}

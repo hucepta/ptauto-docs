@@ -1,0 +1,32 @@
+{
+  "id": "example.autolisp.doc-attribute-block",
+  "slug": "doc-attribute-block",
+  "title": "Đọc attribute thường của INSERT",
+  "description": "PTA_BLOCK_ATTRS duyệt ATTRIB tới SEQEND, không sửa dữ liệu và không xử lý attribute hằng hoặc nhiều dòng.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "autolisp-doc-attribute-block.lsp",
+  "expectedOutput": "In tag=giá trị cho mỗi ATTRIB thường của INSERT được chọn và tổng số attribute. Chọn loại khác hoặc block không có attribute trả thông báo rõ.",
+  "sources": [
+    {
+      "title": "Autodesk — entget (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-12540DAE-C84B-4BDB-AEEC-DDFE5BE3C42A.htm"
+    },
+    {
+      "title": "Autodesk — entnext (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2021/ENU/AutoCAD-AutoLISP-Reference/files/GUID-65924CF5-0C51-4E36-8B38-7A5513951A04.htm"
+    },
+    {
+      "title": "Autodesk — ATTRIB (DXF)",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-DXF/files/GUID-7DD8B495-C3F8-48CD-A766-14F9D7D0DD9B.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có AutoLISP; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows / macOS"
+    }
+  ]
+}

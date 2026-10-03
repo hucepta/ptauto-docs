@@ -1,6 +1,6 @@
-# Kiểm chứng ví dụ CAD
+# Kiểm chứng ví dụ kỹ thuật
 
-Các ví dụ hiện tại chưa được chạy trong AutoCAD tại workspace này. Build web, kiểm tra TypeScript và test clipboard không chứng minh code CAD đã chạy. Metadata không có `verifiedWith`; giao diện hiển thị “Mã để thực hành · Chưa có bản ghi chạy trong AutoCAD.”
+Các ví dụ AutoLISP/ActiveX/.NET/Civil chưa có bản ghi chạy trong host tại workspace này. Sáu ví dụ Python/Dynamo và GIS đã được kiểm tra cú pháp và chạy fixture với Python bundled 3.12.14; chúng chưa được chạy trong Dynamo hoặc API CAD/GIS thực tế. Build web không chứng minh code CAD đã chạy. Metadata không có `verifiedWith`; giao diện hiển thị “Mã để thực hành · Chưa có bản ghi chạy trong môi trường đích.”
 
 | File | Kiểm tra cần thực hiện | Kết quả cần đối chiếu |
 |---|---|---|
@@ -30,3 +30,7 @@ Nguồn chính thức Autodesk nằm trong metadata từng Example/Concept/Lesso
 ```
 
 Đây là mẫu field, không phải bằng chứng chạy. Không điền thời gian/phiên bản giả. Khi thay code, bỏ nhãn kiểm chứng cũ cho tới khi chạy lại. Bản ghi chạy cần được lưu cùng review nội dung của lần phát hành.
+
+## Nội dung bổ sung
+
+MOVE cần bản vẽ thử, UCS = World và đối chiếu hai entity mới dịch 30 đơn vị. AutoCAD .NET và Civil 3D dùng SDK/host đúng phiên bản được nêu; cần biên dịch DLL riêng và thử trong đúng sản phẩm. Civil 3D Object Enabler không thay thế runtime Civil 3D. Python node cần kiểm tra engine của Dynamo; pipeline GIS cần CRS và dữ liệu kiểm soát đã biết. Mọi example có nguồn và kết quả mong đợi, không gắn nhãn chạy host khi chưa có bằng chứng.

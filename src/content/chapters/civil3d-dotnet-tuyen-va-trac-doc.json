@@ -1,0 +1,9 @@
+{
+  "id": "chapter.civil3d-dotnet.tuyen-va-trac-doc",
+  "slug": "tuyen-va-trac-doc",
+  "title": "Tuyến và trắc dọc",
+  "description": "Alignment, station/offset, Profile, PVI và Profile View.",
+  "status": "published",
+  "courseId": "course.civil3d-dotnet",
+  "order": 2
+}

@@ -1,24 +1,23 @@
-# Lộ trình nội dung
+# Kho tri thức và phạm vi tiếp theo
 
-Phạm vi lấy từ brief trong INPUT. Tên và số chương trong tài liệu mô tả phạm vi kiến thức; trên web dùng nhóm chủ đề linh hoạt. Danh sách này là kế hoạch biên soạn, không sinh route hoặc bài rỗng.
+Phạm vi giữ sáu công nghệ trong brief INPUT. Tên chương trong tài liệu dùng để xác định kiến thức; website dùng nhóm chủ đề, không đánh số Chương 1/2. Mỗi chủ đề hiện có bài published thật, định nghĩa, mã mẫu, bài tập và dự án. Không tạo route từ một đề cương trống.
 
-| Mảng | Đã có | Thứ tự bổ sung |
-|---|---|---|
-| AutoLISP | Biểu thức/evaluation; biến/kiểu dữ liệu; list/association list; chọn đối tượng với ssget; dự án đếm LINE | Điều khiển luồng/hàm; tương tác người dùng; entity/DXF; file và dữ liệu; tổ chức lệnh và xử lý lỗi |
-| Visual LISP / ActiveX | Điều kiện Windows và khởi tạo vl-load-com | Đối tượng/properties/methods; collection; variant/safearray; reactors và quản lý tài nguyên |
-| AutoCAD .NET C# | Catalog draft | Thiết lập plugin; document/editor; database/transaction/ObjectId; entity/geometry; selection; lệnh, giao diện và xử lý lỗi |
-| Civil 3D .NET | Catalog draft | CivilDocument và project; Surface; Alignment/Profile; Corridor; dữ liệu thiết kế và báo cáo |
-| Dynamo / Python | Catalog draft | Graph/node; list/data; Python environment; đọc/ghi dữ liệu; tích hợp CAD/Civil 3D và quy trình thực hành |
-| GIS / Data Automation | Catalog draft | Dữ liệu không gian; CRS/EPSG; vector/raster; định dạng/trao đổi; kiểm tra/chuẩn hóa và pipeline dữ liệu |
+| Chủ đề | Nhóm | Bài học | Tra cứu | Ví dụ | Bài tập | Dự án |
+|---|---:|---:|---:|---:|---:|---:|
+| AutoLISP | 5 | 10 | 13 | 9 | 3 | 2 |
+| Visual LISP / ActiveX | 5 | 6 | 6 | 5 | 2 | 1 |
+| AutoCAD .NET | 5 | 5 | 4 | 3 | 2 | 1 |
+| Civil 3D .NET | 5 | 5 | 4 | 3 | 2 | 1 |
+| Dynamo / Python | 4 | 5 | 4 | 3 | 2 | 1 |
+| GIS / Data Automation | 4 | 5 | 6 | 3 | 2 | 1 |
 
-Ưu tiên hoàn thiện AutoLISP rồi ActiveX, tiếp theo AutoCAD .NET, Civil 3D, Dynamo/Python và GIS. Chỉ công bố Course/nhóm khi có bài published thật. Bốn mảng draft không có liên kết giả tới Lesson chưa viết.
+Đây là nền tảng và quy trình thực hành của kho tri thức, chưa phải mọi tình huống chuyên sâu của từng SDK. DCL/reactor, Jig/Overrule, xử lý thiết kế Corridor/Pipe Network và pipeline spatial topology nâng cao còn cần ví dụ riêng cùng kiểm chứng trong môi trường đích.
 
-## Mỗi phần bổ sung
+## Nguyên tắc biên soạn
 
-- Chọn một mục tiêu học hoặc tình huống tra cứu cụ thể.
-- Viết Lesson/Concept canonical, ví dụ, môi trường và nguồn chính thức.
-- Dùng lại Example và Concept đã có, khai báo prerequisite theo stable ID.
-- Thử thêm metadata/nội dung qua pipeline; sidebar, route, glossary và search phải cập nhật mà không sửa UI.
-- Chạy ví dụ trong host trước khi thêm nhãn đã kiểm chứng; ghi giới hạn phiên bản/nền tảng rõ ràng.
-
-Không đưa tài khoản, đồng bộ nhiều thiết bị, chatbot, badge, dashboard hay môi trường chạy CAD trên web vào phạm vi hiện tại.
+- Giữ stable ID, URL bài cũ và dữ liệu tiến độ.
+- Bài học liên kết concept, example và bài tập theo content graph; mã canonical dùng lại ở trang học, tra cứu, dự án và demo trang chủ.
+- Nguồn chính thức cùng phiên bản/nền tảng nằm trong metadata; không dùng build web làm bằng chứng đã chạy CAD.
+- AutoCAD .NET và Civil 3D .NET dùng SDK và host đúng phiên bản. Object Enabler không thay thế runtime Civil 3D.
+- Dynamo phân biệt engine Python, dữ liệu thuần và API host. GIS phân biệt gán CRS với reprojection; không gán một EPSG chung cho VN-2000.
+- Chỉ thêm verifiedWith sau lần chạy có hồ sơ thật. Không đưa tài khoản, đồng bộ, chatbot hoặc môi trường CAD chạy trên web vào phạm vi.

@@ -1,0 +1,9 @@
+{
+  "id": "chapter.autocad-dotnet.editor-va-hinh-hoc",
+  "slug": "editor-va-hinh-hoc",
+  "title": "Editor và hình học",
+  "description": "Input, SelectionFilter, hệ tọa độ, Curve và Polyline.",
+  "status": "published",
+  "courseId": "course.autocad-dotnet",
+  "order": 3
+}

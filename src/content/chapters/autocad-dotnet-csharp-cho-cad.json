@@ -1,0 +1,9 @@
+{
+  "id": "chapter.autocad-dotnet.csharp-cho-cad",
+  "slug": "csharp-cho-cad",
+  "title": "C# cho lập trình CAD",
+  "description": "Kiểu dữ liệu, class, collection, LINQ, exception và môi trường DLL.",
+  "status": "published",
+  "courseId": "course.autocad-dotnet",
+  "order": 1
+}

@@ -1,0 +1,51 @@
+{
+  "id": "example.civil3d-dotnet.kiem-ke-doi-tuong",
+  "slug": "kiem-ke-doi-tuong",
+  "title": "Kiểm kê Alignment, Surface và Corridor",
+  "description": "PTA_CIVIL_INVENTORY đọc các collection trong CivilDocument và liệt kê tên, loại, số lượng.",
+  "status": "published",
+  "technology": "civil3d-dotnet",
+  "language": "csharp",
+  "sourceFile": "civil-kiem-ke-doi-tuong.cs",
+  "expectedOutput": "DWG có hai Alignment, một TinSurface, không có Corridor: liệt kê đúng tên, loại TinSurface và tổng 2/1/0. DWG rỗng báo 0/0/0; không tạo hoặc rebuild đối tượng.",
+  "compatibility": [
+    {
+      "product": "Civil 3D",
+      "version": "2025 — mục tiêu SDK và .NET 8; cần kiểm tra trong host",
+      "platform": "Windows x64"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — Add Library References in the Reference Manager (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/Civil3D-DevGuide/files/GUID-267E68C8-AD2D-4F7F-87DF-831018D56CDB.htm"
+    },
+    {
+      "title": "Autodesk — Accessing Application and Document Objects (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/Civil3D-DevGuide/files/GUID-16B1A3F9-35F7-4703-B5FD-F2AC00E6AB57.htm"
+    },
+    {
+      "title": "Autodesk — Using Collections Within the Document Object (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/Civil3D-DevGuide/files/GUID-5676A992-E881-4467-A1A7-4412425B5F36.htm"
+    },
+    {
+      "title": "Autodesk — CivilDocument Members",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/6b21bf2d-709c-3fc8-5133-abded01ec6ed.htm"
+    },
+    {
+      "title": "Autodesk — GetAlignmentIds Method",
+      "url": "https://help.autodesk.com/cloudhelp/2021/ENU/Civil3D-API/files/html/768e0508-6ee6-3da7-410b-4a059f6ddcbf.htm"
+    }
+  ],
+  "tags": [
+    "C#",
+    "chỉ đọc"
+  ],
+  "searchableTerms": [
+    "PTA_CIVIL_INVENTORY",
+    "GetCivilDocument",
+    "GetAlignmentIds",
+    "GetSurfaceIds",
+    "CorridorCollection"
+  ]
+}

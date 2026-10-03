@@ -1,0 +1,40 @@
+{
+  "id": "example.visual-lisp-activex.chuyen-layer-hang-loat",
+  "slug": "chuyen-layer-hang-loat",
+  "title": "Đổi layer hàng loạt với báo cáo lỗi",
+  "description": "PTA_VLA_SET_LAYER kiểm tra layer, bỏ qua nguồn khóa, bắt lỗi mỗi entity và kết thúc nhóm Undo.",
+  "status": "published",
+  "technology": "visual-lisp-activex",
+  "language": "lisp",
+  "sourceFile": "visual-lisp-activex-chuyen-layer-hang-loat.lsp",
+  "expectedOutput": "Entity có thể ghi chuyển sang layer đích đã có; nguồn khóa và đối tượng đã ở đích được bỏ qua. In số thành công/bỏ qua/thất bại và Handle lỗi. Không tự rollback khi lỗi; U hoàn tác nhóm nếu host hỗ trợ.",
+  "sources": [
+    {
+      "title": "Autodesk — LAYER (DXF)",
+      "url": "https://help.autodesk.com/cloudhelp/2018/ENU/AutoCAD-DXF/files/GUID-D94802B0-8BE8-4AC9-8054-17197688AFDB.htm"
+    },
+    {
+      "title": "Autodesk — vlax-property-available-p",
+      "url": "https://help.autodesk.com/cloudhelp/2020/ENU/AutoCAD-AutoLISP-Reference/files/GUID-E8A5B009-46D6-4BA7-9655-88104F8BE792.htm"
+    },
+    {
+      "title": "Autodesk — vl-catch-all-apply",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-E08CC2A6-787A-422F-8BD3-18812996794C.htm"
+    },
+    {
+      "title": "Autodesk — StartUndoMark Method",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENU/AutoCAD-ActiveX-Reference/files/GUID-7C669949-1327-4CFD-96CF-CE65EC38DAA8.htm"
+    },
+    {
+      "title": "Autodesk — About Releasing Objects and Freeing Memory",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-LT-AutoLISP/files/GUID-4A2C849B-C0E0-4991-905D-A916B2CD3F25.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có ActiveX; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows"
+    }
+  ]
+}

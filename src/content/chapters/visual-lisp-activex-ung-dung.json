@@ -1,0 +1,9 @@
+{
+  "id": "chapter.visual-lisp-activex.ung-dung",
+  "slug": "ung-dung",
+  "title": "Ứng dụng và hướng chuyển tiếp",
+  "description": "Lắp ghép tiện ích hình học tuyến và đánh giá giới hạn ActiveX.",
+  "status": "published",
+  "courseId": "course.visual-lisp-activex",
+  "order": 5
+}

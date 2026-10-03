@@ -1,0 +1,50 @@
+{
+  "id": "example.civil3d-dotnet.tra-cao-do-tin",
+  "slug": "tra-cao-do-tin",
+  "title": "Tra cao độ TinSurface tại X/Y",
+  "description": "PTA_TIN_ELEVATION chọn TinSurface, đọc FindElevationAtXY và báo điểm ngoài miền dữ liệu.",
+  "status": "published",
+  "technology": "civil3d-dotnet",
+  "language": "csharp",
+  "sourceFile": "civil-tra-cao-do-tin.cs",
+  "expectedOutput": "TIN thử có các đỉnh (0,0,10), (10,0,20), (0,10,10): điểm (2,3) nằm trong tam giác, cao độ mong đợi 12.000. Điểm ngoài miền được báo riêng, không trả 0 và không rebuild surface.",
+  "compatibility": [
+    {
+      "product": "Civil 3D",
+      "version": "2025 — mục tiêu SDK và .NET 8; cần kiểm tra trong host",
+      "platform": "Windows x64"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — Add Library References in the Reference Manager (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/Civil3D-DevGuide/files/GUID-267E68C8-AD2D-4F7F-87DF-831018D56CDB.htm"
+    },
+    {
+      "title": "Autodesk — Accessing Surfaces",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/Civil3D-DevGuide/files/GUID-655D3624-20DD-4E47-B0ED-484AA43FAB8B.htm"
+    },
+    {
+      "title": "Autodesk — FindElevationAtXY Method",
+      "url": "https://help.autodesk.com/cloudhelp/2020/ENU/Civil3D-API/files/html/d280ff4f-4c4b-f910-7a27-0e787a43448f.htm"
+    },
+    {
+      "title": "Autodesk — Tutorial: Creating and Adding Data to a Surface",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENG/Civil3D-Tutorials/files/GUID-899731B5-0B6A-451E-9CF2-0DCF00FA9B64.htm"
+    },
+    {
+      "title": "Autodesk — Use Transactions to Access and Create Objects (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm"
+    }
+  ],
+  "tags": [
+    "C#",
+    "chỉ đọc"
+  ],
+  "searchableTerms": [
+    "PTA_TIN_ELEVATION",
+    "FindElevationAtXY",
+    "TinSurface",
+    "PointNotOnEntityException"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "chapter.visual-lisp-activex.du-lieu-hinh-hoc",
+  "slug": "du-lieu-hinh-hoc",
+  "title": "Dữ liệu COM và hình học",
+  "description": "Variant, SafeArray, hệ tọa độ và phép đo dọc curve.",
+  "status": "published",
+  "courseId": "course.visual-lisp-activex",
+  "order": 3
+}

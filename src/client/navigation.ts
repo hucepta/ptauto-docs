@@ -15,6 +15,9 @@ document.addEventListener('keydown', event => {
         if (search) {
             event.preventDefault();
             search.focus();
+        } else {
+            const link = document.querySelector<HTMLAnchorElement>('[data-search-link]');
+            if (link) { event.preventDefault(); location.assign(link.href); }
         }
     }
 });

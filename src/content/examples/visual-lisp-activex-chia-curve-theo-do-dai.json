@@ -1,0 +1,44 @@
+{
+  "id": "example.visual-lisp-activex.chia-curve-theo-do-dai",
+  "slug": "chia-curve-theo-do-dai",
+  "title": "Báo cáo chia curve theo khoảng cách",
+  "description": "PTA_CURVE_DIVIDE_REPORT in n+1 điểm WCS, giới hạn 1000 đoạn và xử lý lỗi API; không tạo hay sửa entity.",
+  "status": "published",
+  "technology": "visual-lisp-activex",
+  "language": "lisp",
+  "sourceFile": "visual-lisp-activex-chia-curve-theo-do-dai.lsp",
+  "expectedOutput": "LINE từ (0,0,0) tới (120,0,0), n=4: khoảng cách 0,30,60,90,120 cùng năm điểm WCS tương ứng. TEXT bị từ chối; curve có độ dài 0 không được chia.",
+  "sources": [
+    {
+      "title": "Autodesk — Curve Measurement Functions Reference",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-AutoLISP-Reference/files/GUID-4684C76F-02F7-4989-AA53-C886E528350A.htm"
+    },
+    {
+      "title": "Autodesk — vlax-curve-getDistAtParam",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-8FF6D3D5-7EA5-4E9A-8A61-295C0562E7AE.htm"
+    },
+    {
+      "title": "Autodesk — vlax-curve-getPointAtDist",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-F41FB58A-4645-404E-98B7-D4978A9A790B.htm"
+    },
+    {
+      "title": "Autodesk — vl-catch-all-apply",
+      "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-E08CC2A6-787A-422F-8BD3-18812996794C.htm"
+    },
+    {
+      "title": "Autodesk — initget (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2020/ENU/AutoCAD-AutoLISP-Reference/files/GUID-9ED8841B-5C1D-4B3F-9F3B-84A4408A6BBF.htm"
+    },
+    {
+      "title": "Autodesk — About Releasing Objects and Freeing Memory",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-LT-AutoLISP/files/GUID-4A2C849B-C0E0-4991-905D-A916B2CD3F25.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có ActiveX; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows"
+    }
+  ]
+}

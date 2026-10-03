@@ -1,0 +1,28 @@
+{
+  "id": "example.autolisp.bao-cao-toa-do",
+  "slug": "bao-cao-toa-do",
+  "title": "Báo cáo điểm UCS và WCS",
+  "description": "PTA_COORD_REPORT phân biệt chuyển điểm với chuyển vector, chỉ đọc và in dữ liệu.",
+  "status": "published",
+  "technology": "autolisp",
+  "language": "lisp",
+  "sourceFile": "autolisp-bao-cao-toa-do.lsp",
+  "expectedOutput": "In điểm được chọn ở UCS/WCS và vector trục X UCS trong WCS. Với UCS World, hai điểm bằng nhau và vector là (1.0 0.0 0.0).",
+  "sources": [
+    {
+      "title": "Autodesk — trans (AutoLISP)",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-AutoLISP-Reference/files/GUID-1A316343-0B68-4DBE-8F49-B4D601CB8FCC.htm"
+    },
+    {
+      "title": "Autodesk — About Coordinate System Transformations",
+      "url": "https://help.autodesk.com/cloudhelp/2023/ENU/AutoCAD-AutoLISP/files/GUID-0F0B833D-78ED-4491-9918-9481793ED10B.htm"
+    }
+  ],
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "Có AutoLISP; cần kiểm thử phiên bản sử dụng",
+      "platform": "Windows / macOS"
+    }
+  ]
+}

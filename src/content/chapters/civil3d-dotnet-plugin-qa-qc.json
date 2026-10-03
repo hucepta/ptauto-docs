@@ -1,0 +1,9 @@
+{
+  "id": "chapter.civil3d-dotnet.plugin-qa-qc",
+  "slug": "plugin-qa-qc",
+  "title": "Plugin kiểm kê và QA/QC",
+  "description": "Dependency, validation, rebuild và quy trình kiểm tra chỉ đọc.",
+  "status": "published",
+  "courseId": "course.civil3d-dotnet",
+  "order": 5
+}

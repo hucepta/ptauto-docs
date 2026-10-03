@@ -1,0 +1,15 @@
+(defun c:PTA_COORD_REPORT (/ point-ucs point-wcs axis-wcs)
+  (setq point-ucs (getpoint "\nChọn điểm để báo cáo tọa độ: "))
+  (if point-ucs
+    (progn
+      (setq point-wcs (trans point-ucs 1 0)
+            axis-wcs (trans '(1.0 0.0 0.0) 1 0 T))
+      (prompt "\nĐiểm UCS: ")
+      (princ point-ucs)
+      (prompt "\nĐiểm WCS: ")
+      (princ point-wcs)
+      (prompt "\nVector trục X UCS trong WCS: ")
+      (princ axis-wcs))
+    (prompt "\nKhông có điểm được chọn."))
+  (princ))
+(princ)

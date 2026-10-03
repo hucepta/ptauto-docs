@@ -43,3 +43,15 @@ test('all_published_links_resolve', async ({ request }) => {
         expect(result.status(), record.url).toBe(200);
     }
 });
+test('new_technical_lessons_link_to_projects_under_base', async ({ page, request }) => {
+    const origin = 'http://127.0.0.1:4323/ptauto-docs';
+    for (const path of ['/hoc/autocad-dotnet/cad-utility-geometry-civil/', '/hoc/civil3d-dotnet/plugin-civil-kiem-ke-qa-qc/']) {
+        await page.goto(origin + path);
+        const links = await page.locator('main a[href*="/du-an/"]').evaluateAll(els => els.map(element => (element as HTMLAnchorElement).href));
+        expect(links.length, path).toBeGreaterThan(0);
+        for (const link of links) {
+            expect(link).toContain(origin + '/du-an/');
+            expect((await request.get(link)).status()).toBe(200);
+        }
+    }
+});

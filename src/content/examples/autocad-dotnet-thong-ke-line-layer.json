@@ -1,0 +1,59 @@
+{
+  "id": "example.autocad-dotnet.thong-ke-line-layer",
+  "slug": "thong-ke-line-layer",
+  "title": "Thống kê LINE theo layer",
+  "description": "PTA_LINE_SUMMARY đọc LINE được chọn, tạo snapshot rồi nhóm và tính tổng chiều dài theo layer.",
+  "status": "published",
+  "technology": "autocad-dotnet",
+  "language": "csharp",
+  "sourceFile": "autocad-thong-ke-line-layer.cs",
+  "expectedOutput": "Chọn hai LINE dài 3 và 4 trên layer A cùng một CIRCLE: Layer A có 2 LINE, tổng chiều dài 7.000 đơn vị bản vẽ. Esc kết thúc mà không sửa entity.",
+  "compatibility": [
+    {
+      "product": "AutoCAD",
+      "version": "2025 — mục tiêu SDK và .NET 8; cần kiểm tra trong host",
+      "platform": "Windows x64"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Autodesk — About Managed .NET Compatibility (2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm"
+    },
+    {
+      "title": "Autodesk — Command Definition (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-F77E8FE0-8034-4704-93BD-F717608F8223.htm"
+    },
+    {
+      "title": "Autodesk — Use Selection Filters to Define Selection Set Rules (.NET, 2024)",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENU/OARX-DevGuide-Managed/files/GUID-125398A5-184C-4114-9212-A2FF28FC1F1D.htm"
+    },
+    {
+      "title": "Autodesk — Use Transactions to Access and Create Objects (.NET, 2025)",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm"
+    },
+    {
+      "title": "Autodesk — Line Properties",
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-__MEMBERTYPE_Properties_Autodesk_AutoCAD_DatabaseServices_Line.html"
+    },
+    {
+      "title": "Microsoft — Collections and Data Structures",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/collections/"
+    },
+    {
+      "title": "Microsoft — Introduction to LINQ Queries",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/linq/get-started/introduction-to-linq-queries"
+    }
+  ],
+  "tags": [
+    "C#",
+    "chỉ đọc"
+  ],
+  "searchableTerms": [
+    "PTA_LINE_SUMMARY",
+    "CommandMethod",
+    "LineSnapshot",
+    "GroupBy",
+    "ForRead"
+  ]
+}
