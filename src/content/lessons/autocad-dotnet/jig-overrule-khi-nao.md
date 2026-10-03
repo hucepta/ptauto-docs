@@ -33,6 +33,6 @@ Nếu người thiết kế cần rê chuột và thấy ga di chuyển trước
 
 Viết ba trạng thái: **chờ điểm → xem trước → chấp nhận/hủy**. Chỉ ghi entity thật khi người dùng chấp nhận; dữ liệu xem trước không được thành một ga “mồ côi” trong Database. Với Overrule, xác định phạm vi đối tượng và thời điểm tháo đăng ký khi plugin tắt hoặc document đóng. Luôn thử trong bản vẽ sao chép.
 
-## Bài luyện
+## Thực hành
 
 Phác sơ đồ trạng thái cho lệnh đặt hố ga. Ghi rõ chỗ kiểm tra layer, đơn vị, tọa độ và quyền ghi document. Thử hai lần liên tiếp, sau đó hủy giữa chừng và kiểm kê số entity trước/sau. Nếu bài toán không cần tương tác chuột, hãy giải thích vì sao Transaction đơn giản hơn.

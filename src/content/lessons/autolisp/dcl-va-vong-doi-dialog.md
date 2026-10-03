@@ -52,6 +52,6 @@ tool.lsp → load_dialog("tool.dcl") → new_dialog → action_tile → start_di
 
 Nếu `load_dialog` trả ID không hợp lệ, dừng trước `new_dialog`. Nếu người dùng Cancel, không dùng lại dữ liệu nhập của lần trước. Callback của `action_tile` nên ngắn: nhận trạng thái, kiểm tra nhẹ và đóng dialog; không gọi `command` trực tiếp từ action expression. Tìm file bằng đường dẫn đã xác định, không mặc định thư mục hiện hành của AutoCAD là thư mục mã.
 
-## Bài luyện
+## Thực hành
 
 Viết bảng ba trạng thái: thiếu file DCL, người dùng OK với dữ liệu rỗng, người dùng Cancel. Với mỗi trạng thái, ghi thông báo, có sửa bản vẽ hay không và lúc nào gọi `unload_dialog`. Sau đó mới thiết kế dialog thật.

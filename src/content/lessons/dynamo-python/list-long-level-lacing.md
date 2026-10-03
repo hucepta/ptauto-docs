@@ -47,6 +47,6 @@ Station `[0, 20, 40]` và cao độ `[3.1, 3.2, 3.4]` cần ghép từng cặp. 
 
 List lồng xuất hiện khi mỗi tuyến có một danh sách cọc riêng. Trước khi dùng List@Level, ghi dạng dữ liệu mong muốn: `[[cọc A1,A2],[cọc B1,B2]]` khác `[A1,A2,B1,B2]`. Dùng Watch ở trước và sau mỗi node thay đổi cấp list. Nếu độ dài station và elevation không bằng nhau, dừng để báo lỗi thay vì để lacing tự quyết.
 
-## Bài luyện
+## Thực hành
 
 Với 3 station và 2 elevation, dự đoán số hàng của Shortest, Longest và Cross Product. Sau đó chạy graph để kiểm chứng. Chọn quy tắc nào phù hợp cho báo cáo cọc và giải thích vì sao.

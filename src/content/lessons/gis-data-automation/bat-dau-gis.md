@@ -24,6 +24,6 @@ DWG/Civil + hồ sơ tọa độ → mapping đối tượng → feature có ID 
 
 Tạo bảng ba điểm cọc với `stake_id`, `x`, `y` và một cột nguồn CRS. Mở trong QGIS, kiểm tra vị trí trên nền bản đồ phù hợp, rồi ghi ra GeoPackage thử. Đếm lại ba đối tượng và đối chiếu từng ID. Nếu tọa độ là mét địa phương nhưng hiển thị như độ kinh/vĩ, bạn đã phát hiện một lỗi CRS trước khi giao dữ liệu.
 
-## Tự kiểm tra
+## Kiểm tra
 
 Giải thích bằng lời vì sao hai tuyến có cùng hình dạng trên màn hình vẫn có thể nằm sai vị trí ngoài thực địa. Liệt kê ba thông tin bạn cần xin từ đơn vị cung cấp trước khi chuyển bản vẽ hạ tầng sang GIS.

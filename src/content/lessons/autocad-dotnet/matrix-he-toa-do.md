@@ -51,6 +51,6 @@ Một điểm nhận từ `Editor.GetPoint` chịu bối cảnh UCS của ngư�
 
 Trước mỗi công thức, ghi cạnh biến điểm đang thuộc hệ nào và đơn vị gì. Kiểm tra với UCS World rồi với UCS quay 30 độ trên cùng DWG. Một thuật toán đúng phải cho cùng vị trí vật lý, dù số hiển thị trên Command Line có thể khác.
 
-## Bài luyện
+## Thực hành
 
 Vẽ một tuyến nằm ngang WCS và quay UCS. Chọn cùng một điểm hai lần. Lập bảng: tọa độ người dùng thấy, tọa độ sau chuyển sang WCS, kết quả mong đợi. Chỉ viết phép offset khi bảng này đã rõ.

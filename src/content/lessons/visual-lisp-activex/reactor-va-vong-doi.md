@@ -47,6 +47,6 @@ Một reactor có thể thông báo khi đối tượng tuyến bị sửa để
 
 Thiết kế an toàn là callback chỉ ghi nhận `ObjectId`/handle và trạng thái “cần cập nhật”; lệnh do người dùng gọi sau đó mới thực hiện tính toán nặng. Cần định nghĩa rõ ai tạo reactor, khi nào gỡ, và liệu đóng/mở DWG có đăng ký trùng hay không. Luôn thử trên bản sao với ít đối tượng trước.
 
-## Bài luyện
+## Thực hành
 
 Vẽ luồng: sửa polyline → reactor đánh dấu dirty → người dùng gọi lệnh làm mới → tool đọc lại chiều dài. Viết ba tình huống test: sửa một lần, sửa liên tục 10 lần, đóng bản vẽ trước khi refresh. Giải thích vì sao callback không nên ghi CSV trực tiếp.

@@ -5,40 +5,39 @@ import KnowledgeCard from '../components/landing/KnowledgeCard.astro';
 import CodeGeometryDemo from '../components/landing/CodeGeometryDemo.astro';
 import '../styles/landing.css';
 import { getContent } from '../content/catalog';
-import { getContentUrl, getCourseLessons } from '../domain/content/graph';
+import { getContentUrl } from '../domain/content/graph';
 import { withBase } from '../domain/content/urls';
 const { graph } = await getContent();
 const courses = graph.courses.map(course => ({
   ...course,
   href: withBase(getContentUrl(graph, course.id)),
-  lessonCount: getCourseLessons(graph, course.id).length,
-  chapters: graph.chapters.filter(chapter => chapter.courseId === course.id).map(chapter => ({ title: chapter.title, href: withBase(getContentUrl(graph, chapter.id)) })),
 }));
-const referenceGroups = courses.flatMap(course => {
-  const concept = graph.concepts.find(concept => concept.technology === course.technology);
-  return concept ? [{ title: concept.title, sample: course.title, href: withBase(getContentUrl(graph, concept.id)) }] : [];
-});
+const starterTerms = ['concept.autolisp.thuat-ngu-autolisp', 'concept.autolisp.thuat-ngu-autocad-net', 'concept.autolisp.thuat-ngu-activex', 'concept.autocad-dotnet.term-dll', 'concept.civil3d-dotnet.term-station', 'concept.dynamo-python.term-node', 'concept.gis-data-automation.term-topology'];
+const referenceGroups = starterTerms.map(id => graph.entries.get(id)).filter(Boolean).map(concept => ({ title: concept!.title, sample: concept!.description, href: withBase(getContentUrl(graph, concept!.id)) }));
+const featuredProjects = courses.map(course => graph.projects.find(project => project.technology === course.technology)).filter(Boolean);
 ---
 <SiteLayout title="PTAuto Docs" description="Kho tri thức tiếng Việt về AutoLISP, Visual LISP / ActiveX, AutoCAD .NET, Civil 3D .NET, Dynamo / Python và GIS / Data Automation.">
 <div class="landing" data-landing>
   <ConstructionHero />
   <section class="landing-section geometry-section" aria-labelledby="geometry-title">
     <div class="landing-container"><div class="landing-section-heading"><h2 id="geometry-title">Từ code đến bản vẽ</h2></div>
-    <p class="section-note">AutoLISP đặt mốc cách đều dọc tim tuyến. Chọn từng bước để xem mã tìm vị trí và tạo mốc trên bản vẽ thử.</p><CodeGeometryDemo /></div>
+    <p class="section-note">Lệnh RC trong Road_Contours_Tool_VI.lsp tạo đường đồng mức nền đường. Chọn từng bước để xem phần mã liên quan và sơ đồ kết quả.</p><CodeGeometryDemo /></div>
   </section>
   <section id="chu-de" class="landing-section knowledge-section" aria-labelledby="knowledge-title">
     <div class="landing-container">
       <div class="landing-section-heading"><h2 id="knowledge-title">Kho tri thức</h2></div>
       <nav class="knowledge-grid" aria-label="Chủ đề học">
-        {courses.map(course => <KnowledgeCard title={course.title} description={course.description} technology={course.technology} href={course.href} lessonCount={course.lessonCount} chapters={course.chapters} />)}
+        {courses.map(course => <KnowledgeCard title={course.title} description={course.description} technology={course.technology} href={course.href} />)}
       </nav>
     </div>
   </section>
   <section class="landing-section reference-section" aria-labelledby="reference-title">
-    <div class="landing-container reference-layout"><div class="reference-copy"><h2 id="reference-title">Tra cứu đúng lúc</h2><p>Cú pháp, kiểu dữ liệu và cách dùng API trong từng chủ đề.</p></div>
+    <div class="landing-container reference-layout"><div class="reference-copy"><h2 id="reference-title">Bắt đầu từ thuật ngữ</h2><p>Hiểu tên gọi trước khi mở tài liệu API. Xem toàn bộ trong từ điển kỹ thuật.</p><a class="button" href={withBase('/thuat-ngu/')}>Mở từ điển</a></div>
       <div class="reference-groups">{referenceGroups.map(group => <a href={group.href}><h3>{group.title}</h3><span>{group.sample}</span></a>)}</div>
     </div>
   </section>
+  <section class="landing-section home-projects" aria-labelledby="home-project-title"><div class="landing-container"><h2 id="home-project-title">Dự án theo sáu lộ trình</h2><p class="section-note">Từ bài học đến công cụ kiểm tra và tự động hóa hạ tầng kỹ thuật.</p><div class="home-project-grid">{featuredProjects.map(project => <a href={withBase(getContentUrl(graph,project!.id))}><strong>{project!.title}</strong><span>{project!.description}</span></a>)}</div><a class="section-more" href={withBase('/du-an/')}>Xem tất cả dự án →</a></div></section>
+  <section class="landing-section home-saved" aria-labelledby="home-saved-title"><div class="landing-container"><h2 id="home-saved-title">Điều đã lưu</h2><p class="section-note" data-bookmarks-empty>Bài và dự án bạn lưu sẽ xuất hiện ở đây trên thiết bị này.</p><ul class="home-saved-list" data-home-bookmarks-list></ul><a class="section-more" href={withBase('/da-luu/')}>Mở danh sách đã lưu →</a></div></section>
 </div>
 <script>import '../client/landing';</script>
 </SiteLayout>

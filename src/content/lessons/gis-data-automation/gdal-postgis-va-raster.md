@@ -37,6 +37,6 @@
 
 Chọn 3 feature tuyến với ID ổn định, một geometry lỗi và một raster mẫu. Ghi CRS gốc từ metadata hoặc hồ sơ nguồn; nếu không biết CRS, dừng để xác minh. **Gán CRS** chỉ mô tả tọa độ đang có; **reprojection** biến đổi số tọa độ. Trong `ogr2ogr`, `-a_srs` và `-t_srs` tương ứng hai mục đích khác nhau. Sau chuyển đổi, mở output để so số feature, ID, kiểu geometry, đơn vị và bounding box.
 
-## Bài luyện
+## Thực hành
 
 Lập báo cáo trước/sau cho một GeoPackage: số feature, CRS, năm trường quan trọng và số geometry không hợp lệ. Đưa raster vào cùng canvas, chỉ kiểm tra vị trí tương đối sau khi CRS của cả hai nguồn đã được xác nhận. Nếu một đối tượng mất ID hoặc lệch vị trí, ghi lỗi và không tự động sửa bằng cách chọn EPSG theo cảm tính.

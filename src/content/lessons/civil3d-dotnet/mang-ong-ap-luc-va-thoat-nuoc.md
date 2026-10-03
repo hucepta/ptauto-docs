@@ -35,6 +35,6 @@ Một tuyến thoát nước tự chảy thường được quản lý như Pipe
 
 Trong lệnh .NET, đọc CivilDocument và các ObjectId trong Transaction; kiểm tra loại đối tượng trước khi ép kiểu. Thu thập kết quả trước, rồi xuất CSV có cột lỗi. Với Pressure Network, kiểm tra thành viên và tên API trên bộ SDK thật vì các phiên bản Civil có thể khác nhau.
 
-## Bài luyện
+## Thực hành
 
 Tạo hai mạng mẫu, mỗi loại ít nhất hai đoạn và một phụ kiện/công trình. Viết bảng kỳ vọng bằng tay, rồi thiết kế hàm xuất chung chỉ cho **schema báo cáo**, không giả định chung API đọc đối tượng. Kiểm tra mạng rỗng, part bị xóa và bản vẽ cần rebuild.

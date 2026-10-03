@@ -20,6 +20,23 @@
 .knowledge-chapters a { display: block; padding: .2rem 0; font-size: .875rem; line-height: 1.65; text-decoration: none; }
 .knowledge-chapters a:hover { text-decoration: underline; }
 .geometry-section { background: #f3f8fa; border-block: 1px solid var(--line); }
+.landing-section { background: #08243ecc; color: #edf8ff; }
+.landing-section h2, .landing-section .section-note, .reference-copy p { color: #edf8ff; }
+.knowledge-section, .reference-section { background: #08243ecc; border-color: #ffffff2b; }
+.knowledge-card { min-height: 160px; background: #f5fafcf2; }
+.knowledge-copy p { margin-bottom: 0; }
+.geometry-section { background: #08243ecc; border-color: #ffffff2b; }
+.code-geometry-demo { max-height: 390px; }
+.code-sequence { min-height: 230px; }
+.code-step[hidden] { display: none !important; }
+.geometry-output svg { max-height: 290px; background: #f6fbfd; }
+.contour-settings, .contour-lines, .contour-labels { opacity: 0; transition: opacity .45s ease; }
+[data-step="1"] .contour-settings, [data-step="2"] .contour-settings, [data-step="3"] .contour-settings { opacity: 1; }
+[data-step="2"] .contour-lines, [data-step="3"] .contour-lines { opacity: 1; }
+[data-step="3"] .contour-labels { opacity: 1; }
+.demo-caption { color: #bcd8e8; font-size: .82rem; margin: .6rem 0 0; }
+.demo-caption code { color: #94eedf; }
+.reference-groups a { background: #f6fbf5ed; }
 .code-geometry-demo { display: grid; grid-template-columns: 1.08fr 1fr; border: 1px solid #bfd2dc; border-radius: 4px; overflow: hidden; background: #fbfdfe; }
 .demo-toolbar { min-height: 43px; padding: .65rem 1rem; display: flex; justify-content: space-between; align-items: center; gap: .5rem; font: .8rem var(--mono); }
 .geometry-code { min-width: 0; background: #122231; color: #d9e8ef; }
@@ -36,6 +53,7 @@
 .simulation-label { font: .8rem var(--font); color: var(--muted); }
 .geometry-output svg { display: block; width: 100%; height: auto; flex: 1; min-height: 0; }
 .demo-controls { padding: .85rem; gap: .5rem; flex-wrap: wrap; }
+.demo-controls button { color: #123b54; }
 .demo-controls button { min-height: 44px; padding: .45rem .6rem; font-size: .8rem; border-radius: 3px; }
 .demo-controls button[aria-pressed=true] { color: #075776; background: #e1f1f5; border-color: #8ebac6; }
 .geometry-output svg text { fill: #31566b; font: 12px var(--mono); }
@@ -65,12 +83,26 @@
 .reference-groups a:hover { background: #fff; }
 .reference-groups h3 { color: var(--ink); font-size: 1rem; margin: 0 0 .3rem; line-height: 1.5; }
 .reference-groups span { font-size: .8rem; color: #516e7f; }
+.landing .reference-section { background: #08243ecc; }
+.landing .reference-copy h2, .landing .reference-copy p { color: #edf8ff; }
+.home-projects .section-note, .home-saved .section-note { margin: .6rem 0 1.4rem; }
+.home-projects .home-project-grid { margin-top: 1.2rem; }
+.home-project-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.home-project-grid a { display: flex; flex-direction: column; gap: .45rem; padding: 1.2rem; min-height: 150px; color: #132d43; background: #f5fafcf2; border: 1px solid #9ec2d0; text-decoration: none; }
+.home-project-grid a:hover { background: #fff; transform: translateY(-2px); }
+.home-project-grid span { font-size: .85rem; color: #426177; }
+.home-saved-list { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.home-saved-list li { padding: 1rem; background: #f5fafcf2; color: #143149; }
+.home-saved-list p { font-size: .85rem; margin: .35rem 0 0; }
+.section-more { display: inline-block; margin-top: 1rem; color: #a8f3e5; font-weight: 650; }
 @media (max-width: 1080px) {
   .landing-container { padding-inline: 2rem; }
   .knowledge-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .reference-layout { gap: 2rem; }
 }
 @media (max-width: 760px) {
+.home-project-grid, .home-saved-list { grid-template-columns: 1fr; }
+.code-geometry-demo { max-height: none; }
   .landing-container { padding-inline: 1.3rem; }
   .landing-section { padding-block: 2.8rem; }
   .landing-section-heading { margin-bottom: 1.4rem; }

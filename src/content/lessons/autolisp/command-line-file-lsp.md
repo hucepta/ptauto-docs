@@ -18,6 +18,6 @@ Trong file thử, sửa chuỗi phản hồi thành `Ban B`. Save nhưng chưa A
 
 Có thể dùng `(load "đường-dẫn")` tại Command Line khi bạn hiểu chuỗi đường dẫn; APPLOAD dễ bắt đầu hơn vì có giao diện chọn file. Khi xây tool cho nhóm, cần quản lý đường dẫn và cách nạp ổn định, không dựa vào thư mục hiện hành tình cờ.
 
-## Bài luyện
+## Thực hành
 
 Vẽ sơ đồ bốn ô: editor, file trên đĩa, AutoCAD đã nạp, Command Line. Đặt mũi tên cho Save, APPLOAD và gọi lệnh. Giải thích lỗi “Unknown command” bằng sơ đồ đó trước khi sửa code.

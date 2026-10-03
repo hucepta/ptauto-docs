@@ -6,6 +6,7 @@ import ConceptLinks from '../../../components/ConceptLinks.astro';
 import ArticleSteps from '../../../components/ArticleSteps.astro';
 import ArticleEnd from '../../../components/ArticleEnd.astro';
 import Exercise from '../../../components/Exercise.astro';
+import ProcessVisual from '../../../components/ProcessVisual.astro';
 import { getContent } from '../../../content/catalog';
 import { getLessonCourse, getContentUrl, getLessonNavigation } from '../../../domain/content/graph';
 import type { ChapterEntry, ExerciseEntry } from '../../../domain/content/schema';
@@ -25,11 +26,12 @@ const nav = getLessonNavigation(graph, lesson.id);
 <div class="article-meta"><span>{lesson.difficulty==='co-ban'?'Cơ bản':lesson.difficulty==='trung-cap'?'Trung cấp':'Nâng cao'}</span><span>Bài học</span></div>
 </header>
 {nav.prerequisites.length>0&&<section class="related" data-pagefind-ignore><h2>Kiến thức cần có</h2><ul class="link-list">{nav.prerequisites.map(id=><li><a href={withBase(getContentUrl(graph,id))}>{graph.entries.get(id)!.title}</a></li>)}</ul></section>}
-{lesson.flow&&<section class="lesson-flow" aria-label="Sơ đồ quy trình"><h2>Hình dung trước khi đọc code</h2><ol>{lesson.flow.map(step=><li><strong>{step.label}</strong><span>{step.detail}</span></li>)}</ol></section>}
+<h2 class="overview-heading">Tổng quan</h2>
+<ProcessVisual title={lesson.title} technology={course.technology} steps={(lesson.flow ?? headings.filter(h=>h.depth===2).slice(0,3).map(h=>({label:h.text}))).map(step=>step.label)} />
 <ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={lesson.exampleIds} placements={lesson.examplePlacements} />
 {lesson.exerciseIds.map(id=><Exercise exercise={graph.entries.get(id) as ExerciseEntry} visibleExampleIds={lesson.exampleIds} />)}
 <ConceptLinks graph={graph} ids={lesson.conceptIds} /><ArticleEnd sources={lesson.sources} compatibility={lesson.compatibility} />
-<div class="article-actions article-actions-end"><button class="js-control" data-bookmark={lesson.id} aria-pressed="false">Lưu bài</button><button class="js-control" data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button></div><p class="status-message" data-storage-status role="status"></p>
+<div class="article-actions article-actions-end"><button class="js-control" data-bookmark={lesson.id} aria-pressed="false">Lưu bài</button><button class="js-control" data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button>{nav.next&&<a class="button" href={withBase(getContentUrl(graph,nav.next))}>Bài tiếp</a>}</div><p class="status-message" data-storage-status role="status"></p>
 <nav class="lesson-pager" aria-label="Chuyển bài" data-pagefind-ignore>
 {nav.previous?<a href={withBase(getContentUrl(graph,nav.previous))}><span>Bài trước</span>{graph.entries.get(nav.previous)!.title}</a>:<span></span>}
 {nav.next?<a href={withBase(getContentUrl(graph,nav.next))}><span>Bài tiếp</span>{graph.entries.get(nav.next)!.title}</a>:<span class="muted">Bạn đã tới bài cuối hiện có.</span>}

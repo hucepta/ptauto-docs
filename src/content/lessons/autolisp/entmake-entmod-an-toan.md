@@ -51,6 +51,6 @@
 
 Ví dụ trên chỉ tạo một điểm thử ở gốc WCS. Trước khi tạo hàng loạt điểm cọc, hãy kiểm tra tên layer đích, tọa độ và số lượng dự kiến; dùng bản sao DWG. Với dữ liệu của entity cũ, giữ nguyên các cặp DXF không định sửa. `entmod` có giới hạn theo loại đối tượng và không thay mọi thuộc tính; đọc lại kết quả hoặc dùng API thích hợp hơn khi cần.
 
-## Bài luyện
+## Thực hành
 
 Trên DWG thử, tạo một POINT rồi dùng `entlast` và `entget` kiểm tra mã 0 và 10. Viết ra vì sao không nên giả định `entlast` là đối tượng mình vừa tạo nếu routine gọi thêm lệnh khác trước khi đọc. Thiết kế checklist trước khi cho phép routine sửa 100 đối tượng.

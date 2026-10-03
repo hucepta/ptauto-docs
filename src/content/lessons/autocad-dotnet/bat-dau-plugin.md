@@ -33,6 +33,6 @@ public class FirstCommands
 
 Ở đây `Application.DocumentManager` lấy document đang mở; `Editor.WriteMessage` gửi phản hồi về Command Line. Chưa có `Transaction` vì bài này chưa đọc hay sửa một entity trong Database. Build DLL, mở DWG thử, dùng `NETLOAD` chọn DLL và gọi `PT_HELLO`.
 
-## Tự kiểm tra
+## Kiểm tra
 
 Ghi lại phiên bản AutoCAD, SDK và framework đã dùng. Sau khi sửa chuỗi thông báo, build lại rồi nạp DLL mới theo quy trình phù hợp với host; nếu AutoCAD vẫn dùng mã cũ, kiểm tra DLL thực tế đã nạp và phiên làm việc. Bài sau sẽ giải thích `Document`, `Editor`, `Database`, `ObjectId` và `Transaction` trước khi chạm vào bản vẽ.

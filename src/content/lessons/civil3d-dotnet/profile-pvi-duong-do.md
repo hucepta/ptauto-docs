@@ -51,6 +51,6 @@ Alignment station → Profile mặt đất (EG) và Profile thiết kế (FG) �
 
 Đầu vào cần miền station và đơn vị. Không truy vấn ngoài phạm vi profile hoặc dùng station tăng dần khi alignment có phương chạy khác dự kiến. Khi profile phụ thuộc surface, lưu ý trạng thái cập nhật; bản báo cáo phải nêu thời điểm và nguồn surface.
 
-## Bài luyện
+## Thực hành
 
 Tạo bảng 0+000, 0+020, 0+040 với EG, FG và chênh cao dự kiến. Chạy tool chỉ đọc và so từng hàng với Civil 3D. Thử station ngoài miền để xem plugin từ chối thế nào.

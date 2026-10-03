@@ -4,6 +4,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import ConceptLinks from '../../../components/ConceptLinks.astro';
 import ArticleSteps from '../../../components/ArticleSteps.astro';
 import ArticleEnd from '../../../components/ArticleEnd.astro';
+import ProcessVisual from '../../../components/ProcessVisual.astro';
+import { projectGuides } from '../../../content/project-guides';
 import { getContent } from '../../../content/catalog';
 import { getContentUrl } from '../../../domain/content/graph';
 import { withBase } from '../../../domain/content/urls';
@@ -11,12 +13,14 @@ export async function getStaticPaths() { const { graph } = await getContent(); r
 const { project } = Astro.props;
 const { graph, projects } = await getContent();
 const entry = projects.find(p => p.data.id === project.id)!;
+const guide = projectGuides[project.id];
 ---
 <SiteLayout title={project.title} description={project.description}><article class="page narrow">
 <Breadcrumbs items={[{title:'Dự án',url:'/du-an/'},{title:project.title}]} />
 <header data-content-id={project.id} data-content-kind="project"><h1>{project.title}</h1>
 <div class="article-actions"><button class="js-control" data-bookmark={project.id} aria-pressed="false">Lưu bài</button></div><p class="status-message" data-storage-status role="status"></p></header>
 <section class="related" data-pagefind-ignore><h2>Kiến thức cần có</h2><ul class="link-list">{project.prerequisites.map(id=><li><a href={withBase(getContentUrl(graph,id))}>{graph.entries.get(id)!.title}</a></li>)}</ul></section>
+{guide&&<><section class="project-guide"><h2>Hướng dẫn giải</h2><p><strong>Dữ liệu thử:</strong> {guide.input}</p><ol>{guide.steps.map(step=><li>{step}</li>)}</ol><p><strong>Đối chiếu:</strong> {guide.check}</p></section><ProcessVisual title={project.title} technology={project.technology} steps={guide.steps} output={guide.output} /></>}
 <ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={project.exampleIds} placements={project.examplePlacements} />
 <ConceptLinks graph={graph} ids={project.conceptIds} /><ArticleEnd sources={project.sources} compatibility={project.compatibility} /></article></SiteLayout>
 

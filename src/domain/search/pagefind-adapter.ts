@@ -28,7 +28,7 @@ export function createSearchService(base: string, loader?: () => Promise<Pagefin
                 engine = undefined;
                 throw error;
             }
-            const data = await Promise.all(response.results.slice(0, 50).map(r => r.data()));
+            const data = await Promise.all(response.results.slice(0, 150).map(r => r.data()));
             const results = new Map<string, SearchResult>();
             for (const d of data) {
                 const id = d.meta.id;

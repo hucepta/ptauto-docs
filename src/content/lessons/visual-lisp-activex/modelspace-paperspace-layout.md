@@ -56,6 +56,6 @@ Application
 
 Thực hành đọc tên bản vẽ và đếm đối tượng ModelSpace trong DWG mẫu, sau đó đối chiếu với số lượng ngoài Layout. Tránh dùng `ActiveDocument` làm biến toàn cục tồn tại qua nhiều bản vẽ: người dùng có thể đổi document. Khi cần thao tác với một document khác, phải chỉ rõ document mục tiêu.
 
-## Bài luyện
+## Thực hành
 
 Vẽ một LINE trong Model và một LINE trong Layout. Nêu số lượng mong đợi khi chỉ duyệt ModelSpace. Chỉ ra collection nào cần đọc nếu yêu cầu là “tất cả layer” thay vì “tất cả LINE”.

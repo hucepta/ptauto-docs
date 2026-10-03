@@ -51,6 +51,6 @@ Alignment + danh sách station + Surface → điểm trên tuyến + cao độ �
 
 Các node có thể trả list lồng hoặc `null` khi station ngoài miền surface. Kiểm tra đầu vào và số lượng hàng trước khi tạo đối tượng mới. Nếu graph chạy trên bản vẽ khác, tên object trùng không bảo đảm là cùng object; hãy chọn theo ID/đặc điểm được xác nhận.
 
-## Bài luyện
+## Thực hành
 
 Thiết kế graph chỉ đọc ba station của một Alignment. Nêu điều gì xảy ra khi surface không phủ station cuối. Report phải ghi station lỗi, không tạo cao độ 0 giả.

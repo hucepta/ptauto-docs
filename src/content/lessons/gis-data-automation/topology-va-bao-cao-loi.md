@@ -51,6 +51,6 @@ Feature nguồn → geometry validity → quy tắc topology → danh sách lỗ
 
 Không tự snap và ghi đè dữ liệu gốc khi chưa có quyền và quy tắc. Lưu bản lỗi và bản sau sửa để kiểm tra tác động. Report gồm `feature_id`, `rule`, `location`, `severity`, `suggestion`; lỗi không có ID rất khó trả về đội thiết kế.
 
-## Bài luyện
+## Thực hành
 
 Tạo ba đoạn ống: hai đoạn nối đúng, một đoạn hở 0,2 m. Dự đoán số lỗi khi dung sai 0,05 m và 0,25 m; giải thích vì sao chọn ngưỡng phải dựa vào yêu cầu dự án.

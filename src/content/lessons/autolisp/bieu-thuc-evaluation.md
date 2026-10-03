@@ -52,7 +52,7 @@ Một list thường được hiểu như lời gọi hàm. Để giữ nó làm
 
 Bạn nhận một danh sách ba số, thay vì yêu cầu AutoLISP gọi số 6 như một hàm. Đây là khác biệt cần nắm trước khi làm việc với điểm, danh sách thuộc tính và bộ lọc đối tượng.
 
-## Tự kiểm tra
+## Kiểm tra
 
 Dự đoán kết quả của (+ 3 (* 2 5)), rồi nhập vào dòng lệnh. Kết quả mong đợi: 13. Tiếp theo so sánh (+ 3 5) với '(+ 3 5): một biểu thức được tính, một biểu thức được giữ làm dữ liệu.
 

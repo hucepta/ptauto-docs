@@ -51,6 +51,6 @@ Document → Database → Transaction → BlockTable → ModelSpace → AppendEn
 
 Đọc hoặc ghi đúng `OpenMode`; không giữ `DBObject` ra ngoài vòng đời transaction. Trước khi tạo 500 marker hạ tầng, kiểm tra layer đích, tọa độ, số lượng dự kiến và cách Undo. Nếu có lỗi ở marker thứ 200, một transaction lớn có thể giúp rollback toàn lượt; nhưng thao tác rất lớn cần cân nhắc hiệu năng và chia lô hợp lý.
 
-## Bài luyện
+## Thực hành
 
 Trên DWG thử, thiết kế lệnh thêm một LINE dài 10 đơn vị. Ghi thứ tự 7 bước trước khi viết C#. Bỏ `Commit` trong bản thử riêng và kiểm tra sau khi lệnh kết thúc LINE có còn trong DWG hay không.

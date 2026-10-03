@@ -37,6 +37,6 @@ Tạo thư mục học riêng, lưu đoạn sau thành `hello.lsp` bằng mã h�
 
 Mở một DWG thử. Gõ `APPLOAD`, chọn `hello.lsp`, sau đó gõ `HELLO` tại Command Line. Dòng `c:HELLO` định nghĩa lệnh, còn khi gọi bạn chỉ gõ `HELLO`. `princ` đầu in thông báo; `princ` cuối kết thúc gọn, không in giá trị trả về thừa.
 
-## Tự kiểm tra
+## Kiểm tra
 
 Đổi thông báo thành `Da nap ban moi`, Save và nạp lại. Nếu vẫn thấy dòng cũ, kiểm tra đường dẫn file đã nạp. Nếu AutoCAD báo không biết `HELLO`, kiểm tra tên file, việc nạp và dấu ngoặc. Ghi lại ba bước bạn thực hiện và phản hồi nhận được; đó là quy trình gỡ lỗi đầu tiên.

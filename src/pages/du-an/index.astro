@@ -5,7 +5,8 @@ import { getContentUrl } from '../../domain/content/graph';
 import { withBase } from '../../domain/content/urls';
 const { graph } = await getContent();
 ---
-<SiteLayout title="Dự án thực hành" description="Áp dụng kiến thức vào tiện ích tự động hóa CAD."><div class="page narrow">
-<h1>Từ kiến thức đến công cụ</h1>
-<ul class="link-list">{graph.projects.map(p=><li><a href={withBase(getContentUrl(graph,p.id))}>{p.title}</a><p>{p.description}</p></li>)}</ul></div></SiteLayout>
+<SiteLayout title="Dự án thực hành" description="Dự án thực hành cho sáu lộ trình học."><div class="page narrow">
+<h1>Dự án theo sáu lộ trình</h1><p>Mỗi dự án có dữ liệu thử, hướng dẫn giải, sơ đồ luồng và điểm cần đối chiếu trên bản vẽ hoặc dữ liệu thực.</p>
+{graph.courses.map(course=><section class="related project-group"><h2>{course.title}</h2><p>{course.description}</p><ul class="link-list">{graph.projects.filter(p=>p.technology===course.technology).map(p=><li><a href={withBase(getContentUrl(graph,p.id))}>{p.title}</a><p>{p.description}</p></li>)}</ul></section>)}
+</div></SiteLayout>
 

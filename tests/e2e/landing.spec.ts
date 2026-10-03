@@ -59,16 +59,17 @@ test('demo_step_changes_code_and_visible_geometry_together', async ({ page }) =>
     const demo = page.locator('[data-code-demo]');
     await demo.scrollIntoViewIfNeeded();
     await demo.getByRole('button', { name: '01 Chọn tuyến', exact: true }).click();
-    await expect(demo.locator('.stake-points')).toHaveCSS('opacity', '0');
+    await expect(demo.locator('.contour-lines')).toHaveCSS('opacity', '0');
     await expect(demo.locator('[data-code-step="0"]')).toHaveAttribute('aria-current', 'step');
-    await demo.getByRole('button', { name: '02 Đo tuyến', exact: true }).click();
-    await expect(demo.locator('.route-measure')).toHaveCSS('opacity', '1');
-    await demo.getByRole('button', { name: '03 Lấy lý trình', exact: true }).click();
-    await expect(demo.locator('.stake-guides')).toHaveCSS('opacity', '1');
-    await demo.getByRole('button', { name: '04 Đặt mốc', exact: true }).click();
-    await expect(demo.locator('.stake-points')).toHaveCSS('opacity', '1');
-    await expect(demo.locator('[data-code-step="3"] pre')).toContainText('entmakex');
+    await demo.getByRole('button', { name: '02 Nhập thông số', exact: true }).click();
+    await expect(demo.locator('.contour-settings')).toHaveCSS('opacity', '1');
+    await demo.getByRole('button', { name: '03 Tính đường', exact: true }).click();
+    await expect(demo.locator('.contour-lines')).toHaveCSS('opacity', '1');
+    await demo.getByRole('button', { name: '04 Vẽ kết quả', exact: true }).click();
+    await expect(demo.locator('.contour-labels')).toHaveCSS('opacity', '1');
+    await expect(demo.locator('[data-code-step="3"] pre')).toContainText('RCT:lwpolyline');
     await expect(demo.locator('[data-code-step="3"]')).toHaveAttribute('aria-current', 'step');
+    await expect(demo.locator('[data-code-step]:visible')).toHaveCount(1);
 });
 
 test('reduced_motion_renders_final_scene_and_keeps_manual_demo_usable', async ({ page }) => {
@@ -81,8 +82,8 @@ test('reduced_motion_renders_final_scene_and_keeps_manual_demo_usable', async ({
     expect(await hero.evaluate(element => element.getAnimations({ subtree: true }).filter(animation => animation.playState === 'running').length)).toBe(0);
     const demo = page.locator('[data-code-demo]');
     await demo.scrollIntoViewIfNeeded();
-    await demo.getByRole('button', { name: '02 Đo tuyến', exact: true }).click();
-    await expect(demo.locator('.route-measure')).toHaveCSS('opacity', '1');
+    await demo.getByRole('button', { name: '02 Nhập thông số', exact: true }).click();
+    await expect(demo.locator('.contour-settings')).toHaveCSS('opacity', '1');
 });
 
 test('landing_fits_mobile_tablet_and_comment_viewport', async ({ page }) => {

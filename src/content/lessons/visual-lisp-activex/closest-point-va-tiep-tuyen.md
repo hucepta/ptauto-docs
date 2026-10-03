@@ -51,6 +51,6 @@ Một hố ga khảo sát có thể nằm lệch khỏi tim tuyến. Muốn báo
 
 Với polyline gấp khúc, điểm gần nhất có thể ở đỉnh. Hướng tại đỉnh cần quy tắc riêng: hướng đoạn trước, đoạn sau hoặc trung bình tùy yêu cầu; đừng khẳng định một vector duy nhất có nghĩa thiết kế. Hàm Curve API có thể không áp dụng cho mọi loại entity, nên kiểm tra loại và bắt lỗi COM.
 
-## Bài luyện
+## Thực hành
 
 Vẽ polyline chữ L và đặt P gần một đoạn thẳng, rồi gần đúng đỉnh. Dự đoán vị trí Q trước khi chạy. Ghi rõ trường hợp nào bạn sẽ từ chối xuất hướng nhãn vì tiếp tuyến không ổn định.

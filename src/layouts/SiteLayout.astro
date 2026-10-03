@@ -9,7 +9,7 @@ interface Props {
     description: string;
 }
 const { title, description } = Astro.props;
-const nav = [['Kho tri thức', '/#chu-de'], ['Tra cứu', '/tra-cuu/'], ['Thuật ngữ', '/thuat-ngu/'], ['Dự án', '/du-an/'], ['Đã lưu', '/da-luu/']];
+const nav = [['Kho tri thức', '/#chu-de'], ['Tra cứu API', '/tra-cuu/'], ['Từ điển', '/thuat-ngu/'], ['Dự án', '/du-an/'], ['Đã lưu', '/da-luu/']];
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
 const searchShortcut = ['/', '/tra-cuu/', '/tim-kiem/'].includes(pathname);
 ---

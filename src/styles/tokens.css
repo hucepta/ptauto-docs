@@ -16,12 +16,11 @@ body {
   margin: 0;
   color: var(--ink);
   font: 16px/1.75 var(--font);
-  background: linear-gradient(180deg, #eaf5f9 0, #f7fbfc 24rem, #fff 55rem);
+  background: radial-gradient(ellipse 72vw 45rem at 83% 3%, #185a78 0, transparent 68%), radial-gradient(ellipse 50vw 35rem at 15% 75%, #123e5c 0, transparent 70%), #08243e;
+  background-attachment: fixed;
 }
 body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(ellipse 80vw 36rem at 80% 0, #9cd6e941, transparent 75%),
-    linear-gradient(#2d759014 1px, transparent 1px), linear-gradient(90deg, #2d759014 1px, transparent 1px);
-  background-size: auto, 40px 40px, 40px 40px; opacity: .55; animation: site-atmosphere 16s linear infinite; }
+  background: radial-gradient(ellipse 58vw 30rem at 72% 22%, #38aed522, transparent 78%); opacity: .55; animation: site-atmosphere 16s ease-in-out infinite; }
 @keyframes site-atmosphere { 0%, 100% { opacity: .3; } 55%, 75% { opacity: .6; } }
 a { color: var(--accent); text-underline-offset: .2em; }
 a:hover { color: var(--teal); text-decoration-thickness: 2px; }

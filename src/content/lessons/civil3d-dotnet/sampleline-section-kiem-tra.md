@@ -47,6 +47,6 @@ Một tuyến dài 1 km dự kiến có Sample Line mỗi 20 m nhưng vài lý t
 
 Tạo bảng gồm station, số Section, tên source và khoảng offset trái/phải. Nếu một sample line không có section, ghi lỗi cụ thể để người dùng sửa nguồn hoặc chạy lại sampling. Với surface chưa cập nhật, báo cáo phải có dấu hiệu cần rebuild/refresh trước khi nghiệm thu.
 
-## Bài luyện
+## Thực hành
 
 Trên DWG mẫu, tạo ba sample line nhưng chỉ hai mặt cắt hợp lệ. Tool chỉ đọc phải báo đúng một lý trình thiếu dữ liệu. Sau đó đổi tên source và xác nhận report không nhầm tên cũ.

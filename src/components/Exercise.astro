@@ -5,6 +5,7 @@ import { getExampleAnchor } from '../domain/content/graph';
 import { readExampleCode } from '../domain/content/example-source';
 import type { ExerciseEntry, ExampleEntry } from '../domain/content/schema';
 import CodeExample from './CodeExample.astro';
+import ProcessVisual from './ProcessVisual.astro';
 interface Props {
     exercise: ExerciseEntry;
     visibleExampleIds?: string[];
@@ -12,16 +13,23 @@ interface Props {
 const { exercise, visibleExampleIds = [] } = Astro.props;
 const { graph, exercises } = await getContent();
 const entry = exercises.find(e => e.data.id === exercise.id)!;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const solution = exercise.solutionExampleId ? graph.entries.get(exercise.solutionExampleId) as ExampleEntry : undefined;
 const alreadyVisible = !!solution && visibleExampleIds.includes(solution.id);
 const code = solution && !alreadyVisible ? await readExampleCode(solution, 'src/content/examples/code') : '';
+const guidance: Record<string, string> = {
+  'exercise.visual-lisp-activex.doc-coordinates': 'Đọc Coordinates, bóc Variant và SafeArray, chia list phẳng thành từng cặp XY; ghép Elevation đọc riêng. Kiểm bốn record và hình học không đổi.',
+  'exercise.gis-data-automation.lap-ho-so-crs': 'Nguồn A: dừng chuyển CRS vì thiếu hồ sơ. Nguồn B: xác nhận WGS84 longitude/latitude rồi kiểm GeoJSON. Nguồn C: gán đúng CRS từ WKT2 đã được chứng minh, sau đó mới reprojection nếu đích khác.',
+  'exercise.autolisp.chuyen-he-toa-do': 'Dùng trans chuyển điểm UCS→WCS→UCS, đo sai số dưới 1e-8. Với vector, truyền displacement T để bỏ phần tịnh tiến của gốc UCS.'
+};
 ---
 <section class="exercise" id={exercise.id.replaceAll('.','-')} data-pagefind-ignore>
   <p class="eyebrow">Thực hành</p><h3>{exercise.title}</h3><Content />
-  <p><strong>Tự kiểm tra:</strong> {exercise.expectedResult}</p>
+  <ProcessVisual title={exercise.title} technology={exercise.technology} steps={headings.filter(h=>h.depth===2).slice(0,3).map(h=>h.text)} output={exercise.expectedResult} />
+  <p><strong>Kiểm tra:</strong> {exercise.expectedResult}</p>
   {solution&&<details class="solution"><summary>Xem gợi ý lời giải</summary><div>
     <p>{solution.description}</p>
     {alreadyVisible?<a href={'#'+getExampleAnchor(solution.id)}>Đối chiếu với ví dụ code</a>:<CodeExample example={solution} code={code} anchorId={getExampleAnchor(solution.id)} />}
   </div></details>}
+  {!solution&&guidance[exercise.id]&&<details class="solution"><summary>Xem gợi ý lời giải</summary><p>{guidance[exercise.id]}</p></details>}
 </section>

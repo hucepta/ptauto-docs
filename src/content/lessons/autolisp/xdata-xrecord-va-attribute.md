@@ -45,6 +45,6 @@ Ví dụ này chỉ minh họa cách nhận diện attribute, chưa ghi XData ha
   (reverse tags))
 ```
 
-## Tự kiểm tra
+## Kiểm tra
 
 Thử block có 0, 1 và nhiều attribute; thử block đã đổi tên nhưng vẫn giữ handle; thử DWG được sao chép sang hồ sơ khác. So số mã cọc tìm được với CSV nguồn. Chỉ chọn nơi lưu sau khi đã biết bên nhận DWG có thể đọc kiểu metadata đó.

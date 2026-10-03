@@ -41,12 +41,14 @@
 }
 ---
 
-## Một tuyến có thể đúng mà nhìn sai
+## Vấn đề
+
+**Một tuyến có thể đúng mà nhìn sai.**
 
 Alignment lưu hình học và dữ liệu thiết kế; Alignment Style quyết định nét/hiển thị, Label Style quyết định nhãn lý trình hoặc hình học. Nếu plugin tạo tuyến nhưng chọn nhầm style, người dùng có thể tưởng dữ liệu bị lỗi. Style là đối tượng có ID trong document, không phải chuỗi màu tùy ý.
 
 Trước khi thêm đối tượng, liệt kê style có trong DWG mẫu và chọn theo tên/ID đã kiểm tra. Không lấy phần tử đầu của collection nếu nó có thể rỗng hoặc khác giữa template dự án. Đọc Settings để biết giá trị mặc định của host, nhưng ghi lại những thiết lập thực sự ảnh hưởng kết quả.
 
-## Bài luyện
+## Thực hành
 
 Với cùng một Alignment, áp dụng hai style trong bản sao DWG và so hình học/số liệu lý trình. Ghi điều gì đổi, điều gì giữ nguyên. Thiết kế thông báo khi template thiếu style yêu cầu thay vì âm thầm dùng style đầu tiên.

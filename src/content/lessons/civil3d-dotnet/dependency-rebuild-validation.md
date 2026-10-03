@@ -47,6 +47,6 @@ Sửa Alignment hoặc Surface có thể ảnh hưởng Profile, Corridor, Secti
 
 Một báo cáo đáng tin phải nêu tên DWG, version Civil 3D, đối tượng nguồn, thời điểm đọc và lỗi. Nếu thiếu surface hoặc profile, báo lỗi theo đối tượng; không thay bằng số 0. Khi thực hiện cập nhật, bao vùng thay đổi bằng transaction phù hợp và kiểm tra khả năng rollback.
 
-## Bài luyện
+## Thực hành
 
 Vẽ sơ đồ phụ thuộc Alignment → Profile → Corridor → Section. Chọn một thay đổi ở Alignment và đánh dấu các dữ liệu cần kiểm tra lại. Viết ba test cho tool kiểm kê: nguồn hợp lệ, nguồn thiếu, nguồn có nhưng chưa cập nhật.

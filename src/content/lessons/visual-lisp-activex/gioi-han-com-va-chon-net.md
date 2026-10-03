@@ -53,6 +53,6 @@ Một routine kiểm tra Layer và chiều dài vài trăm polyline có thể đ
 
 Đừng chuyển ngôn ngữ chỉ vì code dài. Trước hết tách logic tính toán, đầu vào và truy cập bản vẽ. Khi đổi sang .NET, giữ bộ dữ liệu thử và tiêu chí nghiệm thu cũ để so kết quả hai bản.
 
-## Bài luyện
+## Thực hành
 
 Lập bảng cho tool “đếm và báo cáo layer của 5.000 LINE”: API, độ trễ chấp nhận, hệ điều hành, cách triển khai, cách thử. Viết quyết định bằng một đoạn ngắn có điều kiện thay đổi quyết định.

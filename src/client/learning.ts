@@ -40,7 +40,7 @@ async function initialize() {
                     return;
                 if (next) {
                     el.href = url(byId.get(next)!.url);
-                    el.textContent = p.completed || snapshot.lastVisit ? 'Tiếp tục học' : 'Bắt đầu học';
+                    el.textContent = p.completed ? 'Tiếp tục học' : 'Bắt đầu học';
                 }
                 else {
                     el.textContent = 'Ôn lại lộ trình';
@@ -61,22 +61,17 @@ async function initialize() {
         });
     };
     const renderBookmarks = (snapshot: LearningSnapshot) => {
-        const list = document.querySelector<HTMLElement>('[data-bookmarks-list]');
-        if (!list)
-            return;
-        list.replaceChildren();
+        const lists = document.querySelectorAll<HTMLElement>('[data-bookmarks-list], [data-home-bookmarks-list]');
+        if (!lists.length) return;
         const ids = catalog.pages.filter(p => snapshot.bookmarks[p.id]?.saved).sort((a, b) => (snapshot.bookmarks[b.id].updatedAt).localeCompare(snapshot.bookmarks[a.id].updatedAt));
         const empty = document.querySelector<HTMLElement>('[data-bookmarks-empty]');
         if (empty)
             empty.hidden = ids.length > 0;
-        for (const p of ids) {
-            const li = document.createElement('li');
-            li.append(makeLink(p.id));
-            const description = document.createElement('p');
-            description.textContent = p.description;
-            li.append(description);
-            list.append(li);
-        }
+        lists.forEach(list => { list.replaceChildren(); for (const p of list.matches('[data-home-bookmarks-list]') ? ids.slice(0, 3) : ids) {
+            const li = document.createElement('li'); li.append(makeLink(p.id));
+            const description = document.createElement('p'); description.textContent = p.description;
+            li.append(description); list.append(li);
+        }});
     };
     document.querySelectorAll<HTMLButtonElement>('[data-bookmark]').forEach(b => b.addEventListener('click', () => {
         const saved = !!repo.read().snapshot.bookmarks[b.dataset.bookmark!]?.saved;

@@ -64,6 +64,6 @@ Một file có cột lý trình dạng `"125.50"`, còn phép tính cần số 1
 
 Chọn định dạng số rõ ràng và giữ nguyên giá trị gốc để có thể đối chiếu. `nil` từ bước chuyển đổi không được đi tiếp vào phép cộng. Nếu số 0 là một lý trình hợp lệ, đừng dùng điều kiện `> 0` để loại nó.
 
-## Bài luyện
+## Thực hành
 
 Thử chuỗi `"0"`, `"25.25"`, chuỗi rỗng và `"Km25"`. Ghi giá trị nào được chấp nhận, giá trị nào cần báo lỗi. Sau đó tạo hàm chỉ trả số hoặc `nil`; phần gọi hàm mới quyết định thông báo cho người dùng.

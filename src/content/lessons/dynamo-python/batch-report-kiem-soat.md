@@ -47,6 +47,6 @@ Một graph có thể trả 498 hàng từ CSV 500 cọc mà không ai biết 2 
 
 Đối với file Excel/CSV, xác định encoding, dấu thập phân, đơn vị và tên cột. Đừng cho `null` chảy sâu vào node hình học rồi mới tìm lỗi. Tách bước normalize, validate, transform và export; Watch hoặc log ở ranh giới từng bước. Graph chạy lặp phải tránh tạo trùng đối tượng ngoài ý muốn; kiểm tra object binding của version Dynamo.
 
-## Bài luyện
+## Thực hành
 
 Tạo CSV 5 hàng: 3 hợp lệ, 1 thiếu ID, 1 station dạng chữ. Thiết kế hai đầu ra có 3 và 2 hàng, đối chiếu tổng vẫn là 5. Sau đó chạy lại graph và kiểm tra có nhân đôi dữ liệu hay không.

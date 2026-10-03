@@ -52,6 +52,6 @@ GeoJSON thuận tiện cho trao đổi feature đơn giản nhưng theo RFC 7946
 | Bàn giao cho hệ thống cũ yêu cầu | Shapefile, kiểm tra giới hạn |
 | Hình học thiết kế Civil theo luồng hỗ trợ | LandXML |
 
-## Bài luyện
+## Thực hành
 
 Xuất 3 cọc sang hai định dạng rồi nhập lại. So ID, chữ tiếng Việt, số thập phân, CRS và số đối tượng. Ghi khác biệt vào bảng QA, không xem “mở được file” là đủ.

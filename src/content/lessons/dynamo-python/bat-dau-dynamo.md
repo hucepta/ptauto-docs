@@ -24,6 +24,6 @@ Trong Civil 3D, mở Dynamo và tạo graph mới. Thêm các Number hoặc Code
 
 Khi node có sẵn không diễn đạt gọn một quy tắc, Python node nhận dữ liệu qua `IN` và trả qua `OUT`. Nếu cần gọi AutoCAD/Civil API trong Python, engine và assembly phải phù hợp với host. Bài đầu chưa cần truy cập host; ta sẽ học list/lacing trước để không đưa một lỗi dữ liệu vào script.
 
-## Tự kiểm tra
+## Kiểm tra
 
 Ngắt một dây và quan sát Watch; nối lại rồi đổi một đầu vào. Ghi rõ node nào đổi đầu tiên và kết quả nào đổi theo. Lưu graph cùng phiên bản Civil 3D/Dynamo để người khác có thể tái hiện.

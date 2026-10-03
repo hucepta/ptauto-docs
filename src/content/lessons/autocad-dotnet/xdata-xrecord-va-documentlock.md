@@ -52,6 +52,6 @@ Một cọc có thể mang mã quản lý không thể suy ra từ hình học. 
 | Mã cọc gắn với một block | XData của block reference |
 | Cấu hình chung bản vẽ | Named Objects Dictionary + Xrecord |
 
-## Bài luyện
+## Thực hành
 
 Viết schema cho một `stake_id` và `alignment_id` có version. Mô tả cách tool xử lý entity cũ chưa có metadata, entity bị xóa, và người dùng mở hai DWG cùng lúc.

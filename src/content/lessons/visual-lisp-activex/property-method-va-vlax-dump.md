@@ -58,6 +58,6 @@
 
 `vlax-dump-object` là công cụ quan sát trong môi trường phát triển; đầu ra có thể rất dài. Đừng sao chép toàn bộ danh sách thành viên vào routine sản xuất. Trước khi ghi property, kiểm tra `vlax-property-available-p` với tham số kiểm tra writable khi cần. Trước khi gọi method không chắc có, dùng `vlax-method-applicable-p`.
 
-## Bài luyện
+## Thực hành
 
 So Layer và ObjectName của LINE và CIRCLE. Chọn một property chỉ đọc và một method, ghi rõ mục đích của `get`, `put` và method. Thử bấm Escape để bảo đảm không gọi hàm COM với `nil`.

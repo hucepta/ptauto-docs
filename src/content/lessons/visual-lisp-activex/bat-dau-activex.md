@@ -31,6 +31,6 @@ Mở DWG thử có LINE. Chạy từng biểu thức sau trong AutoCAD Command L
 
 `entsel` trả một list chứa ename và điểm chọn; `car` lấy ename. Nhánh `if` ngăn chuyển đổi khi người dùng bấm Escape hoặc không chọn được đối tượng. `vla-get-ObjectName` trả tên loại đối tượng theo COM; `vla-get-Layer` trả tên layer. Chưa có dòng nào sửa DWG.
 
-## Tự kiểm tra
+## Kiểm tra
 
 Chọn một CIRCLE rồi so kết quả với LINE. Bấm Enter mà không chọn để thấy nhánh `nil`. Nếu gọi `vla-get-Layer` trực tiếp với ename, bạn sẽ thấy vì sao phải chuyển sang VLA object. Sau bài này, học Object Model để hiểu đối tượng đang nằm ở đâu trong Document.

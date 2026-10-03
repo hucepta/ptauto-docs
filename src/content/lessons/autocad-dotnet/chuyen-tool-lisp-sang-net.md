@@ -49,6 +49,6 @@ Tạo fixture DWG có 2 LINE, 1 CIRCLE, 1 LINE trên layer bị khóa và một 
 
 Khi chuẩn bị sang Civil 3D, xác định rõ plugin hiện tại chỉ dùng AutoCAD API hay gọi CivilDocument. Hai trường hợp có yêu cầu host/dependency khác nhau.
 
-## Bài luyện
+## Thực hành
 
 Viết bảng chuyển `ssget`, `entget`, `assoc 8`, `princ` sang các khái niệm .NET tương ứng; ghi chỗ nào không có ánh xạ một-một. Đề xuất cách kiểm tra phiên bản DLL khi người dùng báo “lệnh cũ vẫn chạy”.

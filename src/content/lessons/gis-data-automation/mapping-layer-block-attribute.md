@@ -51,6 +51,6 @@ Trong DWG, tên layer có thể gợi loại đối tượng nhưng không chứ
 | `source_handle` | Handle entity | Giữ để truy vết bản vẽ |
 | `diameter_mm` | Attribute/kích thước Civil | Chuyển số, xác nhận đơn vị |
 
-## Bài luyện
+## Thực hành
 
 Lập mapping cho 5 block hố ga và 3 line ống. Cố ý để một block thiếu ID và hai ống trùng mã. Report cần chỉ rõ hai loại lỗi và số feature được phép xuất.

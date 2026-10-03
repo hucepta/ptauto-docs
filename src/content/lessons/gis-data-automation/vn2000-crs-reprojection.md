@@ -47,6 +47,6 @@ Tọa độ 500000, 1200000 có thể là mét trong một hệ chiếu phẳng,
 
 `set_crs`/gán CRS chỉ gắn ý nghĩa cho giá trị đang có. `to_crs`/reprojection tính tọa độ mới. Nếu CRS nguồn sai, phép chuyển toán học vẫn chạy nhưng vị trí đầu ra sai. Khi dùng pyproj, xác nhận thứ tự trục; `always_xy=True` giữ thứ tự x/y theo cách nhiều quy trình GIS sử dụng.
 
-## Bài luyện
+## Thực hành
 
 Lập phiếu thông tin CRS cho một bộ cọc: nguồn, datum, phép chiếu, kinh tuyến trục, múi, đơn vị và điểm kiểm tra. Nếu thiếu hai mục quan trọng, nêu lý do chưa được chuyển tọa độ. Sau khi chuyển, so ít nhất một điểm mốc đã biết.

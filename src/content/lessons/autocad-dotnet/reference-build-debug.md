@@ -53,6 +53,6 @@ Tạo cấu hình Debug với reference đúng SDK của host. Build vào thư m
 | NETLOAD không nạp | Version API và dependency |
 | Lệnh có nhưng lỗi khi chạy | Input, Document, Transaction, exception |
 
-## Bài luyện
+## Thực hành
 
 Viết một trang nhật ký thử gồm host/version, SDK/version, framework, đường dẫn DLL, tên lệnh, kết quả NETLOAD và kết quả chạy. Dùng mẫu này cho mọi plugin về sau.

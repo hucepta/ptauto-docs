@@ -1,14 +1,11 @@
 ---
 import type { Technology } from '../../domain/content/schema';
-interface Props { title: string; description: string; technology: Technology; href: string; lessonCount: number; chapters: { title: string; href: string }[]; }
-const { title, description, technology, href, lessonCount, chapters } = Astro.props;
-const badges = { autolisp: 'LSP', 'visual-lisp-activex': 'VL', 'autocad-dotnet': 'C#', 'civil3d-dotnet': 'C3D', 'dynamo-python': 'PY', 'gis-data-automation': 'GIS' };
+interface Props { title: string; description: string; technology: Technology; href: string; }
+const { title, description, href } = Astro.props;
 ---
 <article class="knowledge-card">
   <div class="knowledge-copy">
-    <div class="knowledge-meta"><span class="knowledge-badge" aria-hidden="true">{badges[technology]}</span><span class="knowledge-status">{lessonCount} bài học</span></div>
     <h3><a href={href}>{title}<span aria-hidden="true"> →</span></a></h3>
     <p>{description}</p>
-    <ul class="knowledge-chapters">{chapters.map(chapter => <li><a href={chapter.href}>{chapter.title}</a></li>)}</ul>
   </div>
 </article>

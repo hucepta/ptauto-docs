@@ -53,6 +53,6 @@
 
 Trước khi tính quantity, ghi đơn vị, version mô hình và trạng thái rebuild. Một corridor chưa rebuild có thể không phản ánh chỉnh sửa mới nhất. Nút giao, pressure network và tính khối lượng chi tiết cần quy tắc riêng; bài này chỉ dựng cách đọc an toàn.
 
-## Bài luyện
+## Thực hành
 
 Lập report cho một corridor có hai region và một pipe network có ba pipe. Thử trường hợp network rỗng và một region thiếu assembly hợp lệ. Tool cần nêu đúng tên đối tượng lỗi.
