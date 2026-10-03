@@ -15,6 +15,14 @@
     {
       "title": "Autodesk — Transaction.Commit",
       "url": "https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_DatabaseServices_Transaction_Commit.html"
+    },
+    {
+      "title": "Tài liệu chính thức — Transaction.Commit",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm"
+    },
+    {
+      "title": "Tài liệu chính thức — Transaction.Commit",
+      "url": "https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm"
     }
   ],
   "compatibility": [
@@ -32,28 +40,43 @@
 }
 ---
 
-## Cú pháp
+## Môi trường và phạm vi
+
+Mẫu nhắm SDK AutoCAD 2025 (API 25.0), `net8.0-windows`, Windows x64; bộ reference `AcCoreMgd.dll`, `AcMgd.dll`, `AcDbMgd.dll` cùng phiên bản, `Copy Local = False`. Phạm vi .NET 8 là AutoCAD 2025 đến Update 1.3; Update 1.4 trở lên dùng .NET 10 theo [bảng tương thích Autodesk](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm). Chưa build hoặc chạy các đoạn này trong host. Không suy rộng sang bản 2026/2027.
+
+## Cú pháp và ý nghĩa
 
 ```csharp
 public virtual void Commit();
 ```
 
-## Tham số và kết quả
+Không có tham số hoặc giá trị trả về. Xác nhận thay đổi của các `DBObject` đã mở trong transaction và đóng chúng. [Chữ ký Autodesk 2026](https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_DatabaseServices_Transaction_Commit.html).
 
-Không có tham số; xác nhận thay đổi trong transaction.
+## Ví dụ có ngữ cảnh
 
-## Ví dụ
-
-Lưu thay đổi transaction. Đoạn dưới đặt trong lệnh C#; `ed` là Editor của Document đang làm việc, `tr` là Transaction còn mở. Ví dụ thực hiện trong command AutoCAD, với `doc` là tài liệu đang hoạt động và `ed` là `doc.Editor`.
+Helper trong DLL command; truyền database hiện hành và ID của một LINE đã chọn thành công. Chạy trên bản sao DWG; LINE cần cho phép chỉnh sửa, không thuộc layer khóa. Nếu prompt bị hủy, command kết thúc trước khi gọi helper.
 
 ```csharp
-tr.Commit();
+using Autodesk.AutoCAD.DatabaseServices;
+
+static bool SetLineColor(Database db, ObjectId id)
+{
+    if (id.IsNull || !id.IsValid || id.IsErased || id.Database != db)
+        return false;
+    using (Transaction tr = db.TransactionManager.StartTransaction())
+    {
+        if (tr.GetObject(id, OpenMode.ForRead) is not Line line)
+            return false;
+        line.UpgradeOpen();
+        line.ColorIndex = 1; // ACI đỏ
+        tr.Commit();
+        return true;
+    }
+}
 ```
 
-## Lỗi thường gặp
+## Kết quả và đối chiếu
 
-Commit không lưu file DWG ra ổ đĩa; người dùng vẫn cần Save.
+Sau khi helper trả `true`, Properties của LINE phải có Color là ACI 1 (đỏ). Chọn CIRCLE trả `false` và không sửa. Nếu lỗi xảy ra trước `Commit`, `using` dispose transaction, rollback thay đổi chưa xác nhận theo [hướng dẫn transaction](https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-50FD6118-B2D1-4313-A7D6-830794DFDEFA.htm).
 
-## Thực hành
-
-Chạy trên bản sao DWG, ghi giá trị hoặc số lượng trước khi thực hiện và đối chiếu trong bảng Properties hoặc Toolspace. Nếu sửa dữ liệu, mở đối tượng ForWrite và Commit transaction; nếu chỉ đọc, giữ ForRead và sao chép giá trị trước khi transaction kết thúc.
+`Commit` cập nhật database đang mở; không tương đương `SAVE`/ghi DWG ra ổ đĩa. Caller vẫn cần xử lý lỗi khóa/layer và quyền ghi của ngữ cảnh. Chỉ thông báo thành công sau khi commit hoàn tất, không commit trong `finally`.

@@ -15,6 +15,10 @@
     {
       "title": "Autodesk — Alignment.StationOffset",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/c6fe2704-261c-3cbd-d159-4d3324963f6f.htm"
+    },
+    {
+      "title": "Tài liệu chính thức — Alignment.StationOffset",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/Civil3D-DevGuide/files/GUID-267E68C8-AD2D-4F7F-87DF-831018D56CDB.htm"
     }
   ],
   "compatibility": [
@@ -30,36 +34,48 @@
 }
 ---
 
+## Môi trường và phạm vi
+
+Mẫu nhắm Civil 3D 2025 đầy đủ trên Windows x64, `net8.0-windows`, theo [hướng dẫn reference 2025](https://help.autodesk.com/cloudhelp/2025/ENU/Civil3D-DevGuide/files/GUID-267E68C8-AD2D-4F7F-87DF-831018D56CDB.htm). Reference `AcCoreMgd.dll`, `AcMgd.dll`, `AcDbMgd.dll`, `AecBaseMgd.dll`, `AeccDbMgd.dll` từ cùng bộ cài 2025; `Copy Local = False`. Kiểm tra runtime của mức cập nhật thực tế trước khi build. Plain AutoCAD hoặc Object Enabler không phải host Civil 3D đầy đủ. Đây là mẫu đối chiếu tài liệu, chưa build hoặc chạy trong host.
+
 ## Cú pháp
 
 ```csharp
-public void StationOffset(
-	double easting,
-	double northing,
-	ref double station,
-	ref double offset
-)
+public void StationOffset(double easting, double northing,
+                          ref double station, ref double offset);
 ```
 
-## Cách gọi
+`easting` và `northing` là X/Y; hai biến `ref` nhận station và offset. [Chữ ký Autodesk 2022, AeccDbMgd 13.4.208.0](https://help.autodesk.com/cloudhelp/2022/ENU/Civil3D-API/files/html/c6fe2704-261c-3cbd-d159-4d3324963f6f.htm) mô tả `PointNotOnEntityException` khi tọa độ ngoài phạm vi Alignment; SDK mẫu vẫn là 2025.
+
+## Ví dụ có ngữ cảnh
+
+Helper nằm trong class DLL, nhận `Alignment` đã mở `ForRead` bằng transaction còn sống và `Point3d` trong WCS của cùng DWG. Command chọn Alignment bằng `GetEntity`, kiểm `PromptStatus.OK`, mở ID, kiểm `is Alignment`, rồi gọi helper trước khi dispose transaction. Command cũng kiểm kết quả `GetPoint`; khi chuyển từ dữ liệu/UCS, xác định hệ tọa độ rõ ràng.
 
 ```csharp
-alignment.StationOffset(easting, northing, ref station, ref offset);
+using Autodesk.AutoCAD.Geometry;
+using Autodesk.Civil;
+using Autodesk.Civil.DatabaseServices;
+
+static (double Station, double Offset)? TryStationOffset(
+    Alignment alignment, Point3d pointWcs)
+{
+    double station = 0.0;
+    double offset = 0.0;
+    try
+    {
+        alignment.StationOffset(pointWcs.X, pointWcs.Y,
+                                ref station, ref offset);
+        return (station, offset);
+    }
+    catch (PointNotOnEntityException)
+    {
+        return null;
+    }
+}
 ```
 
-## Tham số và kết quả
+## Kết quả và đối chiếu
 
-easting/northing là tọa độ nguồn; station/offset là biến ref. Điền station/offset; có thể ném lỗi nếu điểm ngoài phạm vi tuyến.
+Với tuyến thẳng thử theo trục X từ (0,0) đến (100,0), starting station 0, không station equation: điểm (40,0) kỳ vọng station 40, offset 0. Đối chiếu điểm lệch khỏi tim với công cụ Inquiry của Civil 3D và quy ước phía của tuyến; không tự suy dấu offset từ hướng màn hình.
 
-## Cách dùng
-
-Kiểm vị trí hố ga hoặc điểm khảo sát so với tim tuyến.
-
-```csharp
-double station = 0, offset = 0;
-alignment.StationOffset(e, n, ref station, ref offset);
-```
-
-## Kiểm tra khi áp dụng
-
-Phân biệt với PointLocation là chiều biến đổi ngược; xử lý PointNotOnEntityException.
+Điểm ngoài phạm vi trả `null`, không xuất cặp 0/0 như kết quả thành công. Esc ở bước chọn Alignment/điểm kết thúc command; chọn sai kiểu yêu cầu chọn lại hoặc dừng trước khi gọi helper. Lỗi khác vẫn phải báo, không gom mọi lỗi vào nhánh ngoài tuyến. `PointLocation` thực hiện chiều biến đổi ngược; không nhầm station số với chuỗi station định dạng.

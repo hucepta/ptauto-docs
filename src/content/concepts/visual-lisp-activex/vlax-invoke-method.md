@@ -19,6 +19,10 @@
     {
       "title": "Autodesk — vlax-invoke-method",
       "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-A8B097A2-CE86-4B38-B2A9-D6F53EACA8ED.htm"
+    },
+    {
+      "title": "Autodesk — vlax-invoke-method",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-ActiveX-Reference/files/GUID-2D00EF00-0579-4424-85C3-BEABB329CBAD.htm"
     }
   ],
   "aliases": [],
@@ -33,22 +37,35 @@
 (vlax-invoke-method obj method arg [arg ...])
 ```
 
-## Tham số
+## Tham số và kết quả
 
-obj: VLA object; method: tên; arg: các đối số theo method.
+`obj` là VLA-object; `method` là symbol hoặc chuỗi tên method. Số và kiểu đối số theo method được gọi. Kết quả cũng theo method; hàm không kiểm tra trước kiểu đối số.
 
-## Kết quả
+## Ví dụ: đọc FILLMODE bằng GetVariable
 
-Kết quả method, có thể không có giá trị.
-
-## Ví dụ
-
-Nạp `(vl-load-com)` trong AutoCAD Windows. Các ví dụ dùng `obj`/`curve` cần VLA object hợp lệ; chọn một LINE bằng `(setq obj (vlax-ename->vla-object (car (entsel))))` trước khi thử. Biến `curve` dùng cùng đối tượng LINE.
+Chuẩn bị AutoCAD Windows có DWG mở. Dán vào Command Line. Ví dụ chỉ đọc biến hệ thống, không di chuyển entity.
 
 ```lisp
-(vlax-invoke-method obj 'Move (vlax-3d-point '(0 0 0)) (vlax-3d-point '(10 0 0)))
+(defun c:PTAGOIMETHOD (/ doc result)
+  (vl-load-com)
+  (setq doc (vla-get-ActiveDocument (vlax-get-acad-object))
+        result
+          (vl-catch-all-apply
+            'vlax-invoke-method
+            (list doc 'GetVariable "FILLMODE")))
+  (if (vl-catch-all-error-p result)
+    (princ (vl-catch-all-error-message result))
+    (progn
+      (princ "\nFILLMODE: ")
+      (prin1 (vlax-variant-value result))))
+  (princ))
+(c:PTAGOIMETHOD)
 ```
+
+GetVariable trả Variant; ví dụ lấy giá trị bên trong và in thiết lập FILLMODE hiện hành. Không có bước nhập hay nhánh Cancel; lỗi gọi method được in.
 
 ## Lỗi thường gặp
 
-Truyền đúng Variant cho điểm; list LISP không luôn được tự đổi kiểu.
+Method phải áp dụng cho object; có thể kiểm bằng `vlax-method-applicable-p`. Với method nhận điểm, kiểm yêu cầu WCS và kiểu Variant thay vì truyền list tùy ý. API này chỉ hỗ trợ Windows.
+
+[Tham chiếu vlax-invoke-method](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-A8B097A2-CE86-4B38-B2A9-D6F53EACA8ED.htm) và [GetVariable](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-ActiveX-Reference/files/GUID-2D00EF00-0579-4424-85C3-BEABB329CBAD.htm).

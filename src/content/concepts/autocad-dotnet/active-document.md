@@ -19,6 +19,10 @@
     {
       "title": "Tài liệu API chính thức",
       "url": "https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm"
+    },
+    {
+      "title": "Tài liệu chính thức — Application.DocumentManager.MdiActiveDocument",
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm"
     }
   ],
   "compatibility": [
@@ -34,32 +38,32 @@
 }
 ---
 
-## Cú pháp
+## Môi trường và phạm vi
+
+Mẫu nhắm SDK AutoCAD 2025 (API 25.0), `net8.0-windows`, Windows x64; bộ reference `AcCoreMgd.dll`, `AcMgd.dll`, `AcDbMgd.dll` cùng phiên bản, `Copy Local = False`. Phạm vi .NET 8 là AutoCAD 2025 đến Update 1.3; Update 1.4 trở lên dùng .NET 10 theo [bảng tương thích Autodesk](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm). Chưa build hoặc chạy các đoạn này trong host. Không suy rộng sang bản 2026/2027.
+
+## Vai trò
+
+`Application.DocumentManager.MdiActiveDocument` lấy `Document` của tab bản vẽ đang hoạt động. Từ đó lấy `doc.Database` và `doc.Editor`; hai đối tượng phải cùng tài liệu. [Document trong Autodesk .NET](https://help.autodesk.com/cloudhelp/2026/DEU/OARX-DevGuide-Managed/files/GUID-A43A20B7-A73A-4BBC-B871-B8E6B9D1006C.htm).
+
+## Ví dụ có ngữ cảnh
+
+Đặt phương thức sau trong class của DLL command đã nạp bằng `NETLOAD`; command gọi `PrintActiveDrawing()` khi đang ở document context. Đây là helper, không phải chương trình console hoặc một plugin hoàn chỉnh.
 
 ```csharp
-public Document MdiActiveDocument;
+using Autodesk.AutoCAD.ApplicationServices;
+using AcApplication = Autodesk.AutoCAD.ApplicationServices.Core.Application;
+
+static void PrintActiveDrawing()
+{
+    Document doc = AcApplication.DocumentManager.MdiActiveDocument;
+    if (doc == null) return;
+    doc.Editor.WriteMessage("\nBản vẽ hiện hành: " + doc.Name);
+}
 ```
 
-## Cách gọi
+## Kết quả và kiểm tra
 
-```csharp
-Document? doc = Application.DocumentManager.MdiActiveDocument;
-```
+Mở A.dwg rồi chạy command gọi helper: dòng lệnh phải hiện tên A.dwg. Đổi tab sang B.dwg và chạy lại: phải hiện B.dwg. Khi không có document, helper kết thúc; không truy cập `Database` hoặc `Editor` qua giá trị null.
 
-## Tham số và kết quả
-
-Không có đối số; có thể không có bản vẽ hiện hành trong một số ngữ cảnh. Trả Document hiện hành khi có tài liệu mở.
-
-## Cách dùng
-
-Lấy doc.Database để đọc DWG và doc.Editor để hỏi hoặc thông báo người dùng.
-
-```csharp
-var doc = Application.DocumentManager.MdiActiveDocument;
-if (doc is null) return;
-var db = doc.Database;
-```
-
-## Kiểm tra khi áp dụng
-
-Không giữ Document toàn cục rồi dùng lại sau khi người dùng đổi bản vẽ.
+Không cache `Document` toàn cục cho các lần chạy sau. Trong callback modeless hoặc thao tác tài liệu khác, xác định lại document đích và cơ chế `DocumentLock` trước khi ghi. Việc lấy `MdiActiveDocument` chưa mở transaction và không tự cấp quyền ghi.

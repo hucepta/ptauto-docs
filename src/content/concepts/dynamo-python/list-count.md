@@ -12,29 +12,39 @@
     {
       "title": "Tài liệu chính thức: List.Count",
       "url": "https://primer.dynamobim.org/en/06_Designing-with-Lists/6-2_working-with-lists.html"
+    },
+    {
+      "title": "Tài liệu chính thức — List.Count",
+      "url": "https://primer.dynamobim.org/en/06_Designing-with-Lists/6-3_lists-of-lists.html"
     }
   ]
 }
 ---
 
-## Cú pháp và cổng
+## Cổng node
+
+`List.Count` nhận danh sách ở cổng `list` và trả số phần tử ở cấp ngoài cùng. Mỗi danh sách con vẫn là một phần tử. Đây là node Dynamo, không phải hàm Python.
+
+## Dữ liệu và kết nối
+
+Tạo graph mới, thêm Code Block và nhập dữ liệu DesignScript:
 
 ```text
-List.Count(list)
+[[0, 25], [50]];
 ```
 
-## Tham số
+Đặt `List.Count` và `Watch`. Nối đầu ra Code Block → cổng `list` của `List.Count` → `Watch`. Để cổng `list` ở cấu hình mặc định, không bật Use Levels. Chọn Manual rồi Run.
 
-list là danh sách ở cấp muốn đếm.
+## Kết quả mong đợi
 
-## Kết quả
+```text
+2
+```
 
-Số phần tử ở cấp đầu.
+Danh sách có hai nhóm, dù chứa tổng cộng ba số. Đổi nguồn thành `[[0, 25], [50], []];` rồi Run: kết quả là `3`; nhóm rỗng cũng chiếm một vị trí ở cấp ngoài.
 
-## Thực hành
+## Áp dụng và kiểm tra
 
-Trong Dynamo, bấm đúp vùng trống tạo Code Block `[[0,25],[50]];`. Tìm `List.Count` trong Library bên trái, đặt node và nối danh sách vào cổng nguồn. Tìm Watch, nối cổng ra node vào Watch. Chọn Manual và bấm Run; kết quả phải là `2`. Đổi một giá trị nguồn rồi chạy lại để kiểm phụ thuộc.
+Dùng để đếm nhóm tuyến hoặc nhóm cọc trước khi xử lý từng nhánh. Nếu cần đếm số phần tử từng nhóm, phải chọn cấp danh sách phù hợp hoặc dùng List.Map; không suy tổng số phần tử từ số nhóm. Xem dữ liệu nguồn bằng Watch trước khi đổi List@Level.
 
-## Dễ nhầm
-
-Không đếm ba số nằm trong các nhánh con.
+Ví dụ là hướng dẫn dựng graph; chưa được xác nhận chạy trong Dynamo hay AutoCAD/Civil 3D ở đây. [Dynamo Primer: List.Count](https://primer.dynamobim.org/en/06_Designing-with-Lists/6-2_working-with-lists.html).

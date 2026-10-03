@@ -24,29 +24,45 @@
 }
 ---
 
-## Cú pháp và cổng
+## Cú pháp
 
 ```python
 gdf.set_crs(crs=None, epsg=None, inplace=False, allow_override=False)
 ```
 
-## Tham số
+`crs` hoặc `epsg` mô tả hệ tọa độ đã xác minh của dữ liệu. Mặc định trả bản sao; `inplace=True` thay đổi bảng hiện có. `allow_override=True` cho phép thay nhãn CRS khác đang có. Phép này gán CRS cho cột hình học đang hoạt động và giữ nguyên các tọa độ. [Tài liệu GeoPandas: set_crs](https://geopandas.org/en/stable/docs/reference/api/geopandas.GeoDataFrame.set_crs.html).
 
-crs/epsg là hệ nguồn đã xác minh; allow_override cho ghi đè nhãn cũ.
+## Ví dụ tự tạo dữ liệu
 
-## Kết quả
-
-Bảng có nhãn CRS; tọa độ không đổi.
-
-## Thực hành
+Cần môi trường Python có GeoPandas. Dữ liệu giả lập dưới đây được định nghĩa là kinh độ/vĩ độ WGS84; không cần tệp người dùng.
 
 ```python
 import geopandas as gpd
-gdf=gpd.GeoDataFrame({"id":["C01"]},geometry=gpd.points_from_xy([106.7],[10.77]))
-gdf=gdf.set_crs(epsg=4326)
-print(gdf.geometry.x.iloc[0]) # 106.7
+
+gdf = gpd.GeoDataFrame(
+    {"id": ["C01", "C02"]},
+    geometry=gpd.points_from_xy([0, 1], [0, 0]),
+)
+tagged = gdf.set_crs(epsg=4326)
+print(gdf.crs)
+print(tagged.crs.to_epsg())
+print([(p.x, p.y) for p in tagged.geometry])
+print(tagged["id"].tolist())
 ```
 
-## Dễ nhầm
+Kết quả mong đợi chính xác:
 
-Chỉ gán 4326 vì nguồn minh họa được biết là WGS84. Không dùng allow_override để che xung đột CRS thật.
+```text
+None
+4326
+[(0.0, 0.0), (1.0, 0.0)]
+['C01', 'C02']
+```
+
+`gdf` chưa có CRS vì phép gọi tạo bản sao. Hình học trong `tagged` vẫn có cùng giá trị số; chỉ thêm nhãn mô tả cách hiểu tọa độ.
+
+## Kiểm tra khi áp dụng
+
+Muốn chuyển từ độ sang tọa độ chiếu, dùng to_crs sau khi nguồn được gán đúng. Không gán EPSG:4326 cho số đo mét chỉ vì muốn xuất GeoJSON. Nếu có nhãn xung đột, xác minh tài liệu nguồn trước; allow_override chỉ thay nhãn, không sửa giá trị số và không thực hiện phép chiếu.
+
+Ví dụ đã đối chiếu API chính thức; chưa chạy tại đây vì môi trường không có GeoPandas.

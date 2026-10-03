@@ -33,22 +33,35 @@
 (vlax-get-property object property)
 ```
 
-## Tham số
+## Tham số và kết quả
 
-obj: VLA object; property: tên symbol/chuỗi; các đối số tiếp theo nếu property cần chỉ số.
+`object` là VLA-object; `property` là symbol hoặc chuỗi tên property. Kết quả phụ thuộc property: có thể là số, chuỗi, object, Variant hoặc SafeArray. Cú pháp tham chiếu có hai đối số; không tự thêm đối số chỉ mục.
 
-## Kết quả
+## Ví dụ: đọc property Name của Document
 
-Giá trị property, có thể là Variant, SafeArray hoặc object.
-
-## Ví dụ
-
-Nạp `(vl-load-com)` trong AutoCAD Windows. Các ví dụ dùng `obj`/`curve` cần VLA object hợp lệ; chọn một LINE bằng `(setq obj (vlax-ename->vla-object (car (entsel))))` trước khi thử. Biến `curve` dùng cùng đối tượng LINE.
+Chuẩn bị AutoCAD Windows có DWG mở. Dán vào Command Line.
 
 ```lisp
-(vlax-get-property obj 'Layer)
+(defun c:PTADOCPROPERTY (/ app doc result)
+  (vl-load-com)
+  (setq app (vlax-get-acad-object)
+        doc (vla-get-ActiveDocument app)
+        result
+          (vl-catch-all-apply
+            'vlax-get-property (list doc 'Name)))
+  (if (vl-catch-all-error-p result)
+    (princ (vl-catch-all-error-message result))
+    (progn
+      (princ "\nTen DWG: ")
+      (princ result)))
+  (princ))
+(c:PTADOCPROPERTY)
 ```
+
+In tên DWG hiện hành. Không có thao tác chọn hay nhánh Cancel; lỗi đọc property được in thay vì dùng nhầm kết quả lỗi.
 
 ## Lỗi thường gặp
 
-Không coi mọi property đều trả chuỗi; kiểm tra kiểu trước khi dùng.
+Không coi mọi property đều là chuỗi. Sai tên hoặc property không áp dụng cho object có thể gây lỗi; dùng `vlax-property-available-p` khi cần kiểm tra trước. Hỗ trợ ActiveX này chỉ có trên Windows.
+
+[Tham chiếu Autodesk về vlax-get-property](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-B3F22E35-4666-452F-89C8-5BC15B9E9463.htm).

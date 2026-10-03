@@ -22,6 +22,10 @@
     {
       "title": "Autodesk — vl-load-com (AutoLISP/ActiveX)",
       "url": "https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-6C7A8632-C12F-42BD-909E-68D804863AE2.htm"
+    },
+    {
+      "title": "Autodesk — vl-load-com",
+      "url": "https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-3221619A-85E4-470E-AF2E-34048BB3DED5.htm"
     }
   ],
   "examplePlacements": [
@@ -37,25 +41,35 @@
 
 ## Cú pháp
 
-    (vl-load-com)
+```lisp
+(vl-load-com)
+```
 
-Không có đối số, luôn trả nil. Nếu đã nạp các hàm mở rộng, lời gọi không làm gì thêm.
+Không nhận đối số, luôn trả `nil`. Khi các phần mở rộng đã nạp, gọi lại không nạp thêm.
 
 ## Khi sử dụng
 
-Gọi ở phần khởi tạo trước khi dùng các hàm mở rộng ActiveX. Chỉ áp dụng trên Windows; không dùng bước này để khẳng định code chạy trên macOS hoặc Web.
+Gọi trước các hàm ActiveX cần phần mở rộng. Autodesk giới hạn hỗ trợ này trên Windows; cần kiểm tra API của sản phẩm và phiên bản đang dùng.
 
+## Ví dụ: nạp rồi đọc tên DWG
 
-## Ví dụ
+Chuẩn bị AutoCAD Windows có DWG đang mở. Dán toàn bộ vào Command Line.
 
 ```lisp
-(vl-load-com)
-(setq app (vlax-get-acad-object))
-(vla-get-Name app)
+(defun c:PTACOM (/ app doc)
+  (vl-load-com)
+  (setq app (vlax-get-acad-object)
+        doc (vla-get-ActiveDocument app))
+  (princ "\nDWG dang hoat dong: ")
+  (princ (vla-get-Name doc))
+  (princ))
+(c:PTACOM)
 ```
 
-Kết quả cuối là tên ứng dụng đang chạy. nil từ vl-load-com là kết quả bình thường, không phải báo lỗi nạp.
+Kết quả là tên DWG hiện hành, chẳng hạn `Drawing1.dwg`; không tạo entity. Ví dụ không có bước nhập nên không có nhánh Enter/Cancel.
 
 ## Lỗi thường gặp
 
-Nạp file LSP không tự bảo đảm phần mở rộng COM đã được gọi. Đặt vl-load-com trước các lời gọi vla-/vlax- cần COM; kiểm tra nền tảng Windows và phạm vi hỗ trợ API của phiên bản.
+`nil` từ `vl-load-com` là bình thường. Nạp LSP không thay thế lời gọi này. Nếu không nhận diện hàm hoặc có lỗi ActiveX, kiểm tra nền tảng, hỗ trợ phiên bản và DWG hiện hành.
+
+[Tham chiếu vl-load-com](https://help.autodesk.com/cloudhelp/2022/ENU/AutoCAD-AutoLISP-Reference/files/GUID-6C7A8632-C12F-42BD-909E-68D804863AE2.htm) và [đọc property ActiveX](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP/files/GUID-3221619A-85E4-470E-AF2E-34048BB3DED5.htm).

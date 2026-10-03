@@ -32,17 +32,33 @@
 
 ## Tham số và kết quả
 
-ename là entity name; applist tùy chọn chọn XData theo ứng dụng. Association list mã DXF và giá trị.
+`ename` là entity name. `applist` tùy chọn là list tên ứng dụng đã đăng ký để lấy XData tương ứng. Kết quả là association list dữ liệu entity theo mã DXF; dùng `assoc` để tìm mã, không dựa vào thứ tự list.
 
-## Cách dùng
+## Ví dụ: đọc loại và layer
 
-Đọc layer mã 8 và handle mã 5 trước khi kiểm quy tắc.
+Chuẩn bị DWG có entity đồ họa sẵn. Dán khối vào Command Line AutoCAD, rồi chọn entity.
 
 ```lisp
-(setq ed (entget ename))
-(setq layer (cdr (assoc 8 ed)))
+(defun c:PTADOCDXF (/ picked ed)
+  (if (setq picked (entsel "\nChon entity de doc: "))
+    (progn
+      (setq ed (entget (car picked)))
+      (if ed
+        (progn
+          (princ "\nLoai: ")
+          (princ (cdr (assoc 0 ed)))
+          (princ "\nLayer: ")
+          (princ (cdr (assoc 8 ed))))
+        (princ "\nKhong doc duoc entity.")))
+    (princ "\nKhong co entity duoc chon."))
+  (princ))
+(c:PTADOCDXF)
 ```
+
+Chọn LINE trên layer 0 thì in `Loai: LINE` và `Layer: 0`. Ví dụ chỉ đọc dữ liệu.
 
 ## Kiểm tra khi áp dụng
 
-Kiểm ename trước khi gọi; mã trong entget không hoàn toàn giống DXF file.
+Enter khi không chọn được xử lý; Esc ngắt bằng lỗi hủy. Mã DXF trong `entget` khác một phần với file DXF. Tọa độ cần được hiểu theo loại entity và hệ tọa độ tương ứng.
+
+[Tham chiếu Autodesk về entget](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-12540DAE-C84B-4BDB-AEEC-DDFE5BE3C42A.htm).

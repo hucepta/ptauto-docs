@@ -30,24 +30,43 @@
 zip(*iterables)
 ```
 
-Đây là dạng gọi dùng trong ví dụ; các đối số tùy chọn khác xem ở nguồn.
+Các iterable cung cấp giá trị cùng vị trí. Kết quả là iterator các tuple; dùng `list(...)` khi cần lưu hoặc xem toàn bộ. Mặc định zip dừng khi nguồn ngắn nhất hết phần tử. [Tài liệu Python: zip](https://docs.python.org/3/library/functions.html#zip).
 
-## Tham số
+## Ví dụ Python độc lập
 
-Các nguồn cần ghép cùng vị trí.
-
-## Kết quả
-
-Bộ duyệt các bộ giá trị song song.
-
-## Ví dụ
-
-Các ví dụ Python thuần chạy trong trình thông dịch Python 3 độc lập. Trong Python Script của Dynamo, đưa kết quả vào OUT để xem ở Watch; IN và OUT chỉ có trong node này. Không cần nạp AutoCAD/Civil API cho các phép xử lý dữ liệu dưới đây.
+Chạy đoạn sau bằng Python 3, không cần Dynamo hoặc API Autodesk:
 
 ```python
-print(list(zip(['C01','C02'],[10,20])))
+ids = ["C01", "C02"]
+stations = [10, 20]
+if len(ids) != len(stations):
+    raise ValueError("So ID va station khong khop")
+rows = list(zip(ids, stations))
+print(rows)
+print(list(zip(ids, [10])))
 ```
 
-## Dễ nhầm
+Kết quả chính xác:
 
-Mặc định dừng ở nguồn ngắn nhất; kiểm len trước khi ghép.
+```text
+[('C01', 10), ('C02', 20)]
+[('C01', 10)]
+```
+
+Dòng thứ hai minh họa dữ liệu bị cắt khi hai nguồn khác chiều dài. Kiểm chiều dài trước khi ghép các cột cần đầy đủ; `strict=True` là lựa chọn từ Python 3.10 nếu engine đang dùng hỗ trợ.
+
+## Đưa vào Python Script của Dynamo
+
+Tạo Code Block `["C01", "C02"];` → `IN[0]`, Code Block `[10, 20];` → `IN[1]` của Python Script; tăng số cổng đầu vào lên hai. Dùng:
+
+```python
+ids = IN[0]
+stations = IN[1]
+if len(ids) != len(stations):
+    raise ValueError("So ID va station khong khop")
+OUT = list(zip(ids, stations))
+```
+
+Nối đầu ra vào Watch, Run; mong đợi hai cặp C01–10 và C02–20. `IN`/`OUT` chỉ tồn tại trong Python Script. Tuple có thể được Watch biểu diễn như nhánh list. Phần Python độc lập đã kiểm tra; phần node chưa chạy trong host tại đây.
+
+Iterator zip chỉ duyệt một lần. Lưu `rows` nếu cần dùng kết quả nhiều lần; ghép đúng vị trí không tự kiểm tra các ID có cùng ý nghĩa.

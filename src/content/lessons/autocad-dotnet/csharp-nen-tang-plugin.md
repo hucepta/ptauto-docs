@@ -90,7 +90,7 @@ Người dùng nhấn Esc là trạng thái input, không phải lỗi thiết k
 
 ## Project, DLL và reference
 
-Solution chứa các project; class library tạo assembly DLL được host nạp. Mẫu ở đây chọn SDK AutoCAD 2025 và .NET 8 theo bảng tương thích Autodesk. Dùng target `net8.0-windows`, x64 và reference `AcCoreMgd.dll`, `AcDbMgd.dll`, `AcMgd.dll` đúng SDK; đặt Copy Local thành False cho thư viện host.
+Solution chứa các project; class library tạo assembly DLL được host nạp. Mẫu chọn AutoCAD 2025 đến Update 1.3 và .NET 8. [Bảng tương thích Autodesk](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm) ghi Update 1.4 trở đi dùng .NET 10; kiểm tra mức cập nhật của host trước khi dùng cấu hình mẫu. Với môi trường .NET 8 đã chọn, dùng target `net8.0-windows`, x64 và reference `AcCoreMgd.dll`, `AcDbMgd.dll`, `AcMgd.dll` đúng SDK; đặt Copy Local thành False cho thư viện host. Thay framework không tự chứng minh API hoặc DLL tương thích với host mới.
 
 ## Debug và thực hành
 

@@ -15,6 +15,10 @@
     {
       "title": "Dynamo Primer",
       "url": "https://primer.dynamobim.org/Appendix/A-2_index-of-nodes.html"
+    },
+    {
+      "title": "Tài liệu chính thức — List.Flatten",
+      "url": "https://primer.dynamobim.org/en/06_Designing-with-Lists/6-3_lists-of-lists.html"
     }
   ],
   "compatibility": [],
@@ -24,24 +28,30 @@
 }
 ---
 
-## Cú pháp hoặc cổng node
+## Cổng node
+
+`List.Flatten` nhận danh sách tại `list` và mức làm phẳng tại `amt`. Đầu ra giảm số lớp lồng nhau; cấu trúc nhóm bị loại bỏ theo mức đã chọn.
+
+## Dữ liệu và kết nối
+
+Thêm Code Block chứa:
 
 ```text
-List.Flatten(list, amt)
+[["C01", "C02"], ["C03"]];
 ```
 
-## Đầu vào và đầu ra
+Thêm Code Block `1;`, node List.Flatten và Watch. Nối dữ liệu → `list`, số `1` → `amt`, đầu ra → Watch. Để cổng ở cấu hình mặc định, không bật Use Levels. Chọn Manual và Run.
 
-amt điều khiển số level làm phẳng; bỏ qua mức này có thể phá nhóm. List với mức lồng giảm theo amt.
-
-## Cách dùng
-
-Gộp các nhánh kết quả sau khi đã giữ ID nhóm trong cột riêng.
+## Kết quả mong đợi
 
 ```text
-[[A,B],[C]] → [A,B,C]
+["C01", "C02", "C03"]
 ```
 
-## Kiểm tra khi áp dụng
+Trong dữ liệu hai cấp này, `amt = 1` bỏ lớp nhóm con. Nối đầu ra vào List.Count để kiểm: kết quả là `3`, trong khi List.Count trên nguồn ban đầu trả `2`.
 
-Không Flatten sớm khi quan hệ Alignment → Profile còn cần giữ.
+## Áp dụng và kiểm tra
+
+Phù hợp khi cần một hàng đợi xử lý chung cho các nhóm kết quả. Nếu nhóm đầu là tuyến A và nhóm sau là tuyến B, sau phép này không còn biết C03 thuộc nhóm nào chỉ từ cấu trúc list. Giữ ID nhóm cùng mỗi phần tử trước khi làm phẳng nếu còn cần quan hệ đó. Với dữ liệu sâu hơn, quan sát Watch và chọn `amt` có chủ đích; không mặc định bỏ mọi cấp.
+
+Đây là bài dựng graph, chưa kiểm thử trong Dynamo tại đây. [Dynamo Primer: chỉ mục node](https://primer.dynamobim.org/Appendix/A-2_index-of-nodes.html), [giải thích Flatten](https://primer.dynamobim.org/en/06_Designing-with-Lists/6-3_lists-of-lists.html).

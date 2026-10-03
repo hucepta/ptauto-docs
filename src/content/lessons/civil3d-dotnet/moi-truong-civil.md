@@ -43,6 +43,8 @@
 
 Trong Civil 3D chọn Help → **About Autodesk Civil 3D**, đọc năm phiên bản trước khi chọn project. Bài dùng Civil 3D 2025/.NET 8 làm ví dụ. AutoCAD nền và Civil references phải từ cùng bộ cài/SDK tương ứng; không ghép AcDbMgd của một năm với AeccDbMgd năm khác.
 
+Ghi thêm mức cập nhật của Civil 3D và AutoCAD nền. [Bảng Autodesk cho AutoCAD 2025](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm) phân biệt .NET 8 đến Update 1.3 và .NET 10 từ Update 1.4. Điều này yêu cầu kiểm tra runtime của bộ cài Civil đang dùng; không tự coi số update Civil giống số update AutoCAD. Các bước .NET 8 dưới đây chỉ áp dụng khi host/SDK thực tế dùng .NET 8. Nếu host yêu cầu .NET 10, dùng target và references tương ứng rồi kiểm tra trong Civil 3D đầy đủ.
+
 Visual Studio soạn/build DLL. Civil 3D chạy lệnh. Toolspace liệt kê mô hình DWG, không liệt kê assembly đã nạp. Hiểu ba cửa sổ giúp tránh tìm lỗi reference trong Prospector hoặc tìm tuyến trong Solution Explorer.
 
 ## Tạo project

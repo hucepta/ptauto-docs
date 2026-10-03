@@ -33,22 +33,31 @@
 (getpoint [pt] [msg])
 ```
 
-## Tham số
+## Tham số và kết quả
 
-pt: điểm gốc hoặc giá trị khoảng cách tùy chọn; msg: lời nhắc tùy chọn.
+`pt` tùy chọn là điểm gốc trong UCS hiện hành; `msg` là lời nhắc. Có điểm gốc thì hiển thị đường kéo từ gốc tới con trỏ. Hàm trả list điểm 3D trong UCS, hoặc `nil` khi Enter mà không nhập điểm.
 
-## Kết quả
+Đối số `pt` dạng số dùng cơ chế nhập khoảng cách trực tiếp: dựa vào LASTPOINT và hướng con trỏ, không phải tọa độ X.
 
-List điểm UCS hoặc nil.
+## Ví dụ: nhập và in một điểm
 
-## Ví dụ
-
-Thử biểu thức tại Command Line của DWG học. Với ví dụ dùng `ss`, `record` hoặc đường dẫn file, tạo dữ liệu tương ứng trước khi chạy.
+Chuẩn bị DWG mở. Dán khối vào Command Line AutoCAD, rồi chọn điểm trên màn hình hoặc nhập tọa độ.
 
 ```lisp
-(getpoint "\nChon diem: ")
+(defun c:PTADIEM (/ pt)
+  (if (setq pt (getpoint "\nChon diem, Enter de bo qua: "))
+    (progn
+      (princ "\nDiem trong UCS: ")
+      (prin1 pt))
+    (princ "\nKhong nhap diem."))
+  (princ))
+(c:PTADIEM)
 ```
+
+Kết quả là list ba tọa độ của điểm đã chọn; không tạo entity. Enter in `Khong nhap diem.`; Esc ngắt lệnh bằng lỗi hủy.
 
 ## Lỗi thường gặp
 
-Phải trans điểm trước khi gửi API đòi WCS.
+Không gửi trực tiếp điểm UCS vào API đòi WCS; chuyển bằng `(trans pt 1 0)` khi cần. Không nhập biểu thức AutoLISP tại lời nhắc của `getpoint`.
+
+[Tham chiếu Autodesk về getpoint](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-445F32F0-8A9D-4E1D-976F-DE87CC5267D0.htm).

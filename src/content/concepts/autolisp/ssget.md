@@ -45,16 +45,36 @@
 
 ## Cú pháp thường dùng
 
-    (ssget)
-    (ssget '((0 . "LINE")))
+```lisp
+(ssget)
+(ssget '((0 . "LINE")))
+(ssget "_X" '((0 . "LINE")))
+```
 
-Lời gọi thứ hai cho người dùng chọn, rồi giữ các entity loại LINE.
+Hai lời gọi đầu yêu cầu chọn trên màn hình; bộ lọc mã DXF 0 giữ entity loại LINE. `"_X"` tìm trong database, không yêu cầu chọn.
 
 ## Giá trị trả về
 
-Selection set hoặc nil. Chỉ gọi sslength sau khi đã kiểm tra kết quả.
+Selection set hoặc `nil` khi không chọn được đối tượng. Đây không phải list; dùng `sslength` và `ssname` để đọc.
+
+## Ví dụ: đếm LINE do người dùng chọn
+
+Chuẩn bị DWG có LINE sẵn. Dán cả khối vào Command Line AutoCAD hỗ trợ AutoLISP; chọn vài LINE rồi Enter. Không cần tạo thêm entity.
+
+```lisp
+(defun c:PTADEMLINE (/ ss)
+  (setq ss (ssget '((0 . "LINE"))))
+  (if ss
+    (princ (strcat "\nSo LINE: " (itoa (sslength ss))))
+    (princ "\nKhong co LINE duoc chon."))
+  (princ))
+(c:PTADEMLINE)
+```
+
+Chọn hai LINE thì in `So LINE: 2`. Enter khi chưa chọn thì in thông báo không có LINE; Esc ngắt lệnh bằng lỗi hủy.
 
 ## Phạm vi toàn bản vẽ
 
-Chế độ "_X" có thể lấy đối tượng ngoài vùng nhìn, trên layer tắt hoặc đóng băng. Hãy chọn phạm vi theo yêu cầu xử lý thay vì mặc định quét toàn bộ database.
+`"_X"` có thể lấy entity ngoài vùng nhìn, trên layer tắt hoặc đóng băng, và ở các space khác nhau. Giới hạn bằng bộ lọc phù hợp trước khi xử lý. Không gọi `sslength` với `nil`.
 
+[Tham chiếu Autodesk về ssget](https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-AutoLISP-Reference/files/GUID-0F37CC5E-1559-4011-B8CF-A3BA0973B2C3.htm).

@@ -37,7 +37,7 @@
 
 AutoCAD .NET cho phép viết lệnh bằng C#, biên dịch thành DLL và nạp vào AutoCAD. AutoCAD chạy plugin; Visual Studio là nơi viết và build mã. DLL đầu tiên chỉ in thông báo để ta học đường đi từ source tới command trước khi sửa bản vẽ.
 
-Cần AutoCAD trên Windows, Visual Studio có workload **.NET desktop development**, và thư viện Managed API của phiên bản AutoCAD sử dụng. Bài chọn AutoCAD 2025/.NET 8 làm ví dụ cụ thể. Với phiên bản khác, tra bảng tương thích Autodesk và chọn framework/reference đúng phiên bản; không tự đổi target chỉ vì máy có SDK mới hơn.
+Cần AutoCAD trên Windows, Visual Studio có workload **.NET desktop development**, và thư viện Managed API của phiên bản AutoCAD sử dụng. Bài chọn AutoCAD 2025 đến Update 1.3/.NET 8 làm môi trường ví dụ. Theo [bảng tương thích Autodesk](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm), AutoCAD 2025 Update 1.4 trở đi dùng .NET 10. Đọc cả năm và mức cập nhật ở Help → About trước khi chọn target. Với host dùng .NET 10, điều chỉnh target/reference theo SDK tương ứng rồi build và kiểm tra lại; không áp dụng nguyên cấu hình .NET 8 bên dưới cho mọi bản 2025.
 
 ## Tạo project từng bước
 
