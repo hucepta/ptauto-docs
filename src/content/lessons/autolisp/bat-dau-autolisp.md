@@ -6,7 +6,7 @@
   "description": "Hiểu AutoLISP, Command Line, file LSP, VS Code/AutoLISP Extension và chạy một lệnh nhỏ trong AutoCAD.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 2,
+  "order": 3,
   "difficulty": "co-ban",
   "sources": [
     {
@@ -28,7 +28,6 @@
   "illustration": "terminal"
 }
 ---
-
 ## Chọn việc cần tự động hóa
 
 Giả sử 500 ghi chú trong hồ sơ hạ tầng phải được kiểm tra layer. Nếu mỗi ghi chú đều cần cùng một thao tác, bạn có thể mô tả quy tắc một lần rồi để AutoCAD thực hiện lặp. Đó là chỗ AutoLISP hữu ích. Nó là ngôn ngữ chạy trong AutoCAD để tạo lệnh theo quy trình của bạn; nó không tự hiểu bản vẽ hay quyết định layer nào đúng.
@@ -69,7 +68,9 @@ Mở một DWG thử. Gõ `APPLOAD`, chọn `hello.lsp`, sau đó gõ `HELLO` t�
 Đổi thông báo thành `Da nap ban moi`, Save và nạp lại. Nếu vẫn thấy dòng cũ, kiểm tra đường dẫn file đã nạp. Nếu AutoCAD báo không biết `HELLO`, kiểm tra tên file, việc nạp và dấu ngoặc. Ghi lại ba bước bạn thực hiện và phản hồi nhận được; đó là quy trình gỡ lỗi đầu tiên.
 
 
-## Làm theo trong AutoCAD
+<span id="làm-theo-trong-autocad" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành trong AutoCAD
 
 Bật Command Line bằng Ctrl+9 trên Windows. Gõ APPLOAD, duyệt đến hello.lsp, chọn file rồi bấm Load. Khi hộp thoại báo nạp thành công, bấm Close và nhấp lại Command Line. Gõ HELLO rồi Enter; thông báo phải xuất hiện trong lịch sử lệnh. Mở F2 nếu cần đọc lại.
 

@@ -65,8 +65,9 @@
   "illustration": "curve"
 }
 ---
+<span id="parameter-khác-khoảng-cách-dọc-đường" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Parameter khác khoảng cách dọc đường
+## Parameter và khoảng cách
 
 Curve là hình học có thể đánh giá điểm theo tham số. Parameter phụ thuộc kiểu đường: nó không phải tọa độ X, số mét hay mặc nhiên là lý trình. Lấy giới hạn bằng `vlax-curve-getStartParam` và `vlax-curve-getEndParam`. Độ dài toàn đường được lấy bằng `vlax-curve-getDistAtParam` tại tham số cuối.
 
@@ -84,7 +85,9 @@ Với LINE dài 120 và n bằng 4, khoảng cách báo cáo là 0, 30, 60, 90, 
 
 `getFirstDeriv` trả vector đạo hàm tại parameter. Chuẩn hóa nó khi cần hướng tiếp tuyến; kiểm tra độ dài bằng 0. Tại góc gãy polyline, phải quy định lấy hướng đoạn trước, đoạn sau hay hướng trung bình. Không đặt mũi tên hoặc nhãn theo một đạo hàm chưa được đánh giá ở đúng parameter.
 
-## Kiểm tra đầu vào và thực hành
+<span id="kiểm-tra-đầu-vào-và-thực-hành" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra đầu vào
 
 Chuyển lựa chọn thành VLA-object, chỉ nhận loại curve mẫu hỗ trợ và bọc lời gọi có thể lỗi bằng `vl-catch-all-apply`. Phân biệt error object với kết quả `nil`. Đường dài 0 không thể dùng để chia khoảng cách; giới hạn số đoạn tránh in quá nhiều kết quả ngoài ý muốn.
 

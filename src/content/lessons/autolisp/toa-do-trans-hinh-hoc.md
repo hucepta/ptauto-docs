@@ -68,14 +68,17 @@
   "illustration": "station"
 }
 ---
+<span id="gắn-hệ-tọa-độ-vào-dữ-liệu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Gắn hệ tọa độ vào dữ liệu
+## Hệ tọa độ của dữ liệu
 
 Một list ba số chưa đủ mô tả vị trí: cần biết nó thuộc hệ tọa độ nào. WCS là hệ tham chiếu cố định của bản vẽ; UCS là hệ làm việc hiện hành. OCS gắn với mặt phẳng entity và hướng extrusion. DCS phục vụ hiển thị theo viewport, không thay thế WCS cho báo cáo tọa độ.
 
 Điểm nhập bởi `getpoint` thuộc UCS; điểm truyền cho lệnh CAD cũng được hiểu theo UCS. Dữ liệu DXF phụ thuộc loại entity: hai đầu LINE dùng WCS, tâm CIRCLE dùng OCS. Đừng suy luận mọi group 10 đều cùng hệ. Đặt tên như `pt-ucs`, `pt-wcs` để thấy nơi cần chuyển.
 
-## Dùng trans đúng cho điểm và vector
+<span id="dùng-trans-đúng-cho-điểm-và-vector" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Chuyển điểm và vector bằng trans
 
 `trans` nhận dữ liệu, hệ nguồn, hệ đích và tùy chọn displacement. Mã 0 là WCS, 1 là UCS, 2 là DCS; mã 3 là Paper Space DCS và chỉ phối hợp với mã 2. Truyền entity name cho hệ nguồn hoặc đích để dùng OCS của entity đó.
 

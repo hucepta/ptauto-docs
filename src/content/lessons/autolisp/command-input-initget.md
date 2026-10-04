@@ -59,7 +59,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "truyền-đối-số-đúng-cho-command",
+      "heading": "đối-số-của-command",
       "exampleIds": [
         "example.autolisp.demo-move"
       ]
@@ -68,26 +68,33 @@
   "illustration": "terminal"
 }
 ---
+<span id="thiết-kế-lệnh-như-một-luồng-dữ-liệu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Thiết kế lệnh như một luồng dữ liệu
+## Luồng dữ liệu của lệnh
 
 Tên hàm có tiền tố `c:` tạo lệnh người dùng có thể gọi trực tiếp tại Command prompt. Lệnh nên không nhận đối số hàm; nó thu dữ liệu bằng `getpoint`, `getdist`, `getint`, `getstring` hoặc `ssget`, rồi chuyển dữ liệu sang hàm xử lý. Trước khi viết code, liệt kê từng lời nhắc, kiểu kết quả và nhánh hủy.
 
 `getpoint` trả điểm trong UCS hiện hành. `getdist` trả khoảng cách; `getangle` trả góc dạng radian. `getstring T` cho phép khoảng trắng. Enter có thể trả `nil` với nhiều hàm nhập; nhấn Esc gây đường xử lý lỗi. Cả hai phải kết thúc gọn và không tiếp tục dùng dữ liệu chưa có.
 
-## initget kiểm soát lần nhập kế tiếp
+<span id="initget-kiểm-soát-lần-nhập-kế-tiếp" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm soát đầu vào bằng initget
 
 `initget` đặt ràng buộc và từ khóa cho đúng lời gọi nhập tiếp theo. Các bit 1, 2, 4 lần lượt cấm Enter rỗng, số 0 và số âm. Tổng 7 phù hợp khi yêu cầu số đoạn chia là số nguyên dương; tổng 6 cho phép Enter để dùng giá trị mặc định dương.
 
 Nếu đăng ký từ khóa như `"Giua Cuoi"`, kết quả có thể là chuỗi từ khóa thay vì số hoặc điểm. Vì vậy kiểm tra nhánh bằng `cond` trước khi tính toán. `getstring` không sử dụng từ khóa của `initget`; không đặt ràng buộc một lần rồi mong chúng tồn tại cho mọi lời nhắc.
 
-## Truyền đối số đúng cho command
+<span id="truyền-đối-số-đúng-cho-command" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Đối số của command
 
 `command` đưa từng đối số vào chuỗi lời nhắc của lệnh AutoCAD. Chuỗi rỗng tương đương Enter. Dùng tên quốc tế có dấu gạch dưới và dấu chấm, chẳng hạn `"._MOVE"`, cùng từ khóa `"_non"` để điểm do chương trình cung cấp không bị Object Snap thay đổi. Dấu chấm gọi lệnh chuẩn nếu tên lệnh đã bị định nghĩa lại.
 
 Ví dụ PTDEMO giả định UCS World: tạo LINE từ (0,0) tới (120,0), tạo CIRCLE tâm (60,0), bán kính 24, rồi dịch đúng hai đối tượng lên 30 đơn vị. Sau mỗi lần tạo, lấy `entlast` và thêm vào selection set bằng `ssadd`; không dùng lựa chọn toàn bản vẽ vì có thể kéo nhầm đối tượng cũ.
 
-## Trạng thái môi trường và thực hành
+<span id="trạng-thái-môi-trường-và-thực-hành" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Trạng thái môi trường
 
 Nếu thay CMDECHO hoặc OSMODE, lưu giá trị cũ và khôi phục ở đường thành công lẫn đường lỗi. Nhóm các sửa đổi bằng Undo Begin/End. Khi cần gọi lệnh trong `*error*`, `command-s` phù hợp với chuỗi đối số hoàn chỉnh và không chứa PAUSE.
 

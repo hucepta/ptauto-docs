@@ -63,14 +63,15 @@
   "illustration": "metadata"
 }
 ---
-
 ## Cây đối tượng AutoCAD
 
 AutoCAD ActiveX tổ chức đối tượng thành cây. `vlax-get-acad-object` lấy Application của phiên AutoCAD; `vla-get-ActiveDocument` lấy bản vẽ đang hoạt động. Documents là collection các bản vẽ mở. Lưu Document ở đầu lệnh giúp tránh đọc nhầm bản vẽ nếu công cụ mở hoặc chuyển document.
 
 Từ Document, lấy ModelSpace, PaperSpace, Layers, Blocks và Layouts qua property tương ứng. Một object đại diện phần cụ thể của môi trường, có property để đọc trạng thái và method để thực hiện hành động. Không nhầm property trả object với chuỗi tên: `Layers` là collection, còn `Layer` trên một entity là tên layer.
 
-## Collection không phải selection set
+<span id="collection-không-phải-selection-set" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Collection và selection set
 
 Collection có `Count`, `Item` và khả năng duyệt bằng `vlax-for`. ModelSpace gồm đối tượng thuộc không gian mô hình; nó không tự bao gồm entity nằm bên trong mọi block definition. Blocks chứa các định nghĩa block và các block không gian; một INSERT thuộc ModelSpace là block reference.
 

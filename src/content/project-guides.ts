@@ -20,3 +20,66 @@ export const projectGuides: Record<string, { input: string; steps: [string, stri
   'project.gis-data-automation.qa-topology-thoat-nuoc': { input: 'Mạng ống và nút hố ga GIS có đầu rời thử nghiệm.', steps: ['Chuẩn hóa CRS và snap tolerance theo dự án.', 'Kiểm điểm đầu/cuối ống gần nút và phát hiện mạng rời.', 'Xuất lớp lỗi có ID ống, nút gần nhất, khoảng cách.'], output: 'Bản đồ/lớp lỗi topology và bảng kiểm tra.', check: 'So đầu rời có chủ đích; không tự snap sai nút.' },
   'project.gis-data-automation.ban-giao-cad-gis-tuyen': { input: 'Tim tuyến và thuộc tính CAD chuẩn bị bàn giao GIS.', steps: ['Xác nhận CRS và ánh xạ layer–thuộc tính.', 'Chuyển hình học, mã tuyến và lý trình.', 'Kiểm số đối tượng, trường bắt buộc và tọa độ mốc.'], output: 'Gói dữ liệu GIS kèm báo cáo đối chiếu với DWG.', check: 'Mở kết quả trong GIS độc lập, kiểm điểm khống chế và mã tuyến.' },
 };
+
+Object.assign(projectGuides, {
+  "project.autolisp.buoi-dau-loi-chao-dwg": {
+    "input": "DWG mới xin-chao.dwg và file loi-chao-dwg.lsp do bạn viết.",
+    "steps": [
+      "Mở DWG thử, lưu tên và mở LSP trong VS Code.",
+      "Save LSP, APPLOAD trong DWG hiện tại và đọc kết quả nạp.",
+      "Gọi PTA_HELLO_DWG rồi lưu bản sao DWG với tên khác."
+    ],
+    "output": "Thông báo Xin chao kèm tên DWG hiện tại.",
+    "check": "Đóng/mở DWG, APPLOAD lại rồi đối chiếu hai tên; chức năng không lưu trong DWG."
+  },
+  "project.visual-lisp-activex.buoi-dau-ten-ban-ve": {
+    "input": "Hai DWG phieu-a và phieu-b đã lưu trên AutoCAD Windows có ActiveX.",
+    "steps": [
+      "Mở và lưu DWG thứ nhất; bật COM rồi lấy ptaApp, ptaDoc.",
+      "Đọc Name, FullName và ghi kết quả vào phiếu.",
+      "Mở DWG thứ hai; tạo lại các biến trong DWG đó và đọc thuộc tính."
+    ],
+    "output": "Phiếu tên và đường dẫn của hai DWG.",
+    "check": "Mỗi tên khớp tab DWG; biến được khởi tạo riêng ở từng bản vẽ."
+  },
+  "project.autocad-dotnet.buoi-dau-ten-dwg-csharp": {
+    "input": "Solution PtaFirst từ bài chuẩn bị và DWG ten-dwg-csharp.dwg.",
+    "steps": [
+      "Mở solution, thêm method đọc Document.Name và lưu.",
+      "Build, đọc Output, kiểm tra đúng DLL và host/update.",
+      "NETLOAD trong AutoCAD, gọi PTA_DWG_NAME và đọc F2."
+    ],
+    "output": "Tên hoặc đường dẫn của DWG hiện tại trong Command Line.",
+    "check": "Ghi riêng kết quả build và chạy; đối chiếu tên với tab, lưu DWG rồi chạy lại."
+  },
+  "project.civil3d-dotnet.buoi-dau-kiem-ke-alignment": {
+    "input": "DWG Civil 3D thử không có Alignment và project C# có references đúng năm.",
+    "steps": [
+      "Mở Civil 3D đầy đủ và DWG thử; kiểm collection Alignments trong Prospector.",
+      "Build lệnh chỉ đọc CivilDocument và Alignment IDs.",
+      "NETLOAD trong đúng Civil 3D, gọi lệnh kiểm kê và đọc số lượng."
+    ],
+    "output": "So Alignment: 0 trên DWG không có tuyến.",
+    "check": "Đối chiếu collection rỗng trong Prospector; số 0 là kết quả hợp lệ."
+  },
+  "project.dynamo-python.buoi-dau-cong-hai-so": {
+    "input": "Graph Dynamo for Civil 3D ở chế độ Manual.",
+    "steps": [
+      "Mở Civil 3D rồi Dynamo; tạo graph trống và chọn Manual.",
+      "Đặt Code Block tính tổng và nối output tới Watch.",
+      "Run, thay đầu vào, Run lại và lưu file DYN."
+    ],
+    "output": "Watch hiển thị 5 rồi 7 theo đầu vào thử.",
+    "check": "Mở lại DYN và Run; so giá trị Watch, không cần thay đổi đối tượng Civil."
+  },
+  "project.gis-data-automation.buoi-dau-mot-diem-gpkg": {
+    "input": "QGZ và GPKG chứa một điểm đã tạo từ bài chuẩn bị QGIS.",
+    "steps": [
+      "Mở QGIS, mở project và kiểm Layers.",
+      "Kiểm feature count, CRS và Source của lớp GeoPackage.",
+      "Đóng/mở project, đọc lại dữ liệu và ghi nhật ký."
+    ],
+    "output": "Một feature còn tồn tại trong GPKG sau mở lại.",
+    "check": "Source trỏ GPKG đã lưu; CRS và số feature giữ nguyên; không chỉ dựa vào điểm nhìn thấy."
+  }
+});

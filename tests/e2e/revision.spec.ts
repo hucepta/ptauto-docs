@@ -15,7 +15,7 @@ test('project_catalog_groups_all_six_tracks_with_guides', async ({ page, request
   await page.goto('/du-an/');
   await expect(page.locator('.project-group')).toHaveCount(6);
   const projects = catalog.pages.filter(p => p.kind === 'project');
-  expect(projects).toHaveLength(19);
+  expect(projects).toHaveLength(25);
   for (const project of projects) {
     await page.goto(project.url);
     await expect(page.getByRole('heading', { name: 'Hướng dẫn giải' })).toBeVisible();
@@ -35,7 +35,7 @@ test('home_saved_preview_uses_real_bookmarks', async ({ page }) => {
 
 test('toc_tracks_the_visible_section', async ({ page }) => {
   await page.goto('/hoc/autolisp/vlide-ide-extension-debug/');
-  const target = page.getByRole('heading', { name: 'IDE là gì?' });
+  const target = page.getByRole('heading', { name: 'Môi trường IDE' });
   await target.evaluate(element => window.scrollTo(0, window.scrollY + element.getBoundingClientRect().top - 140));
-  await expect(page.locator('[data-toc-link][aria-current="location"]')).toHaveAttribute('href', '#ide-là-gì');
+  await expect(page.locator('[data-toc-link][aria-current="location"]')).toHaveAttribute('href', '#môi-trường-ide');
 });

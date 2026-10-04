@@ -4,7 +4,7 @@
   "slug": "ban-do-doi-tuong",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.bat-dau",
-  "order": 3,
+  "order": 4,
   "difficulty": "co-ban",
   "prerequisites": [],
   "conceptIds": [],
@@ -34,8 +34,9 @@
   ]
 }
 ---
+<span id="hai-đường-truy-cập-từ-document" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Hai đường truy cập từ Document
+## Editor và Database
 
 Application.DocumentManager quản lý các DWG đang mở. MdiActiveDocument trả Document hoạt động. Document có hai nhánh: Editor nhận/chọn/in thông báo; Database lưu entity, block, layer và dữ liệu bản vẽ. Editor không chứa Database và Transaction không phải cấp cha trong cây hình học.
 
@@ -82,14 +83,18 @@ public class ReadCommands
 
 GetEntity đưa ObjectId, chưa đưa Line. Transaction mở ID ở ForRead rồi ta đọc Layer và Length. using kết thúc transaction kể cả khi có exception. Không Commit vì đoạn không sửa dữ liệu. Giá trị double/string có thể sao chép ra báo cáo; không giữ wrapper Line để dùng sau khi transaction đóng.
 
-## Thao tác quan sát
+<span id="thao-tác-quan-sát" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra trong AutoCAD
 
 1. **Build → Build Solution**, mở `PT_OBJECTS.dwg`, NETLOAD DLL mới. Gọi `PT_READ_LINE` rồi chọn LINE dài 3. Kết quả phải là PT_LINE và 3.000.
 2. Gọi lại rồi chọn CIRCLE. Lời nhắc Can chon LINE xuất hiện và yêu cầu chọn lại; chọn LINE dài 4 thì ra 4.000.
 3. Gọi lại và Esc. Lệnh kết thúc không in một giá trị giả bằng 0.
 4. Chuyển tab DWG, tạo một LINE rồi gọi lệnh. Document/Database được lấy lại mỗi lần chạy để không dùng ID của DWG trước.
 
-## Tạo và sửa khác đọc
+<span id="tạo-và-sửa-khác-đọc" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Đọc, tạo và sửa entity
 
 Tạo entity cần mở BlockTableRecord đích ForWrite, AppendEntity, AddNewlyCreatedDBObject rồi Commit. Sửa entity đã có cần ForWrite hoặc UpgradeOpen trước lúc gán. Commit xác nhận database thay đổi; Save mới ghi DWG ra ổ đĩa.
 

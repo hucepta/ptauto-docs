@@ -41,8 +41,9 @@
   "illustration": "profile"
 }
 ---
+<span id="trắc-dọc-không-phải-một-polyline-2d-thông-thường" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Trắc dọc không phải một polyline 2D thông thường
+## Profile và hình học trắc dọc
 
 Profile gắn với một Alignment. **Surface profile** lấy cao độ từ bề mặt dọc tuyến; **layout profile** thể hiện thiết kế với các PVI và đoạn cong đứng. Khi kiểm tra độ dốc, phải biết đang đọc profile nào. Cùng station có thể có cao độ mặt đất và cao độ thiết kế khác nhau.
 

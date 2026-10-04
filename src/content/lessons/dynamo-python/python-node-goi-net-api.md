@@ -41,8 +41,9 @@
   "illustration": "graph"
 }
 ---
+<span id="node-python-không-phải-một-bản-sao-c" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Node Python không phải một bản sao C#
+## Python và .NET API
 
 Python node nhận dữ liệu qua danh sách `IN` và trả bằng `OUT`. Khi chỉ chuẩn hóa chuỗi CSV, dùng Python thuần. Khi cần thành viên Civil API chưa có node, phải nạp đúng assembly theo engine/ứng dụng chủ và hiểu đối tượng bao Dynamo. `InternalObjectId` thường là lối vào an toàn để mở DBObject trong transaction; không giữ object đã đóng transaction để dùng ở node khác.
 

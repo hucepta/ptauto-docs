@@ -33,8 +33,9 @@
   ]
 }
 ---
+<span id="chuẩn-bị-dữ-liệu-rõ-ràng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Chuẩn bị dữ liệu rõ ràng
+## Chuẩn bị dữ liệu
 
 Trong DWG thử, gõ LAYER để mở Layer Properties Manager. Bấm **New Layer**, tạo `PTA_ROAD` và `PTA_NOTE`. Không cần tạo entity trên hai layer: layer là mục dữ liệu của bản vẽ, tồn tại độc lập với việc có đối tượng dùng nó.
 

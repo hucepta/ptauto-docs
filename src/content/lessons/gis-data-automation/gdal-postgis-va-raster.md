@@ -62,8 +62,9 @@
   "illustration": "map"
 }
 ---
+<span id="ba-loại-việc-ba-cách-xử-lý" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Ba loại việc, ba cách xử lý
+## GDAL, PostGIS và raster
 
 **Vector** biểu diễn tuyến ống, hố ga và ranh giới bằng feature có geometry + thuộc tính. **Raster** là lưới ô giá trị, thích hợp cho ảnh nền hoặc dữ liệu liên tục như cao độ. `ogr2ogr` của GDAL chuyển định dạng vector và có thể chọn trường, lọc feature hoặc reproject. PostGIS giữ dữ liệu không gian trong cơ sở dữ liệu để truy vấn và QA nhiều lần.
 
@@ -73,7 +74,9 @@
 | “Tìm geometry lỗi trong kho dữ liệu” | PostGIS `ST_IsValid` | Geometry hợp lệ chưa có nghĩa mạng ống nối đúng. |
 | “Chồng ảnh địa hình với tuyến” | QGIS/raster tool | Ảnh không có georeference hoặc độ phân giải không phù hợp. |
 
-## Thử một lô nhỏ trước
+<span id="thử-một-lô-nhỏ-trước" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra trên lô mẫu
 
 Chọn 3 feature tuyến với ID ổn định, một geometry lỗi và một raster mẫu. Ghi CRS gốc từ metadata hoặc hồ sơ nguồn; nếu không biết CRS, dừng để xác minh. **Gán CRS** chỉ mô tả tọa độ đang có; **reprojection** biến đổi số tọa độ. Trong `ogr2ogr`, `-a_srs` và `-t_srs` tương ứng hai mục đích khác nhau. Sau chuyển đổi, mở đầu ra để so số feature, ID, kiểu geometry, đơn vị và bounding box.
 

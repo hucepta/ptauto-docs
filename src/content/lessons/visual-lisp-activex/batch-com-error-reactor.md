@@ -72,14 +72,17 @@
   "illustration": "graph"
 }
 ---
+<span id="xác-định-batch-trước-khi-sửa" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Xác định batch trước khi sửa
+## Phạm vi xử lý theo lô
 
 Batch là một lượt xử lý nhiều đối tượng theo cùng quy tắc. Bắt đầu bằng phạm vi rõ: selection set người dùng chọn, ModelSpace hay một layout. Kiểm tra layer đích và điều kiện ghi trước khi mở Undo. Với đổi layer, bỏ qua nguồn khóa và từ chối layer đích khóa hoặc phụ thuộc xref.
 
 Ví dụ PTA_VLA_SET_LAYER nhận tên layer đã có rồi lựa chọn entity. Nó dùng DXF để kiểm tra layer nguồn, VLA-object để ghi property Layer và thống kê thành công, bỏ qua, thất bại. DXF phù hợp cho lọc dữ liệu nhanh; ActiveX phù hợp cho thao tác property. Không quét toàn bộ Blocks chỉ vì API có collection này.
 
-## Bắt lỗi nhưng giữ bằng chứng
+<span id="bắt-lỗi-nhưng-giữ-bằng-chứng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bắt và ghi lỗi COM
 
 `vl-catch-all-apply` trả kết quả bình thường hoặc error object. Kiểm tra bằng `vl-catch-all-error-p`, đọc thông báo qua `vl-catch-all-error-message`; không xem mọi kết quả khác `nil` là thành công. Khi lỗi một entity, ghi Handle và lý do để người dùng đối chiếu.
 
@@ -91,7 +94,9 @@ Kiểm tra property có thể ghi bằng `vlax-property-available-p` với đố
 
 Giải phóng VLA-object khi không còn sử dụng, không giữ tham chiếu sang document đã đóng. `vlax-release-object` không xóa entity khỏi DWG. Tránh gọi `gc` mỗi vòng vì có thể làm chậm batch. Handler của lệnh phải dọn object đang xử lý và Document đã giữ.
 
-## Reactor phải có vòng đời
+<span id="reactor-phải-có-vòng-đời" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Vòng đời reactor
 
 Reactor liên kết sự kiện với callback. Dùng callback ngắn để ghi nhận trạng thái, rồi xử lý ở lệnh điều phối phù hợp. Autodesk khuyến cáo không gọi `getpoint`, `entsel`, `command` hoặc mở dialog tương tác trong callback; không sửa chính object vừa phát sự kiện và không gây lại cùng sự kiện.
 

@@ -41,8 +41,9 @@
   "illustration": "graph"
 }
 ---
+<span id="khi-nào-cần-reactor" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Khi nào cần reactor
+## Ứng dụng reactor
 
 Một reactor có thể thông báo khi đối tượng tuyến bị sửa để đánh dấu báo cáo cần cập nhật. Nhưng callback chạy do sự kiện, có thể ở thời điểm không phù hợp để mở dialog, gọi `command` hoặc sửa chính đối tượng vừa kích hoạt sự kiện. Nếu callback sửa đối tượng và phát sinh sự kiện mới, vòng lặp có thể xảy ra.
 

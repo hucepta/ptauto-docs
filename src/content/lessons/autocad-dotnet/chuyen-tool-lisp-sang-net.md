@@ -41,8 +41,9 @@
   "illustration": "graph"
 }
 ---
+<span id="không-dịch-từng-dòng-code" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Không dịch từng dòng code
+## Chuyển quy trình sang .NET
 
 Một routine LISP đếm LINE có thể dùng `ssget` và `sslength`; plugin .NET dùng `Editor.GetSelection`, `SelectionFilter` và transaction nếu cần đọc thuộc tính. Hai cách khác API nhưng phải trả cùng số cho cùng tập dữ liệu. Chuyển từng dòng thường giữ lại các giả định không còn phù hợp.
 

@@ -41,8 +41,9 @@
   "illustration": "report"
 }
 ---
+<span id="bài-toán-từ-bảng-lý-trình" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Bài toán từ bảng lý trình
+## Dữ liệu bảng lý trình
 
 Một file có cột lý trình dạng `"125.50"`, còn phép tính cần số 125.50. AutoLISP không tự coi chuỗi này là số. `getreal` nhận số từ người dùng; `rtos` chuyển số sang chuỗi để in, `itoa` chuyển số nguyên. Với dữ liệu file, `distof` đọc chuỗi khoảng cách theo định dạng phù hợp, nhưng vẫn phải kiểm tra kết quả có phải số và đơn vị có đúng không.
 

@@ -60,7 +60,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "thực-hành-và-bẫy-khi-sửa",
+      "heading": "thực-hành",
       "exampleIds": [
         "example.visual-lisp-activex.tao-lwpolyline"
       ]
@@ -69,8 +69,9 @@
   "illustration": "curve"
 }
 ---
+<span id="phân-biệt-ba-lớp-dữ-liệu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Phân biệt ba lớp dữ liệu
+## Variant, SafeArray và list
 
 List AutoLISP là chuỗi phần tử được xử lý bằng `car`, `cdr`, `mapcar`. SafeArray là mảng COM có kiểu phần tử và giới hạn chỉ số. Variant là lớp bọc mang thông tin kiểu cùng giá trị. Property ActiveX có thể trả Variant chứa SafeArray; bỏ qua lớp bọc rồi gọi hàm xử lý list sẽ gây lỗi kiểu.
 
@@ -82,13 +83,17 @@ Giới hạn `(0 . 7)` nghĩa là tám phần tử, không phải bảy. Mảng 
 
 Tám số XY có thể biểu diễn bốn đỉnh LWPolyline; chúng không phải tám điểm 3D. `AddLightWeightPolyline` nhận số phần tử chẵn, tối thiểu bốn số, theo OCS. Polyline kiểu cũ dùng bố trí khác. Khi lấy Coordinates, xác định ObjectName rồi chọn cách chia cặp XY hoặc bộ XYZ; không dùng một bộ chia cho mọi entity.
 
-## Tọa độ thuộc property nào
+<span id="tọa-độ-thuộc-property-nào" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Property tọa độ
 
 Coordinates của LWPolyline chứa cặp XY trong OCS, còn 3DPolyline chứa XYZ trong WCS. Elevation và Normal bổ sung mặt phẳng cho dữ liệu 2D. Khi người dùng nhập điểm ở UCS, chuyển trước khi đóng gói; SafeArray chỉ lưu số, không tự chuyển hệ tọa độ.
 
 Ví dụ PTA_VLA_RECT tạo bốn đỉnh (0,0), (120,0), (120,60), (0,60) trong ModelSpace, đặt Elevation bằng 0 và Closed bằng true. Mẫu dùng mặt phẳng OCS chuẩn; nó không đặt hình theo UCS hiện hành. Nếu bài toán cần mặt phẳng khác, xác định Normal, elevation và phép chuyển tọa độ trước khi tạo.
 
-## Thực hành và bẫy khi sửa
+<span id="thực-hành-và-bẫy-khi-sửa" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành
 
 Sau khi APPLOAD trên AutoCAD Windows, chạy PTA_VLA_RECT trong bản vẽ thử. Đối chiếu số đỉnh, chiều dài cạnh, trạng thái kín và cao độ; dùng Undo để kiểm tra nhóm sửa đổi. Mã có nhánh dọn dẹp, nhưng việc kết thúc Undo không tự xóa phần đã tạo nếu lỗi xảy ra giữa chừng.
 

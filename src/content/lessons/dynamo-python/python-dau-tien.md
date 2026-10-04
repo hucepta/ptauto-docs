@@ -8,7 +8,7 @@
   "illustration": "graph",
   "title": "Python đầu tiên",
   "description": "Nhận đầu vào, lọc lý trình lỗi và trả hai nhánh kết quả vào Watch.",
-  "order": 4,
+  "order": 5,
   "sources": [
     {
       "title": "Dynamo Primer: Civil 3D",
@@ -29,8 +29,9 @@
   ]
 }
 ---
+<span id="biến-một-quy-tắc-thành-kết-quả" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Biến một quy tắc thành kết quả
+## Quy tắc kiểm tra lý trình
 
 Ta nhận các lý trình, giữ số không âm, cộng 10 và đưa bản ghi lỗi ra nhánh riêng. Kết quả cần nhìn thấy: `[10,35,60]` ở nhánh hợp lệ và một lời giải thích cho chuỗi `"abc"`. Bài dùng Python 3 thuần, không cần AutoCAD/Civil API.
 
@@ -63,16 +64,22 @@ OUT = [valid, errors]
 
 Bấm Accept để áp dụng mã, rồi Run ở vùng dưới cửa sổ đồ thị. Mở nhánh 0 trong Watch: ba số là 10.0, 35.0, 60.0. Nhánh 1 có chỉ số 3, chuỗi abc và lý do không chuyển được sang số. Nội dung ngoại lệ Python có thể khác theo engine; điều phải giữ là giá trị gốc và chỉ số để tìm lại.
 
-## Hiểu các dòng quan trọng
+<span id="hiểu-các-dòng-quan-trọng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Đọc mã Python
 
 `float` chuyển chuỗi số thành số thực; nó không đọc dấu phẩy thập phân như `"25,5"`. `math.isfinite` loại NaN/vô cực trước khi dùng như lý trình. `append` thêm phần tử vào danh sách và trả None; không viết `valid = valid.append(...)`. `try/except` bắt hai loại lỗi dữ liệu đã nêu để còn đọc được hàng khác. Không bắt mọi lỗi rồi trả danh sách rỗng vì khi đó lỗi chương trình sẽ giống một báo cáo không có lỗi.
 
-## Thử cả hai nhánh
+<span id="thử-cả-hai-nhánh" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra điều kiện
 
 Đổi abc thành `"75"`, bấm Run: nhánh 0 thêm 85.0, nhánh lỗi rỗng. Đổi nó thành -5: có lỗi lý trình âm. Đổi thành `"nan"`: vẫn phải có lỗi, không được xuất NaN. Lưu đồ thị khi đã thử đủ ba trường hợp.
 
 Trong Python độc lập, IN không tồn tại. Để chạy cùng thuật toán ngoài Dynamo, thay `IN[0]` bằng một biến `values=[0,25,50,"abc"]` và dùng `print([valid,errors])` thay dòng OUT. Thư viện chuẩn math có ở cả hai nơi; truy cập đối tượng bản vẽ cần quy trình riêng.
 
-## Hoàn thành
+<span id="hoàn-thành" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bài tập
 
 Lưu `python-ly-trinh.dyn` và ghi bốn giá trị đầu vào trong ghi chú. Bạn hoàn thành khi đọc được nhánh thành công, tìm được vị trí dữ liệu lỗi và tự giải thích vì sao -5, abc và nan bị loại bằng ba lý do khác nhau.

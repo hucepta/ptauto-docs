@@ -41,8 +41,9 @@
   "illustration": "profile"
 }
 ---
+<span id="bài-toán-thiếu-trắc-ngang" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Bài toán thiếu trắc ngang
+## Kiểm tra trắc ngang thiếu
 
 Một tuyến dài 1 km dự kiến có Sample Line mỗi 20 m nhưng vài lý trình không có Section từ surface. Nếu chỉ đếm sample line, báo cáo có thể kết luận sai là “đủ mặt cắt”. Cần đi qua Sample Line Group, từng Sample Line và Section gắn vào nó; đồng thời kiểm tra nguồn dữ liệu đã được sampling.
 

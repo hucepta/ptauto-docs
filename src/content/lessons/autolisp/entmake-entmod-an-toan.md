@@ -41,8 +41,9 @@
   "illustration": "metadata"
 }
 ---
+<span id="hai-kiểu-thay-đổi-bản-vẽ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Hai kiểu thay đổi bản vẽ
+## Tạo và sửa entity
 
 `entmake` tạo một entity từ danh sách DXF; `entmod` cập nhật một entity đang có bằng danh sách dữ liệu phù hợp. Với tuyến hạ tầng, bạn có thể tạo marker POINT mới bằng `entmake`. Nếu muốn sửa layer của một LINE có sẵn, cần lấy `entget`, thay đúng cặp mã nhóm 8 rồi gọi `entmod`. Không được sửa nhầm cặp mã nhóm 0 vì đó là loại entity.
 

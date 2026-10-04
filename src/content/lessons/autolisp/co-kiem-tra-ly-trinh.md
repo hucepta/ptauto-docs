@@ -44,8 +44,9 @@
   "illustration": "station"
 }
 ---
+<span id="đề-bài-hạ-tầng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Đề bài hạ tầng
+## Yêu cầu kiểm tra lý trình
 
 Một tuyến được vẽ bằng LWPOLYLINE. Bạn cần marker tại mỗi 20 m dọc theo tuyến để phục vụ kiểm tra cọc. Nếu tuyến dài 95 m, các mốc chính là 0, 20, 40, 60, 80 m; điểm cuối 95 m chỉ thêm khi yêu cầu dự án quy định. Nói rõ chính sách điểm cuối trước khi code để tránh trùng mốc hoặc thiếu cọc.
 

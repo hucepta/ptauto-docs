@@ -7,7 +7,7 @@
   "technology": "dynamo-python",
   "order": 5,
   "guide": {
-    "question": "Dynamo và Python giúp gì cho thiết kế hạ tầng?",
+    "question": "Dynamo và Python",
     "answer": "Dynamo ghép các node bằng dây để dữ liệu đi qua một đồ thị xử lý. Trong Civil 3D, node có thể đọc hoặc tạo đối tượng CAD/Civil; Python node xử lý trường hợp mà node sẵn có không đủ hoặc quy tắc dữ liệu cần viết rõ.",
     "why": "Đồ thị phù hợp để thấy ngay đường đi của dữ liệu: lấy danh sách cọc, lọc bản ghi lỗi, tạo bảng kiểm tra hoặc chuẩn bị dữ liệu cho GIS. Python chỉ nên gói một bước có lý do, không giấu cả quy trình trong một ô code.",
     "setup": [

@@ -41,12 +41,15 @@
   "illustration": "network"
 }
 ---
+<span id="vì-sao-phải-tách-hai-mạng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Vì sao phải tách hai mạng?
+## Pipe Network và Pressure Network
 
 Một tuyến thoát nước tự chảy thường được quản lý như Pipe Network với pipe và structure. Tuyến cấp nước áp lực dùng mô hình Pressure Network, có pressure pipe, fitting và appurtenance. Hai mạng có cách tạo và duyệt thành phần khác nhau; ép chúng vào một vòng lặp API sẽ dễ bỏ sót phụ kiện hoặc đếm nhầm chiều dài.
 
-## Một bảng kiểm kê tối thiểu
+<span id="một-bảng-kiểm-kê-tối-thiểu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bảng kiểm kê mạng ống
 
 | Trường | Ý nghĩa | Nếu thiếu |
 |---|---|---|

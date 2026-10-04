@@ -41,8 +41,9 @@
   "illustration": "metadata"
 }
 ---
+<span id="metadata-không-thay-thế-bản-vẽ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Metadata không thay thế bản vẽ
+## XData và Xrecord
 
 Một cọc có thể mang mã quản lý không thể suy ra từ hình học. **XData** gắn dữ liệu ứng dụng vào entity sau khi đăng ký tên ứng dụng; **Xrecord** trong `DBDictionary` phù hợp với dữ liệu cấu trúc hơn hoặc dữ liệu thuộc bản vẽ. Thiết kế schema gồm version, stable ID và đơn vị ngay từ đầu để lần phát hành sau đọc được dữ liệu cũ.
 

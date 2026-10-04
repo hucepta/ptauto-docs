@@ -4,7 +4,7 @@
   "slug": "ban-do-civil",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.bat-dau",
-  "order": 3,
+  "order": 4,
   "difficulty": "co-ban",
   "prerequisites": [],
   "conceptIds": [],
@@ -34,8 +34,9 @@
   ]
 }
 ---
+<span id="hai-mô-hình-phối-hợp" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Hai mô hình phối hợp
+## Database và CivilDocument
 
 CivilDocument không thay thế Database: nó cung cấp collection/setting Civil cho DWG. Alignment, Surface và Profile được lưu trên hạ tầng database AutoCAD; Transaction mở chúng bằng ObjectId. Document.Editor nhận lựa chọn và in báo cáo.
 
@@ -52,7 +53,9 @@ Alignment.GetProfileIds() → các ObjectId Profile thuộc tuyến
 
 Đây là bản đồ truy cập, không phải cây kế thừa. CivilDocument không phải lớp cha Alignment. ObjectId định danh object và phải thuộc đúng Database mở transaction.
 
-## Theo tuyến tới trắc dọc
+<span id="theo-tuyến-tới-trắc-dọc" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Alignment và Profile
 
 Trong vòng foreach của PT_CIVIL_NAMES, sau khi mở Alignment, thêm:
 

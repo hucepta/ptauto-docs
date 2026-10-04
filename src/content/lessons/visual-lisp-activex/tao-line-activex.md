@@ -32,8 +32,9 @@
   ]
 }
 ---
+<span id="đi-qua-đúng-object" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Đi qua đúng object
+## Application, Document và ModelSpace
 
 Application là AutoCAD đang chạy. ActiveDocument là bản vẽ đang hoạt động. ModelSpace là collection entity của Model trong bản vẽ đó. Muốn thêm LINE, gọi AddLine trên ModelSpace, không gọi trên Application hoặc một LINE có sẵn.
 
@@ -66,7 +67,9 @@ Lưu `pt-ax-line.lsp`, nạp bằng APPLOAD và chạy PTAXLINE ở tab Model. B
 
 100 ở đây là đơn vị bản vẽ, không mặc định là 100 mét. Bản vẽ sử dụng quy ước millimeter sẽ hiểu khác quy ước meter; xác định quy ước dự án trước khi nhập kích thước thực tế.
 
-## Thử có chủ đích
+<span id="thử-có-chủ-đích" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra kết quả
 
 Chuyển UCS sang hệ xoay rồi chạy lại. AddLine vẫn dùng hai điểm WCS đã ghi trong mã. Khi muốn nhận điểm bằng getpoint của người dùng, đổi bằng trans từ UCS sang WCS trước khi vlax-3d-point. Không tự thay bằng tọa độ đang hiển thị trong Properties khi UCS khác World.
 

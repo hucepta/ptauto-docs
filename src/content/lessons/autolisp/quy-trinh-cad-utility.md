@@ -70,8 +70,9 @@
   "illustration": "graph"
 }
 ---
+<span id="biến-yêu-cầu-thành-hợp-đồng-dữ-liệu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Biến yêu cầu thành hợp đồng dữ liệu
+## Đầu vào và đầu ra
 
 CAD Utility hữu ích bắt đầu từ một công việc cụ thể: xuất danh sách LINE người dùng chọn để kiểm tra chiều dài. Xác định đầu vào là selection set LINE, đầu ra là CSV gồm Handle, layer, WCS hai đầu và chiều dài 3D. Hủy lựa chọn phải kết thúc; thiếu quyền ghi phải báo lỗi; bản vẽ không bị sửa.
 
@@ -83,7 +84,9 @@ Thử hàm tính chiều dài với chênh lệch tọa độ 3, 4, 0 cho kết 
 
 Ví dụ PTA_EXPORT_LINES là phần lõi có thể nạp bằng APPLOAD. Mỗi entity tạo một dòng dữ liệu. Handle phục vụ đối chiếu lại trong DWG gốc; layer mô tả tổ chức bản vẽ. Với Geometry Utility khác, dùng cùng record nhưng bổ sung phép tính giao điểm hoặc hướng đã được định nghĩa rõ.
 
-## Áp dụng cho cọc và tuyến có giới hạn
+<span id="áp-dụng-cho-cọc-và-tuyến-có-giới-hạn" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Phạm vi dữ liệu cọc và tuyến
 
 Stake Tool có thể nhận các điểm đã được chuyển về WCS, sinh mã cọc theo quy tắc và xuất tọa độ. Quản lý cọc cần phát hiện mã trùng, lưu liên kết bằng dữ liệu ứng dụng và quy định điều gì xảy ra khi người dùng xóa hoặc sao chép entity.
 
@@ -96,7 +99,9 @@ Bản vẽ thử gồm hai LINE, một CIRCLE, một LINE 3D và layer có dấu
 Khi cần collection, property hoặc đo khoảng cách dọc polyline có cung, chuyển sang Visual LISP / ActiveX trên Windows. Giữ hàm tính toán và record dữ liệu đã chuẩn hóa; chỉ thay lớp đọc API. Nội dung này cung cấp hướng dẫn và mã mẫu, chưa có lần chạy AutoCAD được ghi nhận.
 
 
-## Thực hiện báo cáo trong phần mềm
+<span id="thực-hiện-báo-cáo-trong-phần-mềm" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành lập báo cáo
 
 1. Tạo DWG học bằng New, dùng LINE vẽ từ WCS (0,0,0) đến (30,40,0); Length phải là 50. Vẽ thêm CIRCLE để kiểm tra bộ lọc bỏ loại không phù hợp.
 2. Soạn và Save ví dụ xuất CSV của bài, dùng APPLOAD → Load → Close để nạp. Gọi đúng tên lệnh c: trong ví dụ, rồi chọn LINE; nếu có hộp chọn file, lưu dưới tên mới trong thư mục học.

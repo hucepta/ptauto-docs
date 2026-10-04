@@ -87,12 +87,15 @@
   "illustration": "report"
 }
 ---
+<span id="chọn-theo-thông-tin-cần-giữ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Chọn theo thông tin cần giữ
+## Chọn định dạng dữ liệu
 
 Một định dạng thuận tiện cho hiển thị chưa chắc giữ được mô hình thiết kế. Lập danh sách Geometry, Attribute, CRS, đơn vị, cao độ và quan hệ cha–con phải bàn giao. Sau chuyển đổi, kiểm tra những mục đó thay vì chỉ mở file thấy có hình. Với đường cong được lấy mẫu thành đoạn thẳng, ghi quy tắc lấy mẫu và sai số cho phép. Dữ liệu nguồn vẫn cần được lưu để đối chiếu khi định dạng đích không biểu diễn được toàn bộ.
 
-## Hiểu nhóm định dạng phổ biến
+<span id="hiểu-nhóm-định-dạng-phổ-biến" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Các định dạng phổ biến
 
 | Định dạng | Vai trò và điểm cần kiểm tra |
 | --- | --- |
@@ -105,7 +108,9 @@ Một định dạng thuận tiện cho hiển thị chưa chắc giữ được
 | GeoTIFF | Raster có thông tin địa lý; kiểm tra band, NoData, độ phân giải và hệ cao độ. |
 | LandXML | Trao đổi một số dữ liệu kỹ thuật Civil; phạm vi và tùy chọn xuất/import phụ thuộc sản phẩm. |
 
-## Phân công thư viện đúng phạm vi
+<span id="phân-công-thư-viện-đúng-phạm-vi" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Chọn thư viện xử lý
 
 GDAL/OGR đọc, ghi và chuyển nhiều định dạng; driver có trong bản cài đặt quyết định khả năng thực tế. GeoPandas quản lý bảng gắn Geometry và các thao tác theo lớp. Shapely xử lý hình học phẳng; pyproj dùng PROJ cho CRS và biến đổi tọa độ. PostGIS đưa dữ liệu không gian và truy vấn vào PostgreSQL. Các công cụ bổ sung nhau, không thay thế toàn bộ Civil API. Thư viện chuẩn Python đủ làm CSV/JSON nhưng không tự đọc DWG hoặc xác minh đầy đủ topology.
 

@@ -4,7 +4,7 @@
   "slug": "tuong-tac-editor",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.bat-dau",
-  "order": 4,
+  "order": 5,
   "difficulty": "co-ban",
   "prerequisites": [],
   "conceptIds": [],
@@ -34,7 +34,6 @@
   ]
 }
 ---
-
 ## Luồng người dùng
 
 Định nghĩa yêu cầu trước API: chọn hai điểm, báo khoảng cách 3D theo đơn vị bản vẽ, không tạo object. Luồng có ba nhánh: chọn đủ điểm, hủy ở điểm đầu, hủy ở điểm sau. Hủy là quyết định của người dùng và phải kết thúc sạch.
@@ -80,7 +79,9 @@ UseBasePoint tạo dây cao su từ điểm đầu giúp người dùng thấy m
 3. Chạy với `0,0,0` và `0,0,5`: vẫn 5.000. Nếu cần khoảng cách bằng, chủ động bỏ thành phần Z trong phép tính.
 4. Chạy lại và Esc ở điểm đầu. Chạy lại, chọn điểm đầu rồi Esc ở điểm sau. Không có kết quả đo ở cả hai nhánh.
 
-## Từ một tới nhiều entity
+<span id="từ-một-tới-nhiều-entity" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Chọn nhiều entity
 
 GetEntity dùng cho một object cùng điểm chọn. GetSelection dùng cho tập. PromptSelectionResult.Value là SelectionSet; GetObjectIds trả ID để mở bằng Transaction. Nếu dùng SelectionFilter, nêu rõ điều kiện: chỉ LINE, chỉ layer PT_LINE hoặc cả hai. Không âm thầm loại object rồi báo tổng cho cả selection.
 

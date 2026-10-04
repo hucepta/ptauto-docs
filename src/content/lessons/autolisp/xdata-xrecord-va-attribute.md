@@ -41,8 +41,9 @@
   "illustration": "metadata"
 }
 ---
+<span id="bài-toán-cọc-c-025-cần-giữ-tên-qua-lần-bàn-giao" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Bài toán: cọc C-025 cần giữ tên qua lần bàn giao
+## Lưu mã cọc
 
 Một block cọc có nhãn nhìn thấy trên bản vẽ, nhưng bảng CSV còn chứa lý trình, cao độ và mã tuyến. Nếu ghi tất cả vào TEXT rời, người sửa block sẽ làm mất quan hệ dữ liệu. Trước khi chọn API, hãy hỏi: dữ liệu nào người vẽ cần nhìn, dữ liệu nào máy cần đọc, và dữ liệu có thuộc một block hay toàn bộ dự án?
 
@@ -52,7 +53,9 @@ Một block cọc có nhãn nhìn thấy trên bản vẽ, nhưng bảng CSV cò
 | XData | Metadata nhỏ gắn với một entity, theo tên ứng dụng đăng ký | Cần `regapp`, kiểm tra giới hạn và schema trước khi ghi. |
 | Dictionary/Xrecord | Dữ liệu cấu trúc hơn, lưu ở extension dictionary hoặc named object dictionary | Xrecord phải có owner; ghi và đọc lại bằng khóa ổn định. |
 
-## Một lượt đọc an toàn
+<span id="một-lượt-đọc-an-toàn" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Đọc dữ liệu mở rộng
 
 Chọn đúng block, ghi lại handle và đọc `entget` để kiểm tra loại `INSERT`. Duyệt các entity tiếp theo cho đến `SEQEND`, chỉ nhận `ATTRIB`; không mặc định mọi block đều có attribute. Với XData, đọc bằng `entget` có tên ứng dụng cần tra. Với Xrecord, tìm dictionary và khóa trước khi đọc; nếu chưa có thì trả trạng thái “thiếu metadata” thay vì tự tạo giá trị giả.
 

@@ -41,8 +41,9 @@
   "illustration": "graph"
 }
 ---
+<span id="khi-ba-cọc-biến-thành-chín-kết-quả" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Khi ba cọc biến thành chín kết quả
+## Lacing và số kết quả
 
 Station `[0, 20, 40]` và cao độ `[3.1, 3.2, 3.4]` cần ghép từng cặp. Nếu node dùng Cross Product, nó có thể tạo 3×3 cặp; đó là một lỗi lacing, không phải dữ liệu thật. Shortest ghép theo vị trí đến danh sách ngắn nhất, Longest có thể lặp phần tử cuối; phải chọn theo hợp đồng đầu vào.
 

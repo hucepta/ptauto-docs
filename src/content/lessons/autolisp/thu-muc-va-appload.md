@@ -6,7 +6,7 @@
   "description": "Soạn, lưu và nạp đúng file để tránh chạy bản mã cũ.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 4,
+  "order": 5,
   "difficulty": "co-ban",
   "prerequisites": [],
   "sources": [
@@ -32,8 +32,9 @@
   ]
 }
 ---
+<span id="tạo-nơi-lưu-bài-học" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Tạo nơi lưu bài học
+## Tạo thư mục
 
 Chuẩn bị một thư mục riêng, ví dụ `C:/CAD-Hoc/Lisp` trên Windows. Lưu DWG học ở thư mục khác để phân biệt mã nguồn với dữ liệu bản vẽ. Một routine LSP được nạp vào bản vẽ hiện tại; lưu LSP không tự làm thay đổi routine đang có trong bộ nhớ AutoCAD.
 
@@ -50,13 +51,17 @@ Chuẩn bị một thư mục riêng, ví dụ `C:/CAD-Hoc/Lisp` trên Windows. 
 )
 ```
 
-## Nạp đúng file
+<span id="nạp-đúng-file" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Nạp file
 
 Trong AutoCAD, gõ `APPLOAD`. Hộp **Load/Unload Applications** cho phép duyệt đến `pt-check.lsp`. Chọn file, bấm **Load**, đọc thông báo thành công rồi **Close**. Tại Command Line nhập `PTCHECK`. Bạn phải thấy `PTCHECK - ban 1`.
 
 Nếu AutoCAD báo về vị trí không tin cậy, xác nhận nguồn file học của bạn. Trên Windows, mở **OPTIONS → Files → Trusted Locations** và thêm đúng thư mục mã của mình bằng **Add → Browse** theo giao diện phiên bản đang dùng. Giữ cơ chế kiểm tra mã của AutoCAD; thư mục tin cậy chỉ nên chứa mã bạn kiểm soát.
 
-## Kiểm tra vòng sửa mã
+<span id="kiểm-tra-vòng-sửa-mã" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Sửa và nạp lại mã
 
 Đổi `ban 1` thành `ban 2`, Save rồi gọi lại PTCHECK trước khi nạp. Kết quả vẫn là bản 1. Nạp lại bằng APPLOAD và chạy một lần nữa; lần này phải là bản 2. Đây là cách phân biệt lỗi file với lỗi routine đang chạy.
 
@@ -68,6 +73,8 @@ Bạn cũng có thể nạp bằng đường dẫn đầy đủ:
 
 Dấu `/` trong đường dẫn giúp tránh escape của dấu gạch chéo ngược. Dùng `findfile` để kiểm tra AutoCAD tìm được đường dẫn nào nếu có nhiều file cùng tên.
 
-## Bài tập và xử lý lỗi
+<span id="bài-tập-và-xử-lý-lỗi" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bài tập
 
 Tạo thêm file `pt-check-copy.lsp` với thông báo khác rồi nạp lần lượt. Tên hàm giống nhau sẽ nhận định nghĩa mới nhất; ghi đường dẫn mỗi lần nạp để nhận ra nguyên nhân. Nếu báo Unknown command, kiểm tra Load đã thành công, tên hàm là `c:PTCHECK` và bạn gọi `PTCHECK`. Nếu nạp báo lỗi cú pháp, xem dòng lỗi và kiểm tra dấu ngoặc trước khi thay đổi đường dẫn.

@@ -1,0 +1,33 @@
+body details > summary { list-style: none; }
+body .course-nav summary, body .toc summary { list-style: none; }
+body details > summary::marker { content: ''; }
+body .project-aspect summary::after { content: none; }
+body details > summary::-webkit-details-marker { display: none; }
+body details > summary::before { content: '›'; display: inline-block; width: 1em; margin-right: .25em; font-weight: 700; transform: rotate(0); transition: transform .24s cubic-bezier(.22,1,.36,1); }
+body details[open] > summary::before { transform: rotate(90deg); }
+body details[data-collapsing] > summary::before { transform: rotate(0); }
+body .map-section[open] > :not(summary), body .project-aspect[open] p, body .course-map details[open] > :not(summary) { animation: none; }
+body .home-footer p { margin-bottom: .6rem; line-height: 1.55; }
+body .home-footer h2 { margin-bottom: .6rem; }
+body .home-footer h3 { margin-bottom: .5rem; }
+body .home-footer section { align-self: start; }
+body .home-footer .source-list li { margin-bottom: .2rem; }
+.branch-connector { position: relative; height: 35px; }
+.branch-tip { position: absolute; top: 27px; transform: translateX(-50%); border-inline: 5px solid transparent; border-top: 8px solid #255d7c; }
+@media (max-width:600px) {
+  body .header-inner { flex-direction: row; align-items: center; gap: .35rem; padding: .45rem .5rem; }
+  body .brand { flex: 0 0 auto; align-self: center; }
+  body .brand img { width: clamp(66px,17vw,98px); height: auto; display: block; }
+  body .primary-nav, html.js body .primary-nav { flex: 1; min-width: 0; width: auto; gap: .1rem; }
+  body .primary-nav a { padding: .35rem .12rem; font-size: clamp(.64rem,2.2vw,.8rem); min-height: 44px; line-height: 1.3; }
+  body .reader-article .prose p { text-align: left; }
+}
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: page-out .12s ease-out both; }
+::view-transition-new(root) { animation: page-in .18s cubic-bezier(.22,1,.36,1) both; }
+@keyframes page-out { to { opacity: 0; } }
+@keyframes page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion:reduce) {
+  body details > summary::before { transition: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}

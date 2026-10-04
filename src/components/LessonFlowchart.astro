@@ -1,6 +1,7 @@
 ---
 import { lessonDecisions } from '../content/lesson-decisions';
 import FlowEdge from './FlowEdge.astro';
+import BranchEdges from './BranchEdges.astro';
 interface Props { lessonId: string; title: string; steps: { label: string; detail: string }[]; }
 const { lessonId, title, steps } = Astro.props;
 const decisions = lessonDecisions[lessonId] ?? [];
@@ -13,9 +14,9 @@ const decisions = lessonDecisions[lessonId] ?? [];
     {decisions.filter(decision => decision.after === index).map(decision => <>
       <FlowEdge />
       <div class="flow-gate"><span>{decision.question}</span></div>
-      <svg class="branch-edges" viewBox="0 0 100 35" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0V10H25V28M50 10H75V28" fill="none" stroke="#255d7c" stroke-width="1.2" vector-effect="non-scaling-stroke"/><path d="m23 26 2 8 2-8m46 0 2 8 2-8" fill="#255d7c"/></svg>
-      <div class="lesson-branch"><div><b>Không ↓</b><p>{decision.no}</p><small>{decision.noContinues ? 'Tiếp tục dọn dẹp ↓' : 'Kết thúc nhánh'}</small></div><div><b>Có ↓</b><p>{decision.yes}</p><small>Tiếp tục ↓</small></div></div>
-      <svg class="branch-edges" viewBox="0 0 100 35" preserveAspectRatio="none" aria-hidden="true"><path d={decision.noContinues?'M25 0V10H50V29M75 0V10H50':'M75 0V10H50V29'} fill="none" stroke="#255d7c" stroke-width="1.2" vector-effect="non-scaling-stroke"/><path d="m48 27 2 8 2-8" fill="#255d7c"/></svg>
+      <BranchEdges />
+      <div class="lesson-branch"><div><b>Không</b><p>{decision.no}</p><small>{decision.noContinues ? 'Tiếp tục ↓' : 'Dừng để kiểm tra'}</small></div><div><b>Có</b><p>{decision.yes}</p><small>Tiếp tục ↓</small></div></div>
+      <BranchEdges merge both={decision.noContinues} />
     </>)}
   </>)}
   <FlowEdge /><div class="flow-finish">Kết thúc</div>

@@ -6,7 +6,7 @@
   "description": "Biết nơi viết, nơi chạy, và vì sao Save chưa cập nhật lệnh đang được AutoCAD giữ.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 3,
+  "order": 4,
   "difficulty": "co-ban",
   "prerequisites": [
     "lesson.autolisp.bat-dau-autolisp"
@@ -41,8 +41,9 @@
   "illustration": "terminal"
 }
 ---
+<span id="hai-cửa-sổ-làm-hai-việc-khác-nhau" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Hai cửa sổ làm hai việc khác nhau
+## Soạn và chạy mã
 
 Editor lưu **mã nguồn**; AutoCAD thực thi bản mã đã **nạp**. Command Line là nơi người dùng đưa yêu cầu và thấy prompt/kết quả. Nếu sửa file nhưng chưa nạp lại, AutoCAD vẫn có thể chạy định nghĩa lệnh cũ. Đây là nguyên nhân thường gặp khi mới học.
 
@@ -52,7 +53,9 @@ Editor lưu **mã nguồn**; AutoCAD thực thi bản mã đã **nạp**. Comman
 | APPLOAD | Bộ nhớ phiên AutoCAD | File trên đĩa không tự sửa |
 | Gõ `HELLO` | Command Line gọi `c:HELLO` | Không tự mở editor |
 
-## Thử nhận biết bản mã đang chạy
+<span id="thử-nhận-biết-bản-mã-đang-chạy" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra phiên bản mã
 
 Trong file thử, sửa chuỗi phản hồi thành `Ban B`. Save nhưng chưa APPLOAD lại và gọi `HELLO`; ghi dòng hiện ra. Sau đó APPLOAD lại và gọi một lần nữa. Nếu kết quả không đổi, kiểm tra bạn có hai file cùng tên ở hai thư mục khác nhau không. Ghi đường dẫn tuyệt đối của file đã nạp vào nhật ký thử.
 

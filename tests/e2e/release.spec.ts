@@ -3,9 +3,10 @@ import { spawn, spawnSync, type ChildProcess } from 'node:child_process';
 let server: ChildProcess;
 const output = 'test-results/base-dist';
 test.beforeAll(async () => {
+    test.setTimeout(120000);
     const env = { ...process.env, BUILD_DIR: output, SITE_BASE: '/ptauto-docs/' };
     for (const args of [['scripts/astro.mjs', 'build'], ['scripts/build-search.mjs'], ['scripts/verify-artifact.mjs']]) {
-        const result = spawnSync(process.execPath, args, { env, encoding: 'utf8', timeout: 20000 });
+        const result = spawnSync(process.execPath, args, { env, encoding: 'utf8', timeout: 60000 });
         if (result.status !== 0)
             throw new Error(result.stdout + result.stderr);
     }

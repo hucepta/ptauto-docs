@@ -4,9 +4,11 @@
   "slug": "moi-truong-civil",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.bat-dau",
-  "order": 1,
+  "order": 2,
   "difficulty": "co-ban",
-  "prerequisites": [],
+  "prerequisites": [
+    "lesson.civil3d-dotnet.chuan-bi-cong-cu"
+  ],
   "conceptIds": [],
   "exampleIds": [],
   "examplePlacements": [],
@@ -39,7 +41,11 @@
 }
 ---
 
-## Chuẩn bị cùng một bộ công cụ
+Nếu chưa cài hoặc chưa mở công cụ, làm bài [Chuẩn bị công cụ](/hoc/civil3d-dotnet/chuan-bi-cong-cu/) trước. Các bước bên dưới dùng lại môi trường và thư mục đã tạo ở bài đó.
+
+<span id="chuẩn-bị-cùng-một-bộ-công-cụ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Chuẩn bị môi trường
 
 Trong Civil 3D chọn Help → **About Autodesk Civil 3D**, đọc năm phiên bản trước khi chọn project. Bài dùng Civil 3D 2025/.NET 8 làm ví dụ. AutoCAD nền và Civil references phải từ cùng bộ cài/SDK tương ứng; không ghép AcDbMgd của một năm với AeccDbMgd năm khác.
 
@@ -55,14 +61,18 @@ Visual Studio soạn/build DLL. Civil 3D chạy lệnh. Toolspace liệt kê mô
 4. Chọn từng reference → **Properties → Copy Local = False**. Không phân phối Autodesk assemblies như DLL tiện ích.
 5. Thay Class1.cs bằng code PT_CIVIL_NAMES trong bài Đọc tuyến đầu tiên. **Ctrl+S**, **Build → Build Solution**, **View → Output → Build**. DLL project nằm trong bin/Debug của target.
 
-## Nạp đúng ứng dụng
+<span id="nạp-đúng-ứng-dụng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Nạp plugin trong Civil 3D
 
 1. Khởi chạy shortcut Autodesk Civil 3D 2025, mở PT_CIVIL_01.dwg. Ctrl+9 bật Command Line.
 2. Gõ NETLOAD, chọn PTCivilRead.dll → **Open**. Nếu thư mục không đáng tin cậy, thêm thư mục học được quản lý qua **OPTIONS → Files → Trusted Locations** theo chính sách máy.
 3. Gõ PT_CIVIL_NAMES, F2 đọc kết quả. DWG không có tuyến phải báo 0.
 4. Sau khi sửa mã, lưu/build; đóng tiến trình Civil 3D đã nạp bản cũ rồi mở lại và NETLOAD DLL mới. Assembly đã nạp thường tồn tại đến lúc ứng dụng đóng.
 
-## Chẩn đoán theo triệu chứng
+<span id="chẩn-đoán-theo-triệu-chứng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Gỡ lỗi
 
 Autodesk.Civil không tìm thấy khi build: xem AeccDbMgd reference và namespace. Application mơ hồ: dùng alias AcApp tách khỏi CivilApplication. Không tìm được assembly khi NETLOAD: kiểm tra đúng Civil 3D và target framework/API. Collection rỗng: quay về Prospector xem đúng DWG có tuyến, thay vì thêm reference.
 

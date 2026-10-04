@@ -235,3 +235,90 @@ export const projectFramework: Record<string, ProjectFramework> = {
     gate: 'CRS, mã tuyến và điểm khống chế đạt?', reject: 'Giữ bản nguồn, sửa ánh xạ rồi xuất lại', visual: 'map'
   }
 };
+
+Object.assign(projectFramework, {
+  "project.autolisp.buoi-dau-loi-chao-dwg": {
+    "workflow": "Mở DWG thử, lưu tên và mở LSP trong VS Code. → Save LSP, APPLOAD trong DWG hiện tại và đọc kết quả nạp. → Gọi PTA_HELLO_DWG rồi lưu bản sao DWG với tên khác.",
+    "ui": "Cửa sổ ứng dụng và Command Line để gọi lệnh, đọc phản hồi.",
+    "ux": "Làm trên file học riêng; ghi kết quả sau mỗi lượt để nhận ra bước chưa hoàn tất.",
+    "data": "DWG mới xin-chao.dwg và file loi-chao-dwg.lsp do bạn viết.",
+    "state": "Biến và hàm AutoLISP thuộc từng DWG; tạo lại sau khi mở bản vẽ mới.",
+    "validation": "Đóng/mở DWG, APPLOAD lại rồi đối chiếu hai tên; chức năng không lưu trong DWG.",
+    "geometry": "Bài này chỉ đọc hoặc in thông tin, không tạo hoặc sửa hình học.",
+    "undo": "Các thao tác minh họa chỉ đọc/tính số; việc lưu file học được thực hiện riêng, không tạo Undo giả.",
+    "integration": "AutoLISP/ActiveX được gọi trong DWG đang hoạt động; VS Code chỉ soạn mã.",
+    "gate": "APPLOAD thành công và lệnh đã được định nghĩa?",
+    "reject": "Sửa đường dẫn hoặc lỗi nạp rồi thử lại.",
+    "visual": "terminal"
+  },
+  "project.visual-lisp-activex.buoi-dau-ten-ban-ve": {
+    "workflow": "Mở và lưu DWG thứ nhất; bật COM rồi lấy ptaApp, ptaDoc. → Đọc Name, FullName và ghi kết quả vào phiếu. → Mở DWG thứ hai; tạo lại các biến trong DWG đó và đọc thuộc tính.",
+    "ui": "Cửa sổ ứng dụng và Command Line để gọi lệnh, đọc phản hồi.",
+    "ux": "Làm trên file học riêng; ghi kết quả sau mỗi lượt để nhận ra bước chưa hoàn tất.",
+    "data": "Hai DWG phieu-a và phieu-b đã lưu trên AutoCAD Windows có ActiveX.",
+    "state": "Biến và hàm AutoLISP thuộc từng DWG; tạo lại sau khi mở bản vẽ mới.",
+    "validation": "Mỗi tên khớp tab DWG; biến được khởi tạo riêng ở từng bản vẽ.",
+    "geometry": "Bài này chỉ đọc hoặc in thông tin, không tạo hoặc sửa hình học.",
+    "undo": "Các thao tác minh họa chỉ đọc/tính số; việc lưu file học được thực hiện riêng, không tạo Undo giả.",
+    "integration": "AutoLISP/ActiveX được gọi trong DWG đang hoạt động; VS Code chỉ soạn mã.",
+    "gate": "COM có sẵn và ptaDoc là đối tượng hợp lệ?",
+    "reject": "Kiểm tra host Windows, vl-load-com và hai dòng setq.",
+    "visual": "terminal"
+  },
+  "project.autocad-dotnet.buoi-dau-ten-dwg-csharp": {
+    "workflow": "Mở solution, thêm method đọc Document.Name và lưu. → Build, đọc Output, kiểm tra đúng DLL và host/update. → NETLOAD trong AutoCAD, gọi PTA_DWG_NAME và đọc F2.",
+    "ui": "Cửa sổ ứng dụng và Command Line để gọi lệnh, đọc phản hồi.",
+    "ux": "Làm trên file học riêng; ghi kết quả sau mỗi lượt để nhận ra bước chưa hoàn tất.",
+    "data": "Solution PtaFirst từ bài chuẩn bị và DWG ten-dwg-csharp.dwg.",
+    "state": "DLL đã nạp thuộc phiên host; đóng host thử trước khi build lại nếu file bị khóa.",
+    "validation": "Ghi riêng kết quả build và chạy; đối chiếu tên với tab, lưu DWG rồi chạy lại.",
+    "geometry": "Bài này chỉ đọc hoặc in thông tin, không tạo hoặc sửa hình học.",
+    "undo": "Các thao tác minh họa chỉ đọc/tính số; việc lưu file học được thực hiện riêng, không tạo Undo giả.",
+    "integration": "Đối chiếu framework, SDK và update của AutoCAD; build thành công chưa xác nhận chạy host.",
+    "gate": "DLL build được và khớp SDK/runtime của host?",
+    "reject": "Đối chiếu framework, references, output và lỗi NETLOAD.",
+    "visual": "terminal"
+  },
+  "project.civil3d-dotnet.buoi-dau-kiem-ke-alignment": {
+    "workflow": "Mở Civil 3D đầy đủ và DWG thử; kiểm collection Alignments trong Prospector. → Build lệnh chỉ đọc CivilDocument và Alignment IDs. → NETLOAD trong đúng Civil 3D, gọi lệnh kiểm kê và đọc số lượng.",
+    "ui": "Cửa sổ ứng dụng và Command Line để gọi lệnh, đọc phản hồi.",
+    "ux": "Làm trên file học riêng; ghi kết quả sau mỗi lượt để nhận ra bước chưa hoàn tất.",
+    "data": "DWG Civil 3D thử không có Alignment và project C# có references đúng năm.",
+    "state": "DLL đã nạp thuộc phiên host; đóng host thử trước khi build lại nếu file bị khóa.",
+    "validation": "Đối chiếu collection rỗng trong Prospector; số 0 là kết quả hợp lệ.",
+    "geometry": "Chỉ đếm Alignment IDs; không tạo hoặc sửa tuyến.",
+    "undo": "Các thao tác minh họa chỉ đọc/tính số; việc lưu file học được thực hiện riêng, không tạo Undo giả.",
+    "integration": "Dùng Civil 3D đầy đủ và references đúng năm; chưa có xác nhận chạy host từ website.",
+    "gate": "Đúng host Civil 3D và bộ references tương ứng?",
+    "reject": "Dừng nạp; kiểm tên sản phẩm và thư viện, không chép DLL Civil sang AutoCAD thường.",
+    "visual": "terminal"
+  },
+  "project.dynamo-python.buoi-dau-cong-hai-so": {
+    "workflow": "Mở Civil 3D rồi Dynamo; tạo graph trống và chọn Manual. → Đặt Code Block tính tổng và nối output tới Watch. → Run, thay đầu vào, Run lại và lưu file DYN.",
+    "ui": "Code Block và Watch cho nhập số, chạy Manual và đọc kết quả.",
+    "ux": "Làm trên file học riêng; ghi kết quả sau mỗi lượt để nhận ra bước chưa hoàn tất.",
+    "data": "Graph Dynamo for Civil 3D ở chế độ Manual.",
+    "state": "Manual cần Run sau khi sửa đầu vào; lưu DYN riêng với DWG.",
+    "validation": "Mở lại DYN và Run; so giá trị Watch, không cần thay đổi đối tượng Civil.",
+    "geometry": "Bài này chỉ tính số, chưa tạo hình học.",
+    "undo": "Các thao tác minh họa chỉ đọc/tính số; việc lưu file học được thực hiện riêng, không tạo Undo giả.",
+    "integration": "Mở Dynamo từ Civil 3D; graph tính số không cần package ngoài.",
+    "gate": "Cổng đã nối và graph không báo lỗi cú pháp?",
+    "reject": "Kiểm dấu chấm phẩy, dây nối, node bị Freeze và chế độ chạy.",
+    "visual": "graph"
+  },
+  "project.gis-data-automation.buoi-dau-mot-diem-gpkg": {
+    "workflow": "Mở QGIS, mở project và kiểm Layers. → Kiểm feature count, CRS và Source của lớp GeoPackage. → Đóng/mở project, đọc lại dữ liệu và ghi nhật ký.",
+    "ui": "Layers, Properties và bảng thuộc tính để kiểm nguồn dữ liệu.",
+    "ux": "Làm trên file học riêng; ghi kết quả sau mỗi lượt để nhận ra bước chưa hoàn tất.",
+    "data": "QGZ và GPKG chứa một điểm đã tạo từ bài chuẩn bị QGIS.",
+    "state": "QGZ giữ cấu hình; GPKG giữ feature. Lưu project không thay việc export lớp memory.",
+    "validation": "Source trỏ GPKG đã lưu; CRS và số feature giữ nguyên; không chỉ dựa vào điểm nhìn thấy.",
+    "geometry": "Điểm thử dùng CRS của lớp; kiểm CRS thay vì gán tọa độ theo cảm giác.",
+    "undo": "Bản thực hành kiểm dữ liệu đã lưu; giữ bản sao GPKG trước khi sửa.",
+    "integration": "Python Console của QGIS có sẵn PyQGIS; terminal Python ngoài QGIS là môi trường khác.",
+    "gate": "Lớp có nguồn GeoPackage còn truy cập được?",
+    "reject": "Kiểm đường dẫn, export lớp memory và lưu lại project.",
+    "visual": "map"
+  }
+});

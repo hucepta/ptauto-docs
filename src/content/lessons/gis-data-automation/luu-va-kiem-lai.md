@@ -8,7 +8,7 @@
   "illustration": "map",
   "title": "Lưu và kiểm lại",
   "description": "Bài này xuất lớp ba cọc từ CSV ra GeoPackage, mở lại từ tệp và đối chiếu ID. Kết quả phải là một tệp coc.gpkg có lớp coc và ba đối tượng. Đếm trên lớp nguồn chư",
-  "order": 4,
+  "order": 5,
   "sources": [
     {
       "title": "QGIS: dữ liệu vector",
@@ -25,12 +25,15 @@
   ]
 }
 ---
+<span id="bàn-giao-một-tệp-có-thể-mở-lại" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Bàn giao một tệp có thể mở lại
+## Lưu và kiểm tra tệp
 
 Bài này xuất lớp ba cọc từ CSV ra GeoPackage, mở lại từ tệp và đối chiếu ID. Kết quả phải là một tệp coc.gpkg có lớp coc và ba đối tượng. Đếm trên lớp nguồn chưa đủ để chứng minh bước ghi thành công.
 
-## Xuất đúng lớp
+<span id="xuất-đúng-lớp" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Xuất lớp dữ liệu
 
 1. Trong Layers của QGIS, chọn lớp coc-mau từ CSV, có CRS nguồn EPSG:4326. Bấm chuột phải, chọn **Export > Save Features As** (Xuất > Lưu đối tượng thành).
 2. Chọn **Format: GeoPackage**. Ở File name, dùng nút chọn tệp để lưu vào thư mục bài học với tên `coc.gpkg`; ở Layer name (Tên lớp), nhập `coc`.
@@ -45,13 +48,17 @@ Bỏ chọn hiển thị lớp CSV gốc bằng ô vuông cạnh tên trong Laye
 
 Bấm chuột phải lớp mới, chọn Zoom to Layer. Mở Attribute Table, kiểm đúng ba dòng C01/C02/C03, cao độ 2.5/2.7/2.6 và không thêm dòng trống. Mở Properties > Information để xác nhận CRS EPSG:4326 và kiểu hình học Point.
 
-## Kiểm lỗi có chủ đích
+<span id="kiểm-lỗi-có-chủ-đích" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra lỗi xuất dữ liệu
 
 Quay lại lớp CSV, chọn chỉ C02, xuất ra một tệp khác `coc-chi-c02.gpkg` với tùy chọn Save only selected features bật. Mở lại: phải có một hàng C02. Thao tác này giúp hiểu vì sao một lần xuất không lỗi vẫn có thể thiếu dữ liệu. Xóa lựa chọn trên lớp nguồn và giữ coc.gpkg ba hàng làm kết quả chuẩn.
 
 Mã cọc cần duy nhất và không rỗng. Số lượng bằng nhau không chứng minh đúng dữ liệu: cần so tập ID, kiểu trường, CRS và vài tọa độ kiểm soát. Một hình hợp lệ cũng có thể sai vị trí do gán CRS nguồn nhầm.
 
-## Hồ sơ nhỏ của bài
+<span id="hồ-sơ-nhỏ-của-bài" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Hồ sơ bàn giao
 
 Giữ coc-mau.csv, coc.gpkg và ba-coc.qgz trong cùng thư mục. Tạo ghi chú nêu nguồn là điểm minh họa WGS84, ba ID mong đợi, ngày xuất và định dạng. Khi mở lại dự án ở máy khác, kiểm đường dẫn nguồn; nếu chỉ gửi .qgz thì người nhận có thể thấy lớp mất nguồn.
 

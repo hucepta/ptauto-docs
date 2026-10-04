@@ -8,7 +8,7 @@
   "illustration": "map",
   "title": "Mở điểm trong QGIS",
   "description": "Dùng coc-mau.csv đã tạo ở bài Hiểu dữ liệu GIS. Sau bài này, QGIS phải hiển thị ba điểm và bảng thuộc tính có ba hàng C01/C02/C03. Các bước dùng tên mục giao di",
-  "order": 2,
+  "order": 3,
   "sources": [
     {
       "title": "QGIS: dữ liệu vector",
@@ -25,12 +25,13 @@
   ]
 }
 ---
-
 ## Đầu vào và kết quả
 
 Dùng coc-mau.csv đã tạo ở bài Hiểu dữ liệu GIS. Sau bài này, QGIS phải hiển thị ba điểm và bảng thuộc tính có ba hàng C01/C02/C03. Các bước dùng tên mục giao diện tiếng Anh để bạn tìm đúng nút; phần trong ngoặc giải thích ý nghĩa.
 
-## Chuẩn bị cửa sổ
+<span id="chuẩn-bị-cửa-sổ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Mở QGIS
 
 Mở QGIS Desktop và chọn **Project > New** (Dự án > Mới). Vùng bản đồ ở giữa hiển thị hình học; bảng **Layers** (Các lớp) thường ở bên trái liệt kê nguồn dữ liệu. Nếu không thấy Layers, chọn **View > Panels > Layers Panel** (Xem > Các bảng > Bảng lớp).
 
@@ -45,13 +46,17 @@ Bài không cần bản đồ nền hoặc mạng Internet. Ba điểm và bản
 5. Bấm **Add** (Thêm), rồi **Close** (Đóng). Trong Layers phải có lớp coc-mau.
 6. Bấm chuột phải coc-mau trong Layers, chọn **Zoom to Layer** (Thu tới lớp). Ba điểm phải nằm trên một hướng chéo; bấm biểu tượng phóng to nếu cần phân biệt.
 
-## Kiểm bằng bảng
+<span id="kiểm-bằng-bảng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra bảng thuộc tính
 
 Bấm chuột phải lớp, chọn **Open Attribute Table** (Mở bảng thuộc tính). Kiểm ba hàng, không phải bốn. Dòng tiêu đề CSV không được tính như cọc. Đọc C02: x=106.7005, y=10.7705, elevation_m=2.7. Tổng số đối tượng và số đang lọc/được chọn có thể hiện ở thanh trạng thái bảng; bỏ bộ lọc trước khi đếm tổng.
 
 Bấm một hàng rồi dùng chức năng thu tới đối tượng đã chọn trong bảng để xem chính điểm đó. Cách này liên hệ một bản ghi với một hình học, thay vì chỉ thấy ba chấm không biết mã.
 
-## Khi không ra đúng kết quả
+<span id="khi-không-ra-đúng-kết-quả" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Gỡ lỗi
 
 Nếu không có điểm, kiểm đã chọn Point coordinates và đúng cột x/y. Nếu cả dòng gom vào một cột, kiểm dấu phân cách là dấu phẩy. Nếu vị trí vô lý, kiểm thứ tự x/y và CRS nguồn; không sửa bằng cách thử ngẫu nhiên các EPSG. Nếu chỉ thấy một chấm, Zoom to Layer và phóng to trước khi kết luận mất hàng.
 

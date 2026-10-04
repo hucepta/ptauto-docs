@@ -6,7 +6,7 @@
   "description": "Tạo project, tham chiếu API và chạy một lệnh C# trong AutoCAD.",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.bat-dau",
-  "order": 1,
+  "order": 2,
   "difficulty": "co-ban",
   "sources": [
     {
@@ -29,9 +29,14 @@
       "platform": "Windows"
     }
   ],
-  "illustration": "terminal"
+  "illustration": "terminal",
+  "prerequisites": [
+    "lesson.autocad-dotnet.chuan-bi-cong-cu"
+  ]
 }
 ---
+
+Nếu chưa cài hoặc chưa mở công cụ, làm bài [Chuẩn bị công cụ](/hoc/autocad-dotnet/chuan-bi-cong-cu/) trước. Các bước bên dưới dùng lại môi trường và thư mục đã tạo ở bài đó.
 
 ## Plugin và môi trường
 
@@ -39,7 +44,9 @@ AutoCAD .NET cho phép viết lệnh bằng C#, biên dịch thành DLL và nạ
 
 Cần AutoCAD trên Windows, Visual Studio có workload **.NET desktop development**, và thư viện Managed API của phiên bản AutoCAD sử dụng. Bài chọn AutoCAD 2025 đến Update 1.3/.NET 8 làm môi trường ví dụ. Theo [bảng tương thích Autodesk](https://help.autodesk.com/cloudhelp/2025/ENU/AutoCAD-Customization/files/GUID-A6C680F2-DE2E-418A-A182-E4884073338A.htm), AutoCAD 2025 Update 1.4 trở đi dùng .NET 10. Đọc cả năm và mức cập nhật ở Help → About trước khi chọn target. Với host dùng .NET 10, điều chỉnh target/reference theo SDK tương ứng rồi build và kiểm tra lại; không áp dụng nguyên cấu hình .NET 8 bên dưới cho mọi bản 2025.
 
-## Tạo project từng bước
+<span id="tạo-project-từng-bước" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Tạo project
 
 1. Mở Visual Studio Installer, chọn **Modify** tại bản Visual Studio, đánh dấu **.NET desktop development**, chọn **Modify** để cài workload nếu chưa có.
 2. Mở Visual Studio → **Create a new project**. Gõ `Class Library`, lọc ngôn ngữ **C#**, chọn project .NET phù hợp → **Next**. Đặt tên `PTFirstPlugin`, chọn thư mục học riêng → **Next** → chọn **.NET 8.0** → **Create**.
@@ -72,7 +79,9 @@ public class FirstCommands
 3. Gõ `NETLOAD` → Enter, chọn `PTFirstPlugin.dll` → **Open**. Nếu thư mục bị chặn, thêm thư mục học đáng tin cậy qua **OPTIONS → Files → Trusted Locations → Add** theo chính sách máy.
 4. Gõ `PT_HELLO` → Enter. Command Line phải in `Xin chao tu C#.` một lần. `F2` mở lịch sử lệnh để đọc lại.
 
-## Đọc lỗi và sửa một thay đổi
+<span id="đọc-lỗi-và-sửa-một-thay-đổi" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Gỡ lỗi
 
 Nếu namespace không tìm thấy, xem reference đúng assembly và phiên bản. Nếu tên lệnh không tồn tại, kiểm tra NETLOAD đã chọn đúng DLL và method có public cùng attribute. DLL Class Library không phải chương trình độc lập để chạy bằng nút Start thông thường.
 

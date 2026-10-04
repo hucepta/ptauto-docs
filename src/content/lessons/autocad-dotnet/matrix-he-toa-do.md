@@ -41,8 +41,9 @@
   "illustration": "curve"
 }
 ---
+<span id="điểm-có-số-chưa-chắc-cùng-ý-nghĩa" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Điểm có số chưa chắc cùng ý nghĩa
+## Tọa độ UCS, WCS và OCS
 
 Một điểm nhận từ `Editor.GetPoint` chịu bối cảnh UCS của người dùng. Một số API Database lưu hình học theo WCS hoặc OCS của entity. Nếu lấy hai điểm từ hệ khác nhau rồi cộng trừ trực tiếp, kết quả offset tuyến có thể sai khi UCS quay. `Point3d` biểu diễn vị trí; `Vector3d` biểu diễn hướng/độ dời; `Matrix3d` mô tả phép biến đổi.
 

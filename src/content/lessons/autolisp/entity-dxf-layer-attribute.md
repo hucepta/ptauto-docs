@@ -66,13 +66,13 @@
   ],
   "examplePlacements": [
     {
-      "heading": "sửa-và-tạo-có-kiểm-tra",
+      "heading": "sửa-và-tạo-entity",
       "exampleIds": [
         "example.autolisp.tao-sua-line-dxf"
       ]
     },
     {
-      "heading": "block-và-attribute-là-cấu-trúc",
+      "heading": "block-và-attribute",
       "exampleIds": [
         "example.autolisp.doc-attribute-block"
       ]
@@ -81,26 +81,31 @@
   "illustration": "metadata"
 }
 ---
-
 ## Entity name và dữ liệu DXF
 
 Entity là đối tượng của database bản vẽ. Entity name là tham chiếu dùng trong phiên xử lý; Handle là chuỗi định danh lưu với đối tượng trong bản vẽ. Đừng ghi entity name thành cấu hình dài hạn hay xem Handle là mã duy nhất giữa nhiều DWG.
 
 `entget` trả Association List. Group 0 cho loại entity, 5 cho Handle, 8 cho layer. Với LINE, group 10 và 11 là hai đầu WCS; với TEXT và CIRCLE, phải kiểm tra quy ước OCS trước khi xử lý điểm. `assoc` chỉ lấy mục đầu tiên: LWPOLYLINE có nhiều group 10 nên phải duyệt để lấy hết đỉnh. Group 42 bulge lưu đoạn cung, không thể bỏ rồi tính chiều dài như toàn đoạn thẳng.
 
-## Sửa và tạo có kiểm tra
+<span id="sửa-và-tạo-có-kiểm-tra" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Sửa và tạo entity
 
 `entmod` nhận list đã sửa của entity hiện có; thường dùng `subst` thay cặp DXF cần đổi rồi kiểm tra kết quả khác `nil`. Giữ thông tin định danh từ `entget`, không thay loại entity hoặc Handle. Kiểm tra layer khóa trước khi sửa; nếu thay màu ACI, True Color group 420 có thể ưu tiên hơn group 62.
 
 `entmake` tạo entity từ định nghĩa DXF, trả list khi thành công và `nil` khi thiếu hoặc sai dữ liệu. LWPOLYLINE cần subclass marker, số đỉnh và chuỗi đỉnh hợp lệ; không dùng list của LINE rồi chỉ thay tên loại. Tạo trên layer rõ ràng và gom sửa đổi trong Undo trước khi làm tiện ích ghi dữ liệu.
 
-## Block và attribute là cấu trúc
+<span id="block-và-attribute-là-cấu-trúc" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Block và attribute
 
 Block definition chứa hình học mẫu; INSERT là một block reference được đặt trong bản vẽ. Attribute reference của INSERT có thể là subentity ATTRIB; nó khác ATTDEF trong definition và khác attribute hằng.
 
 Ví dụ PTA_BLOCK_ATTRS chỉ đọc INSERT có group 66 bằng 1. Dùng `entnext` đi qua chuỗi subentity, in group 2 là tag và group 1 là giá trị khi gặp ATTRIB, rồi dừng ở SEQEND. Không có attribute cũng là kết quả hợp lệ. Không tiếp tục đi toàn database sau block và không diễn giải attribute nhiều dòng bằng bộ đọc đơn giản này.
 
-## Layer, selection và thực hành
+<span id="layer-selection-và-thực-hành" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Layer và selection
 
 Layer là bản ghi bảng ký hiệu; tra bằng `tblsearch`. Selection set chứa main entity, vì thế chọn INSERT không tự cho selection set riêng của ATTRIB. Lọc đúng loại và phạm vi trước khi duyệt để tránh sửa block definition dùng chung ngoài ý muốn.
 

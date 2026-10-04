@@ -41,8 +41,9 @@
   "illustration": "dialog"
 }
 ---
+<span id="dcl-làm-việc-gì" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## DCL làm việc gì
+## Chức năng của DCL
 
 DCL mô tả hình thức hộp thoại; AutoLISP nạp DCL, đặt giá trị tile, bắt hành động nút bấm và quyết định xử lý bản vẽ. Đây là hai file khác nhau. Trong tool kiểm tra layer tuyến, dialog có thể nhận tên layer cần đối chiếu và nút OK/Cancel; logic đếm hoặc sửa vẫn phải ở LSP.
 

@@ -41,8 +41,9 @@
   "illustration": "graph"
 }
 ---
+<span id="một-thay-đổi-có-thể-lan-qua-nhiều-đối-tượng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Một thay đổi có thể lan qua nhiều đối tượng
+## Phụ thuộc giữa đối tượng Civil
 
 Sửa Alignment hoặc Surface có thể ảnh hưởng Profile, Corridor, Section và báo cáo downstream. Plugin QA/QC cần biết đối tượng phụ thuộc vào đâu. Đừng gọi rebuild hàng loạt ngay khi mở bản vẽ: thao tác có thể tốn thời gian và đổi trạng thái mô hình. Trước hết đọc trạng thái, yêu cầu người dùng xác nhận phạm vi cần cập nhật, sau đó đối chiếu đầu ra.
 

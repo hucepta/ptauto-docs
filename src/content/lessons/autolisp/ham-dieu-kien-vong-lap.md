@@ -67,14 +67,15 @@
   "illustration": "graph"
 }
 ---
-
 ## Tách hàm tính toán khỏi lệnh
 
 Hàm do `defun` định nghĩa nhận đối số, thực hiện các biểu thức rồi trả giá trị của biểu thức cuối. Phần sau dấu `/` khai báo biến cục bộ. Trong tiện ích đo chiều dài, hàm tính tổng nên nhận một list số và trả số; lệnh gọi hàm mới phụ trách chọn đối tượng, thông báo và ghi file. Cách chia này cho phép thử phép tính bằng dữ liệu nhỏ trước khi đụng bản vẽ.
 
 Đừng kết thúc hàm tính toán bằng `princ` không đối số nếu người gọi cần kết quả số. Dùng tiền tố riêng như `pta:` cho hàm nội bộ để tránh ghi đè hàm có sẵn. Biến cấu hình cần giữ giữa các lần chạy có thể là biến toàn cục được đặt tên rõ, nhưng bộ đếm và kết quả trung gian phải cục bộ.
 
-## Điều kiện và vòng lặp có điểm dừng
+<span id="điều-kiện-và-vòng-lặp-có-điểm-dừng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Điều kiện và vòng lặp
 
 `if` chọn một trong hai nhánh; dùng `progn` nếu một nhánh cần nhiều biểu thức. `cond` thử lần lượt các điều kiện và dừng ở nhánh đầu tiên khác `nil`; nhánh `T` cuối cùng là trường hợp mặc định. Số 0 vẫn là giá trị đúng trong điều kiện AutoLISP, vì chỉ `nil` biểu thị sai.
 
@@ -86,6 +87,8 @@ Hàm do `defun` định nghĩa nhận đối số, thực hiện các biểu th�
 
 Ví dụ đi kèm giữ lại số dương, dùng `mapcar` nhân hệ số và dùng `apply` tính tổng. Với dữ liệu `(12 -3 0 8)` và hệ số 2, kết quả biến đổi là `(24 16)`, tổng 40. Kiểm tra list rỗng trước khi chia để tính trung bình; không giả định mọi phần tử đều là số.
 
-## Thực hành và lỗi cần phát hiện
+<span id="thực-hành-và-lỗi-cần-phát-hiện" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành
 
 Nạp file ví dụ bằng APPLOAD, chạy PTA_LIST_STATS và đối chiếu kết quả. Sau đó gọi hàm nội bộ với list rỗng, một phần tử và chuỗi lẫn số. Bài tập yêu cầu báo số phần tử hợp lệ và trung bình. Với chuỗi, dùng `strcat`, `itoa`, `rtos` đúng vai trò; chuyển chuỗi thành số phải được kiểm tra trước khi tính. Mẫu này chỉ tính toán và in kết quả, không sửa bản vẽ.

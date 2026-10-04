@@ -72,7 +72,6 @@
   "illustration": "report"
 }
 ---
-
 ## Xác định phạm vi kiểm kê
 
 Plugin QA/QC cần chỉ rõ object được kiểm tra, quy tắc và bằng chứng. Bước đầu đọc Alignment, Surface và Corridor trong DWG hiện tại, ghi tên, loại và số lượng. Lệnh `PTA_CIVIL_INVENTORY` làm đúng phạm vi này; nó chưa xác nhận mọi quan hệ thiết kế, trạng thái data reference hay khối lượng.
@@ -97,6 +96,8 @@ Lưu trạng thái trước khi đề xuất rebuild. Nếu người vận hành
 
 Một kiểm tra cao độ ghi X/Y và tên surface; một kiểm tra station/offset ghi Alignment và quy ước dấu. Những dữ liệu này cho phép người khác lặp lại inquiry trong host.
 
-## Thực hành và hướng mở rộng
+<span id="thực-hành-và-hướng-mở-rộng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành
 
 Thực hiện [project kiểm kê Civil](../../../du-an/civil3d-dotnet/kiem-ke-civil-qa-qc/) trên DWG rỗng, DWG có dữ liệu và hai Document. Kiểm tra Esc ở các lệnh inquiry, điểm ngoài miền TIN và lỗi dependency. Ghi kết quả chạy thực tế trước khi công bố hỗ trợ. Mở rộng cọc, profile, trắc ngang, nút giao hoặc Dynamo/Python từ snapshot có schema rõ; từng chức năng cần dữ liệu thử và tiêu chí riêng.

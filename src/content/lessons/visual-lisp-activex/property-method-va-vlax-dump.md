@@ -41,8 +41,9 @@
   "illustration": "metadata"
 }
 ---
+<span id="ba-câu-hỏi-trước-khi-gọi-api" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Ba câu hỏi trước khi gọi API
+## Đọc property và gọi method
 
 `Layer` là property: bạn có thể đọc bằng `vla-get-Layer`; nếu cho phép ghi, dùng `vla-put-Layer`. `Move` là method: nó thực hiện hành động, không phải giá trị được đọc. Tên property/method thuộc kiểu đối tượng cụ thể; không thấy ở LINE không có nghĩa mọi đối tượng đều giống LINE.
 

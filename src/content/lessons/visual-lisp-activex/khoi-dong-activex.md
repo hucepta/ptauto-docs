@@ -41,7 +41,6 @@
   "illustration": "terminal"
 }
 ---
-
 ## Điều kiện môi trường
 
 ActiveX trong AutoLISP yêu cầu AutoCAD trên Windows. Trước khi theo lộ trình này, bạn cần đọc được biểu thức AutoLISP và hiểu biến, list. Liên kết bài nền tảng nằm ở phần kiến thức cần có.
@@ -52,7 +51,9 @@ ActiveX trong AutoLISP yêu cầu AutoCAD trên Windows. Trước khi theo lộ 
 
 Nếu phần mở rộng đã được nạp, lời gọi không nạp lại. Bạn có thể đặt nó trong phần khởi tạo của file để người dùng không phải tự nhớ thực hiện.
 
-## Kiểm tra trước khi tiếp tục
+<span id="kiểm-tra-trước-khi-tiếp-tục" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra môi trường
 
 Nạp file “Khởi tạo ActiveX” đi kèm trên AutoCAD Windows. Khi bước này hoạt động, bạn mới nên viết phần truy cập đối tượng hoặc thuộc tính.
 

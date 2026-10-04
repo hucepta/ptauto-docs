@@ -6,7 +6,7 @@
   "description": "Tra property và method tại Command Line trước khi gọi API.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.bat-dau",
-  "order": 3,
+  "order": 4,
   "difficulty": "co-ban",
   "prerequisites": [],
   "sources": [
@@ -32,12 +32,15 @@
   ]
 }
 ---
+<span id="chuẩn-bị-nơi-quan-sát" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Chuẩn bị nơi quan sát
+## Chuẩn bị bản vẽ
 
 Mở DWG học có LINE và CIRCLE. Dùng VS Code mở thư mục LSP và tạo file `pt-inspect.lsp`. ActiveX chạy trong AutoCAD; Terminal của VS Code không đọc được object bản vẽ chỉ bằng cách chạy file như script thông thường.
 
-## Viết một lệnh quan sát
+<span id="viết-một-lệnh-quan-sát" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Viết lệnh quan sát
 
 ```lisp
 (vl-load-com)
@@ -57,7 +60,9 @@ Mở DWG học có LINE và CIRCLE. Dùng VS Code mở thư mục LSP và tạo 
 
 Save, gõ APPLOAD trong AutoCAD, chọn file, bấm Load rồi Close. Nhập PTINSPECT và chọn LINE. Mở lịch sử Command Line bằng F2 trên Windows để xem danh sách dài. Tên object thường là AcDbLine; danh sách có property Layer, StartPoint, EndPoint và các method mà loại object hỗ trợ.
 
-## Hỏi trước khi thao tác
+<span id="hỏi-trước-khi-thao-tác" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra property và method
 
 Chạy riêng từng biểu thức sau với obj là object được chọn hợp lệ; nếu dùng lệnh trên, obj là biến cục bộ nên chọn lại để có biến dùng tại Command Line:
 
@@ -70,10 +75,14 @@ Chạy riêng từng biểu thức sau với obj là object được chọn hợ
 
 Đối với LINE thông thường, các kiểm tra trên phải trả T. T ở kiểm tra property không tự xác nhận layer đích tồn tại. T ở method không tự xác nhận tọa độ bạn truyền là hợp lệ. Dữ liệu ngoài vẫn cần được kiểm tra và lời gọi COM vẫn cần bắt lỗi ở công cụ thật.
 
-## So sánh để hiểu loại object
+<span id="so-sánh-để-hiểu-loại-object" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## So sánh loại object
 
 Gọi PTINSPECT trên CIRCLE. Tìm Radius; gọi lại trên LINE và quan sát LINE không có Radius. Đây là lý do không nên xử lý mọi entity bằng một danh sách property cố định.
 
-## Bài tập và lỗi
+<span id="bài-tập-và-lỗi" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bài tập
 
 Ghi ba property LINE có thể đọc và một method bạn muốn thử sau. Với mỗi mục, mở trang Autodesk đúng property/method để xem kiểu đối số và giá trị trả. Nếu lỗi `no function definition: VLAX-...`, kiểm tra vl-load-com và môi trường hỗ trợ API. Nếu truyền ename trực tiếp cho dump-object, chuyển nó thành VLA object trước.

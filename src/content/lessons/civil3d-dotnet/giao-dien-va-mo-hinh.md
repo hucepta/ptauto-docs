@@ -4,7 +4,7 @@
   "slug": "giao-dien-va-mo-hinh",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.bat-dau",
-  "order": 2,
+  "order": 3,
   "difficulty": "co-ban",
   "prerequisites": [],
   "conceptIds": [],
@@ -34,7 +34,6 @@
   ]
 }
 ---
-
 ## Mô hình và biểu diễn
 
 Alignment có tên và hình học tuyến; style điều khiển màu/nét/thành phần. Label style điều khiển nhãn. Profile chứa cao độ theo lý trình; ProfileView là khung hiển thị Profile. Đếm đường nét không thay thế đếm đối tượng mô hình.
@@ -60,7 +59,9 @@ Khi có mặt đủ dữ liệu, **Home → Create Design → Profile → Create
 
 Trong Prospector mở tuyến → Profiles để tìm Profile; ProfileView có nhánh riêng dưới tuyến. Một tuyến có thể có nhiều Profile và nhiều ProfileView. Báo cáo phải chọn đúng tên/loại, không lấy phần tử đầu theo giả định.
 
-## Kết quả và bài tập
+<span id="kết-quả-và-bài-tập" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bài tập
 
 Chạy PT_CIVIL_NAMES sau đổi style: vẫn hai tuyến. Đếm GetSurfaceIds: tính cả PT_MAT_HOC rỗng. Trong bản sao DWG, xóa mặt học qua Prospector, chạy lại: số mặt giảm 1.
 

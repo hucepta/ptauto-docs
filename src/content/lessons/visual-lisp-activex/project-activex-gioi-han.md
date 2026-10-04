@@ -61,7 +61,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "ghép-các-module-đã-học",
+      "heading": "ghép-module",
       "exampleIds": [
         "example.visual-lisp-activex.chia-curve-theo-do-dai",
         "example.visual-lisp-activex.chuyen-layer-hang-loat"
@@ -71,26 +71,33 @@
   "illustration": "graph"
 }
 ---
+<span id="chọn-một-công-việc-có-đầu-ra-rõ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Chọn một công việc có đầu ra rõ
+## Phạm vi công cụ
 
 Bài này kết hợp báo cáo chia curve theo khoảng cách và quản lý layer của đối tượng đã chọn. Nó kết hợp AutoLISP để nhập, kiểm tra dữ liệu và ghi báo cáo với ActiveX để đọc hình học, duyệt object và thay property. Chỉ thay phần API cần dùng method mới.
 
 Mô hình record nên gồm mã curve, Handle trong DWG gốc, khoảng cách từ đầu, điểm WCS và trạng thái xử lý. Đơn vị vẫn là đơn vị bản vẽ. Khi báo cáo được dùng cho quản lý tuyến, ghi hướng tuyến và mốc bắt đầu; người dùng đảo polyline thì thứ tự điểm thay đổi dù hình dạng không đổi.
 
-## Ghép các module đã học
+<span id="ghép-các-module-đã-học" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Ghép module
 
 Lệnh điều phối nhận curve và số đoạn, gọi module Curve API để tạo list record, rồi đưa list cho module báo cáo. Tách module ghi file khỏi VLA-object để dễ thử với dữ liệu giả. Mẫu PTA_CURVE_DIVIDE_REPORT cung cấp phép đo lõi, còn PTA_VLA_SET_LAYER minh họa batch có nhóm Undo và báo cáo từng kết quả.
 
 Để nâng cấp ROAD Manager mức AutoCAD, lưu mã tuyến nhỏ bằng dữ liệu ứng dụng thay vì tên layer duy nhất. Handle giúp đối chiếu trong bản gốc; sao chép giữa DWG cần quy tắc nhận dạng riêng. Reactor có thể báo dữ liệu cần cập nhật, nhưng thao tác cập nhật vẫn cần vòng đời rõ và bảo vệ khỏi lặp callback.
 
-## Giới hạn cần đánh giá trước
+<span id="giới-hạn-cần-đánh-giá-trước" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Giới hạn ActiveX
 
 ActiveX và các hàm `vlax-curve-*` trong lộ trình này dành cho Windows. Object Model chỉ cung cấp member được công bố; không suy ra một tính năng mới của AutoCAD cũng có property ActiveX tương ứng. AutoCAD LT có giới hạn khác, nên không áp nhãn hỗ trợ toàn bộ API từ việc một hàm chạy được.
 
 Batch lớn tạo nhiều lượt gọi COM; đo thời gian với bản vẽ đại diện trước khi tối ưu. Undo mark là nhóm thao tác, không phải cơ chế Transaction tự phục hồi mọi tài nguyên. File ngoài DWG, cấu hình và tham chiếu object cần được xử lý riêng.
 
-## Khi chuyển sang AutoCAD .NET
+<span id="khi-chuyển-sang-autocad-net" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Chuyển sang AutoCAD .NET
 
 Cân nhắc .NET khi cần mô hình kiểu dữ liệu mạnh, truy cập database sâu hơn, giao diện hoặc quy trình plugin lớn. Chọn API đúng phiên bản AutoCAD và kiểm tra công cụ trên các bản vẽ mẫu trước khi bàn giao. Giữ hợp đồng record, thuật toán thuần và bộ ca nghiệm thu để đối chiếu hai phiên bản công cụ.
 

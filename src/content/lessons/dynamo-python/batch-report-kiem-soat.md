@@ -41,8 +41,9 @@
   "illustration": "report"
 }
 ---
+<span id="chạy-xong-chưa-đủ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## “Chạy xong” chưa đủ
+## Kiểm tra kết quả chạy
 
 Một đồ thị có thể trả 498 hàng từ CSV 500 cọc mà không ai biết 2 hàng nào bị mất. Đầu ra nên gồm cả dữ liệu hợp lệ và **báo cáo lỗi**: số dòng, ID, lý do, giá trị gốc. Giữ thứ tự và stable ID để so với CSV nguồn. Trước khi tạo đối tượng Civil, chạy đồ thị ở chế độ chỉ kiểm tra trên tập nhỏ.
 
@@ -52,7 +53,9 @@ Một đồ thị có thể trả 498 hàng từ CSV 500 cọc mà không ai bi�
 
 Tạo CSV 5 hàng: 3 hợp lệ, 1 thiếu ID, 1 station dạng chữ. Thiết kế hai đầu ra có 3 và 2 hàng, đối chiếu tổng vẫn là 5. Sau đó chạy lại đồ thị và kiểm tra có nhân đôi dữ liệu hay không.
 
-## Thiết kế báo cáo có thể kiểm
+<span id="thiết-kế-báo-cáo-có-thể-kiểm" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Cấu trúc báo cáo
 
 Tạo ba đầu vào có ID C01, C02, C03; cố ý để C02 có lý trình âm. Nối dữ liệu vào bước kiểm, rồi đưa cả nhánh hợp lệ và nhánh lỗi tới Watch. Chạy Manual trước khi nối bước ghi tệp. Báo cáo phải ghi C02 cùng giá trị gốc và lý do, không chỉ ghi tổng một lỗi.
 

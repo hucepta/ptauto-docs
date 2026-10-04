@@ -4,7 +4,7 @@
   "slug": "nhan-dien-autocad",
   "status": "published",
   "chapterId": "chapter.autocad-dotnet.bat-dau",
-  "order": 2,
+  "order": 3,
   "difficulty": "co-ban",
   "prerequisites": [],
   "conceptIds": [],
@@ -34,8 +34,9 @@
   ]
 }
 ---
+<span id="mục-tiêu-trước-khi-viết-mã" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Mục tiêu trước khi viết mã
+## Phạm vi bản vẽ
 
 Một plugin có thể thống kê sai phạm vi khi chọn Paper space trong khi người dùng muốn Model space, hoặc bỏ đối tượng trên layer tắt. Ta tạo bản vẽ có số liệu biết trước để hiểu các tình huống này bằng giao diện.
 
@@ -59,7 +60,9 @@ Nhấp **Layout1**, đặt con trỏ ngoài viewport để làm việc trong Pap
 
 Trong Model, mở LAYER và nhấp bóng đèn của `PT_LINE` để tắt. Hai LINE biến khỏi màn hình nhưng không bị xóa. Bật lại layer. Sau đó nhấp khóa của layer; thử chọn vẫn được nhưng sửa bị hạn chế. Phân biệt ẩn, khóa và xóa để thiết kế phản hồi của plugin.
 
-## Kết quả và bài tập
+<span id="kết-quả-và-bài-tập" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bài tập
 
 Lưu DWG. Ghi bảng: Model có hai LINE tổng 7 và một CIRCLE; Paper space có một LINE dài 5. Dùng cửa sổ chọn bao cả Model rồi Shift+nhấp để bỏ CIRCLE. Số đối tượng chọn còn 2. Trong plugin, SelectionSet nhận lựa chọn; BlockTableRecord quyết định record duyệt khi không dùng selection.
 

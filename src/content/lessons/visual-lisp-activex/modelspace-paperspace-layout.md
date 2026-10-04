@@ -41,8 +41,9 @@
   "illustration": "metadata"
 }
 ---
+<span id="cùng-một-dwg-nhưng-nhiều-phạm-vi" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Cùng một DWG nhưng nhiều phạm vi
+## ModelSpace, PaperSpace và Layout
 
 `Application` là gốc mô hình ActiveX. `ActiveDocument` là bản vẽ đang làm việc. Từ Document, `ModelSpace` chứa đối tượng mô hình, còn `PaperSpace` liên quan không gian giấy/layout. Layer và Blocks là các collection khác. Nếu một tool chỉ đếm LINE trong ModelSpace, nó không tự động đếm LINE nằm trên Layout.
 

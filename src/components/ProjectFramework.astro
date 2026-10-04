@@ -3,14 +3,14 @@ import type { ProjectFramework as Framework } from '../content/project-framework
 interface Props { framework: Framework; }
 const { framework } = Astro.props;
 const parts = [
-  ['Workflow', framework.workflow], ['UI', framework.ui], ['UX', framework.ux],
-  ['Data', framework.data], ['State & Dependency', framework.state],
-  ['Validation / Rules', framework.validation], ['Geometry Engine', framework.geometry],
-  ['Transaction & Undo', framework.undo], ['AutoCAD Integration', framework.integration]
+  ['Quy trình', framework.workflow], ['Giao diện', framework.ui], ['Thao tác', framework.ux],
+  ['Dữ liệu', framework.data], ['Trạng thái', framework.state],
+  ['Kiểm tra', framework.validation], ['Hình học', framework.geometry],
+  ['Hoàn tác', framework.undo], ['Môi trường chạy', framework.integration]
 ];
 ---
 <section class="project-framework" aria-labelledby="project-framework-title">
-  <h2 id="project-framework-title">Chín phần của dự án</h2>
+  <h2 id="project-framework-title">Các phần của dự án</h2>
   <div class="project-framework-grid">{parts.map(([label, explanation], index) => <details class="project-aspect" open={index < 3}>
     <summary><span>{String(index + 1).padStart(2, '0')}</span>{label}</summary><p>{explanation}</p>
   </details>)}</div>

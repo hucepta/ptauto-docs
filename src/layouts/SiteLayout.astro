@@ -2,6 +2,7 @@
 import '../styles/tokens.css';
 import '../styles/reading.css';
 import '../styles/interface.css';
+import '../styles/motion.css';
 import { withBase } from '../domain/content/urls';
 import { getBuildData } from '../content/build-data';
 const { buildId } = await getBuildData();
@@ -31,5 +32,6 @@ const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/
 <main id="content" tabindex="-1"><slot /></main>
 <script>import '../client/navigation';</script>
 <script>import '../client/learning';</script>
+<script>import '../client/disclosures';</script>
 </body></html>
 

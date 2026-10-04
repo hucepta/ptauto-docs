@@ -6,7 +6,7 @@
   "description": "Nối kiến thức AutoLISP với property, method và phạm vi mô hình ActiveX.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.bat-dau",
-  "order": 2,
+  "order": 3,
   "difficulty": "co-ban",
   "prerequisites": [],
   "sources": [
@@ -28,14 +28,17 @@
   ]
 }
 ---
+<span id="học-tiếp-từ-điều-đã-biết" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Học tiếp từ điều đã biết
+## Từ entity đến object
 
 Bạn vẫn dùng defun, setq, if và list của AutoLISP. Visual LISP bổ sung các hàm `vl-`/`vlax-`; ActiveX cho phép truy cập object COM trên AutoCAD Windows. Một entity có thể được nhận diện bằng ename để đọc DXF hoặc VLA object để đọc property. Hai cách tham chiếu cùng entity nhưng có kiểu dữ liệu khác nhau.
 
 Property mô tả trạng thái, như Layer. Method là thao tác, như Move. Collection chứa nhiều object, như Layers. Không phải mọi object có cùng property hoặc method.
 
-## Thử một LINE
+<span id="thử-một-line" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Đọc LINE
 
 1. Mở DWG học trong AutoCAD Windows, chọn tab Model và dùng LINE tạo một đoạn.
 2. Gõ `(vl-load-com)` tại Command Line.
@@ -54,7 +57,9 @@ Property mô tả trạng thái, như Layer. Method là thao tác, như Move. Co
 
 Kết quả gồm ENAME và VLA-OBJECT. Bấm Enter không chọn trả nil. Escape hủy input; khi hủy, dừng lượt thử và chạy lại từ đầu.
 
-## Đối chiếu hai cách đọc
+<span id="đối-chiếu-hai-cách-đọc" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## So sánh AutoLISP và ActiveX
 
 ```lisp
 (list (cdr (assoc 8 (entget en))) (vla-get-Layer obj))

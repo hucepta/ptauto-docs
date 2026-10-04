@@ -66,32 +66,41 @@
   "illustration": "curve"
 }
 ---
+<span id="chọn-đầu-ra-có-thể-đối-chiếu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Chọn đầu ra có thể đối chiếu
+## Đầu ra của tiện ích
 
 CAD Utility đầu tiên tạo báo cáo LINE theo layer và kiểm tra một Polyline. Đầu vào là selection của người dùng, không tự quét toàn bản vẽ. Đầu ra ghi phạm vi, số lượng, chiều dài và đơn vị bản vẽ. Hai LINE dài 3 và 4 trên layer A tạo nhóm A gồm 2 đối tượng, tổng 7; một CIRCLE cùng selection không được cộng.
 
 Một kết quả kiểm tra phải cho biết thiếu dữ liệu hay lỗi. Hủy chọn không tạo báo cáo bằng 0. Lệnh chỉ đọc giúp đối chiếu với Properties.
 
-## Kiến trúc của tiện ích
+<span id="kiến-trúc-của-tiện-ích" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Cấu trúc tiện ích
 
 Lớp command xử lý input, Document và thông báo. Lớp đọc mở Transaction, lấy giá trị và tạo snapshot. Phần tính toán nhận class C# thông thường, trả kết quả thống kê; phần xuất định dạng số và tên layer. Không đưa Entity hoặc Transaction vào kết quả lâu dài.
 
 Khi chuyển một công cụ Lisp sang .NET, chuyển mục đích xử lý trước: bộ lọc, dữ liệu cần đọc, điều kiện dừng và kết quả mong đợi. Viết từng thao tác bằng API phù hợp.
 
-## Geometry workflow
+<span id="geometry-workflow" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Quy trình xử lý hình học
 
 Chuẩn hóa đơn vị và hệ tọa độ, kiểm tra dữ liệu, tính toán rồi đối chiếu. Với Polyline đóng, đọc chiều dài và diện tích; nếu có cung, không dùng tổng chord thay `Length`. Khi mở rộng sang intersection và offset, ghi rõ tolerance, điều kiện kéo dài, cách xử lý nhiều kết quả và quyền sở hữu object tạm.
 
 Ví dụ hai đường giao ở một đỉnh chung cần một điểm trong báo cáo sau bước gộp điểm gần nhau. Chuẩn bị dữ liệu thử để xác nhận.
 
-## Từ hình học CAD sang dữ liệu Civil
+<span id="từ-hình-học-cad-sang-dữ-liệu-civil" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Hình học CAD và dữ liệu Civil
 
 Một Polyline biểu diễn tim đường bằng hình học nhưng không chứa toàn bộ ý nghĩa Alignment, station equations, Profile hay Corridor. Geometry Engine có thể nhận điểm và segment; ROAD Manager cần thêm mô hình quan hệ giữa tuyến, trắc dọc và các đầu vào thiết kế.
 
 Tách assembly tiện ích AutoCAD khỏi assembly dùng Civil API. Phần AutoCAD tham chiếu thư viện AutoCAD; phần Civil cần SDK Civil phù hợp và host Civil 3D đầy đủ. Object Enabler hỗ trợ trao đổi đối tượng qua thao tác AutoCAD, không thay thế Civil 3D để chạy bài thực hành CivilDocument.
 
-## Kiểm tra và mở rộng
+<span id="kiểm-tra-và-mở-rộng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành
 
 Thực hiện [project CAD Utility](../../../du-an/autocad-dotnet/cad-utility-chi-doc/) với mẫu nhắm SDK 2025/.NET 8. Chạy selection hỗn hợp, Polyline mở/đóng, Esc và hai Document. Đối chiếu số lượng và tổng chiều dài với DWG mẫu.
 

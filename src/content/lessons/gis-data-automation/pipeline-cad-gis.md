@@ -75,7 +75,7 @@
       ]
     },
     {
-      "heading": "biến-đổi-và-xuất-có-kiểm-soát",
+      "heading": "biến-đổi-và-xuất-dữ-liệu",
       "exampleIds": [
         "example.gis-data-automation.points-to-geojson"
       ]
@@ -84,8 +84,9 @@
   "illustration": "map"
 }
 ---
+<span id="đặt-phạm-vi-cho-một-lớp-trước" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Đặt phạm vi cho một lớp trước
+## Phạm vi lớp dữ liệu
 
 Bắt đầu với lớp tim tuyến gồm đường và mã nguồn từ một bản vẽ. Xác định ModelSpace, layer được chọn và cách xử lý block hoặc đường cong trước bước trích xuất. Dùng công cụ CAD hoặc driver đã đối chiếu để xuất DXF/bảng; ghi phiên bản và những đối tượng bản vẽ bị bỏ qua. File chuyển đổi không đủ để chứng minh đã giữ trọn mô hình Corridor hoặc trắc dọc.
 
@@ -97,7 +98,9 @@ Tạo hồ sơ nguồn gồm source_id, ngày xuất, đơn vị, loại Geometr
 
 Kiểm tra trường bắt buộc, mã trùng, các đỉnh và chiều dài trên đơn vị đã biết. Đưa hàng lỗi vào rejected với mã quy tắc; không bỏ hàng khỏi báo cáo. Bước sàng lọc Python đi kèm chỉ kiểm tra đường ở mức cơ bản. Dùng Shapely hoặc PostGIS cho validity và quy tắc không gian cần thêm. Đối chiếu số Feature theo lớp, tổng chiều dài và mẫu đối tượng với CAD, lưu ý chiều dài đã lấy mẫu đường cong có thể khác giá trị thiết kế.
 
-## Biến đổi và xuất có kiểm soát
+<span id="biến-đổi-và-xuất-có-kiểm-soát" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Biến đổi và xuất dữ liệu
 
 Nếu nguồn đã có tọa độ đúng nhưng thiếu metadata, gán CRS đã xác minh. Nếu đích khác CRS nguồn, dùng to_crs hoặc Transformer để tính tọa độ mới; ghi phép biến đổi, thứ tự trục và dữ liệu phụ trợ cần thiết. always_xy điều khiển thứ tự tham số, không xác nhận CRS hay chất lượng chuyển. Kiểm tra điểm khống chế và khu vực áp dụng của phép biến đổi. Giao GeoPackage khi cần giữ lớp chiếu phục vụ kỹ thuật; chỉ tạo GeoJSON WGS84 sau chuyển đổi phù hợp. Không dùng Web Mercator để suy ra độ chính xác công trình.
 

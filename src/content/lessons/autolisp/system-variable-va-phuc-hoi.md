@@ -41,8 +41,9 @@
   "illustration": "terminal"
 }
 ---
+<span id="vì-sao-một-lệnh-có-thể-gây-phiền-dù-kết-quả-đúng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Vì sao một lệnh có thể gây phiền dù kết quả đúng
+## Lưu và khôi phục biến hệ thống
 
 Một routine có thể đổi `OSMODE` hoặc `CMDECHO` để điều khiển thao tác. Nếu nó kết thúc sớm mà không trả lại giá trị cũ, người dùng thấy AutoCAD đổi cách bắt điểm hoặc hiển thị lệnh sau khi tool đã xong. Vì vậy thay đổi system variable là một phần trạng thái cần quản lý, không phải mẹo viết mã.
 

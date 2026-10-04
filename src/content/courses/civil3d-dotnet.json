@@ -7,7 +7,7 @@
   "technology": "civil3d-dotnet",
   "order": 4,
   "guide": {
-    "question": "Civil 3D .NET khác AutoCAD .NET ở đâu?",
+    "question": "Civil 3D .NET và AutoCAD .NET",
     "answer": "Civil 3D chạy trên nền AutoCAD và bổ sung các đối tượng thiết kế hạ tầng như Alignment, Profile, TinSurface, Corridor và Pipe Network. Plugin Civil dùng cả Database/Transaction của AutoCAD lẫn CivilDocument và API Civil để đọc quan hệ thiết kế.",
     "why": "Tuyến, mặt đất và mạng hạ tầng có quan hệ phụ thuộc. Một báo cáo lý trình, cao độ hay QA/QC phải đọc đúng đối tượng gốc và trạng thái cập nhật thay vì đo thủ công trên hình hiển thị.",
     "setup": [

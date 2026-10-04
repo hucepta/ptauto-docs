@@ -41,8 +41,9 @@
   "illustration": "metadata"
 }
 ---
+<span id="tại-sao-không-chỉ-new-một-line" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Tại sao không chỉ new một Line
+## Tạo Line trong Transaction
 
 `new Line(...)` tạo một đối tượng C# trong bộ nhớ, chưa đặt nó vào DWG. Để lưu, plugin mở ModelSpace `BlockTableRecord` ở `ForWrite`, gọi `AppendEntity`, báo transaction quản lý entity mới bằng `AddNewlyCreatedDBObject`, rồi `Commit`. Nếu thiếu commit, thay đổi bị rollback khi transaction kết thúc.
 

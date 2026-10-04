@@ -41,8 +41,9 @@
   "illustration": "report"
 }
 ---
+<span id="đuôi-file-không-quyết-định-chất-lượng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Đuôi file không quyết định chất lượng
+## Định dạng và chất lượng dữ liệu
 
 GeoJSON thuận tiện cho trao đổi feature đơn giản nhưng theo RFC 7946 cần tọa độ địa lý WGS84 khi xuất chuẩn. GeoPackage chứa nhiều lớp trong một file và lưu CRS/thuộc tính tốt cho dữ liệu GIS. Shapefile gồm nhiều file đi kèm và có giới hạn tên trường/kiểu dữ liệu; không nên chọn chỉ vì quen thuộc. LandXML phục vụ trao đổi đối tượng hạ tầng như tuyến/surface theo khả năng của phần mềm, không thay thế một cơ sở dữ liệu GIS.
 
@@ -57,7 +58,9 @@ GeoJSON thuận tiện cho trao đổi feature đơn giản nhưng theo RFC 7946
 
 Xuất 3 cọc sang hai định dạng rồi nhập lại. So ID, chữ tiếng Việt, số thập phân, CRS và số đối tượng. Ghi khác biệt vào bảng QA, không xem “mở được file” là đủ.
 
-## So hai tệp đầu ra
+<span id="so-hai-tệp-đầu-ra" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## So sánh tệp đầu ra
 
 Dùng coc.gpkg từ bài Lưu và kiểm lại. Trong QGIS, chọn lớp coc, chuột phải > Export > Save Features As. Xuất bản riêng `coc.geojson`, chọn GeoJSON và CRS EPSG:4326. Mở lại cả hai tệp, kiểm ba ID, kiểu Point và thuộc tính cao độ. GeoJSON dùng WGS84 kinh/vĩ độ theo RFC 7946; GeoPackage giữ CRS của lớp.
 

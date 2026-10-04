@@ -31,8 +31,6 @@
   "illustration": "graph"
 }
 ---
-
-
 ## Đọc một biểu thức
 
 AutoLISP viết lời gọi hàm trong cặp ngoặc: tên hàm trước, các đối số sau. Hãy thử trong dòng lệnh AutoCAD:
@@ -45,7 +43,9 @@ Kết quả mong đợi là 10. Với biểu thức lồng nhau, đọc từ tro
 
 Phần cộng tạo ra 10; phần nhân dùng giá trị đó để tạo ra 20. Khoảng trắng giúp dễ đọc, còn cặp ngoặc quyết định cấu trúc. Khi kiểm tra một dòng dài, hãy tìm từng cặp ngoặc trước khi đoán kết quả.
 
-## Code hay dữ liệu?
+<span id="code-hay-dữ-liệu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Mã và dữ liệu
 
 Một list thường được hiểu như lời gọi hàm. Để giữ nó làm dữ liệu, dùng quote hoặc dấu nháy đơn:
 

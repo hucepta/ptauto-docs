@@ -2,6 +2,7 @@
 import CodePanel from './CodePanel.astro';
 import CodeExample from './CodeExample.astro';
 import TeachingImage from './TeachingImage.astro';
+import { withBase } from '../domain/content/urls';
 import media from '../content/teaching-media.json';
 import { buildReaderSteps, type ExamplePlacement } from '../domain/content/reader-steps';
 import { getExampleAnchor, type ContentGraph } from '../domain/content/graph';
@@ -17,7 +18,8 @@ interface Props {
 }
 const { html, graph, exampleIds, placements, language = 'lisp', contentSlug } = Astro.props;
 const images = media.filter(image => image.lesson === contentSlug);
-const { introHtml, steps, remainingExampleIds } = buildReaderSteps(html, placements, exampleIds);
+const basedHtml = html.replace(/\b(href|src)="(\/(?!\/)[^"]*)"/g, (_, attribute, path) => `${attribute}="${withBase(path)}"`);
+const { introHtml, steps, remainingExampleIds } = buildReaderSteps(basedHtml, placements, exampleIds);
 const examples = new Map(await Promise.all(exampleIds.map(async id => {
   const example = graph.entries.get(id) as ExampleEntry;
   return [id, { example, code: await readExampleCode(example, 'src/content/examples/code') }] as const;

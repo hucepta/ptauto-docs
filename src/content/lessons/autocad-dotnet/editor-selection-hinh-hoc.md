@@ -73,8 +73,9 @@
   "illustration": "curve"
 }
 ---
+<span id="input-và-selection-có-điều-kiện" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Input và selection có điều kiện
+## Nhập và chọn đối tượng
 
 Editor cung cấp `GetPoint`, `GetDouble`, `GetEntity` và `GetSelection`. Mỗi lời gọi trả kết quả kèm `PromptStatus`; chỉ dùng Value khi status là OK. Esc, lựa chọn không hợp lệ và Enter không mang cùng ý nghĩa. Thiết kế thông báo giúp người dùng biết chọn entity hay nhập giá trị.
 
@@ -98,6 +99,8 @@ Trước khi tìm giao bằng `IntersectWith`, xác định có kéo dài các �
 
 `GetOffsetCurves` trả collection; kết quả có thể gồm nhiều đường và đổi loại hình học. Khoảng offset mang dấu theo quy tắc của curve, không phải một lời hứa “dương luôn bên phải”. Object kết quả chưa được thêm vào database cần được giải phóng sau khi dùng.
 
-## Thực hành và sai sót
+<span id="thực-hành-và-sai-sót" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành
 
 Chạy mẫu với Polyline mở, đóng, có cung và normal khác trục Z. Đối chiếu LENGTH/AREA trong Properties. Thử Esc và chọn CIRCLE để kiểm tra rejection. Ghi đơn vị, hệ tọa độ và tolerance cùng kết quả; không dùng chiều dài bản vẽ như mét khi chưa xác định đơn vị.

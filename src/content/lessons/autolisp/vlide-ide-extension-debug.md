@@ -6,7 +6,7 @@
   "description": "Biết vai trò của IDE/debugger và sửa lỗi theo nơi chạy, file nạp, cú pháp, dữ liệu, luồng.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 5,
+  "order": 6,
   "difficulty": "co-ban",
   "prerequisites": [
     "lesson.autolisp.command-line-file-lsp"
@@ -45,12 +45,15 @@
   "illustration": "terminal"
 }
 ---
+<span id="vấn-đề" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Vấn đề
+## Soạn, nạp và chạy mã
 
 Bạn đã tạo `hello.lsp`, nhưng khi gõ `HELLO` trong AutoCAD thì không thấy câu chào mới. Có ít nhất ba khả năng: file chưa lưu, AutoCAD đang giữ phiên bản cũ đã nạp, hoặc mã có lỗi. Bài này giúp phân biệt nơi **viết mã**, nơi **nạp mã** và nơi **chạy lệnh** trước khi tìm lỗi.
 
-## IDE là gì?
+<span id="ide-là-gì" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Môi trường IDE
 
 **IDE** viết tắt của *Integrated Development Environment*, tiếng Việt là **môi trường phát triển tích hợp**. Một IDE gom các việc thường dùng khi lập trình vào một chỗ: mở file, tô màu cú pháp, tìm kiếm, gợi ý, chạy hoặc gỡ lỗi. Hãy hình dung bàn vẽ của kỹ sư: giấy, thước và bút đặt cạnh nhau để làm việc thuận tiện; bản thân bàn vẽ không thay thế công trình ngoài hiện trường. Tương tự, editor giúp bạn viết AutoLISP, còn AutoCAD là môi trường thực thi và tạo đối tượng trong DWG.
 
@@ -62,7 +65,9 @@ Bạn đã tạo `hello.lsp`, nhưng khi gõ `HELLO` trong AutoCAD thì không t
 
 **Extension** là phần mở rộng thêm khả năng cho một ứng dụng. AutoCAD AutoLISP Extension là phần mở rộng cho VS Code; nó không phải một file Lisp của bạn và không tự chạy lệnh trong bản vẽ. Autodesk hiện hướng người mới dùng VS Code với extension này. VLIDE vẫn hữu ích khi làm việc trong bản AutoCAD Windows hỗ trợ nó; đường đi và tính năng cụ thể phụ thuộc phiên bản AutoCAD.
 
-## Một vòng viết và chạy lệnh
+<span id="một-vòng-viết-và-chạy-lệnh" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Soạn, nạp và chạy lệnh
 
 1. **Viết:** mở `hello.lsp` trong VS Code hoặc VLIDE, sửa câu trong `(princ "...")`.
 2. **Lưu:** nhấn Save. Kiểm tên và đường dẫn file đang mở; dấu chấm ở tab editor thường cho biết nội dung chưa lưu.
@@ -74,7 +79,9 @@ Bạn đã tạo `hello.lsp`, nhưng khi gõ `HELLO` trong AutoCAD thì không t
 hello.lsp trong editor → Save → APPLOAD trong AutoCAD → gõ HELLO → xem Command Line/DWG
 ```
 
-## Tìm lỗi từ nơi gần nhất
+<span id="tìm-lỗi-từ-nơi-gần-nhất" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Gỡ lỗi
 
 Nếu `HELLO` vẫn hiện thông báo cũ, trước tiên kiểm **file đã Save và đã APPLOAD lại chưa**. Nếu AutoCAD báo không biết lệnh, kiểm tên hàm `c:HELLO`, tên file và kết quả nạp. Nếu nạp file báo lỗi, kiểm dấu ngoặc, dấu nháy và biểu thức gần vị trí được nêu. Nếu lệnh chạy nhưng kết quả sai, kiểm kiểu dữ liệu (số, chuỗi, list hay `nil`) rồi điều kiện và vòng lặp.
 

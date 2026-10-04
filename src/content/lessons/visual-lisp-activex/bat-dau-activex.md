@@ -6,7 +6,7 @@
   "description": "Hiểu khi nào dùng ActiveX, nạp vl-load-com và đọc thuộc tính của một đối tượng đã chọn.",
   "status": "published",
   "chapterId": "chapter.visual-lisp-activex.bat-dau",
-  "order": 1,
+  "order": 2,
   "difficulty": "co-ban",
   "sources": [
     {
@@ -25,11 +25,18 @@
       "platform": "Windows"
     }
   ],
-  "illustration": "metadata"
+  "illustration": "metadata",
+  "prerequisites": [
+    "lesson.visual-lisp-activex.chuan-bi-cong-cu"
+  ]
 }
 ---
 
-## Vì sao cần thêm ActiveX
+Nếu chưa cài hoặc chưa mở công cụ, làm bài [Chuẩn bị công cụ](/hoc/visual-lisp-activex/chuan-bi-cong-cu/) trước. Các bước bên dưới dùng lại môi trường và thư mục đã tạo ở bài đó.
+
+<span id="vì-sao-cần-thêm-activex" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## AutoLISP và ActiveX
 
 AutoLISP có thể đọc thông tin một đối tượng bằng `entget` và mã DXF. Khi bạn cần đi qua Documents, ModelSpace, Layers hoặc gọi phương thức hình học trên Curve, ActiveX cho bạn một mô hình đối tượng khác. Một đối tượng bản vẽ có thể được tham chiếu bằng **ename** khi chọn hoặc bằng **VLA object** khi dùng property/method COM. Hai giá trị này không hoán đổi trực tiếp.
 

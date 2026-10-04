@@ -20,7 +20,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "tra-tọa-độ-có-kiểm-tra-input",
+      "heading": "tra-tọa-độ-stationoffset",
       "exampleIds": [
         "example.civil3d-dotnet.tra-station-offset"
       ]
@@ -66,14 +66,15 @@
   "illustration": "station"
 }
 ---
-
 ## Alignment và hệ station/offset
 
 Alignment mô tả hình học tuyến trong mặt bằng. Station xác định vị trí dọc tuyến; offset biểu diễn độ lệch ngang đối với tuyến tại vị trí liên quan. Tọa độ X/Y bản vẽ và station/offset là hai cách mô tả khác nhau. Khi có station equation hoặc lý trình đầu khác 0, không coi station là khoảng cách từ đỉnh đầu Polyline.
 
 `Alignment.StationOffset` nhận easting, northing và ghi station, offset qua tham số `ref`. Ví dụ tuyến thẳng từ (0,0) đến (100,0), lý trình đầu 0: điểm (50,10) có hình chiếu tại station 50 và độ lệch ngang 10. Kiểm tra dấu offset bằng dữ liệu trái/phải trong host trước khi lập quy tắc xuất báo cáo.
 
-## Tra tọa độ có kiểm tra input
+<span id="tra-tọa-độ-có-kiểm-tra-input" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Tra tọa độ station/offset
 
 Ví dụ chọn Alignment, nhập X và Y trong hệ tọa độ bản vẽ, rồi gọi overload bốn tham số. Không dùng Z để thay tọa độ ngang. Khi điểm vượt phạm vi tuyến, API có thể phát `PointNotOnEntityException`; báo tình huống này thay vì trả station 0.
 

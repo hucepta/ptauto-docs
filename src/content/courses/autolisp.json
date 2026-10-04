@@ -7,7 +7,7 @@
   "technology": "autolisp",
   "order": 1,
   "guide": {
-    "question": "AutoLISP là gì?",
+    "question": "AutoLISP trong AutoCAD",
     "answer": "AutoLISP là ngôn ngữ viết lệnh tùy chỉnh chạy trong AutoCAD. Bạn mô tả một quy trình bằng mã .lsp, nạp mã vào bản vẽ rồi gọi lệnh tại Command Line. Nó phù hợp với việc lặp có quy luật: đọc layer, kiểm tra đối tượng, đánh số cọc hoặc lập báo cáo bản vẽ.",
     "why": "Nếu phải đổi layer hoặc kiểm tra hàng trăm đối tượng theo cùng một quy tắc, làm tay rất dễ bỏ sót. Một lệnh nhỏ giúp bạn thực hiện cùng quy tắc nhiều lần và kiểm tra được kết quả; người thiết kế vẫn quyết định dữ liệu nào được phép sửa.",
     "setup": [

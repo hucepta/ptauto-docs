@@ -6,7 +6,7 @@
   "description": "Chuẩn bị DWG có hai tuyến và đối chiếu kết quả với Toolspace.",
   "status": "published",
   "chapterId": "chapter.civil3d-dotnet.bat-dau",
-  "order": 4,
+  "order": 5,
   "difficulty": "co-ban",
   "sources": [
     {
@@ -32,14 +32,17 @@
   "illustration": "metadata"
 }
 ---
+<span id="civil-3d-bổ-sung-điều-gì" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Civil 3D bổ sung điều gì
+## Đối tượng Civil 3D
 
 Civil 3D dùng nền AutoCAD để lưu DWG và bổ sung mô hình hạ tầng. Alignment là tuyến bằng, Profile là cao độ theo tuyến, Surface là mặt; Corridor kết hợp tuyến, trắc dọc và Assembly để tạo mô hình đường. Hình trên màn hình chịu style; hình học và quan hệ gốc nằm trong đối tượng Civil.
 
 Plugin dùng Document/Editor/Database/Transaction của AutoCAD cùng CivilDocument. Mở **Civil 3D đầy đủ trên Windows**. AutoCAD thường có Object Enabler hỗ trợ hiển thị Civil nhưng không thay thế môi trường thực hành Civil API.
 
-## Tạo DWG dễ đối chiếu
+<span id="tạo-dwg-dễ-đối-chiếu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Chuẩn bị DWG
 
 1. Mở Civil 3D → **New**, chọn template Civil metric được cài. **Save As** thành `PT_CIVIL_01.dwg`. Chọn workspace Civil 3D nếu Ribbon chưa có tab Civil.
 2. Trong tab **Home**, bật **Toolspace** ở panel **Palettes**. Chọn tab **Prospector**, bấm dấu cộng trước tên DWG để thấy Alignments, Surfaces, Sites và Pipe Networks.
@@ -83,7 +86,9 @@ public class CivilReadCommands
 }
 ```
 
-## Kiểm tra từng bước
+<span id="kiểm-tra-từng-bước" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra kết quả
 
 1. Build DLL, trong Civil 3D gõ NETLOAD chọn DLL, gọi PT_CIVIL_NAMES. F2 đọc kết quả: số tuyến 2 và hai tên đã đặt. Thứ tự không cần trùng Prospector.
 2. So tên với Prospector và Select từng tuyến. Nếu count lớn hơn 2, kiểm tra tuyến thuộc Site và loại Alignment khác; GetAlignmentIds lấy tổng tuyến DWG.

@@ -41,8 +41,9 @@
   "illustration": "layers"
 }
 ---
+<span id="vấn-đề" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Vấn đề
+## Hình học, style và nhãn
 
 **Một tuyến có thể đúng mà nhìn sai.**
 

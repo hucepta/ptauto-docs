@@ -59,8 +59,9 @@
   "illustration": "map"
 }
 ---
+<span id="feature-gắn-hình-học-với-thuộc-tính" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Feature gắn hình học với thuộc tính
+## Hình học và thuộc tính của feature
 
 Một Feature đại diện một đối tượng nghiệp vụ, như cọc khảo sát hoặc đoạn đường. Geometry mô tả vị trí và hình dạng; Attribute mô tả mã, loại, nguồn và các giá trị đi kèm. Layer tập hợp các Feature theo cấu trúc trường và mục đích sử dụng. Một điểm thiếu mã có thể vẽ đúng nhưng khó đối chiếu với hồ sơ.
 
@@ -68,7 +69,9 @@ Một Feature đại diện một đối tượng nghiệp vụ, như cọc kh�
 
 Vector biểu diễn đối tượng bằng điểm, đường và vùng; phù hợp cọc, tim tuyến hoặc ranh giới. Raster chia không gian thành lưới ô; mỗi ô mang giá trị hoặc các band, phù hợp ảnh và mô hình cao độ dạng lưới. Độ phân giải raster khác độ chính xác đo. Khi đổi Surface TIN thành raster, phải chọn kích thước ô, vùng phủ và giá trị NoData; lưới đó không còn giữ nguyên mọi tam giác và breakline. Hãy xác định dữ liệu cần bảo toàn trước khi chọn định dạng.
 
-## CRS giải thích ý nghĩa tọa độ
+<span id="crs-giải-thích-ý-nghĩa-tọa-độ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## CRS và tọa độ
 
 CRS kết hợp cơ sở quy chiếu và hệ trục để diễn giải tọa độ. Datum liên hệ hệ tọa độ với Trái Đất; projection đưa tọa độ địa lý lên mặt phẳng. Mã EPSG định danh một định nghĩa cụ thể, không phải công cụ nhận dạng bản vẽ. Tọa độ địa lý thường dùng độ; tọa độ chiếu thường dùng mét hoặc đơn vị khác được CRS quy định. Khoảng cách giữa hai số kinh độ không trực tiếp là mét. CRS phù hợp và độ chính xác cần kiểm tra theo khu vực, phép biến đổi và mục đích công việc; Web Mercator phục vụ bản đồ web không tự đáp ứng đo đạc kỹ thuật.
 

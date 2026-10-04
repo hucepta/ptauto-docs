@@ -34,8 +34,6 @@
   "illustration": "metadata"
 }
 ---
-
-
 ## Gán và đọc giá trị
 
 Dùng setq để gắn giá trị cho một symbol. Sau khi gán, nhập tên biến để đọc giá trị hiện tại.
@@ -51,7 +49,9 @@ Số nguyên phù hợp với số lượng; số thực phù hợp với kích 
 
 Không đặt dấu ngoặc kép quanh số chỉ để dễ nhìn: "12.5" là chuỗi, không phải kích thước dạng số. Khi dữ liệu đi từ file hoặc hộp thoại vào chương trình, kiểm tra kiểu trước khi tính toán.
 
-## nil là một kết quả cần xử lý
+<span id="nil-là-một-kết-quả-cần-xử-lý" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Xử lý nil
 
 nil có thể biểu diễn trạng thái sai hoặc list rỗng. Một hàm tra cứu không tìm thấy dữ liệu cũng có thể trả nil. Đừng mặc định rằng mọi lần tra cứu đều thành công.
 

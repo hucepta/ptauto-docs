@@ -41,8 +41,9 @@
   "illustration": "layers"
 }
 ---
+<span id="một-layer-không-phải-một-bảng-thuộc-tính" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Một layer không phải một bảng thuộc tính
+## Layer và bảng thuộc tính
 
 Trong DWG, tên layer có thể gợi loại đối tượng nhưng không chứa đủ mã cọc, loại ống hay lý trình. Block attribute, XData hoặc bảng ngoài có thể chứa phần còn lại. Trước khi xuất, lập ánh xạ từng trường: nguồn ở đâu, kiểu dữ liệu gì, bắt buộc hay không, đơn vị là gì. Handle hữu ích để truy ngược DWG nguồn, nhưng một stable ID nghiệp vụ nên độc lập khi cần trao đổi lâu dài.
 
@@ -56,7 +57,9 @@ Trong DWG, tên layer có thể gợi loại đối tượng nhưng không chứ
 
 Lập ánh xạ cho 5 block hố ga và 3 line ống. Cố ý để một block thiếu ID và hai ống trùng mã. Report cần chỉ rõ hai loại lỗi và số feature được phép xuất.
 
-## Lập bảng ánh xạ trước khi xuất
+<span id="lập-bảng-ánh-xạ-trước-khi-xuất" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Bảng ánh xạ
 
 Tạo bảng ba dòng minh họa: layer ONG_MUA -> lớp pipe, block GA -> lớp manhole, layer RANH -> lớp boundary. Với pipe ghi rõ nguồn pipe_id, đường kính và đơn vị; với manhole ghi nguồn mã hố ga/cao độ; với boundary ghi ID vùng. Không lấy tên layer làm ID duy nhất vì một layer có nhiều đối tượng.
 

@@ -6,9 +6,11 @@
   "description": "Xác định nơi mã chạy và chọn một bài toán tự động hóa vừa sức.",
   "status": "published",
   "chapterId": "chapter.autolisp.bat-dau",
-  "order": 1,
+  "order": 2,
   "difficulty": "co-ban",
-  "prerequisites": [],
+  "prerequisites": [
+    "lesson.autolisp.chuan-bi-cong-cu"
+  ],
   "sources": [
     {
       "title": "Autodesk — entlast",
@@ -33,13 +35,19 @@
 }
 ---
 
-## Bạn đang tự động hóa việc gì?
+Nếu chưa cài hoặc chưa mở công cụ, làm bài [Chuẩn bị công cụ](/hoc/autolisp/chuan-bi-cong-cu/) trước. Các bước bên dưới dùng lại môi trường và thư mục đã tạo ở bài đó.
+
+<span id="bạn-đang-tự-động-hóa-việc-gì" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Chọn việc tự động hóa
 
 AutoCAD giữ bản vẽ DWG và cung cấp lệnh như LINE, LAYER, LIST. AutoLISP chạy bên trong AutoCAD để điều khiển một phần quy trình đó. Một file LSP có thể định nghĩa nhiều hàm; chỉ hàm có tên bắt đầu bằng `c:` trở thành lệnh tại Command Line. Không cần tạo một chương trình riêng để làm tiện ích nhỏ.
 
 Ví dụ học là kiểm tra số lượng LINE trong bản vẽ. Đầu vào là DWG hiện tại; quy tắc là lấy entity có loại LINE; đầu ra là một số. Việc đếm không thay thế kiểm tra chất lượng hình học: LINE trùng nhau vẫn được đếm riêng.
 
-## Quan sát ba nơi làm việc
+<span id="quan-sát-ba-nơi-làm-việc" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Quan sát nơi làm việc
 
 1. Trong AutoCAD, mở bản vẽ mới bằng **New**, chọn một template thông thường và lưu thành `hoc-lisp.dwg`.
 2. Bật Command Line bằng **Ctrl+9** nếu thanh lệnh bị ẩn. Nhấp vào ô có dấu nhắc `Command:`, nhập `LINE`, chọn hai điểm rồi Enter để kết thúc.
@@ -58,7 +66,9 @@ Bạn sẽ thấy kiểu `ENAME` rồi chuỗi `"LINE"`. Biến `e` là tham chi
 
 Dùng `command` khi muốn đi theo câu hỏi của lệnh AutoCAD. Dùng `entget` để đọc dữ liệu DXF có cấu trúc. Dùng ActiveX ở mảng tiếp theo khi cần property hoặc collection trên Windows. .NET phù hợp khi công cụ lớn cần class, Transaction và tích hợp plugin; chưa cần chuyển công nghệ để làm bài đếm LINE.
 
-## Khi kết quả khác dự kiến
+<span id="khi-kết-quả-khác-dự-kiến" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Gỡ lỗi
 
 Nếu `e` là nil, tạo một entity trước khi thử. Nếu lịch sử báo lỗi dấu ngoặc, dán lại từng biểu thức hoàn chỉnh; mỗi dấu `(` phải có dấu `)` tương ứng. Nếu Command Line đang hỏi điểm của LINE, nhấn Escape trước khi dán biểu thức mới.
 

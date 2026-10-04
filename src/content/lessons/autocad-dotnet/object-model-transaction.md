@@ -59,7 +59,6 @@
   "illustration": "metadata"
 }
 ---
-
 ## Lệnh và mô hình đối tượng
 
 `CommandMethod` gắn tên lệnh AutoCAD với public method không nhận tham số. `Application.DocumentManager` quản lý các tài liệu; Document chứa Editor để giao tiếp và Database để truy cập dữ liệu. `DBObject` là lớp nền của đối tượng database; `Entity` đại diện đối tượng đồ họa như Line, Circle và Polyline.
@@ -76,13 +75,17 @@ Ví dụ thống kê LINE lấy ObjectId từ selection, mở từng Line ở ch
 
 Một transaction chỉ đọc vẫn cần kết thúc bằng `using`. Không gọi `Commit` không làm mất dữ liệu vốn có; mẫu không tạo dữ liệu mới.
 
-## Tạo và sửa có phạm vi
+<span id="tạo-và-sửa-có-phạm-vi" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Phạm vi tạo và sửa entity
 
 Để tạo Circle trong bản vẽ thử, mở record đích `ForWrite`, tạo Circle với tâm và bán kính hợp lệ, gọi `AppendEntity`, đăng ký bằng `AddNewlyCreatedDBObject`, rồi `Commit`. Chỉ tạo object trong bộ nhớ chưa làm nó xuất hiện trong database. Transaction chịu trách nhiệm đăng ký object mới; object tạm chưa chuyển quyền sở hữu phải được giải phóng.
 
 Để đổi layer một entity đã chọn, kiểm tra layer đích tồn tại trong LayerTable, mở đúng entity `ForWrite`, gán property rồi commit. Không nâng toàn bộ selection sang chế độ ghi khi chỉ một entity cần thay đổi.
 
-## Sai sót và bài thực hành
+<span id="sai-sót-và-bài-thực-hành" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành
 
 Nhầm Database giữa hai Document khiến ObjectId không còn thuộc phạm vi mong đợi. Nhầm Model space với CurrentSpaceId cũng làm báo cáo đếm sai khu vực. Hãy ghi rõ phạm vi selection, database và record trong thiết kế lệnh.
 

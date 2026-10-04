@@ -41,8 +41,9 @@
   "illustration": "terminal"
 }
 ---
+<span id="ba-lớp-lỗi-khác-nhau" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Ba lớp lỗi khác nhau
+## Lỗi reference, build và runtime
 
 Project C# có thể build nhưng AutoCAD không nạp vì khác thế hệ API hoặc thiếu assembly; DLL nạp được vẫn có thể lỗi khi lệnh truy cập dữ liệu. Vì vậy ghi rõ **AutoCAD host**, **SDK/reference**, **target framework** và DLL đang nạp. Không kết luận “đã chạy” từ một build xanh.
 

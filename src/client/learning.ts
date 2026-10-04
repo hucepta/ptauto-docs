@@ -14,10 +14,21 @@ interface Manifest {
 }
 const storage: StorageLike = { getItem: key => window.localStorage.getItem(key), setItem: (key, value) => window.localStorage.setItem(key, value), removeItem: key => window.localStorage.removeItem(key) };
 async function initialize() {
-    const response = await fetch(import.meta.env.BASE_URL + 'catalog.json');
-    if (!response.ok)
-        throw new Error('catalog');
-    const catalog = await response.json() as Manifest;
+    const build = document.querySelector<HTMLMetaElement>('meta[name="ptauto-build"]')?.content;
+    const cacheKey = 'ptauto.docs.catalog.' + build;
+    let catalog: Manifest | undefined;
+    try {
+        const cached = JSON.parse(sessionStorage.getItem(cacheKey) || 'null');
+        if (cached?.buildId === build && Array.isArray(cached.pages) && Array.isArray(cached.courses)
+            && typeof cached.base === 'string' && cached.pages.every((p: ContentPage) => typeof p.id === 'string' && typeof p.url === 'string' && p.url.startsWith('/') && typeof p.title === 'string')
+            && cached.courses.every((c: Manifest['courses'][number]) => typeof c.id === 'string' && Array.isArray(c.lessonIds))) catalog = cached;
+    } catch { /* Storage can be denied or corrupted; fetch remains available. */ }
+    if (!catalog) {
+        const response = await fetch(import.meta.env.BASE_URL + 'catalog.json');
+        if (!response.ok) throw new Error('catalog');
+        catalog = await response.json() as Manifest;
+        try { sessionStorage.setItem(cacheKey, JSON.stringify(catalog)); } catch { /* Learning still works without a cache. */ }
+    }
     const byId = new Map(catalog.pages.map(p => [p.id, p]));
     const repo = createProgressRepository(storage, { lessonIds: catalog.pages.filter(p => p.kind === 'lesson').map(p => p.id), contentIds: catalog.pages.map(p => p.id) });
     const url = (path: string) => catalog.base.replace(/\/$/, '') + path;

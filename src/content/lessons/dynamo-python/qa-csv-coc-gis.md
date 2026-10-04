@@ -58,7 +58,6 @@
   "illustration": "report"
 }
 ---
-
 ## Xác định bảng đầu vào
 
 Bài thực hành bắt đầu sau bước xuất dữ liệu đọc từ Civil 3D. Mỗi hàng có point_id, alignment_id, station_m, x_m, y_m và z_m; surface_z_m là trường tùy chọn để đối chiếu bề mặt. Các hậu tố _m là hợp đồng của bài: số đã theo mét. Lý trình là giá trị số theo quy ước tuyến đã ghi, không phải chuỗi “Km1+200”. Với nhiều tuyến, kiểm tra từng nhóm theo phạm vi tương ứng; không dùng phạm vi của tuyến A cho tuyến B. Script minh họa xử lý một phạm vi đã được người dùng xác nhận.
@@ -67,7 +66,9 @@ Bài thực hành bắt đầu sau bước xuất dữ liệu đọc từ Civil 
 
 Mã cọc phải có và duy nhất trong bảng giao. Quy tắc ở đây loại mọi hàng mang mã trùng, tránh giữ hàng đầu rồi âm thầm bỏ hàng sau. Trường số phải chuyển được sang float và hữu hạn: NaN không phải cao độ thiếu hợp lệ. Kiểm tra station_m nằm trong khoảng đóng từ lý trình đầu đến cuối. Điểm ngoài Surface cần lỗi nguồn ở bước đọc; CSV trống surface_z_m giữ trạng thái chưa đối chiếu, không thay bằng 0. Số dòng trong báo cáo theo bản ghi CSV, giúp tìm lại cả dữ liệu có quoting.
 
-## So chênh cao theo mục đích
+<span id="so-chênh-cao-theo-mục-đích" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra chênh cao
 
 Khi có đủ cao độ, tính delta_z_m bằng z_m trừ surface_z_m. Ngưỡng tuyệt đối do người dùng đặt theo mục đích QA, không phải một tiêu chuẩn mặc định. Ví dụ ngưỡng 0,05 m được dùng để tập phân loại; nó không chứng minh mô hình đạt nghiệm thu công trình. Chênh cao lớn có thể do chọn nhầm Surface, đơn vị hoặc loại Profile. Giữ cả hai cao độ và hiệu số trong báo cáo để điều tra, thay vì tự sửa z_m bằng cao độ bề mặt.
 

@@ -41,8 +41,9 @@
   "illustration": "network"
 }
 ---
+<span id="hình-học-hợp-lệ-chưa-chắc-là-mạng-đúng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Hình học hợp lệ chưa chắc là mạng đúng
+## Hình học và topology
 
 Một LINE có tọa độ hợp lệ vẫn có thể dừng cách hố ga 0,2 m. Trong GIS, kiểm tra topology cần quy tắc nghiệp vụ: đầu ống phải chạm một structure, tuyến không tự giao ngoài nút cho phép, polygon khu đất không chồng lấn nếu thiết kế yêu cầu. Khoảng dung sai phải theo đơn vị CRS và tiêu chuẩn dự án; không dùng cùng 0,01 cho mọi hệ đơn vị.
 

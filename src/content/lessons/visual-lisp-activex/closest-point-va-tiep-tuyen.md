@@ -41,8 +41,9 @@
   "illustration": "curve"
 }
 ---
+<span id="tại-sao-không-dùng-khoảng-cách-xy-đơn-giản" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Tại sao không dùng khoảng cách XY đơn giản
+## Khoảng cách đến curve
 
 Một hố ga khảo sát có thể nằm lệch khỏi tim tuyến. Muốn báo vị trí dọc tuyến, trước hết tìm điểm gần nhất trên curve bằng `vlax-curve-getClosestPointTo`, rồi lấy parameter hoặc distance tại điểm đó. `vlax-curve-getFirstDeriv` cho vector tiếp tuyến tại parameter, hữu ích khi định hướng nhãn hoặc tính offset có dấu.
 

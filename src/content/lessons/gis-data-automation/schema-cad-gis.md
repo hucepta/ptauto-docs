@@ -50,7 +50,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "chọn-khóa-sống-qua-nhiều-lần-xuất",
+      "heading": "khóa-dữ-liệu",
       "exampleIds": [
         "example.gis-data-automation.map-cad-records"
       ]
@@ -59,7 +59,6 @@
   "illustration": "metadata"
 }
 ---
-
 ## Xác định đối tượng dữ liệu
 
 CAD tổ chức đối tượng bản vẽ theo layer, block, style và quan hệ database; GIS tổ chức Feature theo lớp dữ liệu và trường. Chuyển linework sang GIS cần trả lời đường đó là tim tuyến, mép đường hay nét trình bày. Layer hỗ trợ phân loại nhưng không thay thế cấu trúc trường nghiệp vụ. Với dữ liệu Civil, Alignment có thể sinh lớp tim tuyến cùng bảng lý trình; Profile giữ quan hệ tới tuyến; pipe cần tham chiếu đến structure. Quyết định đầu ra trước, rồi chọn thuộc tính và hình học cần lấy.
@@ -68,14 +67,20 @@ CAD tổ chức đối tượng bản vẽ theo layer, block, style và quan h�
 
 Với cọc từ block, ánh xạ mã attribute thành point_id, tên layer thành source_layer và vị trí thành Geometry. station_m là số theo mét; station_label có thể giữ chuỗi trình bày. Ghi kiểu, khả năng thiếu và quy tắc chuyển của từng trường. Giá trị trống có ý nghĩa khác 0; không dùng 0 cho đường kính chưa biết hay cao độ thiếu. Gắn schema_version vào bộ dữ liệu để người nhận biết quy tắc nào đã tạo bảng.
 
-## Chọn khóa sống qua nhiều lần xuất
+<span id="chọn-khóa-sống-qua-nhiều-lần-xuất" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Khóa dữ liệu
 
 Chỉ số hàng và thứ tự lựa chọn không ổn định khi thêm đối tượng. Handle là dấu vết hữu ích trong một bản vẽ, nhưng phải đi kèm source_id của bộ nguồn; nó không tự bảo đảm cùng đối tượng qua thao tác sao chép hoặc tạo lại. Ví dụ đi kèm tạo UUID xác định từ source_id và handle đã chuẩn hóa. Đây là khóa cho cùng bản ghi nguồn, không thay cho mã tài sản do dự án quản lý. Nếu có mã nghiệp vụ bền vững, lưu riêng và giữ bảng đối chiếu qua các phiên bản.
 
-## Giữ quan hệ và chiều chuyển đổi
+<span id="giữ-quan-hệ-và-chiều-chuyển-đổi" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Quan hệ và chiều chuyển đổi
 
 Dữ liệu tuyến có thể tách thành bảng tuyến và bảng cọc, mỗi cọc mang alignment_id. Khi đổi thứ tự hàng, liên kết vẫn dựa trên khóa. Với GIS về CAD, xác định mã nào cập nhật đối tượng hiện có và mã nào tạo mới; không ghép bằng vị trí gần nhất nếu chưa có quy tắc dung sai. Một polyline GIS hóa có thể đã được lấy mẫu từ đường cong Civil. Hình học có thể dùng để hiển thị nhưng không còn đầy đủ tham số thiết kế để dựng lại Alignment nguyên bản.
 
-## Thực hành ánh xạ và đối chiếu
+<span id="thực-hành-ánh-xạ-và-đối-chiếu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành ánh xạ
 
 Chuẩn bị ba bản ghi có handle, layer và đường đỉnh đã trích xuất. Chạy ví dụ ánh xạ hai lần sau khi đổi thứ tự hàng: mã ổn định phải giữ nguyên. Thử thiếu handle và trùng khóa nguồn; cả hai cần báo lỗi rõ. Ví dụ dùng dictionary thuần, không mở DWG. Khi áp dụng thực tế, đối chiếu tổng đối tượng theo loại, mã liên kết và mức mất thông tin trước khi chấp nhận kết quả.

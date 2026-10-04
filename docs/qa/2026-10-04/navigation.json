@@ -1,0 +1,16 @@
+{
+  "measuredAt": "2026-10-04T01:11:21.160Z",
+  "condition": "Local Chrome, mobile 390x844, artificial 400ms catalog response delay; first uncached versus subsequent cached navigation, not a production speed claim",
+  "samples": [
+    {
+      "route": "/hoc/autolisp/chuan-bi-cong-cu/",
+      "readyMs": 440,
+      "catalogRequests": 1
+    },
+    {
+      "route": "/hoc/autolisp/command-line-file-lsp/",
+      "readyMs": 35,
+      "catalogRequests": 1
+    }
+  ]
+}

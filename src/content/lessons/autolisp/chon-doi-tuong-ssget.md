@@ -38,7 +38,7 @@
   ],
   "examplePlacements": [
     {
-      "heading": "bắt-đầu-bằng-thao-tác-chọn",
+      "heading": "chọn-đối-tượng",
       "exampleIds": [
         "example.autolisp.dem-line"
       ]
@@ -47,8 +47,9 @@
   "illustration": "metadata"
 }
 ---
+<span id="bắt-đầu-bằng-thao-tác-chọn" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Bắt đầu bằng thao tác chọn
+## Chọn đối tượng
 
 Gọi (ssget) để người dùng chọn đối tượng. Hàm trả selection set hoặc nil. Trước khi gọi sslength, kiểm tra kết quả bằng if.
 

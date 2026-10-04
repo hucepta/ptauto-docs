@@ -42,8 +42,9 @@
   "illustration": "curve"
 }
 ---
+<span id="khi-đặt-ga-dọc-tuyến" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Khi đặt ga dọc tuyến
+## Xem trước vị trí hố ga
 
 Nếu người thiết kế cần rê chuột và thấy ga di chuyển trước khi bấm chọn, đây là bài toán nhập liệu có hình xem trước: khảo sát `DrawJig` hoặc `EntityJig`. Nếu chỉ cần vẽ biểu tượng cảnh báo cho entity đang tồn tại, khảo sát Overrule. Một lệnh `CommandMethod` thông thường đủ cho thao tác không cần preview; đừng thêm Jig chỉ để làm mã trông “nâng cao”.
 
@@ -53,7 +54,9 @@ Nếu người thiết kế cần rê chuột và thấy ga di chuyển trước
 | Đổi cách hiển thị entity hiện có | Overrule | Bật/tắt và gỡ đăng ký rõ ràng. |
 | Tạo ga từ tọa độ đã có | Command + Transaction | Chỉ commit khi dữ liệu hợp lệ. |
 
-## Cách thiết kế trước khi code
+<span id="cách-thiết-kế-trước-khi-code" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thiết kế trạng thái lệnh
 
 Viết ba trạng thái: **chờ điểm → xem trước → chấp nhận/hủy**. Chỉ ghi entity thật khi người dùng chấp nhận; dữ liệu xem trước không được thành một ga “mồ côi” trong Database. Với Overrule, xác định phạm vi đối tượng và thời điểm tháo đăng ký khi plugin tắt hoặc document đóng. Luôn thử trong bản vẽ sao chép.
 

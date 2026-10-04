@@ -41,8 +41,9 @@
   "illustration": "map"
 }
 ---
+<span id="vì-sao-hai-con-số-xy-chưa-đủ" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Vì sao hai con số X,Y chưa đủ
+## Tọa độ và CRS
 
 Tọa độ 500000, 1200000 có thể là mét trong một hệ chiếu phẳng, nhưng không cho biết vị trí địa lý nếu thiếu CRS. Với dữ liệu VN-2000, cần hồ sơ chỉ rõ tham số và khu vực áp dụng; không gán một mã EPSG “VN-2000” chung cho mọi tỉnh/dự án.
 
@@ -52,7 +53,9 @@ Tọa độ 500000, 1200000 có thể là mét trong một hệ chiếu phẳng,
 
 Lập phiếu thông tin CRS cho một bộ cọc: nguồn, datum, phép chiếu, kinh tuyến trục, múi, đơn vị và điểm kiểm tra. Nếu thiếu hai mục quan trọng, nêu lý do chưa được chuyển tọa độ. Sau khi chuyển, so ít nhất một điểm mốc đã biết.
 
-## Hồ sơ cần trước phép chuyển
+<span id="hồ-sơ-cần-trước-phép-chuyển" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Hồ sơ hệ tọa độ
 
 Ghi vào bảng: datum, kinh tuyến trục, múi chiếu, đơn vị, thứ tự X/Y, phép chuyển datum được cho phép và hệ cao độ. Lấy từ hồ sơ của bên cung cấp; tên tỉnh hoặc tên VN-2000 không tự xác định đầy đủ các thông số này.
 

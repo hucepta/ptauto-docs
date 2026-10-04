@@ -7,7 +7,7 @@
   "technology": "gis-data-automation",
   "order": 6,
   "guide": {
-    "question": "GIS và tự động hóa dữ liệu liên quan gì đến CAD?",
+    "question": "CAD, GIS và dữ liệu",
     "answer": "CAD mô tả hình học thiết kế; GIS gắn hình học đó với vị trí địa lý, thuộc tính và hệ tọa độ để trao đổi, kiểm tra, phân tích. Một điểm cọc chỉ có ý nghĩa ngoài thực địa khi biết tọa độ, đơn vị, CRS và nguồn của nó.",
     "why": "Chuyển một tuyến hoặc mạng thoát nước từ DWG sang GeoPackage mà bỏ qua CRS, ID hoặc thuộc tính có thể tạo dữ liệu trông đúng trên màn hình nhưng sai vị trí hoặc mất quan hệ thiết kế. Quy trình cần kiểm tra trước và sau chuyển đổi.",
     "setup": [

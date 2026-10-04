@@ -41,8 +41,9 @@
   "illustration": "network"
 }
 ---
+<span id="hai-hệ-đối-tượng-khác-nhau" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Hai hệ đối tượng khác nhau
+## Pipe Network và Corridor
 
 **Corridor** dùng Alignment/Profile làm baseline, region và assembly để sinh hình học đường. **Pipe Network** gồm pipe và structure có quan hệ mạng. Không dùng số LINE trong DWG để suy ra chiều dài corridor hoặc số ống; phải đọc object Civil tương ứng.
 

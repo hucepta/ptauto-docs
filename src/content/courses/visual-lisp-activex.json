@@ -7,7 +7,7 @@
   "technology": "visual-lisp-activex",
   "order": 2,
   "guide": {
-    "question": "Visual LISP và ActiveX dùng để làm gì?",
+    "question": "Visual LISP và ActiveX",
     "answer": "Visual LISP mở rộng AutoLISP; ActiveX cho phép truy cập AutoCAD qua mô hình đối tượng COM. Thay vì chỉ đọc danh sách DXF của một entity, bạn có thể lấy đối tượng VLA, đọc property như Layer hoặc gọi method của ModelSpace và Curve.",
     "why": "Khi cần thao tác nhiều đối tượng, thuộc tính hoặc chiều dài dọc tuyến, mô hình đối tượng giúp tổ chức thao tác rõ hơn. Bạn vẫn cần biết AutoLISP cơ bản để xử lý nil, selection set và kết quả lỗi.",
     "setup": [

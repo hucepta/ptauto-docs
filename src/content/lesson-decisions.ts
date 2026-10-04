@@ -3,7 +3,7 @@ export type LessonDecision = { after: 0 | 1; question: string; no: string; yes: 
 /** Authored decision points, used only where the lesson actually teaches a branch. */
 export const lessonDecisions: Record<string, LessonDecision[]> = {
   'lesson.autolisp.command-line-file-lsp': [
-    { after: 1, question: 'AutoCAD đã nạp đúng file LSP vừa lưu?', no: 'Dừng, kiểm đường dẫn rồi nạp lại bằng APPLOAD/load.', yes: 'Gọi tên lệnh và đọc phản hồi.' }
+    { after: 1, question: 'File LSP đã được nạp?', no: 'Kiểm đường dẫn, nạp lại bằng APPLOAD/load rồi kiểm tra kết quả nạp.', yes: 'Chuyển sang bước gọi lệnh.' }
   ],
   'lesson.autolisp.vlide-ide-extension-debug': [
     { after: 0, question: 'File đã hết lỗi cú pháp và sẵn sàng nạp?', no: 'Sửa vị trí được đánh dấu rồi lưu; kiểm tra lại trước khi nạp.', yes: 'Nạp đúng file đã lưu và kiểm tra phản hồi trong Command Line.' }
@@ -25,7 +25,7 @@ export const lessonDecisions: Record<string, LessonDecision[]> = {
     { after: 0, question: 'Đã xác định nơi lưu và vòng đời dữ liệu?', no: 'Làm rõ dữ liệu cần hiển thị, gắn đối tượng hay lưu trong từ điển.', yes: 'Chọn Attribute, XData hoặc Xrecord theo nhu cầu.' }
   ],
   'lesson.visual-lisp-activex.reactor-va-vong-doi': [
-    { after: 1, question: 'Callback có đang tự gây lại cùng sự kiện?', no: 'Xử lý tối thiểu rồi thoát callback.', yes: 'Chặn tái nhập và chuyển việc nặng ra ngoài callback.' }
+    { after: 1, question: 'Callback có đang tự gây lại cùng sự kiện?', no: 'Xử lý tối thiểu rồi thoát callback.', yes: 'Chặn tái nhập và chuyển việc nặng ra ngoài callback.', noContinues: true }
   ],
   'lesson.visual-lisp-activex.gioi-han-com-va-chon-net': [
     { after: 0, question: 'ActiveX có API và nền tảng phù hợp?', no: 'Đánh giá .NET hoặc API khác và host cần thiết.', yes: 'Giữ ActiveX với kiểm tra lỗi COM.' }
@@ -50,6 +50,6 @@ export const lessonDecisions: Record<string, LessonDecision[]> = {
     { after: 1, question: 'Điểm khống chế đạt sai số chấp nhận?', no: 'Kiểm lại tham số và thứ tự trục; không bàn giao.', yes: 'Chấp nhận bộ dữ liệu đã đối chiếu.' }
   ],
   'lesson.gis-data-automation.topology-va-bao-cao-loi': [
-    { after: 1, question: 'Đầu ống nằm trong tolerance của nút?', no: 'Đánh dấu đầu rời với ID và khoảng cách.', yes: 'Giữ kết nối hợp lệ trong kết quả QA.' }
+    { after: 1, question: 'Đầu ống nằm trong tolerance của nút?', no: 'Đánh dấu đầu rời với ID và khoảng cách.', yes: 'Giữ kết nối hợp lệ trong kết quả QA.', noContinues: true }
   ]
 };

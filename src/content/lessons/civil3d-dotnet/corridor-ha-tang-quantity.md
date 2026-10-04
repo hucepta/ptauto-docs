@@ -70,7 +70,6 @@
   "illustration": "profile"
 }
 ---
-
 ## Corridor và các đầu vào
 
 Corridor liên kết hình học dọc với mặt cắt điển hình để tạo mô hình hạ tầng. Baseline có thể dùng Alignment/Profile hoặc FeatureLine; region chọn khoảng station và Assembly áp dụng. Assembly gồm các Subassembly mô tả bộ phận như làn, lề hoặc rãnh, cùng tham số và target.
@@ -95,6 +94,8 @@ Pipe Network quản lý pipes và structures cho hệ thống như thoát nướ
 
 Báo cáo quantity cần định nghĩa chiều dài đo theo đường nào, đường kính/kích thước nào, số lượng parts và đơn vị. Với hai ống dài 10 và 12, tổng 22 chỉ đúng sau khi thống nhất cùng đại lượng và loại trừ trùng lặp. Khối lượng đào đắp từ surface khác số lượng cấu kiện.
 
-## Thực hành kiểm tra
+<span id="thực-hành-kiểm-tra" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Thực hành
 
 Trong DWG thử, lập bảng Corridor → baseline → region → Assembly → target từ UI rồi đối chiếu API khi triển khai mở rộng. Kiểm tra một region thiếu target và một corridor surface có boundary sai. Lập danh sách pipes/structures riêng với mạng áp; không rebuild hoặc đổi parts tự động khi đang thu thập hiện trạng. Kiểm tra quantity trong Civil 3D đúng SDK.

@@ -41,8 +41,9 @@
   "illustration": "graph"
 }
 ---
+<span id="chọn-đúng-nhóm-thư-viện-node" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Chọn đúng nhóm thư viện node
+## Thư viện node Civil 3D
 
 Dynamo for Civil 3D có node AutoCAD cho đối tượng DWG thông thường và node Civil cho Alignment, Surface, Corridor... Một curve Dynamo thuần không tự mang ID và quan hệ của Alignment. Khi bài toán cần cao độ mặt đất tại cọc, giữ tham chiếu tới Alignment và Surface nguồn cho đến lúc xuất báo cáo.
 
@@ -56,7 +57,9 @@ Các node có thể trả danh sách lồng hoặc `null` khi station ngoài mi�
 
 Thiết kế đồ thị chỉ đọc ba station của một Alignment. Nêu điều gì xảy ra khi surface không phủ station cuối. Report phải ghi station lỗi, không tạo cao độ 0 giả.
 
-## Chuẩn bị phép đối chiếu
+<span id="chuẩn-bị-phép-đối-chiếu" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Đối chiếu kết quả
 
 Trong Civil 3D, mở bản sao bản vẽ có một Alignment (tuyến) và một Surface (mặt địa hình). Ghi tên tuyến, lý trình đầu/cuối và ba vị trí trong phạm vi. Mở Dynamo tại Manage > Visual Programming > Dynamo. Trong Library, mở nhóm Civil 3D để xem node có trong bản cài; tìm theo tên loại đối tượng và đọc tên cổng, không tự suy tên node từ phương thức .NET.
 

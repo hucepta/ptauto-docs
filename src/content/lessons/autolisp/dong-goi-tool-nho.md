@@ -28,8 +28,9 @@
   ]
 }
 ---
+<span id="bàn-giao-thứ-gì" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
 
-## Bàn giao thứ gì?
+## Nội dung bàn giao
 
 Một tool nhỏ cần mã nguồn, cách nạp và bản vẽ mẫu có kết quả biết trước. Người nhận phải biết gọi lệnh gì, chọn gì và kết quả nằm ở đâu. Chỉ gửi một file tên `final2.lsp` khiến họ khó xác định bản nào đang dùng.
 
@@ -60,11 +61,15 @@ Giữ tên lệnh có tiền tố, ví dụ PTCOUNT. Các hàm phụ cũng cần
 
 Hàm phụ nhận selection set và trả số. Lệnh phụ trách hỏi người dùng và in thông báo. Bạn có thể gọi `(pt-count-selection nil)` ngay tại Command Line để kiểm tra kết quả 0 mà không cần chọn entity.
 
-## Viết hướng dẫn đủ dùng
+<span id="viết-hướng-dẫn-đủ-dùng" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Hướng dẫn sử dụng
 
 Mở README.txt trong VS Code. Ghi: tên công cụ; phiên bản của công cụ; AutoCAD/API cần có; đường dẫn file; bước APPLOAD → Load → Close; lệnh PTCOUNT; filter LINE; kết quả in tại Command Line. Ghi rõ tool này chỉ đếm đối tượng được chọn và không đếm đoạn của polyline như LINE. Nếu tool về sau sửa DWG, hướng dẫn phải nêu thao tác Undo và cách chọn phạm vi.
 
-## Thử từ một phiên làm việc mới
+<span id="thử-từ-một-phiên-làm-việc-mới" class="anchor-alias" aria-hidden="true" data-pagefind-ignore></span>
+
+## Kiểm tra khi nạp lại
 
 1. Mở DWG mẫu, nạp đúng file trong thư mục gói và gọi PTCOUNT.
 2. Chọn cả ba LINE: phải in 3. Chỉ chọn CIRCLE: phải in 0.
