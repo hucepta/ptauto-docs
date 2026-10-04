@@ -1,0 +1,44 @@
+---
+import type { ContentGraph } from '../domain/content/graph';
+import type { Technology } from '../domain/content/schema';
+import { getContentUrl, getCourseLessons } from '../domain/content/graph';
+import { withBase } from '../domain/content/urls';
+interface Props { graph: ContentGraph; technology: Technology; difficulty: 'co-ban'|'trung-cap'|'nang-cao'; kindLabel: string; currentId: string }
+const { graph, technology, difficulty, kindLabel, currentId } = Astro.props;
+const course = graph.courses.find(item => item.technology === technology)!;
+const lessons = getCourseLessons(graph, course.id);
+const projects = graph.projects.filter(item => item.technology === technology);
+const references = graph.concepts.filter(item => item.technology === technology && item.kind !== 'term');
+const terms = graph.concepts.filter(item => item.technology === technology && item.kind === 'term');
+const levels = [
+  { id: 'co-ban', label: 'Cơ bản' },
+  { id: 'trung-cap', label: 'Trung cấp' },
+  { id: 'nang-cao', label: 'Cao cấp' },
+] as const;
+const kinds = [
+  { label: 'Bài học', count: lessons.length, url: getContentUrl(graph, course.id), active: currentId.startsWith('lesson.') },
+  { label: 'Tra cứu', count: references.length, url: `/tra-cuu/${technology}/`, active: currentId.startsWith('concept.') && kindLabel !== 'Thuật ngữ' },
+  { label: 'Từ điển', count: terms.length, url: `/thuat-ngu/?technology=${technology}`, active: currentId.startsWith('concept.') && kindLabel === 'Thuật ngữ' },
+  { label: 'Dự án mẫu', count: projects.length, url: `/du-an/#${technology}`, active: currentId.startsWith('project.') },
+];
+---
+<details class="path-picker" name="article-path-pickers" data-path-picker>
+  <summary class={'difficulty-'+difficulty} aria-label={`Cấp độ: ${levels.find(level=>level.id===difficulty)!.label}`}><span>{levels.find(level=>level.id===difficulty)!.label}</span><span class="path-chevron" aria-hidden="true">⌄</span></summary>
+  <button type="button" class="path-backdrop" data-path-close aria-label="Đóng danh sách"></button>
+  <div class="path-panel" role="region" aria-label="Chọn cấp độ"><div class="path-panel-head"><strong>Chọn cấp độ</strong><button type="button" data-path-close aria-label="Đóng danh sách">✕</button></div>
+    {levels.map(level => { const items=[...lessons, ...projects].filter(item => item.difficulty === level.id); return <section class="path-level"><h2 class={'difficulty-'+level.id}>{level.label}</h2>{items.length?<ul>{items.map(item => <li><a href={withBase(getContentUrl(graph,item.id))} aria-current={item.id===currentId?'page':undefined}>{item.title}<small>{item.entity==='project'?'Dự án':'Bài học'}</small></a></li>)}</ul>:<p>Chưa có nội dung ở cấp này.</p>}</section>; })}
+  </div>
+</details>
+<details class="path-picker" name="article-path-pickers" data-path-picker>
+  <summary class="content-kind" aria-label={`Loại nội dung: ${kindLabel}`}><span>{kindLabel}</span><span class="path-chevron" aria-hidden="true">⌄</span></summary>
+  <button type="button" class="path-backdrop" data-path-close aria-label="Đóng danh sách"></button>
+  <div class="path-panel" role="region" aria-label="Chọn loại nội dung"><div class="path-panel-head"><strong>Chọn loại nội dung</strong><button type="button" data-path-close aria-label="Đóng danh sách">✕</button></div>
+    <nav class="path-kind-list" aria-label="Loại nội dung cùng chủ đề">{kinds.map(kind => <a href={withBase(kind.url)} aria-current={kind.active?'page':undefined}><strong>{kind.label}</strong><span>{kind.count} mục · {course.title}</span></a>)}</nav>
+  </div>
+</details>
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('[data-path-picker]').forEach(picker => {
+    picker.querySelectorAll('[data-path-close]').forEach(button => button.addEventListener('click', () => { picker.open = false; picker.querySelector('summary')?.focus(); }));
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') document.querySelectorAll<HTMLDetailsElement>('[data-path-picker][open]').forEach(picker => { picker.open = false; picker.querySelector('summary')?.focus(); }); });
+</script>

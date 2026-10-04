@@ -7,6 +7,7 @@ import ArticleEnd from '../../../components/ArticleEnd.astro';
 import ProjectFramework from '../../../components/ProjectFramework.astro';
 import ProjectFlowchart from '../../../components/ProjectFlowchart.astro';
 import ProjectVisual from '../../../components/ProjectVisual.astro';
+import ContentPathMenus from '../../../components/ContentPathMenus.astro';
 import { projectGuides } from '../../../content/project-guides';
 import { projectFramework } from '../../../content/project-framework';
 import { getContent } from '../../../content/catalog';
@@ -22,7 +23,7 @@ const framework = projectFramework[project.id];
 <SiteLayout title={project.title} description={project.description}><article class="page narrow">
 <Breadcrumbs items={[{title:'Dự án mẫu',url:'/du-an/'},{title:project.title}]} />
 <header data-content-id={project.id} data-content-kind="project"><h1>{project.title}</h1>
-<div class="article-meta"><span class={'difficulty-'+project.difficulty}>{project.difficulty==='co-ban'?'Cơ bản':project.difficulty==='trung-cap'?'Trung cấp':'Cao cấp'}</span><span class="content-kind">Dự án mẫu</span></div></header>
+<div class="article-meta"><ContentPathMenus graph={graph} technology={project.technology} difficulty={project.difficulty} kindLabel="Dự án mẫu" currentId={project.id} /></div></header>
 <section class="related" data-pagefind-ignore><h2>Kiến thức cần có</h2><ul class="link-list">{project.prerequisites.map(id=><li><a href={withBase(getContentUrl(graph,id))}>{graph.entries.get(id)!.title}</a></li>)}</ul></section>
 {guide&&framework&&<><section class="project-guide"><h2>Hướng dẫn giải</h2><p><strong>Dữ liệu thử:</strong> {guide.input}</p><ol>{guide.steps.map(step=><li>{step}</li>)}</ol><p><strong>Đối chiếu:</strong> {guide.check}</p></section>
 <ProjectFlowchart steps={guide.steps} framework={framework} output={guide.output} check={guide.check} />

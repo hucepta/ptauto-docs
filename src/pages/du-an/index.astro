@@ -7,6 +7,6 @@ const { graph } = await getContent();
 ---
 <SiteLayout title="Dự án mẫu" description="Dự án mẫu cho sáu nhóm học."><div class="page narrow">
 <h1>Dự án mẫu</h1><p>Chọn một nhóm để xem dự án, hướng dẫn giải và kết quả cần đối chiếu.</p>
-{graph.courses.map(course=><section class="related project-group"><h2>{course.title}</h2><p>{course.description}</p><ul class="link-list">{graph.projects.filter(p=>p.technology===course.technology).map(p=><li><a href={withBase(getContentUrl(graph,p.id))}>{p.title}</a><p>{p.description}</p></li>)}</ul></section>)}
+{graph.courses.map(course=><section class="related project-group" id={course.technology}><h2>{course.title}</h2><p>{course.description}</p><ul class="link-list">{graph.projects.filter(p=>p.technology===course.technology).map(p=><li><a href={withBase(getContentUrl(graph,p.id))}>{p.title}</a><p>{p.description}</p></li>)}</ul></section>)}
 </div></SiteLayout>
 

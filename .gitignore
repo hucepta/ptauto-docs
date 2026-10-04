@@ -6,5 +6,7 @@ dist/
 test-results/
 playwright-report/
 *.log
+ptauto-docs-*.zip
+ptauto-docs-*.tar.gz
 .env*
 !.env.example

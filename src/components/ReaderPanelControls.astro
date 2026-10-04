@@ -1,5 +1,12 @@
-<div class="reader-panel-controls" data-pagefind-ignore>
-  <button type="button" data-reader-panel="sidebar" aria-expanded="false" aria-controls="reader-sidebar">Nội dung học</button>
-  <button type="button" data-reader-panel="toc" aria-expanded="false" aria-controls="reader-toc">Trong trang này</button>
+---
+interface Props { sidebarLabel?: string }
+const { sidebarLabel = 'Khóa học' } = Astro.props;
+---
+<div class="reader-panel-controls" id="reader-menu-sheet" data-pagefind-ignore>
+  <div class="reader-sheet-heading"><strong>Mục lục</strong><button type="button" data-reader-panel-close aria-label="Đóng mục lục">✕</button></div>
+  <div class="reader-sheet-tabs" role="tablist" aria-label="Chọn danh sách">
+    <button type="button" role="tab" data-reader-panel="sidebar" aria-selected="true" aria-controls="reader-sidebar">{sidebarLabel}</button>
+    <button type="button" role="tab" data-reader-panel="toc" aria-selected="false" aria-controls="reader-toc">Trang này</button>
+  </div>
 </div>
 <button class="reader-panel-backdrop" type="button" aria-label="Đóng bảng điều hướng" data-reader-panel-close></button>

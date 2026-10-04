@@ -7,6 +7,7 @@ import ArticleSteps from '../../../components/ArticleSteps.astro';
 import ArticleEnd from '../../../components/ArticleEnd.astro';
 import Exercise from '../../../components/Exercise.astro';
 import LessonFlowchart from '../../../components/LessonFlowchart.astro';
+import ContentPathMenus from '../../../components/ContentPathMenus.astro';
 import { lessonDecisions } from '../../../content/lesson-decisions';
 import { getContent } from '../../../content/catalog';
 import { getLessonCourse, getContentUrl, getLessonNavigation } from '../../../domain/content/graph';
@@ -24,7 +25,7 @@ const nav = getLessonNavigation(graph, lesson.id);
 <LearnLayout title={lesson.title} description={lesson.description} graph={graph} courseId={course.id} activeId={lesson.id} headings={[{depth:2,slug:'tong-quan',text:'Tổng quan'},...headings]}>
 <Breadcrumbs items={[{title:'Trang chủ',url:'/'},{title:course.title,url:getContentUrl(graph,course.id)},{title:chapter.title,url:getContentUrl(graph,chapter.id)}]} />
 <header data-content-id={lesson.id} data-content-kind="lesson"><h1>{lesson.title}</h1>
-<div class="article-meta"><span class={'difficulty-'+lesson.difficulty}>{lesson.difficulty==='co-ban'?'Cơ bản':lesson.difficulty==='trung-cap'?'Trung cấp':'Cao cấp'}</span><span class="content-kind">Bài học</span></div>
+<div class="article-meta"><ContentPathMenus graph={graph} technology={course.technology} difficulty={lesson.difficulty} kindLabel="Bài học" currentId={lesson.id} /></div>
 </header>
 {nav.prerequisites.length>0&&<section class="related" data-pagefind-ignore><h2>Kiến thức cần có</h2><ul class="link-list">{nav.prerequisites.map(id=><li><a href={withBase(getContentUrl(graph,id))}>{graph.entries.get(id)!.title}</a></li>)}</ul></section>}
 <details class="lesson-overview" id="tong-quan" open><summary><h2>Tổng quan</h2></summary>

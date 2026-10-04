@@ -7,6 +7,7 @@ import ConceptLinks from '../../../components/ConceptLinks.astro';
 import ArticleSteps from '../../../components/ArticleSteps.astro';
 import ArticleEnd from '../../../components/ArticleEnd.astro';
 import ReaderPanelControls from '../../../components/ReaderPanelControls.astro';
+import ContentPathMenus from '../../../components/ContentPathMenus.astro';
 import { getContent } from '../../../content/catalog';
 import { getContentUrl } from '../../../domain/content/graph';
 import { withBase } from '../../../domain/content/urls';
@@ -21,14 +22,14 @@ const sidebarConcepts = graph.concepts.filter(c => c.technology === concept.tech
 const isTerm = concept.kind === 'term';
 const kindLabel = { term: 'Thuật ngữ', api: 'API', syntax: 'Cú pháp', troubleshooting: 'Gỡ lỗi' }[concept.kind];
 ---
-<SiteLayout title={concept.title} description={concept.description} activeSection={isTerm?'dictionary':undefined}><div class="reader-grid">
-<ReaderPanelControls />
+<SiteLayout title={concept.title} description={concept.description} activeSection={isTerm?'dictionary':undefined} readerMenu><div class="reader-grid">
+<ReaderPanelControls sidebarLabel={isTerm?'Từ điển':'Tra cứu'} />
 <aside class="reader-sidebar" id="reader-sidebar" tabindex="-1" data-pagefind-ignore><div class="sidebar-inner"><p class="eyebrow">{isTerm?'Từ điển':'Tra cứu'} {course.title}</p>
 <nav class="course-nav" aria-label={isTerm?'Từ điển':'Thư viện tra cứu'}><details class="reference-nav"><summary>{isTerm?'Từ điển':('Tra cứu '+course.title)}</summary><ul>{sidebarConcepts.map(c=><li><a href={withBase(getContentUrl(graph,c.id))} aria-current={c.id===concept.id?'page':undefined}>{c.title}</a></li>)}</ul></details></nav>
 <p style="margin-top:2rem"><a href={withBase(isTerm?'/thuat-ngu/':'/tra-cuu/')}>{isTerm?'Tất cả thuật ngữ':'Tất cả nội dung tra cứu'}</a></p></div></aside>
 <article class="reader-article"><Breadcrumbs items={isTerm?[{title:'Từ điển',url:'/thuat-ngu/'},{title:concept.title}]:[{title:'Tra cứu',url:'/tra-cuu/'},{title:course.title,url:'/tra-cuu/'+concept.technology+'/'},{title:concept.title}]} />
 <header data-content-id={concept.id} data-content-kind="concept"><h1>{concept.title}</h1>
-<div class="article-meta"><span class={'difficulty-'+concept.difficulty}>{concept.difficulty==='co-ban'?'Cơ bản':concept.difficulty==='trung-cap'?'Trung cấp':'Cao cấp'}</span><span class="content-kind">{kindLabel}</span></div></header>
+<div class="article-meta"><ContentPathMenus graph={graph} technology={concept.technology} difficulty={concept.difficulty} kindLabel={kindLabel} currentId={concept.id} /></div></header>
 <ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={concept.exampleIds} placements={concept.examplePlacements} />
 <ConceptLinks graph={graph} ids={concept.relatedConceptIds} />
 {relatedLessons.length>0&&<section class="related" data-pagefind-ignore><h2>Học trong ngữ cảnh</h2><ul class="link-list">{relatedLessons.map(l=><li><a href={withBase(getContentUrl(graph,l.id))}>{l.title}</a><p>{l.description}</p></li>)}</ul></section>}

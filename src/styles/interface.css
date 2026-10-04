@@ -82,8 +82,12 @@ body .map-section[open] > :not(summary), body .project-aspect[open] p { animatio
   body .primary-nav a { white-space: normal; justify-content: center; text-align: center; min-width: 0; min-height: 44px; font-size: .8rem; line-height: 1.35; padding: .4rem .2rem; }
   body .page { width: calc(100% - 1.2rem); margin: .6rem auto; padding: 1.5rem 1rem 2rem; border-radius: 18px; }
   body .page > h1 { margin-bottom: 1.2rem; }
-  body .article-actions-end { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  body .article-actions-end > a { grid-column: 1 / -1; }
+  body .article-actions-end { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .55rem; }
+  body .article-actions-end > a { grid-column: auto; }
+  body .article-actions-end button, body .article-actions-end .button { width: 100%; min-width: 0; min-height: 46px; padding: .55rem .45rem; font-size: .82rem; text-align: center; }
+  body .lesson-end .lesson-pager { gap: .5rem; margin-top: .7rem; padding-top: .7rem; }
+  body .lesson-end .lesson-pager a { min-height: 66px; padding: .7rem; font-size: .8rem; }
+  body .lesson-end .lesson-pager span { font-size: .68rem; }
   body .lesson-pager { grid-template-columns: repeat(2,minmax(0,1fr)); }
   body .project-framework-grid { grid-template-columns: 1fr; }
   body .teaching-image, body .lesson-flowchart, body .project-flowchart { padding: .7rem; }

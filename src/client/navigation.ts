@@ -25,44 +25,60 @@ updatePanels();
 compact.addEventListener('change', updatePanels);
 const reader = document.querySelector<HTMLElement>('.reader-grid');
 if (reader) {
-    const buttons = [...reader.querySelectorAll<HTMLButtonElement>('[data-reader-panel]')];
-    const closePanels = () => {
+    const toggle = document.querySelector<HTMLButtonElement>('[data-reader-toggle]');
+    const tabs = [...reader.querySelectorAll<HTMLButtonElement>('[data-reader-panel]')];
+    const closePanels = (returnFocus = false) => {
         reader.removeAttribute('data-open-panel');
-        buttons.forEach(button => button.setAttribute('aria-expanded', 'false'));
+        toggle?.setAttribute('aria-expanded', 'false');
+        if (returnFocus) toggle?.focus();
     };
-    buttons.forEach(button => button.addEventListener('click', () => {
-        const panel = button.dataset.readerPanel;
-        if (reader.dataset.openPanel === panel) {
-            closePanels();
-            return;
-        }
+    const openPanel = (panel: string) => {
         reader.dataset.openPanel = panel;
-        buttons.forEach(item => item.setAttribute('aria-expanded', String(item === button)));
+        toggle?.setAttribute('aria-expanded', 'true');
+        tabs.forEach(item => item.setAttribute('aria-selected', String(item.dataset.readerPanel === panel)));
         const details = reader.querySelector<HTMLDetailsElement>(panel === 'sidebar' ? '.course-nav, .reference-nav' : '.toc details');
         if (details) details.open = true;
         reader.querySelector<HTMLElement>(panel === 'sidebar' ? '#reader-sidebar' : '#reader-toc')?.focus();
-    }));
-    reader.querySelector('[data-reader-panel-close]')?.addEventListener('click', closePanels);
-    reader.querySelectorAll<HTMLAnchorElement>('.reader-sidebar a, .toc a').forEach(link => link.addEventListener('click', closePanels));
+    };
+    toggle?.addEventListener('click', () => reader.dataset.openPanel ? closePanels(true) : openPanel('sidebar'));
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => openPanel(tab.dataset.readerPanel || 'sidebar'));
+        tab.addEventListener('keydown', event => {
+            if (!['ArrowLeft', 'ArrowRight'].includes(event.key) || tabs.length < 2) return;
+            event.preventDefault();
+            const next = tabs[(index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]!;
+            openPanel(next.dataset.readerPanel || 'sidebar');
+            next.focus();
+        });
+    });
+    reader.querySelectorAll('[data-reader-panel-close]').forEach(button => button.addEventListener('click', () => closePanels(true)));
+    reader.querySelectorAll<HTMLAnchorElement>('.reader-sidebar a, .toc a').forEach(link => link.addEventListener('click', () => closePanels()));
     document.addEventListener('keydown', event => {
         if (event.key !== 'Escape' || !reader.dataset.openPanel) return;
-        const button = buttons.find(item => item.dataset.readerPanel === reader.dataset.openPanel);
-        closePanels();
-        button?.focus();
+        closePanels(true);
     });
-    compact.addEventListener('change', closePanels);
+    compact.addEventListener('change', () => closePanels());
 }
 const header = document.querySelector('.site-header');
 if (header) new ResizeObserver(() => document.documentElement.style.setProperty('--header-height', header.getBoundingClientRect().height+'px')).observe(header);
 document.documentElement.style.setProperty('--reading-nav-height', '0px');
 const prefetched = new Set<string>();
-document.addEventListener('pointerover', event => {
-    const anchor = (event.target as Element)?.closest?.('a[href]') as HTMLAnchorElement | null;
-    if (!anchor || !anchor.href || anchor.origin !== location.origin || anchor.hash || anchor.download || prefetched.size >= 8) return;
-    if (prefetched.has(anchor.href)) return;
+const prefetch = (anchor: HTMLAnchorElement | null) => {
+    if (!anchor || !anchor.href || anchor.origin !== location.origin || anchor.hash || anchor.download || prefetched.size >= 12) return;
+    if (prefetched.has(anchor.href) || (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return;
     prefetched.add(anchor.href);
     const hint = document.createElement('link');
     hint.rel = 'prefetch';
     hint.href = anchor.href;
     document.head.append(hint);
-}, { passive: true });
+};
+const findAnchor = (event: Event) => (event.target as Element)?.closest?.('a[href]') as HTMLAnchorElement | null;
+document.addEventListener('pointerover', event => { if ((event as PointerEvent).pointerType === 'mouse') prefetch(findAnchor(event)); }, { passive: true });
+document.addEventListener('pointerdown', event => prefetch(findAnchor(event)), { passive: true });
+document.addEventListener('focusin', event => prefetch(findAnchor(event)), { passive: true });
+const likelyNext = document.querySelector<HTMLAnchorElement>('.article-actions-end a[href]');
+if (likelyNext) {
+    const queue = () => prefetch(likelyNext);
+    if ('requestIdleCallback' in window) window.requestIdleCallback(queue, { timeout: 1800 });
+    else setTimeout(queue, 900);
+}

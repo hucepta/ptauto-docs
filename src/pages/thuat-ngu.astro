@@ -18,23 +18,27 @@ const letters = Object.keys(groups).sort((a,b)=>a.localeCompare(b,'en'));
 <p class="glossary-intro">Tìm nghĩa ngắn của thuật ngữ trước khi xem ví dụ và ngữ cảnh dùng trong từng bài học.</p>
 <div class="glossary-search"><label for="glossary-filter">Lọc thuật ngữ</label><input id="glossary-filter" type="search" placeholder="Ví dụ: ename, transaction, CRS" autocomplete="off" /><p aria-live="polite" data-glossary-count>{terms.length} thuật ngữ</p></div>
 <nav class="glossary-letters" aria-label="Chữ cái đầu">{letters.map(letter=><a href={`#chu-${letter}`}>{letter}</a>)}</nav>
-<div data-glossary>{letters.map(letter=><section class="glossary-group" id={`chu-${letter}`}><h2>{letter}</h2><ul class="link-list">{groups[letter]!.map(c=><li data-glossary-item data-search={`${c.title} ${c.description} ${c.aliases.join(' ')}`}><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p>{c.aliases.length>0&&<p class="muted">Còn gọi: {c.aliases.join(', ')}</p>}</li>)}</ul></section>)}</div>
+<div data-glossary>{letters.map(letter=><section class="glossary-group" id={`chu-${letter}`}><h2>{letter}</h2><ul class="link-list">{groups[letter]!.map(c=><li data-glossary-item data-technology={c.technology} data-search={`${c.title} ${c.description} ${c.aliases.join(' ')}`}><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p>{c.aliases.length>0&&<p class="muted">Còn gọi: {c.aliases.join(', ')}</p>}</li>)}</ul></section>)}</div>
 </div></SiteLayout>
 <script>
   const input = document.querySelector<HTMLInputElement>('#glossary-filter');
   const items = [...document.querySelectorAll<HTMLElement>('[data-glossary-item]')];
   const groups = [...document.querySelectorAll<HTMLElement>('.glossary-group')];
   const count = document.querySelector<HTMLElement>('[data-glossary-count]');
+  const technology = new URLSearchParams(location.search).get('technology');
+  const validTechnology = technology && items.some(item => item.dataset.technology === technology) ? technology : null;
   const normalize = (text: string) => text.toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
-  input?.addEventListener('input', () => {
-    const query = normalize(input.value.trim());
+  const filter = () => {
+    const query = normalize(input?.value.trim() || '');
     let visible = 0;
     for (const item of items) {
-      item.hidden = !normalize(item.dataset.search || '').includes(query);
+      item.hidden = (validTechnology !== null && item.dataset.technology !== validTechnology) || !normalize(item.dataset.search || '').includes(query);
       if (!item.hidden) visible++;
     }
     for (const group of groups) group.hidden = !group.querySelector('[data-glossary-item]:not([hidden])');
     if (count) count.textContent = visible ? `${visible} thuật ngữ` : 'Không tìm thấy thuật ngữ phù hợp.';
-  });
+  };
+  input?.addEventListener('input', filter);
+  if (validTechnology) filter();
 </script>
 
