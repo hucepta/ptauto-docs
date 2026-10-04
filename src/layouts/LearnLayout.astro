@@ -2,6 +2,7 @@
 import SiteLayout from './SiteLayout.astro';
 import CourseNavigation from '../components/CourseNavigation.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import ReaderPanelControls from '../components/ReaderPanelControls.astro';
 import type { ContentGraph } from '../domain/content/graph';
 interface Props {
     title: string;
@@ -18,7 +19,8 @@ interface Props {
 const { title, description, graph, courseId, activeId, headings = [] } = Astro.props;
 ---
 <SiteLayout title={title} description={description}><div class="reader-grid">
-<aside class="reader-sidebar"><div class="sidebar-inner"><CourseNavigation graph={graph} courseId={courseId} activeId={activeId} /></div></aside>
+<ReaderPanelControls />
+<aside class="reader-sidebar" id="reader-sidebar" tabindex="-1"><div class="sidebar-inner"><CourseNavigation graph={graph} courseId={courseId} activeId={activeId} /></div></aside>
 <article class="reader-article"><slot /></article><TableOfContents headings={headings} />
 </div></SiteLayout>
 

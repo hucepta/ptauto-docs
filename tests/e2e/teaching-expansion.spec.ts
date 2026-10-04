@@ -28,7 +28,7 @@ test('lesson_has_real_image_caption_below_and_unified_footer', async ({ page }) 
   const imageBox = await figure.locator('img').boundingBox();
   const captionBox = await figure.locator('figcaption').boundingBox();
   expect(captionBox!.y).toBeGreaterThan(imageBox!.y + imageBox!.height);
-  await expect(page.locator('.lesson-end [data-bookmark]')).toHaveCount(1);
+  await expect(page.locator('.lesson-end [data-completed]')).toHaveCount(1);
   await expect(page.locator('.lesson-end .lesson-pager')).toHaveCount(1);
   await expect(page.locator('.lesson-end a[href="/"]').first()).toContainText('Về trang chủ');
 });

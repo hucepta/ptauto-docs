@@ -12,8 +12,8 @@ const { steps, framework, output, check } = Astro.props;
   <div class="flow-gate"><span>{framework.gate}</span></div>
   <BranchEdges />
   <div class="flow-branches">
-    <div class="flow-branch"><b>Không ↓</b><div class="flow-node flow-reject">{framework.reject}</div><FlowEdge /><span class="flow-finish">Kết thúc nhánh lỗi</span></div>
-    <div class="flow-branch"><b>Có ↓</b><div class="flow-node flow-process"><small>03 · Thực thi</small>{steps[2]}</div><FlowEdge /><div class="flow-node flow-output">{output}</div><FlowEdge /><div class="flow-node flow-process"><small>04 · Đối chiếu</small>{check}</div><FlowEdge /><span class="flow-finish">Kết thúc sau kiểm tra</span></div>
+    <div class="flow-branch"><b>Không</b><div class="flow-node flow-reject">{framework.reject}</div><FlowEdge /><span class="flow-finish">Kết thúc nhánh lỗi</span></div>
+    <div class="flow-branch"><b>Có</b><div class="flow-node flow-process"><small>03 · Thực thi</small>{steps[2]}</div><FlowEdge /><div class="flow-node flow-output">{output}</div><FlowEdge /><div class="flow-node flow-process"><small>04 · Đối chiếu</small>{check}</div><FlowEdge /><span class="flow-finish">Kết thúc sau kiểm tra</span></div>
   </div>
   <figcaption>Luồng xử lý dự án</figcaption>
 </figure>

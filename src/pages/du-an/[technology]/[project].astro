@@ -22,12 +22,13 @@ const framework = projectFramework[project.id];
 <SiteLayout title={project.title} description={project.description}><article class="page narrow">
 <Breadcrumbs items={[{title:'Dự án mẫu',url:'/du-an/'},{title:project.title}]} />
 <header data-content-id={project.id} data-content-kind="project"><h1>{project.title}</h1>
-<div class="article-actions"><button class="js-control" data-bookmark={project.id} aria-pressed="false">Lưu bài</button></div><p class="status-message" data-storage-status role="status"></p></header>
+<div class="article-meta"><span class={'difficulty-'+project.difficulty}>{project.difficulty==='co-ban'?'Cơ bản':project.difficulty==='trung-cap'?'Trung cấp':'Cao cấp'}</span><span class="content-kind">Dự án mẫu</span></div></header>
 <section class="related" data-pagefind-ignore><h2>Kiến thức cần có</h2><ul class="link-list">{project.prerequisites.map(id=><li><a href={withBase(getContentUrl(graph,id))}>{graph.entries.get(id)!.title}</a></li>)}</ul></section>
 {guide&&framework&&<><section class="project-guide"><h2>Hướng dẫn giải</h2><p><strong>Dữ liệu thử:</strong> {guide.input}</p><ol>{guide.steps.map(step=><li>{step}</li>)}</ol><p><strong>Đối chiếu:</strong> {guide.check}</p></section>
 <ProjectFlowchart steps={guide.steps} framework={framework} output={guide.output} check={guide.check} />
 <ProjectVisual visual={framework.visual} output={guide.output} />
 <ProjectFramework framework={framework} /></>}
 <ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={project.exampleIds} placements={project.examplePlacements} />
-<ConceptLinks graph={graph} ids={project.conceptIds} /><ArticleEnd sources={project.sources} compatibility={project.compatibility} /></article></SiteLayout>
+<ConceptLinks graph={graph} ids={project.conceptIds} /><ArticleEnd sources={project.sources} compatibility={project.compatibility} />
+<div class="article-actions article-actions-bottom"><button class="js-control" data-bookmark={project.id} aria-pressed="false">Đánh dấu</button><a class="button" href={withBase('/du-an/')}>Quay lại dự án mẫu</a></div><p class="status-message" data-storage-status role="status"></p></article></SiteLayout>
 

@@ -8,13 +8,14 @@ test('compact_reader_keeps_content_space_and_visible_navigation', async ({ page 
     expect(await page.locator('.reader-article').evaluate(el => el.getBoundingClientRect().width)).toBeGreaterThan(width * .85);
     expect(await page.locator('.primary-nav').evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.locator('.toc summary').click();
+    await page.getByRole('button', { name: 'Trong trang này' }).click();
+    await expect(page.locator('.reader-grid')).toHaveAttribute('data-open-panel', 'toc');
     await expect(page.locator('.toc details')).toHaveAttribute('open', '');
     const link = page.locator('.toc a[href^="#"]').nth(2);
     const hash = await link.getAttribute('href');
     await link.click();
-    await expect(page.locator('.toc details')).not.toHaveAttribute('open', '');
-    await expect.poll(async () => page.locator(hash!).evaluate(el => el.getBoundingClientRect().top)).toBeGreaterThan(await page.locator('.toc').evaluate(el => el.getBoundingClientRect().bottom));
+    await expect(page.locator('.reader-grid')).not.toHaveAttribute('data-open-panel', 'toc');
+    await expect.poll(async () => page.locator(hash!).evaluate(el => el.getBoundingClientRect().top)).toBeGreaterThan(0);
   }
 });
 

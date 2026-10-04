@@ -8,7 +8,7 @@ interface Props {
 }
 const { headings } = Astro.props;
 ---
-{headings.length>0&&<aside class="toc" data-pagefind-ignore><div class="toc-inner"><details open><summary>Trong trang này</summary>
+{headings.length>0&&<aside class="toc" id="reader-toc" tabindex="-1" data-pagefind-ignore><div class="toc-inner"><details open><summary>Trong trang này</summary>
 <ul>{headings.filter(h=>h.depth===2||h.depth===3).map(h=><li class:list={{nested:h.depth===3}}><a href={'#'+h.slug} data-toc-link>{h.text}</a></li>)}</ul>
 </details></div></aside>}
 <script>import '../client/toc';</script>

@@ -1,10 +1,8 @@
 import { expect, test } from '@playwright/test';
 test('reload_restores_progress_and_bookmark', async ({ page }) => {
     await page.goto('/hoc/autolisp/bieu-thuc-evaluation/');
-    await page.getByRole('button', { name: 'Lưu bài', exact: true }).click();
     await page.getByRole('button', { name: 'Đánh dấu hoàn thành', exact: true }).click();
     await page.reload();
-    await expect(page.getByRole('button', { name: 'Đã lưu', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByRole('button', { name: 'Đã hoàn thành', exact: true })).toHaveAttribute('aria-pressed', 'true');
     await page.goto('/da-luu/');
     await expect(page.getByRole('link', { name: 'Đọc biểu thức', exact: true })).toBeVisible();

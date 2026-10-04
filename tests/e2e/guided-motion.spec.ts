@@ -47,6 +47,7 @@ test('resizing_during_disclosure_does_not_restore_the_old_panel_state', async ({
   await page.setViewportSize({width:390,height:844});
   await page.goto('/hoc/autolisp/command-line-file-lsp/');
   const panel=page.locator('.course-nav');
+  await page.getByRole('button',{name:'Nội dung học'}).click();
   await panel.locator('summary').click();
   await page.setViewportSize({width:1226,height:844});
   await expect(panel).toHaveAttribute('open','');

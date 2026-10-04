@@ -28,7 +28,7 @@ test('search_and_reader_deep_links_work_under_base', async ({ page }) => {
     const link = page.getByRole('list', { name: 'Kết quả tìm kiếm' }).getByRole('link', { name: 'List', exact: true });
     await expect(link).toHaveAttribute('href', '/ptauto-docs/tra-cuu/autolisp/list/');
     await link.click();
-    await page.getByRole('button', { name: 'Lưu bài', exact: true }).click();
+    await page.getByRole('button', { name: 'Đánh dấu', exact: true }).click();
     await page.goto('http://127.0.0.1:4323/ptauto-docs/da-luu/');
     await expect(page.getByRole('link', { name: 'List', exact: true })).toHaveAttribute('href', '/ptauto-docs/tra-cuu/autolisp/list/');
 });

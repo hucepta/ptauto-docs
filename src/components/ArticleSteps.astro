@@ -5,7 +5,8 @@ import TeachingImage from './TeachingImage.astro';
 import { withBase } from '../domain/content/urls';
 import media from '../content/teaching-media.json';
 import { buildReaderSteps, type ExamplePlacement } from '../domain/content/reader-steps';
-import { getExampleAnchor, type ContentGraph } from '../domain/content/graph';
+import { getExampleAnchor, getContentUrl, type ContentGraph } from '../domain/content/graph';
+import { linkConceptMentions } from '../domain/content/concept-links';
 import { readExampleCode } from '../domain/content/example-source';
 import type { ExampleEntry } from '../domain/content/schema';
 interface Props {
@@ -15,11 +16,16 @@ interface Props {
   placements: ExamplePlacement[];
   language?: string;
   contentSlug?: string;
+  linkTerms?: boolean;
+  technology?: string;
 }
-const { html, graph, exampleIds, placements, language = 'lisp', contentSlug } = Astro.props;
+const { html, graph, exampleIds, placements, language = 'lisp', contentSlug, linkTerms = false, technology = '' } = Astro.props;
 const images = media.filter(image => image.lesson === contentSlug);
 const basedHtml = html.replace(/\b(href|src)="(\/(?!\/)[^"]*)"/g, (_, attribute, path) => `${attribute}="${withBase(path)}"`);
-const { introHtml, steps, remainingExampleIds } = buildReaderSteps(basedHtml, placements, exampleIds);
+const linkedHtml = linkTerms ? linkConceptMentions(basedHtml, graph.concepts.map(concept => ({
+  title: concept.title, url: withBase(getContentUrl(graph, concept.id)), technology: concept.technology
+})), technology) : basedHtml;
+const { introHtml, steps, remainingExampleIds } = buildReaderSteps(linkedHtml, placements, exampleIds);
 const examples = new Map(await Promise.all(exampleIds.map(async id => {
   const example = graph.entries.get(id) as ExampleEntry;
   return [id, { example, code: await readExampleCode(example, 'src/content/examples/code') }] as const;

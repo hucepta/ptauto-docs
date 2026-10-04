@@ -38,7 +38,7 @@ async function initialize() {
         const { snapshot, issues } = repo.read();
         if (issues.length)
             warn();
-        document.querySelectorAll<HTMLButtonElement>('[data-bookmark]').forEach(b => { const saved = !!snapshot.bookmarks[b.dataset.bookmark!]?.saved; b.setAttribute('aria-pressed', String(saved)); b.textContent = saved ? 'Đã lưu' : 'Lưu bài'; b.disabled = false; });
+        document.querySelectorAll<HTMLButtonElement>('[data-bookmark]').forEach(b => { const saved = !!snapshot.bookmarks[b.dataset.bookmark!]?.saved; b.setAttribute('aria-pressed', String(saved)); b.textContent = saved ? 'Đã đánh dấu' : 'Đánh dấu'; b.disabled = false; });
         document.querySelectorAll<HTMLButtonElement>('[data-completed]').forEach(b => { const completed = !!snapshot.progress[b.dataset.completed!]?.completed; b.setAttribute('aria-pressed', String(completed)); b.textContent = completed ? 'Đã hoàn thành' : 'Đánh dấu hoàn thành'; b.disabled = false; });
         document.querySelectorAll<HTMLElement>('[data-lesson-marker]').forEach(el => { el.textContent = snapshot.progress[el.dataset.lessonMarker!]?.completed ? '✓' : ''; el.setAttribute('aria-label', el.textContent ? 'Đã hoàn thành' : 'Chưa hoàn thành'); });
         for (const course of catalog.courses) {
@@ -96,6 +96,8 @@ async function initialize() {
         const completed = !!repo.read().snapshot.progress[b.dataset.completed!]?.completed;
         if (!repo.setCompleted(b.dataset.completed!, !completed).persisted)
             warn();
+        if (!repo.setBookmark(b.dataset.completed!, !completed).persisted)
+            warn();
         refresh();
     }));
     const current = document.querySelector<HTMLElement>('[data-content-kind=lesson]')?.dataset.contentId;
@@ -106,5 +108,5 @@ async function initialize() {
     refresh();
 }
 void initialize().catch(() => {
-    document.querySelectorAll<HTMLElement>('[data-storage-status]').forEach(el => { el.textContent = 'Không tải được thông tin lưu bài. Hãy tải lại trang để thử lại.'; });
+    document.querySelectorAll<HTMLElement>('[data-storage-status]').forEach(el => { el.textContent = 'Không tải được thông tin đánh dấu. Hãy tải lại trang để thử lại.'; });
 });

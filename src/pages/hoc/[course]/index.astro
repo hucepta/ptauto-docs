@@ -10,7 +10,7 @@ const { course } = Astro.props;
 const { graph } = await getContent();
 const lessons = getCourseLessons(graph, course.id);
 const nextCourse = { autolisp: 'visual-lisp-activex', 'visual-lisp-activex': 'autocad-dotnet', 'autocad-dotnet': 'civil3d-dotnet', 'civil3d-dotnet': 'dynamo-python', 'dynamo-python': 'gis-data-automation', 'gis-data-automation': 'civil3d-dotnet' }[course.technology];
-const headings = [{depth:2,slug:'ban-do',text:'Nội dung khóa học'},{depth:2,slug:'du-an-mau',text:'Dự án mẫu'}];
+const headings = [{depth:2,slug:'ban-do',text:'Nội dung khóa học'},{depth:2,slug:'du-an-mau',text:'Dự án mẫu'},{depth:2,slug:'hoc-tiep',text:'Học tiếp'}];
 ---
 <LearnLayout title={course.title} description={course.description} graph={graph} courseId={course.id} headings={headings}>
 <Breadcrumbs items={[{title:'Trang chủ',url:'/'},{title:course.title}]} /><h1>{course.title}</h1>
@@ -27,7 +27,7 @@ const headings = [{depth:2,slug:'ban-do',text:'Nội dung khóa học'},{depth:2
 <div class="course-start"><a class="button primary" data-course-start={course.id} href={withBase(getContentUrl(graph,lessons[0].id))}>Bắt đầu học</a></div>
 
 <CourseProjects graph={graph} technology={course.technology} />
-<section class="related"><h2>Học tiếp</h2><p>{course.guide?.nextTechnology}</p><ul class="link-list">{graph.courses.filter(c=>c.technology===nextCourse).map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p></li>)}<li><a href={withBase('/tra-cuu/'+course.technology+'/')}>Tra cứu {course.title}</a></li></ul></section>
+<section class="related" id="hoc-tiep"><h2>Học tiếp</h2><p>{course.guide?.nextTechnology}</p><ul class="link-list">{graph.courses.filter(c=>c.technology===nextCourse).map(c=><li><a href={withBase(getContentUrl(graph,c.id))}>{c.title}</a><p>{c.description}</p></li>)}<li><a href={withBase('/tra-cuu/'+course.technology+'/')}>Tra cứu {course.title}</a></li></ul></section>
 <p data-course-finished={course.id} hidden><a class="button" href={withBase('/')}>Về trang chủ</a></p>
 </LearnLayout>
 

@@ -9,14 +9,16 @@ const { buildId } = await getBuildData();
 interface Props {
     title: string;
     description: string;
+    activeSection?: 'dictionary';
 }
-const { title, description } = Astro.props;
-const nav = [['Kho tri thức', '/#chu-de'], ['Tra cứu', '/tra-cuu/'], ['Từ điển', '/thuat-ngu/'], ['Dự án mẫu', '/du-an/'], ['Đã lưu', '/da-luu/']];
+const { title, description, activeSection } = Astro.props;
+const nav = [['Kho tri thức', '/#chu-de'], ['Tra cứu', '/tra-cuu/'], ['Từ điển', '/thuat-ngu/'], ['Dự án mẫu', '/du-an/'], ['Đánh dấu', '/da-luu/']];
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '') || '/';
 ---
 <!doctype html>
 <html lang="vi">
 <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" /><meta name="description" content={description} />
+<script is:inline>document.documentElement.classList.add('js');</script>
 <title>{title==='PTAuto Docs'?title:title+' · PTAuto Docs'}</title>
 <meta name="ptauto-build" content={buildId} />
 <link rel="icon" type="image/svg+xml" href={withBase('/brand-logo.svg#symbol')} /><link rel="canonical" href={new URL(Astro.url.pathname,Astro.site)} />
@@ -27,7 +29,7 @@ const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/
 <header class="site-header" data-pagefind-ignore><div class="header-inner">
 <a class="brand" href={withBase('/')} aria-label="PTAuto Docs — Trang chủ"><img src={withBase('/brand-logo.svg')} width="174" height="53" alt="PTAuto Docs" /></a>
 <nav id="primary-nav" class="primary-nav" aria-label="Điều hướng chính" data-primary-nav>
-{nav.map(([label,href])=><a href={withBase(href)} data-knowledge-nav={href==='/#chu-de'?'':undefined} aria-current={(href==='/#chu-de'?pathname.startsWith('/hoc/'):pathname.startsWith(href))?'page':undefined}>{label}</a>)}
+{nav.map(([label,href])=><a href={withBase(href)} data-knowledge-nav={href==='/#chu-de'?'':undefined} aria-current={(activeSection==='dictionary'?href==='/thuat-ngu/':href==='/#chu-de'?pathname.startsWith('/hoc/'):pathname.startsWith(href))?'page':undefined}>{label}</a>)}
 </nav></div></header>
 <main id="content" tabindex="-1"><slot /></main>
 <script>import '../client/navigation';</script>

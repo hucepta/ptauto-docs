@@ -7,7 +7,7 @@ test('course_entry_and_reader_controls_follow_the_new_learning_flow', async ({ p
   await expect(page.getByText('Kết quả đầu tiên:')).toHaveCount(1);
   await page.locator('[data-course-start]').click();
   await expect(page.getByRole('heading', { name: 'Tổng quan', exact: true })).toBeVisible();
-  await expect(page.locator('.article-actions-end > *')).toHaveCount(3);
+  await expect(page.locator('.article-actions-end > *')).toHaveCount(2);
 });
 
 test('project_catalog_groups_all_six_tracks_with_guides', async ({ page, request }) => {
@@ -27,7 +27,7 @@ test('project_catalog_groups_all_six_tracks_with_guides', async ({ page, request
 
 test('home_saved_preview_uses_real_bookmarks', async ({ page }) => {
   await page.goto('/hoc/autolisp/bat-dau-autolisp/');
-  await page.locator('[data-bookmark]').click();
+  await page.locator('[data-completed]').click();
   await page.goto('/');
   await expect(page.locator('[data-home-bookmarks-list] li')).toHaveCount(1);
   await expect(page.locator('[data-home-bookmarks-list]')).toContainText('Lệnh AutoLISP đầu tiên');

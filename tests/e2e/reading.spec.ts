@@ -10,6 +10,15 @@ test('glossary_resolves_same_concept', async ({ page }) => {
     await page.goto('/thuat-ngu/');
     await page.getByRole('link', { name: 'List', exact: true }).click();
     await expect(page).toHaveURL(/tra-cuu\/autolisp\/list\//);
+    await expect(page.getByRole('link', { name: 'Từ điển', exact: true }).first()).toHaveAttribute('aria-current', 'page');
+});
+test('lesson_terms_link_to_reference_and underline on hover', async ({ page }) => {
+    await page.goto('/hoc/visual-lisp-activex/bat-dau-activex/');
+    const link = page.locator('.article-steps a.concept-link').filter({ hasText: 'ActiveX' }).first();
+    await expect(link).toHaveAttribute('href', /\/tra-cuu\//);
+    await expect(link).toHaveCSS('text-decoration-line', 'none');
+    await link.hover();
+    await expect(link).toHaveCSS('text-decoration-line', 'underline');
 });
 test('topic_navigation_has_no_chapter_prefix', async ({ page }) => {
     await page.goto('/hoc/autolisp/bieu-thuc-evaluation/');
@@ -24,7 +33,7 @@ test('keyboard_and_mobile_reader', async ({ page }) => {
     await page.keyboard.press('Enter');
     await expect(page.getByRole('main')).toBeFocused();
     await expect(page.getByRole('navigation', { name: 'Điều hướng chính' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Mở điều hướng' })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Nội dung học' })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 test('reader_without_javascript', async ({ browser }) => {
@@ -32,7 +41,7 @@ test('reader_without_javascript', async ({ browser }) => {
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4321/hoc/autolisp/bieu-thuc-evaluation/');
     await expect(page.getByRole('heading', { name: 'Đọc biểu thức', exact: true })).toBeVisible();
-    await page.locator('.lesson-pager').getByRole('link', { name: /Bài sau/ }).click();
+    await page.locator('.lesson-end').getByRole('link', { name: /Bài sau/ }).click();
     await expect(page).toHaveURL(/bien-kieu-du-lieu/);
     await context.close();
 });

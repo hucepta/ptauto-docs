@@ -1,5 +1,4 @@
 export {};
-document.documentElement.classList.add('js');
 const knowledgeSection = document.querySelector('#chu-de');
 const knowledgeLink = document.querySelector('[data-knowledge-nav]');
 if (knowledgeSection && knowledgeLink) {
@@ -24,19 +23,46 @@ const updatePanels = () => {
 };
 updatePanels();
 compact.addEventListener('change', updatePanels);
+const reader = document.querySelector<HTMLElement>('.reader-grid');
+if (reader) {
+    const buttons = [...reader.querySelectorAll<HTMLButtonElement>('[data-reader-panel]')];
+    const closePanels = () => {
+        reader.removeAttribute('data-open-panel');
+        buttons.forEach(button => button.setAttribute('aria-expanded', 'false'));
+    };
+    buttons.forEach(button => button.addEventListener('click', () => {
+        const panel = button.dataset.readerPanel;
+        if (reader.dataset.openPanel === panel) {
+            closePanels();
+            return;
+        }
+        reader.dataset.openPanel = panel;
+        buttons.forEach(item => item.setAttribute('aria-expanded', String(item === button)));
+        const details = reader.querySelector<HTMLDetailsElement>(panel === 'sidebar' ? '.course-nav, .reference-nav' : '.toc details');
+        if (details) details.open = true;
+        reader.querySelector<HTMLElement>(panel === 'sidebar' ? '#reader-sidebar' : '#reader-toc')?.focus();
+    }));
+    reader.querySelector('[data-reader-panel-close]')?.addEventListener('click', closePanels);
+    reader.querySelectorAll<HTMLAnchorElement>('.reader-sidebar a, .toc a').forEach(link => link.addEventListener('click', closePanels));
+    document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape' || !reader.dataset.openPanel) return;
+        const button = buttons.find(item => item.dataset.readerPanel === reader.dataset.openPanel);
+        closePanels();
+        button?.focus();
+    });
+    compact.addEventListener('change', closePanels);
+}
 const header = document.querySelector('.site-header');
 if (header) new ResizeObserver(() => document.documentElement.style.setProperty('--header-height', header.getBoundingClientRect().height+'px')).observe(header);
-const toc = document.querySelector<HTMLElement>('.toc');
-const updateReadingOffset = () => document.documentElement.style.setProperty('--reading-nav-height', compact.matches && toc ? toc.getBoundingClientRect().height+'px' : '0px');
-if (toc) {
-    new ResizeObserver(updateReadingOffset).observe(toc);
-    toc.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(link => link.addEventListener('click', () => {
-        if (compact.matches) {
-            const details = toc.querySelector('details');
-            if (details) details.open = false;
-            updateReadingOffset();
-        }
-    }));
-}
-compact.addEventListener('change', updateReadingOffset);
-updateReadingOffset();
+document.documentElement.style.setProperty('--reading-nav-height', '0px');
+const prefetched = new Set<string>();
+document.addEventListener('pointerover', event => {
+    const anchor = (event.target as Element)?.closest?.('a[href]') as HTMLAnchorElement | null;
+    if (!anchor || !anchor.href || anchor.origin !== location.origin || anchor.hash || anchor.download || prefetched.size >= 8) return;
+    if (prefetched.has(anchor.href)) return;
+    prefetched.add(anchor.href);
+    const hint = document.createElement('link');
+    hint.rel = 'prefetch';
+    hint.href = anchor.href;
+    document.head.append(hint);
+}, { passive: true });

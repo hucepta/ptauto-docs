@@ -1,6 +1,6 @@
 export const author = {
   name: 'Phạm Tuấn Anh',
-  bio: 'Sinh viên năm 8 Đại học Xây dựng Hà Nội',
+  bio: 'Sinh viên năm cuối lần thứ n tại Đại học Xây dựng Hà Nội',
   email: '0103466@st.huce.edu.vn',
   phone: '0973203858',
 };
