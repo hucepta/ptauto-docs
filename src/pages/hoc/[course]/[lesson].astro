@@ -36,7 +36,8 @@ const nav = getLessonNavigation(graph, lesson.id);
 <ArticleSteps html={entry.rendered!.html} graph={graph} exampleIds={lesson.exampleIds} placements={lesson.examplePlacements} contentSlug={course.slug+'/'+lesson.slug} linkTerms technology={course.technology} />
 {lesson.exerciseIds.map(id=><Exercise exercise={graph.entries.get(id) as ExerciseEntry} visibleExampleIds={lesson.exampleIds} />)}
 <ConceptLinks graph={graph} ids={lesson.conceptIds} /><ArticleEnd sources={lesson.sources} compatibility={lesson.compatibility} />
-<footer class="lesson-end"><div class="article-actions article-actions-end"><button class="js-control" disabled data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button>{nav.next&&<a class="button" href={withBase(getContentUrl(graph,nav.next))}>Bài sau →</a>}</div><p class="status-message" data-storage-status role="status"></p>
-{nav.previous&&<nav class="lesson-pager" aria-label="Chuyển bài" data-pagefind-ignore>
-<a href={withBase(getContentUrl(graph,nav.previous))}><span>Bài trước</span>{graph.entries.get(nav.previous)!.title}</a>
-</nav>}</footer></LearnLayout>
+<footer class="lesson-end"><div class="article-actions article-actions-end"><button class="js-control" disabled data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button><a class="button" href={withBase('/')}>Về trang chủ</a></div><p class="status-message" data-storage-status role="status"></p>
+<nav class="lesson-pager" aria-label="Chuyển bài" data-pagefind-ignore>
+{nav.previous?<a class="pager-item" href={withBase(getContentUrl(graph,nav.previous))} title={graph.entries.get(nav.previous)!.title}><span class="pager-label">← Bài trước</span><span class="pager-title">{graph.entries.get(nav.previous)!.title}</span></a>:<div class="pager-item pager-unavailable"><span class="pager-label">← Bài trước</span><span class="pager-title">Bài đầu tiên</span></div>}
+{nav.next?<a class="pager-item" href={withBase(getContentUrl(graph,nav.next))} title={graph.entries.get(nav.next)!.title}><span class="pager-label">Bài sau →</span><span class="pager-title">{graph.entries.get(nav.next)!.title}</span></a>:<div class="pager-item pager-unavailable"><span class="pager-label">Bài sau →</span><span class="pager-title">Bài cuối cùng</span></div>}
+</nav></footer></LearnLayout>
