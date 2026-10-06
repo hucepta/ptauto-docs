@@ -25,16 +25,16 @@ const kinds = [
 <details class="path-picker" name="article-path-pickers" data-path-picker>
   <summary class={'difficulty-'+difficulty} aria-label={`Cấp độ: ${levels.find(level=>level.id===difficulty)!.label}`}><span>{levels.find(level=>level.id===difficulty)!.label}</span><span class="path-chevron" aria-hidden="true">⌄</span></summary>
   <button type="button" class="path-backdrop" data-path-close aria-label="Đóng danh sách"></button>
-  <div class="path-panel" role="region" aria-label="Chọn cấp độ"><div class="path-panel-head"><strong>Chọn cấp độ</strong><button type="button" data-path-close aria-label="Đóng danh sách">✕</button></div>
+  <div class="path-panel" role="region" aria-label="Chọn cấp độ"><div class="path-panel-scroll"><div class="path-panel-head"><strong>Chọn cấp độ</strong><button type="button" data-path-close aria-label="Đóng danh sách">✕</button></div>
     {levels.map(level => { const items=[...lessons, ...projects].filter(item => item.difficulty === level.id); return <section class="path-level"><h2 class={'difficulty-'+level.id}>{level.label}</h2>{items.length?<ul>{items.map(item => <li><a href={withBase(getContentUrl(graph,item.id))} aria-current={item.id===currentId?'page':undefined}>{item.title}<small>{item.entity==='project'?'Dự án':'Bài học'}</small></a></li>)}</ul>:<p>Chưa có nội dung ở cấp này.</p>}</section>; })}
-  </div>
+  </div></div>
 </details>
 <details class="path-picker" name="article-path-pickers" data-path-picker>
   <summary class="content-kind" aria-label={`Loại nội dung: ${kindLabel}`}><span>{kindLabel}</span><span class="path-chevron" aria-hidden="true">⌄</span></summary>
   <button type="button" class="path-backdrop" data-path-close aria-label="Đóng danh sách"></button>
-  <div class="path-panel" role="region" aria-label="Chọn loại nội dung"><div class="path-panel-head"><strong>Chọn loại nội dung</strong><button type="button" data-path-close aria-label="Đóng danh sách">✕</button></div>
+  <div class="path-panel" role="region" aria-label="Chọn loại nội dung"><div class="path-panel-scroll"><div class="path-panel-head"><strong>Chọn loại nội dung</strong><button type="button" data-path-close aria-label="Đóng danh sách">✕</button></div>
     <nav class="path-kind-list" aria-label="Loại nội dung cùng chủ đề">{kinds.map(kind => <a href={withBase(kind.url)} aria-current={kind.active?'page':undefined}><strong>{kind.label}</strong><span>{kind.count} mục · {course.title}</span></a>)}</nav>
-  </div>
+  </div></div>
 </details>
 <script>
   document.querySelectorAll<HTMLDetailsElement>('[data-path-picker]').forEach(picker => {

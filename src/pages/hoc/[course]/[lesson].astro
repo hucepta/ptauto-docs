@@ -38,7 +38,6 @@ const nav = getLessonNavigation(graph, lesson.id);
 <ConceptLinks graph={graph} ids={lesson.conceptIds} /><ArticleEnd sources={lesson.sources} compatibility={lesson.compatibility} />
 <footer class="lesson-end"><div class="article-actions article-actions-end"><button class="js-control" disabled data-completed={lesson.id} aria-pressed="false">Đánh dấu hoàn thành</button>{nav.next?<a class="button" href={withBase(getContentUrl(graph,nav.next))}>Bài sau →</a>:<a class="button" href={withBase('/')}>Về trang chủ</a>}</div><p class="status-message" data-storage-status role="status"></p>
 <nav class="lesson-pager" aria-label="Chuyển bài" data-pagefind-ignore>
-{nav.previous?<a href={withBase(getContentUrl(graph,nav.previous))}><span>Bài trước</span>{graph.entries.get(nav.previous)!.title}</a>:<span></span>}
+{nav.previous&&<a href={withBase(getContentUrl(graph,nav.previous))}><span>Bài trước</span>{graph.entries.get(nav.previous)!.title}</a>}
 <a href={withBase('/')}><span>Trang chủ</span>Về trang chủ</a>
 </nav></footer></LearnLayout>
-
