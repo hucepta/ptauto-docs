@@ -14,7 +14,7 @@ body .home-footer section { align-self: start; }
 .article-meta .difficulty-co-ban {
   color: #603113; border: 1px solid #a95f2d;
   background: linear-gradient(155deg,#fff0d8 0%,#d9975e 24%,#f7d2a5 46%,#bd7541 72%,#f1c28e 100%);
-  border-radius: 6px; box-shadow: inset 0 1px 0 #fff8e8, inset 0 -1px 0 #8c4d2855, 0 2px 5px #77401c25; font-weight: 800;
+  border-radius: 999px; box-shadow: inset 0 1px 0 #fff8e8, inset 0 -1px 0 #8c4d2855, 0 2px 5px #77401c25; font-weight: 800;
 }
 .article-meta .difficulty-trung-cap {
   color: #263c50; border: 1px solid #99a8b5;
@@ -22,12 +22,12 @@ body .home-footer section { align-self: start; }
   border-radius: 999px; box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 #71839744, 0 2px 5px #273c501c; font-weight: 800;
 }
 .article-meta .difficulty-nang-cao {
-  color: #ffe7a2; border: 1px solid #c59b3d;
-  background: linear-gradient(145deg,#080f1c 0%,#202838 42%,#0d1520 72%,#292316 100%);
-  border-radius: 5px; box-shadow: inset 0 1px 0 #fff2c12e, inset 0 0 0 1px #d2ae5a33, 0 2px 7px #111a2850;
-  font-weight: 850; text-shadow: 0 1px 5px #f2c75555;
+  color: #f4d88a; border: 1px solid #b58b3b;
+  background: linear-gradient(145deg,#10283b 0%,#18364b 52%,#10283b 100%);
+  border-radius: 999px; box-shadow: inset 0 1px 0 #fff2c126, 0 2px 5px #102c3b26;
+  font-weight: 800; text-shadow: none;
 }
-.article-meta .content-kind { color: #075d76; background: #edf8fa; border-color: #a8d3dc; font-weight: 700; }
+.article-meta .content-kind { color: #075d76; background: #edf8fa; border-color: #a8d3dc; border-radius: 999px; font-weight: 700; }
 .article-meta .path-picker { position: relative; }
 .article-meta .path-picker > summary { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: .45rem; min-height: 32px; padding: .24rem .62rem; border: 1px solid; cursor: pointer; overflow: hidden; font-size: .76rem; transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; }
 .article-meta .path-picker > summary::after { content: ''; position: absolute; z-index: -1; inset: -1px auto -1px -65%; width: 42%; transform: skewX(-22deg); background: linear-gradient(90deg,transparent,#fff9,transparent); transition: left .48s ease; pointer-events: none; }
@@ -45,7 +45,7 @@ html:has([data-path-picker][open]) { overflow: hidden; scrollbar-gutter: stable;
 .path-panel-head strong { font-size: 1rem; }
 .path-panel-head button { width: 36px; height: 36px; min-height: 36px; padding: 0; border: 0; background: #eef5f8; }
 .path-level + .path-level { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: .8rem; }
-.path-level h2 { display: inline-block; margin: .25rem 0 .5rem; padding: .2rem .5rem; font-size: .8rem; }
+.path-level h2 { display: inline-flex; align-items: center; min-height: 30px; margin: .25rem 0 .5rem; padding: .28rem .72rem; font-size: .8rem; }
 .path-level ul { display: grid; gap: .2rem; padding: 0; margin: 0; list-style: none; }
 .path-level a, .path-kind-list a { display: flex; align-items: center; justify-content: space-between; gap: .7rem; padding: .55rem .4rem; color: #064f84; text-decoration: none; border-radius: 8px; font-size: .9rem; }
 .path-level a:hover, .path-kind-list a:hover, .path-level a[aria-current=page], .path-kind-list a[aria-current=page] { background: #e8f4f8; }
@@ -57,7 +57,9 @@ html:has([data-path-picker][open]) { overflow: hidden; scrollbar-gutter: stable;
 .article-actions-bottom { justify-content: flex-start; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 .article-actions-bottom > * { width: auto; min-height: 44px; }
 body .article-actions-end { grid-template-columns: repeat(2,minmax(0,1fr)); }
-body .article-actions-end button { justify-self: start; width: auto; min-width: 180px; padding-inline: 1rem; }
+body .article-actions-end button { justify-self: start; width: auto; min-width: 180px; min-height: 46px; padding: .55rem .9rem; }
+body .lesson-end .lesson-pager { gap: .65rem; margin-top: .9rem; padding-top: .85rem; }
+body .lesson-end .lesson-pager a { min-height: 68px; padding: .65rem .8rem; }
 .flow-branch, .lesson-branch > div { min-width: 0; }
 .flow-node, .flow-branch { overflow-wrap: anywhere; }
 .flow-branches, .lesson-branch { grid-template-columns: repeat(2,minmax(0,1fr)); }
