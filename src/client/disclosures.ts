@@ -9,7 +9,7 @@ matchMedia('(max-width:1000px)').addEventListener('change', () => {
     details.removeAttribute('data-collapsing');
   });
 });
-document.querySelectorAll<HTMLDetailsElement>('details').forEach(details => {
+document.querySelectorAll<HTMLDetailsElement>('details:not([data-path-picker])').forEach(details => {
   const summary = details.querySelector(':scope > summary');
   if (!summary) return;
   details.addEventListener('click', event => {
